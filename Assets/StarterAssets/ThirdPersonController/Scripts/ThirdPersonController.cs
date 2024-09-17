@@ -14,12 +14,13 @@ namespace StarterAssets
 #endif
     public class ThirdPersonController : MonoBehaviour
     {
-        [Header("Player")]
-        [Tooltip("Move speed of the character in m/s")]
-        public float MoveSpeed = 2.0f;
+        [SerializeField]
+        public bool armed = false;
 
-        [Tooltip("Sprint speed of the character in m/s")]
-        public float SprintSpeed = 5.335f;
+        [Header("Player")]
+        [SerializeField] public float WalkSpeed = 2.0f;
+        [SerializeField] public float RunSpeed = 4.0f;
+        [SerializeField] public float SprintSpeed = 5.335f;
 
         [Tooltip("How fast the character turns to face movement direction")]
         [Range(0.0f, 0.3f)]
@@ -27,6 +28,7 @@ namespace StarterAssets
 
         [Tooltip("Acceleration and deceleration")]
         public float SpeedChangeRate = 10.0f;
+        public float Sensivitivy = 1f;
 
         public AudioClip LandingAudioClip;
         public AudioClip[] FootstepAudioClips;
@@ -110,6 +112,13 @@ namespace StarterAssets
 
         private bool _hasAnimator;
 
+        private float targetSpeed = 2f;
+        private bool _walking = false;
+        private float _speedAnimationMultiplier = 0f;
+
+
+        private bool _rotateOnMove = true;
+
         private bool IsCurrentDeviceMouse
         {
             get
@@ -158,6 +167,30 @@ namespace StarterAssets
 
             JumpAndGravity();
             GroundedCheck();
+
+            _animator.SetFloat("Armed",armed ? 1 : 0);
+
+            if(_input.walk)
+            {
+                _input.walk = false;
+                _walking  = !_walking;
+            }
+
+            targetSpeed = RunSpeed;
+            if(_input.sprint)
+            {
+                targetSpeed = SprintSpeed;
+                _speedAnimationMultiplier = 3;
+            }
+            else if( _walking)
+            {
+                targetSpeed = WalkSpeed;
+                _speedAnimationMultiplier = 1;
+            }
+            else
+            {
+                _speedAnimationMultiplier = 2;
+            }
             Move();
         }
 
@@ -198,8 +231,8 @@ namespace StarterAssets
                 //Don't multiply mouse input by Time.deltaTime;
                 float deltaTimeMultiplier = IsCurrentDeviceMouse ? 1.0f : Time.deltaTime;
 
-                _cinemachineTargetYaw += _input.look.x * deltaTimeMultiplier;
-                _cinemachineTargetPitch += _input.look.y * deltaTimeMultiplier;
+                _cinemachineTargetYaw += _input.look.x * deltaTimeMultiplier * Sensivitivy;
+                _cinemachineTargetPitch += _input.look.y * deltaTimeMultiplier * Sensivitivy;
             }
 
             // clamp our rotations so our values are limited 360 degrees
@@ -213,8 +246,7 @@ namespace StarterAssets
 
         private void Move()
         {
-            // set target speed based on move speed, sprint speed and if sprint is pressed
-            float targetSpeed = _input.sprint ? SprintSpeed : MoveSpeed;
+            
 
             // a simplistic acceleration and deceleration designed to be easy to remove, replace, or iterate upon
 
@@ -245,7 +277,7 @@ namespace StarterAssets
                 _speed = targetSpeed;
             }
 
-            _animationBlend = Mathf.Lerp(_animationBlend, targetSpeed, Time.deltaTime * SpeedChangeRate);
+            _animationBlend = Mathf.Lerp(_animationBlend,_input.move == Vector2.zero ? 0 : _speedAnimationMultiplier, Time.deltaTime * SpeedChangeRate);
             if (_animationBlend < 0.01f) _animationBlend = 0f;
 
             // normalise input direction
@@ -253,15 +285,21 @@ namespace StarterAssets
 
             // note: Vector2's != operator uses approximation so is not floating point error prone, and is cheaper than magnitude
             // if there is a move input rotate player when the player is moving
-            if (_input.move != Vector2.zero)
+            if (_input.move != Vector2.zero )
             {
+
                 _targetRotation = Mathf.Atan2(inputDirection.x, inputDirection.z) * Mathf.Rad2Deg +
                                   _mainCamera.transform.eulerAngles.y;
                 float rotation = Mathf.SmoothDampAngle(transform.eulerAngles.y, _targetRotation, ref _rotationVelocity,
                     RotationSmoothTime);
 
                 // rotate to face input direction relative to camera position
-                transform.rotation = Quaternion.Euler(0.0f, rotation, 0.0f);
+                if(_rotateOnMove)
+                {
+                    transform.rotation = Quaternion.Euler(0.0f, rotation, 0.0f);
+
+                }
+                
             }
 
 
@@ -388,5 +426,18 @@ namespace StarterAssets
                 AudioSource.PlayClipAtPoint(LandingAudioClip, transform.TransformPoint(_controller.center), FootstepAudioVolume);
             }
         }
+
+        public void SetSensitivity(float newSensitivity)
+        {
+            Sensivitivy = newSensitivity;
+        }
+
+        public void SetRotateOnMove(bool newRotateOnMove)
+        {
+            _rotateOnMove = newRotateOnMove;
+        }
+
+
+       
     }
 }
