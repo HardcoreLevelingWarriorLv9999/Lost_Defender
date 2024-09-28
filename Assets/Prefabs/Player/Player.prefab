@@ -3611,7 +3611,6 @@ GameObject:
   - component: {fileID: 1976680328103691427}
   - component: {fileID: 3780263041301910109}
   - component: {fileID: 8788070996413524227}
-  - component: {fileID: 6117189643624151711}
   - component: {fileID: 1683886577622245671}
   - component: {fileID: 6924445036642288419}
   m_Layer: 8
@@ -3700,7 +3699,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 26e54e5a728a9234ab24fcf1460ed8a2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  MoveSpeed: 2
+  armed: 0
+  WalkSpeed: 2
+  RunSpeed: 4
   SprintSpeed: 5.335
   RotationSmoothTime: 0.12
   SpeedChangeRate: 10
@@ -3733,28 +3734,6 @@ MonoBehaviour:
   BottomClamp: -30
   CameraAngleOverride: 0
   LockCameraPosition: 0
---- !u!114 &6117189643624151711
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6918546257850541801}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d695b7ce178673b4ca7d09271a13ff9b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  AimVirtualCamera: {fileID: 2221942079062346404}
-  sensitivity: 1.62
-  normalSensitivity: 1
-  aimSensitivity: 0.52
-  aimColliderLayerMask:
-    serializedVersion: 2
-    m_Bits: 1
-  debugTransform: {fileID: 0}
-  PrefabBulletProjectile: {fileID: 4101537279646536786, guid: 6c0c0fb740aef9245930811af620d763, type: 3}
-  SpawnBulletPosition: {fileID: 6052048533359096923}
 --- !u!114 &1683886577622245671
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3771,8 +3750,10 @@ MonoBehaviour:
   look: {x: 0, y: 0}
   jump: 0
   sprint: 0
+  walk: 0
   aim: 0
   shoot: 0
+  reload: 0
   analogMovement: 0
   cursorLocked: 1
   cursorInputForLook: 1
