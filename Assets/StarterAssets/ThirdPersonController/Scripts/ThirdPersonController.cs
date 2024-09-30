@@ -1,6 +1,9 @@
-﻿ using UnityEngine;
+﻿using System;
+using UnityEngine;
+
 #if ENABLE_INPUT_SYSTEM 
 using UnityEngine.InputSystem;
+
 #endif
 
 /* Note: animations are called via the controller for both the character and capsule using animator null checks
@@ -21,6 +24,8 @@ namespace StarterAssets
         [SerializeField] public float WalkSpeed = 2.0f;
         [SerializeField] public float RunSpeed = 4.0f;
         [SerializeField] public float SprintSpeed = 5.335f;
+        public float AimRotationSpeed = 20f;
+
 
         [Tooltip("How fast the character turns to face movement direction")]
         [Range(0.0f, 0.3f)]
@@ -28,7 +33,7 @@ namespace StarterAssets
 
         [Tooltip("Acceleration and deceleration")]
         public float SpeedChangeRate = 10.0f;
-        public float Sensivitivy = 1f;
+        
 
         public AudioClip LandingAudioClip;
         public AudioClip[] FootstepAudioClips;
@@ -107,18 +112,21 @@ namespace StarterAssets
         private CharacterController _controller;
         private StarterAssetsInputs _input;
         private GameObject _mainCamera;
+        private RigManager _rigManager;
 
         private const float _threshold = 0.01f;
 
         private bool _hasAnimator;
-
         private float targetSpeed = 2f;
         private bool _walking = false;
         private float _speedAnimationMultiplier = 0f;
-
-
-        private bool _rotateOnMove = true;
-
+        private bool _aiming = false;
+        private bool _srinting = false;
+        private float _aimLayerWeight = 0;
+        private bool _reloading = false;
+        private Vector2 _aimingMovingAnimationInput = Vector2.zero;
+        public float leftHandWeight = 0;
+        public float aimRigWeight = 0;
         private bool IsCurrentDeviceMouse
         {
             get
@@ -134,11 +142,11 @@ namespace StarterAssets
 
         private void Awake()
         {
-            // get a reference to our main camera
-            if (_mainCamera == null)
-            {
-                _mainCamera = GameObject.FindGameObjectWithTag("MainCamera");
-            }
+            _rigManager = GetComponent<RigManager>();
+            //toDo: return if not local player
+            _mainCamera = CameraManager.mainCamera.gameObject;
+            CameraManager.playerCamera.m_Follow = CinemachineCameraTarget.transform;
+            CameraManager.aimingCamera.m_Follow = CinemachineCameraTarget.transform;
         }
 
         private void Start()
@@ -163,12 +171,29 @@ namespace StarterAssets
 
         private void Update()
         {
+            _aiming = _input.aim;
+            _srinting = _input.sprint && _aiming == false;
+        
+
             _hasAnimator = TryGetComponent(out _animator);
 
             JumpAndGravity();
             GroundedCheck();
 
+            CameraManager.singleton.aiming = _aiming;
             _animator.SetFloat("Armed",armed ? 1 : 0);
+            _animator.SetFloat("Aimed", _aiming ? 1 : 0);
+
+            _aimLayerWeight = Mathf.Lerp(_aimLayerWeight, _aiming || _reloading ? 1f : 0, 10f * Time.deltaTime);
+            _animator.SetLayerWeight(1, _aimLayerWeight);
+
+            aimRigWeight = Mathf.Lerp(aimRigWeight, _aiming && !_reloading ? 1f : 0f, 10f * Time.deltaTime);
+            leftHandWeight = Mathf.Lerp(leftHandWeight, (_aiming || _controller.isGrounded) &&  !_reloading ? 1f : 0f, 10 * Time.deltaTime);
+
+            _rigManager.aimTarget = CameraManager.singleton.aimTargetPoint;
+            _rigManager.aimWeight = aimRigWeight;
+            _rigManager.leftHandWeight = leftHandWeight;
+
 
             if(_input.walk)
             {
@@ -177,7 +202,7 @@ namespace StarterAssets
             }
 
             targetSpeed = RunSpeed;
-            if(_input.sprint)
+            if(_srinting)
             {
                 targetSpeed = SprintSpeed;
                 _speedAnimationMultiplier = 3;
@@ -191,7 +216,23 @@ namespace StarterAssets
             {
                 _speedAnimationMultiplier = 2;
             }
+
+            _aimingMovingAnimationInput = Vector2.Lerp(_aimingMovingAnimationInput,_input.move.normalized * _speedAnimationMultiplier, SpeedChangeRate * Time.deltaTime);
+            _animator.SetFloat("Speed_X", _aimingMovingAnimationInput.x);
+            _animator.SetFloat("Speed_Y", _aimingMovingAnimationInput.y);
+
+            //reloading
+            if(_input.reload)
+            {
+                _input.reload = false;
+                _animator.SetTrigger("Reload");
+                _reloading = true;
+            }
+
+
+            
             Move();
+            Rotate();
         }
 
         private void LateUpdate()
@@ -231,8 +272,8 @@ namespace StarterAssets
                 //Don't multiply mouse input by Time.deltaTime;
                 float deltaTimeMultiplier = IsCurrentDeviceMouse ? 1.0f : Time.deltaTime;
 
-                _cinemachineTargetYaw += _input.look.x * deltaTimeMultiplier * Sensivitivy;
-                _cinemachineTargetPitch += _input.look.y * deltaTimeMultiplier * Sensivitivy;
+                _cinemachineTargetYaw += _input.look.x * deltaTimeMultiplier * CameraManager.singleton.sensitivity;
+                _cinemachineTargetPitch += _input.look.y * deltaTimeMultiplier * CameraManager.singleton.sensitivity;
             }
 
             // clamp our rotations so our values are limited 360 degrees
@@ -244,6 +285,17 @@ namespace StarterAssets
                 _cinemachineTargetYaw, 0.0f);
         }
 
+        private void Rotate()
+        {
+            if(_aiming)
+            {
+                Vector3 aimTarget = CameraManager.singleton.aimTargetPoint;
+                aimTarget.y = transform.position.y;
+                Vector3 aimDirection = (aimTarget - transform.position).normalized;
+                transform.forward = Vector3.Lerp(transform.forward, aimDirection, AimRotationSpeed * Time.deltaTime);
+            
+            }
+        }
         private void Move()
         {
             
@@ -294,12 +346,15 @@ namespace StarterAssets
                     RotationSmoothTime);
 
                 // rotate to face input direction relative to camera position
-                if(_rotateOnMove)
+              
+                if(_aiming == false)
                 {
                     transform.rotation = Quaternion.Euler(0.0f, rotation, 0.0f);
 
                 }
-                
+
+
+
             }
 
 
@@ -413,7 +468,7 @@ namespace StarterAssets
             {
                 if (FootstepAudioClips.Length > 0)
                 {
-                    var index = Random.Range(0, FootstepAudioClips.Length);
+                    var index = UnityEngine.Random.Range(0, FootstepAudioClips.Length);
                     AudioSource.PlayClipAtPoint(FootstepAudioClips[index], transform.TransformPoint(_controller.center), FootstepAudioVolume);
                 }
             }
@@ -427,14 +482,11 @@ namespace StarterAssets
             }
         }
 
-        public void SetSensitivity(float newSensitivity)
-        {
-            Sensivitivy = newSensitivity;
-        }
+       
 
-        public void SetRotateOnMove(bool newRotateOnMove)
+        public void ReloadFininsh() // call when reloading is finnished
         {
-            _rotateOnMove = newRotateOnMove;
+            _reloading = false;
         }
 
 
