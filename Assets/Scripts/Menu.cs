@@ -13,7 +13,7 @@ public class Menu : MonoBehaviour
     public GameObject ContronlSetting;
     public Button soundButton;
     public Button settingButton;
- //   public TMP_InputField tmpInputField;
+    //public TMP_InputField tmpInputField;
     // Start is called before the first frame update
     void Start()
     {
@@ -60,6 +60,11 @@ public class Menu : MonoBehaviour
         Menus.SetActive(false);
         settings.SetActive(true);
         PlayerPrefs.SetInt("Setting", 1);
+    }
+    public void Trolai()
+    {
+        Menus.SetActive(true);
+        settings.SetActive(false);
     }
     // Update is called once per frame
     void Update()
