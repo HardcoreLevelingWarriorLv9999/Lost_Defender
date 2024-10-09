@@ -133,7 +133,6 @@ namespace StarterAssets
             }
         }
 
-
         private void Awake()
         {
             _rigManager = GetComponent<RigManager>();
@@ -469,10 +468,6 @@ namespace StarterAssets
                 AudioSource.PlayClipAtPoint(LandingAudioClip, transform.TransformPoint(_controller.center), FootstepAudioVolume);
             }
         }
-
-       
-
-       
 
 
        
