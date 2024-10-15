@@ -1,0 +1,136 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &8997374918375933731
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6377457874393067012}
+  - component: {fileID: 5852706870754250616}
+  - component: {fileID: 565542071308401717}
+  m_Layer: 0
+  m_Name: Enemies Run
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &6377457874393067012
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8997374918375933731}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &5852706870754250616
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8997374918375933731}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8d7b55c7ecdb49a4a89fa5e6f9022861, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  startWhenEnabled: 1
+  asynchronousLoad: 0
+  pauseWhenDisabled: 0
+  restartWhenComplete: 1
+  logTaskChanges: 0
+  group: 0
+  resetValuesOnRestart: 0
+  externalBehavior: {fileID: 0}
+  mBehaviorSource:
+    behaviorName: Basic Zombie
+    behaviorDescription: 
+    mTaskData:
+      types: []
+      parentIndex: 
+      startIndex: 
+      variableStartIndex: 
+      JSONSerialization: '{"EntryTask":{"Type":"BehaviorDesigner.Runtime.Tasks.EntryTask","NodeData":{"Offset":"(493.890076,700.5355)"},"ID":0,"Name":"Entry","Instant":true},"RootTask":{"Type":"BehaviorDesigner.Runtime.Tasks.Selector","NodeData":{"Offset":"(0,280)"},"ID":1,"Name":"Selector","Instant":true,"AbortTypeabortType":"None","Children":[{"Type":"BehaviorDesigner.Runtime.Tasks.Sequence","NodeData":{"Offset":"(-726.1006,220.385681)","Comment":"DEATH"},"ID":2,"Name":"Sequence","Instant":true,"AbortTypeabortType":"Both","Children":[{"Type":"BehaviorDesigner.Runtime.Tasks.ReturnFailure","NodeData":{"Offset":"(-32.6099243,182.535522)"},"ID":3,"Name":"Return
+        Failure","Instant":true,"Children":[{"Type":"BehaviorDesigner.Runtime.Tasks.Wait","NodeData":{"Offset":"(-80.6099243,190.535522)"},"ID":4,"Name":"Wait","Instant":true,"SharedFloatwaitTime":{"Type":"BehaviorDesigner.Runtime.SharedFloat","Name":null,"SinglemValue":1},"SharedBoolrandomWait":{"Type":"BehaviorDesigner.Runtime.SharedBool","Name":null,"BooleanmValue":false},"SharedFloatrandomWaitMin":{"Type":"BehaviorDesigner.Runtime.SharedFloat","Name":null,"SinglemValue":1},"SharedFloatrandomWaitMax":{"Type":"BehaviorDesigner.Runtime.SharedFloat","Name":null,"SinglemValue":1}}]}]},{"Type":"BehaviorDesigner.Runtime.Tasks.Sequence","NodeData":{"Offset":"(-494.231384,242.712585)","Comment":"ATTACK\n"},"ID":5,"Name":"Sequence","Instant":true,"AbortTypeabortType":"Both","Children":[{"Type":"WithinRange","NodeData":{"Offset":"(-63.37312,270.9779)"},"ID":6,"Name":"Within
+        Range","Instant":true,"SingleattackRange":1,"StringtargetTag":"Player","SharedTransformtarget":{"Type":"BehaviorDesigner.Runtime.SharedTransform","Name":"Target","IsShared":true}},{"Type":"BehaviorDesigner.Runtime.Tasks.Unity.UnityAnimator.SetTrigger","NodeData":{"Offset":"(113.920975,269.032227)"},"ID":7,"Name":"Set
+        Trigger","Instant":true,"SharedGameObjecttargetGameObject":{"Type":"BehaviorDesigner.Runtime.SharedGameObject","Name":null},"SharedStringparamaterName":{"Type":"BehaviorDesigner.Runtime.SharedString","Name":"Attack
+        Trigger Name","IsShared":true,"StringmValue":"Attack"}},{"Type":"BehaviorDesigner.Runtime.Tasks.Wait","NodeData":{"Offset":"(271.390076,273.535522)"},"ID":8,"Name":"Wait","Instant":true,"SharedFloatwaitTime":{"Type":"BehaviorDesigner.Runtime.SharedFloat","Name":null,"SinglemValue":1},"SharedBoolrandomWait":{"Type":"BehaviorDesigner.Runtime.SharedBool","Name":null,"BooleanmValue":false},"SharedFloatrandomWaitMin":{"Type":"BehaviorDesigner.Runtime.SharedFloat","Name":null,"SinglemValue":1},"SharedFloatrandomWaitMax":{"Type":"BehaviorDesigner.Runtime.SharedFloat","Name":null,"SinglemValue":1}}]},{"Type":"BehaviorDesigner.Runtime.Tasks.Sequence","NodeData":{"Offset":"(148.203751,236.227325)","Comment":"CHASE"},"ID":9,"Name":"Sequence","Instant":true,"AbortTypeabortType":"Both","Children":[{"Type":"CanSeeObject","NodeData":{"Offset":"(-168.07341,267.716553)"},"ID":10,"Name":"Can
+        See Object","Instant":true,"SinglefieldOfViewAngle":80,"StringtargetTag":"Player","SharedTransformtarget":{"Type":"BehaviorDesigner.Runtime.SharedTransform","Name":"Target","IsShared":true}},{"Type":"BehaviorDesigner.Runtime.Tasks.Unity.UnityAnimator.SetFloatParameter","NodeData":{"Offset":"(-20.76334,268.991455)"},"ID":11,"Name":"Set
+        Float Parameter","Instant":true,"SharedGameObjecttargetGameObject":{"Type":"BehaviorDesigner.Runtime.SharedGameObject","Name":null},"SharedStringparamaterName":{"Type":"BehaviorDesigner.Runtime.SharedString","Name":"Paramater
+        Name","IsShared":true,"StringmValue":"SPEED_ID"},"SharedFloatfloatValue":{"Type":"BehaviorDesigner.Runtime.SharedFloat","Name":"Chase_Patrol","IsShared":true,"SinglemValue":1},"BooleansetOnce":false},{"Type":"ChaseToObject","NodeData":{"Offset":"(149.78363,267.716431)"},"ID":12,"Name":"Chase
+        To Object","Instant":true,"Singlespeed":3,"SharedTransformtarget":{"Type":"BehaviorDesigner.Runtime.SharedTransform","Name":"Target","IsShared":true},"SinglechaseRange":40}]},{"Type":"BehaviorDesigner.Runtime.Tasks.Selector","NodeData":{"Offset":"(458.211517,198.7915)","Comment":"IDLE
+        / PATROL"},"ID":13,"Name":"Selector","Instant":true,"AbortTypeabortType":"None","Children":[{"Type":"BehaviorDesigner.Runtime.Tasks.Sequence","NodeData":{"Offset":"(308.9598,195.407623)"},"ID":14,"Name":"Sequence","Instant":true,"AbortTypeabortType":"None","Children":[{"Type":"BehaviorDesigner.Runtime.Tasks.Unity.UnityAnimator.SetFloatParameter","NodeData":{"Offset":"(56.973877,274.943848)"},"ID":15,"Name":"Set
+        Float Parameter","Instant":true,"SharedGameObjecttargetGameObject":{"Type":"BehaviorDesigner.Runtime.SharedGameObject","Name":null},"SharedStringparamaterName":{"Type":"BehaviorDesigner.Runtime.SharedString","Name":"Paramater
+        Name","IsShared":true,"StringmValue":"SPEED_ID"},"SharedFloatfloatValue":{"Type":"BehaviorDesigner.Runtime.SharedFloat","Name":"Idle","IsShared":true,"SinglemValue":0},"BooleansetOnce":false},{"Type":"BehaviorDesigner.Runtime.Tasks.Idle","NodeData":{"Offset":"(305.890137,264.535522)"},"ID":16,"Name":"Idle","Instant":true}]}]}]},"DetachedTasks":[{"Type":"BehaviorDesigner.Runtime.Tasks.Sequence","NodeData":{"Offset":"(997.8123,1650.53967)"},"ID":17,"Name":"Sequence","Instant":true,"AbortTypeabortType":"None","Children":[{"Type":"BehaviorDesigner.Runtime.Tasks.Unity.UnityAnimator.SetFloatParameter","NodeData":{"Offset":"(7.67449951,203.023438)"},"ID":18,"Name":"Set
+        Float Parameter","Instant":true,"SharedGameObjecttargetGameObject":{"Type":"BehaviorDesigner.Runtime.SharedGameObject","Name":null},"SharedStringparamaterName":{"Type":"BehaviorDesigner.Runtime.SharedString","Name":"Paramater
+        Name","IsShared":true,"StringmValue":"SPEED_ID"},"SharedFloatfloatValue":{"Type":"BehaviorDesigner.Runtime.SharedFloat","Name":"Chase_Patrol","IsShared":true,"SinglemValue":1},"BooleansetOnce":false},{"Type":"BehaviorDesigner.Runtime.Tasks.Idle","NodeData":{"Offset":"(203.266266,197.905853)"},"ID":19,"Name":"Idle","Instant":true}]}],"Variables":[{"Type":"BehaviorDesigner.Runtime.SharedString","Name":"Paramater
+        Name","IsShared":true,"StringmValue":"SPEED_ID"},{"Type":"BehaviorDesigner.Runtime.SharedFloat","Name":"Idle","IsShared":true,"SinglemValue":0},{"Type":"BehaviorDesigner.Runtime.SharedFloat","Name":"Chase_Patrol","IsShared":true,"SinglemValue":1},{"Type":"BehaviorDesigner.Runtime.SharedTransform","Name":"Target","IsShared":true},{"Type":"BehaviorDesigner.Runtime.SharedString","Name":"Attack
+        Trigger Name","IsShared":true,"StringmValue":"Attack"},{"Type":"BehaviorDesigner.Runtime.SharedString","Name":"Death","IsShared":true,"StringmValue":"Death"}]}'
+      fieldSerializationData:
+        typeName: []
+        fieldNameHash: 
+        startIndex: 
+        dataPosition: 
+        unityObjects: []
+        byteData: 
+        byteDataArray: 
+      Version: 1.7.7
+  gizmoViewMode: 2
+  showBehaviorDesignerGizmo: 1
+--- !u!114 &565542071308401717
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8997374918375933731}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bcf2ed0f533dc094fb75e50a86d7d454, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  zombiePrefabs:
+  - {fileID: 1865598692286518, guid: c07ec1075acf8bc42a7f0ef5e239291d, type: 3}
+  - {fileID: 1581986130515946, guid: 3c17e5f77af5ac54d991cf6c5d87082b, type: 3}
+  - {fileID: 1535602455685992, guid: ff2cafa10adeb4b43ab64ebe754ad3d7, type: 3}
+  - {fileID: 1562126803887444, guid: e05321c6e6ad7b845942de92aafc2395, type: 3}
+  - {fileID: 1160577204630336, guid: 7c521770c9e780444b9b27cb7183739f, type: 3}
+  - {fileID: 1124521317761058, guid: 4b114aae8ad29e34cb3c0117ad7edbd2, type: 3}
+  - {fileID: 1275266672632250, guid: 307d9d29af4880045b27ca9862422012, type: 3}
+  - {fileID: 1456145000865774, guid: 8d862076c59fabf43b7ca2084f63226f, type: 3}
+  - {fileID: 1172417875531008, guid: 046d682af511f1843bac35bbeb55eecc, type: 3}
+  - {fileID: 1922703142909278, guid: 3ba6740ea34059446b2030cb1cee74bc, type: 3}
+  - {fileID: 1075024190843592, guid: ea757c1578e17134b85ac65be02c4b19, type: 3}
+  - {fileID: 1448682853809946, guid: fd7713efca146e545aafa284b89a051e, type: 3}
+  - {fileID: 1876492869514370, guid: eb1c725db5a403a40bd409a9bea29cb4, type: 3}
+  - {fileID: 1841375738481322, guid: 0439985487c8b4342909dcf09068091b, type: 3}
+  - {fileID: 1069217425750644, guid: 83620e573d3f2254199cd946a8601720, type: 3}
+  - {fileID: 1849257013590008, guid: 478b9cfcbcdb7284bbea515d7f42ea18, type: 3}
+  - {fileID: 1105650277993242, guid: 77ee7dbaf71e1664fa6fb7b0b13d05a0, type: 3}
+  - {fileID: 1877525456610922, guid: b7a521fe7dabb734a87b288a49e9b68b, type: 3}
+  - {fileID: 1918804341386412, guid: 3b53e862d7e73954ea2e8f07c55cec60, type: 3}
+  - {fileID: 1775642029970670, guid: 99ea6e59b7824a449888100eea3984a3, type: 3}
+  - {fileID: 1055338902904486, guid: e0e167f92e65a254da5ef2b62ad5e710, type: 3}
+  - {fileID: 1186368985647942, guid: f91c7ce3a32256e4eb15f8b3e6191a7c, type: 3}
+  - {fileID: 1229489993529932, guid: 56339bb877068954cbd9a6c3bacb4826, type: 3}
+  - {fileID: 1111558404630960, guid: d6d9d31ece8da534098c0e9337b9708a, type: 3}
+  - {fileID: 1965423065467750, guid: 46e3fad9d63edad4e95366d675950f78, type: 3}
+  zombieControllers:
+  - {fileID: 9100000, guid: 8d2ac930ff77c81499fae232715ab9b4, type: 2}
+  - {fileID: 9100000, guid: d80c64d32a2936641a60b7900458773b, type: 2}
+  - {fileID: 9100000, guid: c9068a91f1f1bc845b99229891048d86, type: 2}
+  - {fileID: 9100000, guid: 9da99540fc031cc43a856955aa713a10, type: 2}
+  spawnArea: {fileID: 0}
+  numberOfZombies: 1
+  spawnedZombies: []
