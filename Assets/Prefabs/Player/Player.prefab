@@ -3822,6 +3822,7 @@ GameObject:
   - component: {fileID: 9141180938091435232}
   - component: {fileID: 1746015533231068874}
   - component: {fileID: 5695516743248946008}
+  - component: {fileID: 672660394744192532}
   - component: {fileID: 8036550300504847398}
   - component: {fileID: 423400055766979947}
   - component: {fileID: 1881589848331149703}
@@ -3829,6 +3830,7 @@ GameObject:
   - component: {fileID: 8680473443496404043}
   - component: {fileID: 6488631372997652908}
   - component: {fileID: 4659122164108005454}
+  - component: {fileID: -4901310614271986236}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -3902,6 +3904,26 @@ CharacterController:
   m_SkinWidth: 0.02
   m_MinMoveDistance: 0
   m_Center: {x: 0, y: 0.93, z: 0}
+--- !u!114 &672660394744192532
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5181878952504195759}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d5a57f767e5e46a458fc5d3c628d0cbb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  GlobalObjectIdHash: 2584313741
+  AlwaysReplicateAsRoot: 0
+  SynchronizeTransform: 1
+  ActiveSceneSynchronization: 0
+  SceneMigrationSynchronization: 1
+  SpawnWithObservers: 1
+  DontDestroyWithOwner: 0
+  AutoObjectParentSync: 1
 --- !u!114 &8036550300504847398
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3914,9 +3936,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 293334c1f8354ed4594c7968b6530936, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isLocalPlayer: 0
   _id: Player
   _weaponHolder: {fileID: 2129320005308597656}
+  FallTimeout: 0.15
+  GroundedOffset: -0.14
+  GroundedRadius: 0.28
+  GroundLayers:
+    serializedVersion: 2
+    m_Bits: 1
+  _health: 100
   leftHandWeight: 0
   aimRigWeight: 0
 --- !u!114 &423400055766979947
@@ -3953,13 +3981,6 @@ MonoBehaviour:
   JumpHeight: 1.2
   Gravity: -15
   JumpTimeout: 0.3
-  FallTimeout: 0.15
-  Grounded: 1
-  GroundedOffset: -0.14
-  GroundedRadius: 0.28
-  GroundLayers:
-    serializedVersion: 2
-    m_Bits: 1
   CinemachineCameraTarget: {fileID: 4412694242008346881}
   TopClamp: 70
   BottomClamp: -30
@@ -4190,6 +4211,36 @@ MonoBehaviour:
   - m_Rig: {fileID: 7541395731384487147}
     m_Active: 1
   m_Effectors: []
+--- !u!114 &-4901310614271986236
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5181878952504195759}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 606cd1d5c44b89f45b8c51f57cc4ee63, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  SyncPositionX: 1
+  SyncPositionY: 1
+  SyncPositionZ: 1
+  SyncRotAngleX: 1
+  SyncRotAngleY: 1
+  SyncRotAngleZ: 1
+  SyncScaleX: 0
+  SyncScaleY: 0
+  SyncScaleZ: 0
+  PositionThreshold: 0.001
+  RotAngleThreshold: 0.01
+  ScaleThreshold: 0.01
+  UseQuaternionSynchronization: 0
+  UseQuaternionCompression: 0
+  UseHalfFloatPrecision: 0
+  InLocalSpace: 0
+  Interpolate: 1
+  SlerpPosition: 0
 --- !u!1 &5206820717228018084
 GameObject:
   m_ObjectHideFlags: 0

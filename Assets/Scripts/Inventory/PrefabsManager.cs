@@ -34,7 +34,8 @@ public class PrefabsManager : MonoBehaviour
         }
 
         return null;
-    }public Character GetCharracterPrefabs(string id) 
+    }
+    public Character GetCharracterPrefabs(string id) 
     {
         if(_charactors != null)
         {
