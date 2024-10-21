@@ -231,6 +231,61 @@ namespace StarterAssets
             CameraManager.singleton.aiming = _character.aiming;
             _character.aimTarget = CameraManager.singleton.aimTargetPoint;
 
+            if(_input.inventory)
+            {
+                CanvasManager.singleton.OpenInventory();
+                _input.inventory = false;
+            }
+
+            float maxPickUpItem = 3f;
+            Item itemtoPick = null;
+            Character characterToLoot = null;
+
+            if(!CanvasManager.singleton.isInventoryOpen && CameraManager.singleton.aimTargetObject != null )
+            {
+                if ( CameraManager.singleton.aimTargetObject.tag == ("Item") &&
+                                            Vector3.Distance(CameraManager.singleton.aimTargetObject.position, transform.position) <= maxPickUpItem)
+                {
+                    itemtoPick = CameraManager.singleton.aimTargetObject.GetComponent<Item>();
+                    if (itemtoPick != null && itemtoPick.canBePickedUp == false)
+                    {
+                        itemtoPick = null;
+                    }
+                }
+                else if ( CameraManager.singleton.aimTargetObject.root.tag == ("Character") &&
+                                            Vector3.Distance(CameraManager.singleton.aimTargetObject.position, transform.position) <= maxPickUpItem)
+                {
+                    characterToLoot = CameraManager.singleton.aimTargetObject.GetComponent<Character>();
+                    if (characterToLoot != null && characterToLoot.health > 0)
+                    {
+                        characterToLoot = null;
+                    }
+                }
+            }
+            
+            if(CanvasManager.singleton.characterToLoot == null && CanvasManager.singleton.itemToPick != itemtoPick )
+            {
+                CanvasManager.singleton.itemToPick = itemtoPick;
+            }
+            if(CanvasManager.singleton.itemToPick == null && CanvasManager.singleton.characterToLoot != characterToLoot)
+            {
+                CanvasManager.singleton.characterToLoot = characterToLoot;
+            }
+
+
+            if(_input.pickUpItem)
+            {
+                if(CanvasManager.singleton.itemToPick != null)
+                {
+                    _character.PickupItem(CanvasManager.singleton.itemToPick.networkID);
+                }
+                if(CanvasManager.singleton.characterToLoot != null)
+                {
+                    CanvasManager.singleton.OpenInventoryForLoot(CanvasManager.singleton.characterToLoot);
+                }
+                _input.pickUpItem = false;
+            }
+
             Move();
             Rotate();
         }
@@ -253,14 +308,20 @@ namespace StarterAssets
 
         private void CameraRotation()
         {
+            Vector2 _lookInput = _input.look;
+            if(CanvasManager.singleton.isInventoryOpen)
+            {
+                _lookInput = Vector2.zero;
+            }
+
             // if there is an input and camera position is not fixed
             if (_input.look.sqrMagnitude >= _threshold && !LockCameraPosition)
             {
                 //Don't multiply mouse input by Time.deltaTime;
                 float deltaTimeMultiplier = IsCurrentDeviceMouse ? 1.0f : Time.deltaTime;
 
-                _cinemachineTargetYaw += _input.look.x * deltaTimeMultiplier * CameraManager.singleton.sensitivity;
-                _cinemachineTargetPitch += _input.look.y * deltaTimeMultiplier * CameraManager.singleton.sensitivity;
+                _cinemachineTargetYaw += _lookInput.x * deltaTimeMultiplier * CameraManager.singleton.sensitivity;
+                _cinemachineTargetPitch += _lookInput.y * deltaTimeMultiplier * CameraManager.singleton.sensitivity;
             }
 
             // clamp our rotations so our values are limited 360 degrees

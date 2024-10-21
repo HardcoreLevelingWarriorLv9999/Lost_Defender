@@ -19,7 +19,7 @@ public class Weapon : Item
     [SerializeField] private Vector3 _leftHandPosition = Vector3.zero; public Vector3 leftHandPosition {  get { return _leftHandPosition; } }
     [SerializeField] private Vector3 _leftHandRotation = Vector3.zero; public Vector3 leftHandRotaion {  get { return _leftHandRotation; } }
     [SerializeField] private Vector3 _rightHandPosition = Vector3.zero; public Vector3 rightHandPosition {  get { return _rightHandPosition; } }
-    [SerializeField] private Vector3 _rightHandRotation = Vector3.zero; public Vector3 rightHandRotaion {  get { return _rightHandRotation; } }
+    [SerializeField] private Vector3 _rightHandRotation = Vector3.zero; public Vector3 rightHandRotation {  get { return _rightHandRotation; } }
 
     [Header("Referances")]
     [SerializeField] private Transform _muzzle = null;

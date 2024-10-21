@@ -1,6 +1,8 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Unity.Netcode;
+
 
 public class Item : MonoBehaviour
 {
@@ -13,22 +15,25 @@ public class Item : MonoBehaviour
 
     private bool _canBePickedUp = false; public bool canBePickedUp { get { return _canBePickedUp; } set{ value = _canBePickedUp; }}
     private bool _initialized = false;
+    private bool _serverInitialized = false;
+
+    private Vector3 _lastPosition = Vector3.zero;
 
     [System.Serializable]
     public struct Data
     {
         public string id; 
-        public string networkId;
+        public string networkID;
         public int value;
         public float[] position;
-        public float[] rotaion;
+        public float[] rotation;
     }
 
     public Data GetData()
     {
         Data data = new Data();
         data.id = id;
-        data.networkId = networkID;
+        data.networkID = networkID;
         if (this is Weapon)
         {
             data.value = ((Weapon)this).ammo;
@@ -43,10 +48,10 @@ public class Item : MonoBehaviour
         data.position[1] = transform.position.y;
         data.position[2] = transform.position.z;   
 
-        data.rotaion = new float[3];
-        data.rotaion[0] = transform.eulerAngles.x;
-        data.rotaion[1] = transform.eulerAngles.y;
-        data.rotaion[2] = transform.eulerAngles.z;
+        data.rotation = new float[3];
+        data.rotation[0] = transform.eulerAngles.x;
+        data.rotation[1] = transform.eulerAngles.y;
+        data.rotation[2] = transform.eulerAngles.z;
 
         return data;
     }
@@ -62,12 +67,38 @@ public class Item : MonoBehaviour
     {
         if(transform.parent == null) //nếu chưa nhặt lên thì set item ở trên mặt đất
         {
+            //ServerInitialize();
             SetOnGroundStatus(true);
         }
     }
 
-
-
+    //public void ServerInitialize()
+    //{
+    //    if (NetworkManager.Singleton.IsServer == false || _serverInitialized)
+    //    {
+    //        return;
+    //    }
+    //    _serverInitialized = true;
+    //    if (GetType() == typeof(Weapon))
+    //    {
+    //        SetAmount(((Weapon)this).clipSize);
+    //    }
+    //    else
+    //    {
+    //        SetAmount(1);
+    //    }
+    //}
+    //public virtual void Update()
+    //{
+    //    if (_canBePickedUp && NetworkManager.Singleton.IsServer)
+    //    {
+    //        if (_lastPosition != transform.position)
+    //        {
+    //            SessionManager.singleton.UpdateItemPosition(this);
+    //        }
+    //        _lastPosition = transform.position;
+    //    }
+    //}
     // hàm để gọi khởi tạo item
     public void Initialize()
     {
@@ -93,6 +124,26 @@ public class Item : MonoBehaviour
         _collider.enabled = status;
         _canBePickedUp = status;
     }
+    //public int GetAmount()
+    //{
+    //    if (GetType() == typeof(Consumable)) { return ((Consumable)this).amount; }
+    //    else if (GetType() == typeof(Ammo)) { return ((Ammo)this).amount; }
+    //    else if (GetType() == typeof(Miscellaneous)) { return ((Miscellaneous)this).amount; }
+    //    else if (GetType() == typeof(Weapon)) { return ((Weapon)this).ammo; }
+    //    return 1;
+    //}
 
+    //public void SetAmount(int value)
+    //{
+    //    if (GetType() == typeof(Consumable)) { ((Consumable)this).amount = value; }
+    //    else if (GetType() == typeof(Ammo)) { ((Ammo)this).amount = value; }
+    //    else if (GetType() == typeof(Miscellaneous)) { ((Miscellaneous)this).amount = value; }
+    //    else if (GetType() == typeof(Weapon)) { ((Weapon)this).ammo = value; }
+    //}
+
+    //public void AddAmount(int value)
+    //{
+    //    SetAmount(GetAmount() + value);
+    //}
 
 }
