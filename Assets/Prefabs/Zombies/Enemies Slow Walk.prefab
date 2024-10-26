@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &6540140057295135060
+--- !u!1 &5007176762009204545
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,9 +8,9 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 1574248024905944988}
-  - component: {fileID: 3140349096822717818}
-  - component: {fileID: 5876104763207153252}
+  - component: {fileID: 1989978084080213741}
+  - component: {fileID: 125207076991561829}
+  - component: {fileID: 2742289130199367157}
   m_Layer: 0
   m_Name: Enemies Slow Walk
   m_TagString: Untagged
@@ -18,13 +18,13 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &1574248024905944988
+--- !u!4 &1989978084080213741
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6540140057295135060}
+  m_GameObject: {fileID: 5007176762009204545}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
@@ -33,13 +33,13 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &3140349096822717818
+--- !u!114 &125207076991561829
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6540140057295135060}
+  m_GameObject: {fileID: 5007176762009204545}
   m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 8d7b55c7ecdb49a4a89fa5e6f9022861, type: 3}
@@ -75,8 +75,8 @@ MonoBehaviour:
         Name Blend Tree","IsShared":true,"StringmValue":"SPEED_ID"},"SharedFloatfloatValue":{"Type":"BehaviorDesigner.Runtime.SharedFloat","Name":"Idle","IsShared":true,"SinglemValue":0},"BooleansetOnce":false},{"Type":"BehaviorDesigner.Runtime.Tasks.Idle","NodeData":{"Offset":"(305.890137,264.535522)"},"ID":16,"Name":"Idle","Instant":true}]}]}]},"DetachedTasks":[{"Type":"BehaviorDesigner.Runtime.Tasks.Sequence","NodeData":{"Offset":"(1358.062,1454.50049)"},"ID":17,"Name":"Sequence","Instant":true,"AbortTypeabortType":"None","Children":[{"Type":"BehaviorDesigner.Runtime.Tasks.Unity.UnityAnimator.SetFloatParameter","NodeData":{"Offset":"(7.67449951,203.023438)"},"ID":18,"Name":"Set
         Float Parameter","Instant":true,"SharedGameObjecttargetGameObject":{"Type":"BehaviorDesigner.Runtime.SharedGameObject","Name":null},"SharedStringparamaterName":{"Type":"BehaviorDesigner.Runtime.SharedString","Name":"Paramater
         Name Blend Tree","IsShared":true,"StringmValue":"SPEED_ID"},"SharedFloatfloatValue":{"Type":"BehaviorDesigner.Runtime.SharedFloat","Name":"Chase_Patrol","IsShared":true,"SinglemValue":1},"BooleansetOnce":false},{"Type":"BehaviorDesigner.Runtime.Tasks.Idle","NodeData":{"Offset":"(203.266266,197.905853)"},"ID":19,"Name":"Idle","Instant":true}]}],"Variables":[{"Type":"BehaviorDesigner.Runtime.SharedString","Name":"Paramater
-        Name Blend Tree","IsShared":true,"StringmValue":"SPEED_ID"},{"Type":"BehaviorDesigner.Runtime.SharedFloat","Name":"Idle","IsShared":true,"SinglemValue":0},{"Type":"BehaviorDesigner.Runtime.SharedFloat","Name":"Chase_Patrol","IsShared":true,"SinglemValue":1},{"Type":"BehaviorDesigner.Runtime.SharedString","Name":"Death","IsShared":true,"StringmValue":"Death"},{"Type":"BehaviorDesigner.Runtime.SharedString","Name":"Attack
-        Trigger Name","IsShared":true,"StringmValue":"Attack"},{"Type":"BehaviorDesigner.Runtime.SharedTransform","Name":"Target","IsShared":true}]}'
+        Name Blend Tree","IsShared":true,"StringmValue":"SPEED_ID"},{"Type":"BehaviorDesigner.Runtime.SharedFloat","Name":"Idle","IsShared":true,"SinglemValue":0},{"Type":"BehaviorDesigner.Runtime.SharedFloat","Name":"Chase_Patrol","IsShared":true,"SinglemValue":1},{"Type":"BehaviorDesigner.Runtime.SharedString","Name":"Attack
+        Trigger Name","IsShared":true,"StringmValue":"Attack"},{"Type":"BehaviorDesigner.Runtime.SharedString","Name":"Death","IsShared":true,"StringmValue":"Death"},{"Type":"BehaviorDesigner.Runtime.SharedTransform","Name":"Target","IsShared":true}]}'
       fieldSerializationData:
         typeName: []
         fieldNameHash: 
@@ -88,44 +88,44 @@ MonoBehaviour:
       Version: 1.7.7
   gizmoViewMode: 2
   showBehaviorDesignerGizmo: 1
---- !u!114 &5876104763207153252
+--- !u!114 &2742289130199367157
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6540140057295135060}
+  m_GameObject: {fileID: 5007176762009204545}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: bcf2ed0f533dc094fb75e50a86d7d454, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   zombiePrefabs:
-  - {fileID: 1418193975600942, guid: 2165f6a67f710bc47a7cfc0882e7e964, type: 3}
-  - {fileID: 1164828658887116, guid: 6cb63163261c5a84a8a7410cf0775135, type: 3}
-  - {fileID: 1379516714727752, guid: cecba8cbb65991c42a1e7219f8210b9a, type: 3}
-  - {fileID: 1017123011376438, guid: 720442d4dd381894b83efa1d1068d5e7, type: 3}
-  - {fileID: 1743311549795642, guid: 9acbd885df2760d41adcea6334790a96, type: 3}
-  - {fileID: 1767653040776728, guid: 0e2c74548f9e2284aa68e9dc8544219c, type: 3}
-  - {fileID: 1713425991072746, guid: 645f5e2b8327af9439e12e9a4222c5c8, type: 3}
-  - {fileID: 1343261146546640, guid: 4003093fe4a231c4d9c155a6540ec590, type: 3}
-  - {fileID: 1055470696967520, guid: bb116383f6f80bf4d90cb48aeca8e8bf, type: 3}
-  - {fileID: 1967962345597456, guid: 5c839ac340cbdb44983d2d5b689eb849, type: 3}
-  - {fileID: 1442989148144956, guid: d04ae7ac97d4d1348887e36a18d950cc, type: 3}
-  - {fileID: 1763636191463442, guid: c14250d47b6dfbd448ee47b3fd98d89f, type: 3}
-  - {fileID: 1639909596336042, guid: 2bce6f5837b77684b98b6c0116612065, type: 3}
-  - {fileID: 1686375517816074, guid: 08eb0c5855619374381691dec1799669, type: 3}
-  - {fileID: 1991497748344218, guid: d2d71fc434431f041b20cef2182d5c3e, type: 3}
-  - {fileID: 1616105819863738, guid: 7cb0205c5f7aeba45b91883f9425fcab, type: 3}
-  - {fileID: 1916796579201672, guid: 5de68a7f859a40a47bf17802c25007c3, type: 3}
-  - {fileID: 1926169282971916, guid: 95aa9f8add096f44abec3dd0a8e6d79c, type: 3}
-  - {fileID: 1763724247660962, guid: 5090368b8e8213146ba1934c73da6149, type: 3}
-  - {fileID: 1134484993998496, guid: da241a1c1c2f4b344926c84ef25128ac, type: 3}
-  - {fileID: 1785411793677078, guid: 4bcf20765be80ca43a7cfa0cc4f61d82, type: 3}
-  - {fileID: 1805611043755482, guid: fe2234a2aed6c504ab0c225d7e1a1cc6, type: 3}
-  - {fileID: 1454428107089030, guid: b1b874e26e62db949baeec17a89ca9eb, type: 3}
-  - {fileID: 1820573889300922, guid: af43738424059df46a83c566c110013d, type: 3}
-  - {fileID: 1115666180268534, guid: 15fa57f984877cc4f9acd0e63babc93e, type: 3}
+  - {fileID: 4461267754156854964, guid: ab52f21708b49f643b9fc1e2481c48db, type: 3}
+  - {fileID: 4928893519417976379, guid: d7fb1fcc837d3aa439f480332b731b61, type: 3}
+  - {fileID: 4815957462614144859, guid: 00ad5661de439d045b766b0b664c3270, type: 3}
+  - {fileID: 3803623959828281378, guid: d6b47451e1c01ec46be8129e12f08241, type: 3}
+  - {fileID: 8747223620902028519, guid: d4313730e0891454db8103df47c8a7d7, type: 3}
+  - {fileID: 1321366418302978598, guid: f3616f55505cff64aacd040e27cbe168, type: 3}
+  - {fileID: 4909257474563547632, guid: d2f4fb0503dd75644b01218f043f75b7, type: 3}
+  - {fileID: 3325316077882255332, guid: 82aa8a39b91d6c546a1bfc552814e447, type: 3}
+  - {fileID: 5423769417348653314, guid: 4b450636ab798724599adf1cf8383c1d, type: 3}
+  - {fileID: 2680084185837612826, guid: ebe5a3d682d3f7a429c363e070b8cda8, type: 3}
+  - {fileID: 4466216446261676434, guid: 79241897dc909704ba2e6844d49dc326, type: 3}
+  - {fileID: 7025450620138612253, guid: 9f13aa8c9c99b424daf3b803b53596d0, type: 3}
+  - {fileID: 8268803395928497829, guid: 8c85925a9dc74af4da9c7938097b0204, type: 3}
+  - {fileID: 2174158672291657978, guid: 92c5c434a38edbc4e87f40f3a274c4b7, type: 3}
+  - {fileID: 636826536374837800, guid: 134f31507daee4b429b6ce3a766d073b, type: 3}
+  - {fileID: 1034817697309278464, guid: 59af41f60f5f0c143b99bc90c4e84158, type: 3}
+  - {fileID: 8061457261787022341, guid: 967915058c64ce841add7cfd74158b92, type: 3}
+  - {fileID: 5667344011871793892, guid: 7a46040142a49054e963c25e4f290a4a, type: 3}
+  - {fileID: 2870020459789732888, guid: 23ef01549811d1344ad520ae122b7ff4, type: 3}
+  - {fileID: 1063239889111563940, guid: e41d2b16350691f488de49a446dd64cd, type: 3}
+  - {fileID: 2767292400666675535, guid: 78a28a91ca21c3d40ab5c3ae18900797, type: 3}
+  - {fileID: 9145175108953413102, guid: dbf3c56fc160a124b95bbd30733e1325, type: 3}
+  - {fileID: 3415767195589573667, guid: 745c4796e7459e9478a99854466e1162, type: 3}
+  - {fileID: 1896404535022318584, guid: bd14b49af5ae04644a06bd98af490122, type: 3}
+  - {fileID: 332772651020745721, guid: 7be6d0e7e86f4f045b273b9e165ac832, type: 3}
   zombieControllers:
   - {fileID: 9100000, guid: 3a18a929bc96b4f49b310a7e45eecfd7, type: 2}
   - {fileID: 9100000, guid: cbb6debe5465f1449926c7e7507d6faa, type: 2}
