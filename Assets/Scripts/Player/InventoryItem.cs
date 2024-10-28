@@ -28,17 +28,9 @@ public class InventoryItem : MonoBehaviour
         {
             _item = item;
             _itemName.text = _item.id;
-            _count = 1;
-            if(item.GetType() == typeof(Weapon))
-            {
-                _itemAmount.text = "x" + ((Weapon)item).ammo.ToString();
-                _count = ((Weapon)item).ammo;
-            }
-            else if(item.GetType() == typeof(Ammo)) 
-            {
-                _itemAmount.text = "x" + ((Ammo)item).amount.ToString();
-                _count = ((Ammo)item).amount;
-            }
+            _count = item.GetAmount();
+            _itemAmount.text = "x" + _count.ToString();
+           
         }
     }
 

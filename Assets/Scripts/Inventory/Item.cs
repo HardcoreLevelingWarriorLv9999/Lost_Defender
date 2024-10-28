@@ -34,14 +34,8 @@ public class Item : MonoBehaviour
         Data data = new Data();
         data.id = id;
         data.networkID = networkID;
-        if (this is Weapon)
-        {
-            data.value = ((Weapon)this).ammo;
-        }
-        else if (this is Ammo)
-        {
-            data.value = ((Ammo)this).amount;
-        }
+        
+        data.value = GetAmount();
 
         data.position = new float[3];
         data.position[0] = transform.position.x;
@@ -67,38 +61,38 @@ public class Item : MonoBehaviour
     {
         if(transform.parent == null) //nếu chưa nhặt lên thì set item ở trên mặt đất
         {
-            //ServerInitialize();
+            ServerInitialize();
             SetOnGroundStatus(true);
         }
     }
 
-    //public void ServerInitialize()
-    //{
-    //    if (NetworkManager.Singleton.IsServer == false || _serverInitialized)
-    //    {
-    //        return;
-    //    }
-    //    _serverInitialized = true;
-    //    if (GetType() == typeof(Weapon))
-    //    {
-    //        SetAmount(((Weapon)this).clipSize);
-    //    }
-    //    else
-    //    {
-    //        SetAmount(1);
-    //    }
-    //}
-    //public virtual void Update()
-    //{
-    //    if (_canBePickedUp && NetworkManager.Singleton.IsServer)
-    //    {
-    //        if (_lastPosition != transform.position)
-    //        {
-    //            SessionManager.singleton.UpdateItemPosition(this);
-    //        }
-    //        _lastPosition = transform.position;
-    //    }
-    //}
+    public void ServerInitialize()
+    {
+        if (NetworkManager.Singleton.IsServer == false || _serverInitialized)
+        {
+            return;
+        }
+        _serverInitialized = true;
+        if (GetType() == typeof(Weapon))
+        {
+            SetAmount(((Weapon)this).clipSize);
+        }
+        else
+        {
+            SetAmount(1);
+        }
+    }
+    public virtual void Update()
+    {
+        if (_canBePickedUp && NetworkManager.Singleton.IsServer)
+        {
+            if (_lastPosition != transform.position)
+            {
+                SessionManager.singleton.UpdateItemPosition(this);
+            }
+            _lastPosition = transform.position;
+        }
+    }
     // hàm để gọi khởi tạo item
     public void Initialize()
     {
@@ -123,27 +117,28 @@ public class Item : MonoBehaviour
         _rigidbody.isKinematic = !status;
         _collider.enabled = status;
         _canBePickedUp = status;
+        _lastPosition = transform.position;
     }
-    //public int GetAmount()
-    //{
-    //    if (GetType() == typeof(Consumable)) { return ((Consumable)this).amount; }
-    //    else if (GetType() == typeof(Ammo)) { return ((Ammo)this).amount; }
-    //    else if (GetType() == typeof(Miscellaneous)) { return ((Miscellaneous)this).amount; }
-    //    else if (GetType() == typeof(Weapon)) { return ((Weapon)this).ammo; }
-    //    return 1;
-    //}
+    public int GetAmount()
+    {
+        if (GetType() == typeof(Consumable)) { return ((Consumable)this).amount; }
+        else if (GetType() == typeof(Ammo)) { return ((Ammo)this).amount; }
+        else if (GetType() == typeof(Miscellaneous)) { return ((Miscellaneous)this).amount; }
+        else if (GetType() == typeof(Weapon)) { return ((Weapon)this).ammo; }
+        return 1;
+    }
 
-    //public void SetAmount(int value)
-    //{
-    //    if (GetType() == typeof(Consumable)) { ((Consumable)this).amount = value; }
-    //    else if (GetType() == typeof(Ammo)) { ((Ammo)this).amount = value; }
-    //    else if (GetType() == typeof(Miscellaneous)) { ((Miscellaneous)this).amount = value; }
-    //    else if (GetType() == typeof(Weapon)) { ((Weapon)this).ammo = value; }
-    //}
+    public void SetAmount(int value)
+    {
+        if (GetType() == typeof(Consumable)) { ((Consumable)this).amount = value; }
+        else if (GetType() == typeof(Ammo)) { ((Ammo)this).amount = value; }
+        else if (GetType() == typeof(Miscellaneous)) { ((Miscellaneous)this).amount = value; }
+        else if (GetType() == typeof(Weapon)) { ((Weapon)this).ammo = value; }
+    }
 
-    //public void AddAmount(int value)
-    //{
-    //    SetAmount(GetAmount() + value);
-    //}
+    public void AddAmount(int value)
+    {
+        SetAmount(GetAmount() + value);
+    }
 
 }

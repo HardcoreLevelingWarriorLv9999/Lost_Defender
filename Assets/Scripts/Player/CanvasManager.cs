@@ -158,14 +158,7 @@ public class CanvasManager : MonoBehaviour
         if (_itemToPick != null)
         {
             _itemPickupName.text = _itemToPick.id;
-            if (_itemToPick.GetType() == typeof(Ammo))
-            {
-                _itemPickupAmount.text = "x" + ((Ammo)_itemToPick).amount.ToString();
-            }
-            else
-            {
-                _itemPickupAmount.text = "x1";
-            }
+            _itemPickupAmount.text = "x" + _itemToPick.GetAmount().ToString();
             _itemPickupPanel.gameObject.SetActive(true);
         }
         else
@@ -285,14 +278,20 @@ public class CanvasManager : MonoBehaviour
             _inventoryGridTitle2.text = "Player" + lootTarget.clientID.ToString();
             for (int i = 0; i < Character.localPlayer.inventory.Count; i++)
             {
-                
+                //if (Character.localPlayer.inventory[i].GetType() != typeof(Weapon) && Character.localPlayer.inventory[i].GetAmount() <= 0)
+                //{
+                //    continue;
+                //}
                 InventoryItem item = Instantiate(_inventoryItemPrefab, _inventoryGrid1);
                 item.Initialize(Character.localPlayer.inventory[i]);
                 _inventoryItems1.Add(item);
             }
             for (int i = 0; i < _characterLootTarget.inventory.Count; i++)
             {
-                
+                //if (_characterLootTarget.inventory[i].GetType() != typeof(Weapon) && _characterLootTarget.inventory[i].GetAmount() <= 0)
+                //{
+                //    continue;
+                //}
                 InventoryItem item = Instantiate(_inventoryItemPrefab, _inventoryGrid2);
                 item.Initialize(_characterLootTarget.inventory[i]);
                 _inventoryItems2.Add(item);

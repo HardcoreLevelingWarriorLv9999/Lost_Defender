@@ -241,7 +241,7 @@ namespace StarterAssets
             Item itemtoPick = null;
             Character characterToLoot = null;
 
-            if(!CanvasManager.singleton.isInventoryOpen && CameraManager.singleton.aimTargetObject != null )
+            if(CanvasManager.singleton.isInventoryOpen == false && CameraManager.singleton.aimTargetObject != null )
             {
                 if ( CameraManager.singleton.aimTargetObject.tag == ("Item") &&
                                             Vector3.Distance(CameraManager.singleton.aimTargetObject.position, transform.position) <= maxPickUpItem)
@@ -253,9 +253,9 @@ namespace StarterAssets
                     }
                 }
                 else if ( CameraManager.singleton.aimTargetObject.root.tag == ("Character") &&
-                                            Vector3.Distance(CameraManager.singleton.aimTargetObject.position, transform.position) <= maxPickUpItem)
+                                            Vector3.Distance(CameraManager.singleton.aimTargetObject.position, transform.position) <= maxPickUpItem +5)
                 {
-                    characterToLoot = CameraManager.singleton.aimTargetObject.GetComponent<Character>();
+                    characterToLoot = CameraManager.singleton.aimTargetObject.root.GetComponent<Character>();
                     if (characterToLoot != null && characterToLoot.health > 0)
                     {
                         characterToLoot = null;
@@ -267,7 +267,7 @@ namespace StarterAssets
             {
                 CanvasManager.singleton.itemToPick = itemtoPick;
             }
-            if(CanvasManager.singleton.itemToPick == null && CanvasManager.singleton.characterToLoot != characterToLoot)
+            else if(CanvasManager.singleton.itemToPick == null && CanvasManager.singleton.characterToLoot != characterToLoot)
             {
                 CanvasManager.singleton.characterToLoot = characterToLoot;
             }
@@ -279,7 +279,7 @@ namespace StarterAssets
                 {
                     _character.PickupItem(CanvasManager.singleton.itemToPick.networkID);
                 }
-                if(CanvasManager.singleton.characterToLoot != null)
+                else if(CanvasManager.singleton.characterToLoot != null)
                 {
                     CanvasManager.singleton.OpenInventoryForLoot(CanvasManager.singleton.characterToLoot);
                 }
@@ -288,6 +288,8 @@ namespace StarterAssets
 
             Move();
             Rotate();
+
+            
         }
 
         private void LateUpdate()
