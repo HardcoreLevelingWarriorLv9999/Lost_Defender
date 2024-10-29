@@ -9,6 +9,18 @@ public class CanvasManager : MonoBehaviour
     [SerializeField] private Button _serverButton = null;
     [SerializeField] private Button _clientButton = null;
 
+
+    [Header("Player UI")]
+    [SerializeField] public TextMeshProUGUI _playerName = null;
+    [SerializeField] public TextMeshProUGUI _healthText = null;
+   // [SerializeField] public TextMeshProUGUI _ammorText = null;
+    [SerializeField] public TextMeshProUGUI _weaponNameText = null;
+    [SerializeField] public TextMeshProUGUI _ammoInWeaponText = null;
+    [SerializeField] public TextMeshProUGUI _ammoClipSizeText = null;
+    [SerializeField] public TextMeshProUGUI _AmmoIDText = null;
+
+
+
     [Header("Pickup Box")]
     [SerializeField] public GameObject _itemPickupPanel = null;
     [SerializeField] public RectTransform _itemPickupBox = null;
@@ -61,6 +73,8 @@ public class CanvasManager : MonoBehaviour
     private List<InventoryItem> _inventoryItems1 = new List<InventoryItem>();
     private List<InventoryItem> _inventoryItems2 = new List<InventoryItem>();
     private bool _isInventoryOpen = false; public bool isInventoryOpen { get { return _isInventoryOpen; } }
+
+    
 
     private void Awake()
     {
@@ -136,6 +150,9 @@ public class CanvasManager : MonoBehaviour
             }
             _itemLootBox.anchoredPosition = position;
         }
+
+        ShowPlayerUi();
+
 
     }
     private void StartServer()
@@ -338,5 +355,20 @@ public class CanvasManager : MonoBehaviour
         }
         _inventoryItems1.Clear();
         _inventoryItems2.Clear();
+    }
+
+
+    private void ShowPlayerUi()
+    {
+        if(Character.localPlayer != null)
+        {
+            _healthText.text = Character.localPlayer.health.ToString();
+            _playerName.text = Character.localPlayer.id.ToString();
+            _weaponNameText.text = Character.localPlayer.weapon.id.ToString();
+            _ammoInWeaponText.text = Character.localPlayer.weapon.GetAmount().ToString();
+            _ammoClipSizeText.text = Character.localPlayer.weapon.clipSize.ToString();
+            _AmmoIDText.text = Character.localPlayer.weapon.ammoID.ToString();
+
+        }
     }
 }
