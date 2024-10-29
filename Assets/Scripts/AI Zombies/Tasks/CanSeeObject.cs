@@ -6,19 +6,15 @@ using BehaviorDesigner.Runtime;
 
 public class CanSeeObject : Conditional
 {
-    // How wide of an angle the object can see
     public float fieldOfViewAngle;
-    // The tag of the targets
     public string targetTag;
-    // Set the target variable when a target has been found so the subsequent tasks know which object is the target
+    public float sightDistance = 15f;
     public SharedTransform target;
-
-    // A cache of all of the possible targets
     private Transform[] possibleTargets;
+    [SerializeField] private bool isPursuing = false;
 
     public override void OnAwake()
     {
-        // Cache all of the transforms that have a tag of targetTag
         var targets = GameObject.FindGameObjectsWithTag(targetTag);
         possibleTargets = new Transform[targets.Length];
         for (int i = 0; i < targets.Length; ++i)
@@ -29,25 +25,27 @@ public class CanSeeObject : Conditional
 
     public override TaskStatus OnUpdate()
     {
-        // Return success if a target is within sight
+        if (isPursuing && target.Value != null)
+        {
+            return TaskStatus.Success;
+        }
+
         for (int i = 0; i < possibleTargets.Length; ++i)
         {
-            if (WithinSight(possibleTargets[i], fieldOfViewAngle))
+            if (WithinSight(possibleTargets[i], fieldOfViewAngle, sightDistance))
             {
-                // Set the target so other tasks will know which transform is within sight
                 target.Value = possibleTargets[i];
+                isPursuing = true;
                 return TaskStatus.Success;
             }
         }
+
         return TaskStatus.Failure;
     }
 
-    // Returns true if targetTransform is within sight of current transform
-    public bool WithinSight(Transform targetTransform, float fieldOfViewAngle)
+    public bool WithinSight(Transform targetTransform, float fieldOfViewAngle, float sightDistance)
     {
         Vector3 direction = targetTransform.position - transform.position;
-        // An object is within sight if the angle is less than field of view
-        return Vector3.Angle(direction, transform.forward) < fieldOfViewAngle;
+        return Vector3.Angle(direction, transform.forward) < fieldOfViewAngle && direction.magnitude < sightDistance;
     }
 }
-
