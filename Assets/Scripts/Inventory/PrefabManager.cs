@@ -2,25 +2,25 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PrefabsManager : MonoBehaviour
+public class PrefabManager : MonoBehaviour
 {
     [SerializeField] private Item[] _items = null;
     [SerializeField] private Character[] _charactors = null;
-    private  static PrefabsManager _singleton = null;
+    private  static PrefabManager _singleton = null;
 
-    public static PrefabsManager singleton
+    public static PrefabManager singleton
     {
         get
         {
             if (_singleton == null)
             {
-                _singleton = FindFirstObjectByType<PrefabsManager>();
+                _singleton = FindFirstObjectByType<PrefabManager>();
             }
             return _singleton;
         }
     }
 
-    public Item GetItemPrefabs(string id) 
+    public Item GetItemPrefab(string id) 
     {
         if(_items != null)
         {
@@ -34,7 +34,8 @@ public class PrefabsManager : MonoBehaviour
         }
 
         return null;
-    }public Character GetCharracterPrefabs(string id) 
+    }
+    public Character GetCharacterPrefab(string id) 
     {
         if(_charactors != null)
         {

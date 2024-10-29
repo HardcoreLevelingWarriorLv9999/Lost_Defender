@@ -1,15 +1,15 @@
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.InputSystem.iOS;
+
 
 public class Weapon : Item
 {
     [Header("Settings")]
     [SerializeField] private Handle _type = Handle.TwoHanded; public Handle type { get { return _type; } }
-    [SerializeField] private string _ammoId = ""; public string ammoId { get { return _ammoId; } }
-    [SerializeField] private float _damage = 1f;
-    [SerializeField] private float _fireRate = 0.25f;
+    [SerializeField] private string _ammoID = ""; public string ammoID { get { return _ammoID; } }
+    [SerializeField] private float _damage; // sát thương
+    [SerializeField] private float _fireRate; // tốc độ bắn
     [SerializeField] private int _clipSize = 30; public int clipSize { get { return _clipSize; } }
 
     [SerializeField] private float _handKick = 5f; public float handKick { get { return _handKick; } }
@@ -19,10 +19,12 @@ public class Weapon : Item
     [SerializeField] private Vector3 _leftHandPosition = Vector3.zero; public Vector3 leftHandPosition {  get { return _leftHandPosition; } }
     [SerializeField] private Vector3 _leftHandRotation = Vector3.zero; public Vector3 leftHandRotaion {  get { return _leftHandRotation; } }
     [SerializeField] private Vector3 _rightHandPosition = Vector3.zero; public Vector3 rightHandPosition {  get { return _rightHandPosition; } }
-    [SerializeField] private Vector3 _rightHandRotation = Vector3.zero; public Vector3 rightHandRotaion {  get { return _rightHandRotation; } }
+    [SerializeField] private Vector3 _rightHandRotation = Vector3.zero; public Vector3 rightHandRotation {  get { return _rightHandRotation; } }
 
     [Header("Referances")]
     [SerializeField] private Transform _muzzle = null;
+    [SerializeField] private ParticleSystem _flash = null;
+    [SerializeField] private ParticleSystem _bulletShell = null;
    
     [Header("Prefabs")]
     [SerializeField] private Projectile _projectile = null;
@@ -34,8 +36,9 @@ public class Weapon : Item
     private float _fireTimer = 0f;
     private int _ammo = 0; public int ammo { get { return _ammo; } set { _ammo = value; } }
 
-    private void Awake()
+    public override void Awake()
     {
+        base.Awake();
         _fireTimer += Time.realtimeSinceStartup;
     }
     public bool Shoot(Character character,Vector3 target)
@@ -47,7 +50,14 @@ public class Weapon : Item
             _fireTimer = Time.realtimeSinceStartup;
             Projectile projectile = Instantiate(_projectile, _muzzle.position,Quaternion.identity);
             projectile.Initialize(character, target,_damage);
-           
+           if(_flash != null)
+            {
+                _flash.Play();
+            }
+            if(_bulletShell != null)
+            {
+                _bulletShell.Play();
+            }
             return true;
         }
         return false;

@@ -34,6 +34,7 @@ public class CameraManager : MonoBehaviour
 
     private Vector3 _aimTargetPoint = Vector3.zero; public Vector3 aimTargetPoint { get { return _aimTargetPoint; } }
 
+    private Transform _aimTargetObject = null; public Transform aimTargetObject { get { return _aimTargetObject; } }
     public float sensitivity { get { return _aiming ? _aimingSenitivity : _defaultSenitivity; } }
     private void Awake()
     {
@@ -52,10 +53,12 @@ public class CameraManager : MonoBehaviour
         if(Physics.Raycast(ray,out RaycastHit hit, 1000f, _aimLayer))
         {
             _aimTargetPoint = hit.point;
+            _aimTargetObject = hit.transform;
         }
         else
         {
             _aimTargetPoint = ray.GetPoint(1000);
+            _aimTargetObject = null;
         }
     }
 

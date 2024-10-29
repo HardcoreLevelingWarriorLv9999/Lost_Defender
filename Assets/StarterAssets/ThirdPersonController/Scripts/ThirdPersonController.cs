@@ -1,6 +1,7 @@
 ﻿using System;
-using UnityEditorInternal;
+//using UnityEditorInternal;
 using UnityEngine;
+
 
 #if ENABLE_INPUT_SYSTEM 
 using UnityEngine.InputSystem;
@@ -50,21 +51,7 @@ namespace StarterAssets
         [Tooltip("Time required to pass before being able to jump again. Set to 0f to instantly jump again")]
         public float JumpTimeout = 0.50f;
 
-        [Tooltip("Time required to pass before entering the fall state. Useful for walking down stairs")]
-        public float FallTimeout = 0.15f;
-
-        [Header("Player Grounded")]
-        [Tooltip("If the character is grounded or not. Not part of the CharacterController built in grounded check")]
-        public bool Grounded = true;
-
-        [Tooltip("Useful for rough ground")]
-        public float GroundedOffset = -0.14f;
-
-        [Tooltip("The radius of the grounded check. Should match the radius of the CharacterController")]
-        public float GroundedRadius = 0.28f;
-
-        [Tooltip("What layers the character uses as ground")]
-        public LayerMask GroundLayers;
+        
 
         [Header("Cinemachine")]
         [Tooltip("The follow target set in the Cinemachine Virtual Camera that the camera will follow")]
@@ -88,7 +75,7 @@ namespace StarterAssets
 
         // player
         private float _speed;
-        private float _animationBlend;
+        
         private float _targetRotation = 0.0f;
         private float _rotationVelocity;
         private float _verticalVelocity;
@@ -96,7 +83,6 @@ namespace StarterAssets
 
         // timeout deltatime
         private float _jumpTimeoutDelta;
-        private float _fallTimeoutDelta;
 
         // animation IDs
         private int _animIDSpeed;
@@ -117,7 +103,7 @@ namespace StarterAssets
 
         private const float _threshold = 0.01f;
 
-        private bool _hasAnimator;
+        
         private float targetSpeed = 2f;
 
         
@@ -135,45 +121,65 @@ namespace StarterAssets
 
         private void Awake()
         {
-            _rigManager = GetComponent<RigManager>();
-            _character = GetComponent<Character>();
+            
           
-            _mainCamera = CameraManager.mainCamera.gameObject;
-            CameraManager.playerCamera.m_Follow = CinemachineCameraTarget.transform;
-            CameraManager.aimingCamera.m_Follow = CinemachineCameraTarget.transform;
+            
         }
 
         private void Start()
         {
-            _cinemachineTargetYaw = CinemachineCameraTarget.transform.rotation.eulerAngles.y;
+            _rigManager = GetComponent<RigManager>();
+            _character = GetComponent<Character>();
             
-            _hasAnimator = TryGetComponent(out _animator);
             _controller = GetComponent<CharacterController>();
             _input = GetComponent<StarterAssetsInputs>();
-#if ENABLE_INPUT_SYSTEM 
+
             _playerInput = GetComponent<PlayerInput>();
-#else
-			Debug.LogError( "Starter Assets package is missing dependencies. Please use Tools/Starter Assets/Reinstall Dependencies to fix it");
-#endif
+
+            if(!_character.IsOwner)
+            {
+                Destroy(this);
+                Destroy(_playerInput);
+                Destroy(_input);
+                Destroy(_controller);
+                return;
+            }
+            _cinemachineTargetYaw = CinemachineCameraTarget.transform.rotation.eulerAngles.y;
 
             AssignAnimationIDs();
 
+            _mainCamera = CameraManager.mainCamera.gameObject;
+            CameraManager.playerCamera.m_Follow = CinemachineCameraTarget.transform;
+            CameraManager.aimingCamera.m_Follow = CinemachineCameraTarget.transform;
+
             // reset our timeouts on start
             _jumpTimeoutDelta = JumpTimeout;
-            _fallTimeoutDelta = FallTimeout;
         }
 
         private void Update()
         {
             bool armed = _character.weapon != null;
-            _character.aiming = _input.aim;
+            if (armed)
+            {
+                _character.aiming = _input.aim;
+
+            }
             _character.sprinting = _input.sprint && _character.aiming == false;
         
 
-            _hasAnimator = TryGetComponent(out _animator);
+            
 
             JumpAndGravity();
-            GroundedCheck();
+            //GroundedCheck();
+
+            if(_input.holsterWeapon)
+            {
+                if(!_character.reloading && !_character.switchingWeapon)
+                {
+                    _character.HolsterWeapon();
+                }
+                _input.holsterWeapon = false;
+            }
 
             if(_input.walk)
             {
@@ -197,18 +203,21 @@ namespace StarterAssets
 
             }
 
-            
 
-            if(_input.shoot && armed && !_character.reloading && _character.aiming && _character.weapon.Shoot(_character,CameraManager.singleton.aimTargetPoint))
+            if(_input.shoot)
             {
-                _rigManager.ApplyWeaponKick(_character.weapon.handKick, _character.weapon.bodyKick);
+                _character.Shoot();
             }
 
             //reloading
-            if(_input.reload && !_character.reloading)
+            if(_input.reload)
             {
+                if (!_character.reloading && !_character.switchingWeapon)
+                {
+                    _character.Reload();
+                }
                 _input.reload = false;
-                _character.Reload();
+                
             }
             
             //switch weapon
@@ -217,13 +226,70 @@ namespace StarterAssets
                 _character.ChangeWeapon(_input.switchWeaponn);
             }
 
-            _character.isGrounded = _controller.isGrounded;
+           
 
             CameraManager.singleton.aiming = _character.aiming;
             _character.aimTarget = CameraManager.singleton.aimTargetPoint;
 
+            if(_input.inventory)
+            {
+                CanvasManager.singleton.OpenInventory();
+                _input.inventory = false;
+            }
+
+            float maxPickUpItem = 3f;
+            Item itemtoPick = null;
+            Character characterToLoot = null;
+
+            if(CanvasManager.singleton.isInventoryOpen == false && CameraManager.singleton.aimTargetObject != null )
+            {
+                if ( CameraManager.singleton.aimTargetObject.tag == ("Item") &&
+                                            Vector3.Distance(CameraManager.singleton.aimTargetObject.position, transform.position) <= maxPickUpItem)
+                {
+                    itemtoPick = CameraManager.singleton.aimTargetObject.GetComponent<Item>();
+                    if (itemtoPick != null && itemtoPick.canBePickedUp == false)
+                    {
+                        itemtoPick = null;
+                    }
+                }
+                else if ( CameraManager.singleton.aimTargetObject.root.tag == ("Character") &&
+                                            Vector3.Distance(CameraManager.singleton.aimTargetObject.position, transform.position) <= maxPickUpItem +5)
+                {
+                    characterToLoot = CameraManager.singleton.aimTargetObject.root.GetComponent<Character>();
+                    if (characterToLoot != null && characterToLoot.health > 0)
+                    {
+                        characterToLoot = null;
+                    }
+                }
+            }
+            
+            if(CanvasManager.singleton.characterToLoot == null && CanvasManager.singleton.itemToPick != itemtoPick )
+            {
+                CanvasManager.singleton.itemToPick = itemtoPick;
+            }
+            else if(CanvasManager.singleton.itemToPick == null && CanvasManager.singleton.characterToLoot != characterToLoot)
+            {
+                CanvasManager.singleton.characterToLoot = characterToLoot;
+            }
+
+
+            if(_input.pickUpItem)
+            {
+                if(CanvasManager.singleton.itemToPick != null)
+                {
+                    _character.PickupItem(CanvasManager.singleton.itemToPick.networkID);
+                }
+                else if(CanvasManager.singleton.characterToLoot != null)
+                {
+                    CanvasManager.singleton.OpenInventoryForLoot(CanvasManager.singleton.characterToLoot);
+                }
+                _input.pickUpItem = false;
+            }
+
             Move();
             Rotate();
+
+            
         }
 
         private void LateUpdate()
@@ -240,31 +306,24 @@ namespace StarterAssets
             _animIDMotionSpeed = Animator.StringToHash("MotionSpeed");
         }
 
-        private void GroundedCheck()
-        {
-            // set sphere position, with offset
-            Vector3 spherePosition = new Vector3(transform.position.x, transform.position.y - GroundedOffset,
-                transform.position.z);
-            Grounded = Physics.CheckSphere(spherePosition, GroundedRadius, GroundLayers,
-                QueryTriggerInteraction.Ignore);
-
-            // update animator if using character
-            if (_hasAnimator)
-            {
-                _animator.SetBool(_animIDGrounded, Grounded);
-            }
-        }
+        
 
         private void CameraRotation()
         {
+            Vector2 _lookInput = _input.look;
+            if(CanvasManager.singleton.isInventoryOpen)
+            {
+                _lookInput = Vector2.zero;
+            }
+
             // if there is an input and camera position is not fixed
             if (_input.look.sqrMagnitude >= _threshold && !LockCameraPosition)
             {
                 //Don't multiply mouse input by Time.deltaTime;
                 float deltaTimeMultiplier = IsCurrentDeviceMouse ? 1.0f : Time.deltaTime;
 
-                _cinemachineTargetYaw += _input.look.x * deltaTimeMultiplier * CameraManager.singleton.sensitivity;
-                _cinemachineTargetPitch += _input.look.y * deltaTimeMultiplier * CameraManager.singleton.sensitivity;
+                _cinemachineTargetYaw += _lookInput.x * deltaTimeMultiplier * CameraManager.singleton.sensitivity;
+                _cinemachineTargetPitch += _lookInput.y * deltaTimeMultiplier * CameraManager.singleton.sensitivity;
             }
 
             // clamp our rotations so our values are limited 360 degrees
@@ -319,9 +378,9 @@ namespace StarterAssets
             {
                 _speed = targetSpeed;
             }
+            _character.moveSpeed = _input.move == Vector2.zero ? 0 : _character.speedAnimationMultiplier;
 
-            _animationBlend = Mathf.Lerp(_animationBlend,_input.move == Vector2.zero ? 0 : _character.speedAnimationMultiplier, Time.deltaTime * SpeedChangeRate);
-            if (_animationBlend < 0.01f) _animationBlend = 0f;
+
 
             // normalise input direction
             Vector3 inputDirection = new Vector3(_input.move.x, 0.0f, _input.move.y).normalized;
@@ -351,27 +410,14 @@ namespace StarterAssets
             _controller.Move(targetDirection.normalized * (_speed * Time.deltaTime) +
                              new Vector3(0.0f, _verticalVelocity, 0.0f) * Time.deltaTime);
 
-            // update animator if using character
-            if (_hasAnimator)
-            {
-                _animator.SetFloat(_animIDSpeed, _animationBlend);
-                _animator.SetFloat(_animIDMotionSpeed, inputMagnitude);
-            }
+           
         }
 
         private void JumpAndGravity()
         {
-            if (Grounded)
+            if (_character.isGrounded)
             {
-                // reset the fall timeout timer
-                _fallTimeoutDelta = FallTimeout;
-
-                // update animator if using character
-                if (_hasAnimator)
-                {
-                    _animator.SetBool(_animIDJump, false);
-                    _animator.SetBool(_animIDFreeFall, false);
-                }
+               
 
                 // stop our velocity dropping infinitely when grounded
                 if (_verticalVelocity < 0.0f)
@@ -382,14 +428,11 @@ namespace StarterAssets
                 // Jump
                 if (_input.jump && _jumpTimeoutDelta <= 0.0f)
                 {
+                    _jumpTimeoutDelta = JumpTimeout;
+                    _character.Jump();
                     // the square root of H * -2 * G = how much velocity needed to reach desired height
                     _verticalVelocity = Mathf.Sqrt(JumpHeight * -2f * Gravity);
 
-                    // update animator if using character
-                    if (_hasAnimator)
-                    {
-                        _animator.SetBool(_animIDJump, true);
-                    }
                 }
 
                 // jump timeout
@@ -403,19 +446,6 @@ namespace StarterAssets
                 // reset the jump timeout timer
                 _jumpTimeoutDelta = JumpTimeout;
 
-                // fall timeout
-                if (_fallTimeoutDelta >= 0.0f)
-                {
-                    _fallTimeoutDelta -= Time.deltaTime;
-                }
-                else
-                {
-                    // update animator if using character
-                    if (_hasAnimator)
-                    {
-                        _animator.SetBool(_animIDFreeFall, true);
-                    }
-                }
 
                 // if we are not grounded, do not jump
                 _input.jump = false;
@@ -435,39 +465,21 @@ namespace StarterAssets
             return Mathf.Clamp(lfAngle, lfMin, lfMax);
         }
 
-        private void OnDrawGizmosSelected()
-        {
-            Color transparentGreen = new Color(0.0f, 1.0f, 0.0f, 0.35f);
-            Color transparentRed = new Color(1.0f, 0.0f, 0.0f, 0.35f);
+        //private void OnDrawGizmosSelected()
+        //{
+        //    Color transparentGreen = new Color(0.0f, 1.0f, 0.0f, 0.35f);
+        //    Color transparentRed = new Color(1.0f, 0.0f, 0.0f, 0.35f);
 
-            if (Grounded) Gizmos.color = transparentGreen;
-            else Gizmos.color = transparentRed;
+        //    if (Grounded) Gizmos.color = transparentGreen;
+        //    else Gizmos.color = transparentRed;
 
-            // when selected, draw a gizmo in the position of, and matching radius of, the grounded collider
-            Gizmos.DrawSphere(
-                new Vector3(transform.position.x, transform.position.y - GroundedOffset, transform.position.z),
-                GroundedRadius);
-        }
+        //    when selected, draw a gizmo in the position of, and matching radius of, the grounded collider
+        //    Gizmos.DrawSphere(
+        //        new Vector3(transform.position.x, transform.position.y - GroundedOffset, transform.position.z),
+        //        GroundedRadius);
+        //}
 
-        private void OnFootstep(AnimationEvent animationEvent)
-        {
-            if (animationEvent.animatorClipInfo.weight > 0.5f)
-            {
-                if (FootstepAudioClips.Length > 0)
-                {
-                    var index = UnityEngine.Random.Range(0, FootstepAudioClips.Length);
-                    AudioSource.PlayClipAtPoint(FootstepAudioClips[index], transform.TransformPoint(_controller.center), FootstepAudioVolume);
-                }
-            }
-        }
-
-        private void OnLand(AnimationEvent animationEvent)
-        {
-            if (animationEvent.animatorClipInfo.weight > 0.5f)
-            {
-                AudioSource.PlayClipAtPoint(LandingAudioClip, transform.TransformPoint(_controller.center), FootstepAudioVolume);
-            }
-        }
+       
 
 
        
