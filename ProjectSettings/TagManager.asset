@@ -9,11 +9,13 @@ TagManager:
   - Projectile
   - Item
   - Character
+  - Zombie
+  - Bullet
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - 
+  - Ground
   - Water
   - UI
   - LocalPlayer
