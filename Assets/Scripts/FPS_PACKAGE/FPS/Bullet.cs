@@ -10,6 +10,7 @@ public class Bullet : MonoBehaviour
         CreateBulletImpactEffect(objectWeHit);
 
         Destroy(gameObject);
+        /*
         if (objectWeHit.gameObject.CompareTag("Zombie"))
         {
 
@@ -17,6 +18,7 @@ public class Bullet : MonoBehaviour
 
             Destroy(gameObject);
         }
+        */
     }
 
     void CreateBulletImpactEffect(Collision objectWeHit)
