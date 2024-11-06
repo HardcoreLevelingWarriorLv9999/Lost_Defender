@@ -12,6 +12,7 @@ public class Gameplay : MonoBehaviour
     public GameObject gameplay;
     public GameObject setting;
     public GameObject exit;
+    public GameObject paneExit;
     public GameObject gamemode;
     public GameObject gamemode1;
     public GameObject gamemode2;
@@ -25,7 +26,7 @@ public class Gameplay : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+
         easy.SetActive(false);
         normal.SetActive(false);
         hard.SetActive(false);
@@ -39,6 +40,7 @@ public class Gameplay : MonoBehaviour
         map2.SetActive(false);
         map3.SetActive(false);
         map4.SetActive(false);
+        paneExit.SetActive(false);
 
 
         exit.SetActive(true);
@@ -56,12 +58,12 @@ public class Gameplay : MonoBehaviour
 
         if (isActive)
         {
-           
+
             imageA.rotation = Quaternion.Euler(0, 0, 0); // Trở về góc Z là 0
         }
         else
         {
-         
+
             imageA.rotation = Quaternion.Euler(0, 0, -90); // Xoay góc Z là -90 độ
         }
 
@@ -102,7 +104,7 @@ public class Gameplay : MonoBehaviour
         nightmare.SetActive(true);
         gamemode4.SetActive(true);
     }
-   
+
     public void Exiteasy()
     {
         gamemode.SetActive(true);
@@ -182,5 +184,19 @@ public class Gameplay : MonoBehaviour
         map2.SetActive(false);
         map3.SetActive(false);
         map4.SetActive(true);
+    }
+    public void PaneExit()
+    {
+        paneExit.SetActive(true);
+        Time.timeScale = 0;
+    }
+    public void ExitGame()
+    {
+        Application.Quit();
+    }
+    public void Back()
+    {
+        paneExit.SetActive(false);
+        Time.timeScale = 1;
     }
 }
