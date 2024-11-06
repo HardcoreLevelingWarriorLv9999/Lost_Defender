@@ -28,8 +28,9 @@ public class ChaseToObject : Action
             return TaskStatus.Success;
         }
 
-        // Di chuyển về phía mục tiêu
-        transform.position = Vector3.MoveTowards(transform.position, target.Value.position, speed * Time.deltaTime);
+        // Di chuyển về phía mục tiêu nhưng giữ nguyên độ cao y của đối tượng
+        Vector3 targetPosition = new Vector3(target.Value.position.x, transform.position.y, target.Value.position.z);
+        transform.position = Vector3.MoveTowards(transform.position, targetPosition, speed * Time.deltaTime);
         return TaskStatus.Running;
     }
 }

@@ -6,8 +6,8 @@ public class Hitbox : MonoBehaviour
 {
     public ZombieHealth zombieHealth;
 
-    public void OnHit()
+    public void OnHit(Bullet bullet, Vector3 direction)
     {
-        
+        zombieHealth.TakeDamage(bullet.bulletDamage, direction);
     }
 }
