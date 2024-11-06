@@ -6,39 +6,55 @@ public class Ragdoll : MonoBehaviour
 {
     Rigidbody[] rigidBodies;
     Animator animator;
-    // Start is called before the first frame update
+    Collider mainCollider; // Collider chính của đối tượng
+    Rigidbody mainRigidbody; //Rigidbody chính của đối tượng
     void Start()
     {
         rigidBodies = GetComponentsInChildren<Rigidbody>();
         animator = GetComponent<Animator>();
 
         DeactivateRagdoll();
+
+
+        mainCollider = GetComponent<Collider>();
+        mainRigidbody = GetComponent<Rigidbody>();
+        mainRigidbody.isKinematic = false;
+        // Tìm tất cả collider con của đối tượng
+        Collider[] bodyPartColliders = GetComponentsInChildren<Collider>();
+
+        foreach (Collider bodyPartCollider in bodyPartColliders)
+        {
+            if (bodyPartCollider != mainCollider)
+            {
+                // Bỏ qua va chạm giữa collider chính và các collider con
+                Physics.IgnoreCollision(mainCollider, bodyPartCollider);
+            }
+        }
     }
 
-    // bật ragdoll
+    // Bật ragdoll
     public void DeactivateRagdoll()
     {
-        foreach(var rigiBody in rigidBodies)
+        foreach (var rigidBody in rigidBodies)
         {
-            rigiBody.isKinematic = true;
+            rigidBody.isKinematic = true;
         }
         animator.enabled = true;
     }
 
-
-    // tắt ragdoll
+    // Tắt ragdoll
     public void ActivateRagdoll()
     {
-        foreach(var rigiBody in rigidBodies)
+        foreach (var rigidBody in rigidBodies)
         {
-            rigiBody.isKinematic = false;
+            rigidBody.isKinematic = false;
         }
         animator.enabled = false;
     }
 
     public void ApplyForce(Vector3 force)
     {
-        var rigiBody = animator.GetBoneTransform(HumanBodyBones.Hips).GetComponent<Rigidbody>();
-        rigiBody.AddForce(force, ForceMode.VelocityChange);
+        var rigidBody = animator.GetBoneTransform(HumanBodyBones.Hips).GetComponent<Rigidbody>();
+        rigidBody.AddForce(force, ForceMode.VelocityChange);
     }
 }

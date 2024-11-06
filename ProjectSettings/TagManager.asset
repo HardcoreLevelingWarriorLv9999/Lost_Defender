@@ -11,6 +11,7 @@ TagManager:
   - Character
   - Zombie
   - Bullet
+  - Ground
   layers:
   - Default
   - TransparentFX
@@ -18,8 +19,8 @@ TagManager:
   - Ground
   - Water
   - UI
-  - LocalPlayer
-  - NetworkPlayer
+  - Zombies
+  - 
   - 
   - 
   - 

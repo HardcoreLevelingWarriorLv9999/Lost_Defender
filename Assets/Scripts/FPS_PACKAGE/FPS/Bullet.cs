@@ -4,21 +4,20 @@ using UnityEngine;
 
 public class Bullet : MonoBehaviour
 {
-    public int bulletDamage;
+    public float bulletDamage;
+
     private void OnCollisionEnter(Collision objectWeHit)
     {
         CreateBulletImpactEffect(objectWeHit);
 
         Destroy(gameObject);
-        /*
-        if (objectWeHit.gameObject.CompareTag("Zombie"))
+
+        var hitbox = objectWeHit.collider.GetComponent<Hitbox>();
+        if (hitbox)
         {
-
-            objectWeHit.gameObject.GetComponent<Zombie>().TakeDamage(bulletDamage);
-
-            Destroy(gameObject);
+            Vector3 direction = transform.forward;
+            hitbox.OnHit(this, direction);
         }
-        */
     }
 
     void CreateBulletImpactEffect(Collision objectWeHit)
@@ -30,7 +29,7 @@ public class Bullet : MonoBehaviour
             GlobalReferences.Instance.bulletImpactEffectPrefab,
             contact.point,
             Quaternion.LookRotation(contact.normal)
-            );
+        );
 
         hole.transform.SetParent(objectWeHit.gameObject.transform);
     }
