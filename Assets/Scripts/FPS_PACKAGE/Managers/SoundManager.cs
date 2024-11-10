@@ -45,7 +45,7 @@ public class SoundManager : MonoBehaviour
             case WeaponModel.AK74:
                 shootingChannel.PlayOneShot(AK74Shot);
                 break;
-            case WeaponModel.BennelliM4:
+            case WeaponModel.BenelliM4:
                 shootingChannel.PlayOneShot(BennelliM4Shot);
                 break;
         }
@@ -60,7 +60,7 @@ public class SoundManager : MonoBehaviour
             case WeaponModel.AK74:
                 reloadingSoundAK74.Play();
                 break;
-            case WeaponModel.BennelliM4:
+            case WeaponModel.BenelliM4:
                 reloadingSoundBennelliM4.Play();
                 break;
         }

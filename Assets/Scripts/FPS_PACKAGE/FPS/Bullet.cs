@@ -22,7 +22,6 @@ public class Bullet : MonoBehaviour
 
     void CreateBulletImpactEffect(Collision objectWeHit)
     {
-        // Debug.Log("Created a bullet hole");
         ContactPoint contact = objectWeHit.contacts[0];
 
         GameObject hole = Instantiate(
