@@ -3952,7 +3952,7 @@ GameObject:
   - component: {fileID: 4586320513568928}
   - component: {fileID: 95577037382588064}
   m_Layer: 0
-  m_Name: SM_Chr_Scout_Female_01
+  m_Name: Chua biet
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
