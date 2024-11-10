@@ -49,10 +49,10 @@ public class Weapon : MonoBehaviour
     {
         M1911,
         AK74,
-        BennelliM4
+        BenelliM4
     }
     public WeaponModel thisWeaponModel;
-    
+
     public enum ShootingMode
     {
         Single,
@@ -100,7 +100,7 @@ public class Weapon : MonoBehaviour
                 currentShootingMode == ShootingMode.Burst)
             {
                 // Clicking left mouse button once
-                isShooting = Input.GetKey(KeyCode.Mouse0);
+                isShooting = Input.GetKeyDown(KeyCode.Mouse0);
             }
 
             if (Input.GetKeyDown(KeyCode.R) && bulletsLeft < magazineSize && bulletsLeft != 0 && isReloading == false && WeaponManager.Instance.CheckAmmoLeftFor(thisWeaponModel) > 0)
@@ -130,6 +130,7 @@ public class Weapon : MonoBehaviour
 
     private void FireWeapon()
     {
+
         bulletsLeft--;
         muzzleEffect.GetComponent<ParticleSystem>().Play();
 
@@ -137,11 +138,15 @@ public class Weapon : MonoBehaviour
         {
             animator.SetTrigger("RECOIL_ADS");
         }
-        else 
+        else
         {
             animator.SetTrigger("RECOIL");
+
+            // Recoil ENDING
+            animator.SetBool("IsRecoil", true);
+            Debug.Log("1");
         }
-        
+
 
         //SoundManager.Instance.shootingChannel.Play();
         SoundManager.Instance.PlayShootingSound(thisWeaponModel);
@@ -213,6 +218,10 @@ public class Weapon : MonoBehaviour
         isReloading = true;
         Invoke("ReloadCompleted", fullReloadTime);
     }
+    void EndRecoilAnimation()
+    { // Set the animation state to idle or reset the trigger
+        animator.SetBool("IsRecoil", false);
+    }
     private void ReloadCompleted()
     {
         if (WeaponManager.Instance.CheckAmmoLeftFor(thisWeaponModel) > magazineSize)
@@ -225,7 +234,7 @@ public class Weapon : MonoBehaviour
             bulletsLeft = WeaponManager.Instance.CheckAmmoLeftFor(thisWeaponModel);
             WeaponManager.Instance.DecreaseTotalAmmo(bulletsLeft, thisWeaponModel);
         }
-        
+
         isReloading = false;
     }
     private void ResetShot()
@@ -246,13 +255,11 @@ public class Weapon : MonoBehaviour
         {
             // Hitting something
             targetPoint = hit.point;
-            print("I'm hitting " + hit.transform.name);
         }
         else
         {
             // Shooting at the air
             targetPoint = ray.GetPoint(100);
-            print("I'm hitting at nothing!");
         }
 
         Vector3 direction = targetPoint - bulletSpawn.position;
@@ -269,3 +276,4 @@ public class Weapon : MonoBehaviour
         Destroy(bullet);
     }
 }
+    

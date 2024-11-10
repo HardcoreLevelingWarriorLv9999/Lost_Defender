@@ -14,6 +14,7 @@ public class WeaponManager : MonoBehaviour
     [Header("Ammo")]
     public int totalRifleAmmo = 0;
     public int totalPistolAmmo = 0;
+    public int totalShotgunAmmo = 0;
 
     [Header("Throwables General")]
     public float throwForce = 10f;
@@ -125,13 +126,17 @@ public class WeaponManager : MonoBehaviour
         switch (ammo.ammoType)
         {
             case AmmoBox.AmmoType.PistolAmmo:
-                totalPistolAmmo += ammo.ammoAmount;
+                totalPistolAmmo = Mathf.Min(totalPistolAmmo + ammo.ammoAmount, 60);
                 break;
             case AmmoBox.AmmoType.RifleAmmo:
-                totalRifleAmmo += ammo.ammoAmount;
+                totalRifleAmmo = Mathf.Min(totalRifleAmmo + ammo.ammoAmount, 180);
+                break;
+            case AmmoBox.AmmoType.ShotgunAmmo:
+                totalShotgunAmmo = Mathf.Min(totalRifleAmmo + ammo.ammoAmount, 200);
                 break;
         }
     }
+
     private void DropCurrentWeapon(GameObject pickedupWeapon)
     {
         if (activeWeaponSlot.transform.childCount > 0)
@@ -171,6 +176,9 @@ public class WeaponManager : MonoBehaviour
             case Weapon.WeaponModel.M1911:
                 totalPistolAmmo -= bulletsToDecrease;
                 break;
+            case Weapon.WeaponModel.BenelliM4:
+                totalShotgunAmmo -= bulletsToDecrease;
+                break;
         }
     }
     public int CheckAmmoLeftFor(Weapon.WeaponModel thisWeaponModel)
@@ -182,6 +190,9 @@ public class WeaponManager : MonoBehaviour
 
             case Weapon.WeaponModel.M1911:
                 return totalPistolAmmo;
+
+            case Weapon.WeaponModel.BenelliM4:
+                return totalShotgunAmmo;
 
             default:
                 return 0;
