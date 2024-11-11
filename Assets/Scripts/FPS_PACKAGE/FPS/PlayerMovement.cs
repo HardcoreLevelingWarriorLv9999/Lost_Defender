@@ -6,6 +6,7 @@ using UnityEngine;
 public class PlayerMovement : MonoBehaviour
 {
     private CharacterController controller;
+    [SerializeField] private Animator animator;
 
     public float speed = 8f;
     public float gravity = -9.81f * 2;
@@ -63,12 +64,14 @@ public class PlayerMovement : MonoBehaviour
         controller.Move(velocity * Time.deltaTime);
 
         if(lastPosition != gameObject.transform.position && isGrounded == true) 
-        { 
+        {
+            animator.SetBool("isWalking", true);
             isMoving = true;
             // for later use
         }
         else
         {
+            animator.SetBool("isWalking", false);
             isMoving = false;
             // for later use
         }
