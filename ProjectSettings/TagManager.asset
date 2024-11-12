@@ -4,32 +4,36 @@
 TagManager:
   serializedVersion: 2
   tags:
-  - CinemachineTarget
+  - Wall
+  - Metal
+  - Blood
+  - Dirt
+  - Concrete
+  - ExplosiveBarrel
   - Target
-  - Projectile
-  - Item
-  - Character
-  - Zombie
-  - Bullet
-  - Ground
+  - GasTank
+  - Metal (Static)
+  - Wood (Static)
+  - Dirt (Static)
+  - Wood
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - Ground
+  - 
   - Water
   - UI
-  - Zombies
   - 
   - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
+  - Wall
+  - First Person View
+  - Character
+  - Post Processing
+  - Post Processing Weapon
+  - Post Processing Scope
+  - Invisible Wall
+  - Projectile
+  - Interactable
   - 
   - 
   - 
@@ -46,9 +50,6 @@ TagManager:
   - 
   - 
   m_SortingLayers:
-  - name: UI
-    uniqueID: 510228675
-    locked: 0
   - name: Default
     uniqueID: 0
     locked: 0
