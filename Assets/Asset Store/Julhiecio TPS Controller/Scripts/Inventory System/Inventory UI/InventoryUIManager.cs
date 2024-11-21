@@ -112,6 +112,7 @@ namespace JUTPS.InventorySystem.UI
                         {
                             ClearAllSlots();
                             LootToGetItems = null;
+                            TargetInventory = null;
                             ExitInventory();
                         }
                     }
@@ -122,12 +123,15 @@ namespace JUTPS.InventorySystem.UI
                     {
                         ClearAllSlots();
                         LootToGetItems = null;
+                        TargetInventory = null;
                         ExitInventory();
                     }
                 }
+
+                if (InventoryScreen.activeInHierarchy && LootToGetItems == null || TargetInventory == null) { ExitInventory(); }
                 return;
             }
-            
+
             if (JUInputSystem.JUInput.GetButtonDown(JUInputSystem.JUInput.Buttons.OpenInventory))
             {
                 if (!InventoryScreen.activeInHierarchy) { OpenInventory(); } else { ExitInventory(); }
@@ -233,14 +237,14 @@ namespace JUTPS.InventorySystem.UI
                 }
             }
 
-            List<Item> NonDrawedItems = GetNonDrawedItems(TargetInventory.AllItems, Slots, FilterLeftHandItems);
+            List<JUItem> NonDrawedItems = GetNonDrawedItems(TargetInventory.AllItems, Slots, FilterLeftHandItems);
             SetupNonDrawedItemsInSlots(NonDrawedItems, inventory: this);
         }
-        public static void SetupNonDrawedItemsInSlots(List<Item> nonDrawedItems, InventoryUIManager inventory)
+        public static void SetupNonDrawedItemsInSlots(List<JUItem> nonDrawedItems, InventoryUIManager inventory)
         {
             if (nonDrawedItems.Count == 0 || inventory == null || inventory.Slots.Count == 0) return;
 
-            foreach (Item item in nonDrawedItems)
+            foreach (JUItem item in nonDrawedItems)
             {
                 //GET EMPTY SLOT
                 InventorySlotUI emptySlot = GetFirstEmptySlot(inventory.Slots);
@@ -252,15 +256,15 @@ namespace JUTPS.InventorySystem.UI
             }
 
         }
-        public static List<Item> GetNonDrawedItems(Item[] items, List<InventorySlotUI> slots, bool filterLeftHandItems)
+        public static List<JUItem> GetNonDrawedItems(JUItem[] items, List<InventorySlotUI> slots, bool filterLeftHandItems)
         {
-            List<Item> NonDrawed = items.ToList();
+            List<JUItem> NonDrawed = items.ToList();
 
-            foreach (Item item in items)
+            foreach (JUItem item in items)
             {
-                if (item is HoldableItem && filterLeftHandItems)
+                if (item is JUHoldableItem && filterLeftHandItems)
                 {
-                    if ((item as HoldableItem).IsLeftHandItem)
+                    if ((item as JUHoldableItem).IsLeftHandItem)
                     {
                         NonDrawed.Remove(item);
                     }
@@ -288,7 +292,7 @@ namespace JUTPS.InventorySystem.UI
 
             return NonDrawed;
         }
-        public static bool IsItemDrawingInSomeSlots(Item item, List<InventorySlotUI> slots, bool filterLeftHandItems)
+        public static bool IsItemDrawingInSomeSlots(JUItem item, List<InventorySlotUI> slots, bool filterLeftHandItems)
         {
             bool isdrawing = false;
 
@@ -296,9 +300,9 @@ namespace JUTPS.InventorySystem.UI
             {
                 if (filterLeftHandItems)
                 {
-                    if (item is HoldableItem)
+                    if (item is JUHoldableItem)
                     {
-                        if ((item as HoldableItem).IsLeftHandItem == true)
+                        if ((item as JUHoldableItem).IsLeftHandItem == true)
                         {
                             return false;
                         }
@@ -439,9 +443,9 @@ namespace JUTPS.InventorySystem.UI
             // >>> Remove Holdable Left Hand Items Only
             foreach (InventorySlotUI slot in slotList.ToList())
             {
-                if (slot.CurrentSlotItem() is HoldableItem)
+                if (slot.CurrentSlotItem() is JUHoldableItem)
                 {
-                    if ((slot.CurrentSlotItem() as HoldableItem).IsLeftHandItem)
+                    if ((slot.CurrentSlotItem() as JUHoldableItem).IsLeftHandItem)
                     {
                         slot.ItemIDToDraw = -2;
                         slot.RefreshSlot();

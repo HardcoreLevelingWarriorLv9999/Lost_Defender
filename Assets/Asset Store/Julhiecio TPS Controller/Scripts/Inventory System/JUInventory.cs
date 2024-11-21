@@ -22,10 +22,10 @@ namespace JUTPS.InventorySystem
         public bool IsALoot;
 
         [JUHeader("Items")]
-        public HoldableItem[] HoldableItensRightHand;
-        public HoldableItem[] HoldableItensLeftHand;
-        [HideInInspector] public HoldableItem[] AllHoldableItems;
-        public Item[] AllItems;
+        public JUHoldableItem[] HoldableItensRightHand;
+        public JUHoldableItem[] HoldableItensLeftHand;
+        [HideInInspector] public JUHoldableItem[] AllHoldableItems;
+        public JUItem[] AllItems;
 
         [JUHeader("Sequential Items")]
         public SequentialSlot[] SequenceSlot = new SequentialSlot[]
@@ -51,23 +51,39 @@ namespace JUTPS.InventorySystem
         public float HoldTimeToPickUp = 0.1f;
         private float CurrentHoldTimeToPickUp;
         private float CurrentTimeToDisablePickingUpState;
-        [HideInInspector] public Item ItemToPickUp;
+        [HideInInspector] public JUItem ItemToPickUp;
         [HideInInspector] public Collider[] ItemsAround;
 
         [HideInInspector] public Weapon[] WeaponsRightHand;
         [HideInInspector] public Weapon[] WeaponsLeftHand;
 
-        [HideInInspector] public HoldableItem HoldableItemInUseInRightHand, HoldableItemInUseInLeftHand;
+        [HideInInspector] public JUHoldableItem HoldableItemInUseInRightHand, HoldableItemInUseInLeftHand;
         [HideInInspector] public Weapon WeaponInUseInRightHand, WeaponInUseInLeftHand;
         [HideInInspector] public MeleeWeapon MeleeWeaponInUseInRightHand, MeleeWeaponInUseInLeftHand;
 
         //[HideInInspector] public GameObject ItemToPickup;
         [HideInInspector] public int CurrentRightHandItemID = -1, CurrentLeftHandItemID = -1; // [-1] = Hand
 
-        [JUHeader("States")]
-        public bool IsItemSelected;
-        public bool DualWielding;
-        public bool IsPickingItem;
+        /// <summary>
+        /// Return true if the <see cref="JUCharacter"/> is picking a near item.
+        /// </summary>
+        public bool IsPickingItem { get; private set; }
+
+        /// <summary>
+        /// Return true if the <see cref="JUCharacter"/> is using a <see cref="JUHoldableItem"/> on any hand (left or right).
+        /// </summary>
+        public bool IsItemSelected
+        {
+            get => HoldableItemInUseInLeftHand || HoldableItemInUseInRightHand;
+        }
+
+        /// <summary>
+        /// Return true if the <see cref="JUCharacter"/> is using a <see cref="JUHoldableItem"/> on left and right hand.
+        /// </summary>
+        public bool IsDualWielding
+        {
+            get => HoldableItemInUseInLeftHand && HoldableItemInUseInRightHand;
+        }
 
         private void Start()
         {
@@ -78,19 +94,19 @@ namespace JUTPS.InventorySystem
             //HoldableItensRightHand = HoldableItensRightHand ?? GetAllItemsOnCharacterHand(gameObject, true);
             JUCharacter = GetComponent<JUTPS.CharacterBrain.JUCharacterBrain>();
 
-            SetupItens();
+            SetupItems();
             CorrectSwitchIDs(HoldableItensLeftHand);
             CorrectSwitchIDs(HoldableItensRightHand);
 
-            foreach (Item item in AllItems)
+            foreach (JUItem item in AllItems)
             {
                 DisableItemPhysics(item.gameObject);
             }
             if (DisableAllItemsOnStart)
             {
-                foreach (Item item in AllItems)
+                foreach (JUItem item in AllItems)
                 {
-                    if (item is HoldableItem) (item as HoldableItem).RefreshItemDependencies();
+                    if (item is JUHoldableItem) (item as JUHoldableItem).RefreshItemDependencies();
                     item.gameObject.SetActive(false);
                 }
             }
@@ -100,12 +116,6 @@ namespace JUTPS.InventorySystem
         {
             //PickUp Items Check
             CheckItemsAround();
-
-            //Update SelectedItem State
-            if (HoldableItemInUseInRightHand != null || HoldableItemInUseInLeftHand != null) IsItemSelected = true;
-
-            //Update Dual Wielding State
-            if (HoldableItemInUseInRightHand != null && HoldableItemInUseInLeftHand != null) DualWielding = true;
 
             //Unequip Items
             if (HoldableItemInUseInLeftHand != null)
@@ -135,25 +145,25 @@ namespace JUTPS.InventorySystem
 
         }
 
-        [ContextMenu(" >>> Setup Itens", false, 100)]
-        public void SetupItens()
+        [ContextMenu(" >>> Setup Items", false, 100)]
+        public void SetupItems()
         {
             if (IsALoot)
             {
-                AllHoldableItems = GetComponentsInChildren<HoldableItem>();
+                AllHoldableItems = GetComponentsInChildren<JUHoldableItem>();
                 HoldableItensLeftHand = GetAllItemsOnCharacterHand(gameObject, false);
                 HoldableItensRightHand = GetAllItemsOnCharacterHand(gameObject, true);
-                AllItems = GetComponentsInChildren<Item>();
+                AllItems = GetComponentsInChildren<JUItem>();
                 return;
             }
 
-            if(JUCharacter == null)
+            if (JUCharacter == null)
             {
                 JUCharacter = GetComponent<JUTPS.CharacterBrain.JUCharacterBrain>();
             }
-            if(JUCharacter != null)
+            if (JUCharacter != null)
             {
-                if(JUCharacter.anim == null) { JUCharacter.anim = GetComponent<Animator>(); }
+                if (JUCharacter.anim == null) { JUCharacter.anim = GetComponent<Animator>(); }
             }
             else { Debug.LogError("No JU Character Controller/Brain"); return; }
 
@@ -161,21 +171,21 @@ namespace JUTPS.InventorySystem
             {
                 if (JUCharacter.anim.GetBoneTransform(HumanBodyBones.RightHand) == null || JUCharacter.anim.GetBoneTransform(HumanBodyBones.RightHand) == null)
                 {
-                    if (IsInvoking(nameof(SetupItens)))
+                    if (IsInvoking(nameof(SetupItems)))
                     {
                         Debug.LogWarning("Unable to setup items on this character on game start as there was a problem with the character's rig, inventory will try again soon");
-                        Invoke(nameof(SetupItens), 0.1f);
+                        Invoke(nameof(SetupItems), 0.1f);
                     }
                     return;
                 }
 
-                AllHoldableItems = GetComponentsInChildren<HoldableItem>();
+                AllHoldableItems = GetComponentsInChildren<JUHoldableItem>();
                 HoldableItensLeftHand = GetAllItemsOnCharacterHand(gameObject, false);
                 HoldableItensRightHand = GetAllItemsOnCharacterHand(gameObject, true);
-                AllItems = GetComponentsInChildren<Item>();
+                AllItems = GetComponentsInChildren<JUItem>();
             }
         }
-        public static void CorrectSwitchIDs(HoldableItem[] ItemsArray)
+        public static void CorrectSwitchIDs(JUHoldableItem[] ItemsArray)
         {
             if (ItemsArray == null) return;
 
@@ -199,7 +209,7 @@ namespace JUTPS.InventorySystem
 
             if (ItemsAround.Length > 0 && ItemToPickUp == null)
             {
-                ItemToPickUp = ItemsAround[0].GetComponent<Item>() == null ? null : ItemsAround[0].GetComponent<Item>();
+                ItemToPickUp = ItemsAround[0].GetComponent<JUItem>() == null ? null : ItemsAround[0].GetComponent<JUItem>();
             }
             if (ItemToPickUp != null && ItemsAround.Length == 0)
             {
@@ -229,9 +239,9 @@ namespace JUTPS.InventorySystem
 
         }
 
-        public static HoldableItem[] GetAllItemsOnCharacterHand(GameObject character, bool RightHand = true)
+        public static JUHoldableItem[] GetAllItemsOnCharacterHand(GameObject character, bool RightHand = true)
         {
-            HoldableItem[] items;
+            JUHoldableItem[] items;
 
             Animator anim = character.GetComponent<Animator>();
 
@@ -240,7 +250,7 @@ namespace JUTPS.InventorySystem
             if (anim.GetBoneTransform(HumanBodyBones.RightHand) == null) { Debug.LogWarning("Unable to find items in hands because the animator is not a humanoid"); return null; }
 
             Transform hand = RightHand ? anim.GetBoneTransform(HumanBodyBones.RightHand) : anim.GetBoneTransform(HumanBodyBones.LeftHand);
-            items = hand.GetComponentsInChildren<HoldableItem>();
+            items = hand.GetComponentsInChildren<JUHoldableItem>();
 
             return items;
         }
@@ -281,23 +291,23 @@ namespace JUTPS.InventorySystem
                 //Debug.Log("Called PickUpItem method 1");
 
                 //Check if item is holdable
-                if (InventoryToAddItem.ItemToPickUp is HoldableItem)
+                if (InventoryToAddItem.ItemToPickUp is JUHoldableItem)
                 {
                     //Debug.Log("Called PickUpItem method 2");
 
                     //Get holdable monobehaviour
-                    var PickedItemToUnlock = InventoryToAddItem.ItemToPickUp.GetComponent<HoldableItem>();
-                    foreach (HoldableItem ItemInInventoryToUnlock in InventoryToAddItem.AllHoldableItems)
+                    var PickedItemToUnlock = InventoryToAddItem.ItemToPickUp.GetComponent<JUHoldableItem>();
+                    foreach (JUHoldableItem ItemInInventoryToUnlock in InventoryToAddItem.AllHoldableItems)
                     {
                         //Debug.Log("Called PickUpItem method 3");
                         if (ItemInInventoryToUnlock.ItemName == PickedItemToUnlock.ItemName && ItemInInventoryToUnlock.IsLeftHandItem == PickedItemToUnlock.IsLeftHandItem)
                         {
                             //Unlock item on inventory
-                            ItemInInventoryToUnlock.AddItem();
                             ItemInInventoryToUnlock.Unlocked = true;
 
                             //Transfer item data
                             InventoryToAddItem.AddPickedItemData(ItemInInventoryToUnlock, PickedItemToUnlock);
+                            //ItemInInventoryToUnlock.AddItem();
                             InventoryToAddItem.RefreshInBodyItemVisibility();
 
                             //Destroy Item in scenary
@@ -321,7 +331,7 @@ namespace JUTPS.InventorySystem
                 }
                 else
                 {
-                    foreach (Item ItemToAdd in InventoryToAddItem.AllItems)
+                    foreach (JUItem ItemToAdd in InventoryToAddItem.AllItems)
                     {
                         var PickedToAdd = InventoryToAddItem.ItemToPickUp;
 
@@ -354,19 +364,19 @@ namespace JUTPS.InventorySystem
 
 
         }
-        public static HoldableItem GetCurrentHoldableItemInUsing(JUInventory inventory, bool RightHand = true)
+        public static JUHoldableItem GetCurrentHoldableItemInUsing(JUInventory inventory, bool RightHand = true)
         {
-            HoldableItem itemInUse = null;
+            JUHoldableItem itemInUse = null;
             if (RightHand)
             {
-                foreach (HoldableItem item in inventory.HoldableItensRightHand)
+                foreach (JUHoldableItem item in inventory.HoldableItensRightHand)
                 {
                     if (item.ItemSwitchID == inventory.CurrentRightHandItemID) itemInUse = item;
                 }
             }
             else
             {
-                foreach (HoldableItem item in inventory.HoldableItensLeftHand)
+                foreach (JUHoldableItem item in inventory.HoldableItensLeftHand)
                 {
                     if (item.ItemSwitchID == inventory.CurrentLeftHandItemID) itemInUse = item;
                 }
@@ -457,7 +467,7 @@ namespace JUTPS.InventorySystem
         }
         public void SwitchToItem(int id = -1, bool RightHand = true)
         {
-
+            
             //>>> Loop Item Switching
             if (RightHand)
             {
@@ -471,7 +481,6 @@ namespace JUTPS.InventorySystem
                     CurrentRightHandItemID = -1;
                     WeaponInUseInRightHand = null;
                     HoldableItemInUseInRightHand = null;
-                    IsItemSelected = false;
                 }
             }
             else
@@ -487,13 +496,13 @@ namespace JUTPS.InventorySystem
                     CurrentLeftHandItemID = -1;
                     WeaponInUseInLeftHand = null;
                     HoldableItemInUseInLeftHand = null;
-                    IsItemSelected = false;
                 }
             }
             if (RightHand == true)
             {
+             
                 //>>> Right Hand Switching
-                foreach (HoldableItem item in HoldableItensRightHand)
+                foreach (JUHoldableItem item in HoldableItensRightHand)
                 {
                     //Switch to hand
                     if (id < 0)
@@ -501,7 +510,6 @@ namespace JUTPS.InventorySystem
                         CurrentRightHandItemID = -1;
                         WeaponInUseInRightHand = null;
                         HoldableItemInUseInRightHand = null;
-                        IsItemSelected = false;
                     }
                     else
                     {
@@ -528,7 +536,7 @@ namespace JUTPS.InventorySystem
             if (RightHand == false)
             {
                 //>>> Left Hand Switching
-                foreach (HoldableItem item in HoldableItensLeftHand)
+                foreach (JUHoldableItem item in HoldableItensLeftHand)
                 {
                     //Switch to hand
                     if (id < 0)
@@ -536,7 +544,6 @@ namespace JUTPS.InventorySystem
                         CurrentLeftHandItemID = id;
                         WeaponInUseInLeftHand = null;
                         HoldableItemInUseInLeftHand = null;
-                        IsItemSelected = false;
                     }
                     else
                     {
@@ -564,7 +571,7 @@ namespace JUTPS.InventorySystem
             RefreshItemsVisibility();
             RefreshInBodyItemVisibility();
         }
-        public static int GetGlobalItemSwitchID(Item item, JUInventory inventory)
+        public static int GetGlobalItemSwitchID(JUItem item, JUInventory inventory)
         {
             int global_id = -3;
 
@@ -634,7 +641,7 @@ namespace JUTPS.InventorySystem
         }
 
 
-        public void SetSequentialSlotItem(SequentialSlotsEnum slot, Item item)
+        public void SetSequentialSlotItem(SequentialSlotsEnum slot, JUItem item)
         {
             foreach (SequentialSlot s in SequenceSlot)
             {
@@ -645,9 +652,9 @@ namespace JUTPS.InventorySystem
                 }
             }
         }
-        public Item GetSequentialSlotItem(SequentialSlotsEnum slot)
+        public JUItem GetSequentialSlotItem(SequentialSlotsEnum slot)
         {
-            Item itemSlotToReturn = null;
+            JUItem itemSlotToReturn = null;
 
             foreach (SequentialSlot s in SequenceSlot)
             {
@@ -762,39 +769,93 @@ namespace JUTPS.InventorySystem
         /// </summary>
         /// <param name="OnInventoryItem"></param>
         /// <param name="ItemToPickup"></param>
-        public void AddPickedItemData(Item OnInventoryItem, Item ItemToPickup)
+        public void AddPickedItemData(JUItem OnInventoryItem, JUItem ItemToPickup)
         {
             GetLootItem(OnInventoryItem, ItemToPickUp);
         }
 
+        /// <summary>
+        /// Get Item by Switch ID
+        /// </summary>
+        /// <param name="globalID">Global Item Switch ID</param>
+        /// <returns></returns>
+        public JUItem GetItem(int globalID) { return AllItems[globalID]; }
 
-        public void GetLootItem(Item itemOnThisInventory, Item itemOnLoot)
+        /// <summary>
+        /// Returns an item according to the item name or gameobject name
+        /// </summary>
+        /// <param name="itemName">item name or gameobject name</param>
+        /// <returns></returns>
+        public JUItem GetItem(string itemName)
         {
-            itemOnThisInventory.ItemQuantity = itemOnThisInventory.Unlocked ? itemOnThisInventory.ItemQuantity + itemOnLoot.ItemQuantity : itemOnLoot.ItemQuantity;
-            itemOnThisInventory.ItemQuantity = Mathf.Clamp(itemOnThisInventory.ItemQuantity, 0, itemOnThisInventory.MaxItemQuantity);
+            JUItem itemToReturn = null;
+            foreach (JUItem currentItem in AllItems)
+            {
+                if (currentItem.ItemName == itemName || currentItem.name == itemName)
+                {
+                    itemToReturn = currentItem;
+                }
+            }
+            return itemToReturn;
+        }
+
+        /// <summary>
+        /// Returns an item according to the item name or gameobject name
+        /// </summary>
+        /// <param name="itemName">item name or gameobject name</param>
+        /// <param name="inventory"></param>
+        /// <returns></returns>
+        public static JUItem GetItem(JUInventory inventory, string itemName)
+        {
+            JUItem itemToReturn = null;
+            foreach (JUItem currentItem in inventory.AllItems)
+            {
+                if (currentItem.ItemName == itemName || currentItem.name == itemName)
+                {
+                    itemToReturn = currentItem;
+                }
+            }
+            return itemToReturn;
+        }
+
+        public void GetLootItem(JUItem itemOnThisInventory, JUItem itemOnLoot)
+        {
 
             if (itemOnThisInventory is Weapon)
             {
                 Weapon localWeapon = itemOnThisInventory as Weapon;
                 Weapon lootWeapon = itemOnLoot as Weapon;
-                localWeapon.TotalBullets = localWeapon.Unlocked ? (localWeapon.TotalBullets + lootWeapon.TotalBullets) : lootWeapon.TotalBullets;
+                //localWeapon.TotalBullets = localWeapon.Unlocked ? lootWeapon.TotalBullets : (localWeapon.TotalBullets + lootWeapon.TotalBullets);
 
-                if (localWeapon.Unlocked == false)
+                if (itemOnThisInventory.ItemQuantity == 0)
                 {
+                    itemOnThisInventory.ItemQuantity += 1;
+                    itemOnThisInventory.Unlocked = true;
+
                     localWeapon.TotalBullets = lootWeapon.TotalBullets;
                     localWeapon.BulletsAmounts = lootWeapon.BulletsAmounts;
-                    localWeapon.Unlocked = true;
+
                     lootWeapon.Unlocked = false;
+
                 }
                 else
                 {
                     //Get All Bullets
-                    localWeapon.TotalBullets += lootWeapon.TotalBullets + lootWeapon.BulletsAmounts;
-                    localWeapon.BulletsAmounts = lootWeapon.BulletsAmounts;
+                    localWeapon.TotalBullets += lootWeapon.TotalBullets;
+                    itemOnThisInventory.ItemQuantity += 1;
+                    //localWeapon.BulletsAmounts = lootWeapon.BulletsAmounts;
 
-                    lootWeapon.TotalBullets = 0; lootWeapon.BulletsAmounts = 0;
+                    //lootWeapon.ItemQuantity = 0;
+                    //lootWeapon.Unlocked = false;
+                    //lootWeapon.TotalBullets = 0; 
+                    //lootWeapon.BulletsAmounts = 0;
                 }
+                return;
             }
+            
+            itemOnThisInventory.ItemQuantity = itemOnThisInventory.Unlocked ? itemOnLoot.ItemQuantity : (itemOnThisInventory.ItemQuantity + itemOnLoot.ItemQuantity);
+            itemOnThisInventory.ItemQuantity = Mathf.Clamp(itemOnThisInventory.ItemQuantity, 0, itemOnThisInventory.MaxItemQuantity);
+
             if (itemOnThisInventory is MeleeWeapon)
             {
                 MeleeWeapon localMeleeWeapon = itemOnThisInventory as MeleeWeapon;
@@ -813,6 +874,7 @@ namespace JUTPS.InventorySystem
                     _lootMeleeWeapon.MeleeWeaponHealth = oldLocalDamage;
                 }
             }
+
             if (itemOnThisInventory is Armor)
             {
                 Armor localAmor = itemOnThisInventory as Armor;
@@ -847,9 +909,8 @@ namespace JUTPS.InventorySystem
                 dropedItem.transform.localScale = worldScale;
                 EnableItemPhysic(dropedItem);
                 dropedItem.SetActive(true);
-                dropedItem.layer = 14;
-
-
+                dropedItem.layer = 14;                
+                
                 //Remove / Lock Item
                 HoldableItensRightHand[ID].RemoveItem();
 
@@ -917,7 +978,7 @@ namespace JUTPS.InventorySystem
             if (AllItems[ID] is Armor && AllItems[ID].gameObject.activeInHierarchy) { AllItems[ID].gameObject.SetActive(false); }
 
             //Switch Item
-            if (AllItems[ID] is HoldableItem)
+            if (AllItems[ID] is JUHoldableItem)
             {
                 if (AllItems[ID].gameObject.activeInHierarchy)
                 {
@@ -948,7 +1009,7 @@ namespace JUTPS.InventorySystem
                 //Debug.Log("equiped " + AllItems[ID].gameObject.name);
                 return;
             }
-            if ((AllItems[ID].GetType()).IsSubclassOf(typeof(HoldableItem)) == false)
+            if ((AllItems[ID].GetType()).IsSubclassOf(typeof(JUHoldableItem)) == false)
             {
                 AllItems[ID].gameObject.SetActive(true);
                 //Debug.Log("equiped " + AllItems[ID].gameObject.name);
@@ -957,7 +1018,7 @@ namespace JUTPS.InventorySystem
 
             //Debug.Log("Try equip holdable item: " + AllItems[ID].ItemName);
             //Get Respective Item
-            HoldableItem holdableItem = AllItems[ID] as HoldableItem;
+            JUHoldableItem holdableItem = AllItems[ID] as JUHoldableItem;
 
             if (JUCharacter == null)
             {
@@ -985,10 +1046,10 @@ namespace JUTPS.InventorySystem
                 return;
             }
 
-            if ((AllItems[ID].GetType()).IsSubclassOf(typeof(HoldableItem)) == false)
+            if ((AllItems[ID].GetType()).IsSubclassOf(typeof(JUHoldableItem)) == false)
             {
                 AllItems[ID].gameObject.SetActive(false);
-                if ((AllItems[ID] as HoldableItem).IsLeftHandItem == false)
+                if ((AllItems[ID] as JUHoldableItem).IsLeftHandItem == false)
                 {
                     HoldableItemInUseInRightHand = null;
                 }
@@ -1005,7 +1066,7 @@ namespace JUTPS.InventorySystem
 
 
             //Get Respective Item
-            HoldableItem holdableItem = AllItems[ID] as HoldableItem;
+            JUHoldableItem holdableItem = AllItems[ID] as JUHoldableItem;
 
             /*
             if (JUCharacter == null)
@@ -1072,9 +1133,9 @@ namespace JUTPS.InventorySystem
         public class SequentialSlot
         {
             public SequentialSlotsEnum SelectedSlot;
-            public Item ItemInThisSlot;
+            public JUItem ItemInThisSlot;
 
-            public SequentialSlot(SequentialSlotsEnum slot, Item itemToSlot)
+            public SequentialSlot(SequentialSlotsEnum slot, JUItem itemToSlot)
             {
                 SelectedSlot = slot;
                 ItemInThisSlot = itemToSlot;

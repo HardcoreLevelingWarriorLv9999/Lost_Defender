@@ -168,11 +168,11 @@ namespace JUTPS.PhysicsScripts
 
 		public void RagdollStatesController()
 		{
-			if(HipsRigidbody == null)
-            {
+			if (HipsRigidbody == null)
+			{
 				State = RagdollState.Animated;
 				return;
-            }
+			}
 			//Animated
 			if (State == RagdollState.Animated && animator.enabled == false)
 			{
@@ -354,9 +354,9 @@ namespace JUTPS.PhysicsScripts
 		}
 
 		public void Fall()
-        {
+		{
 			State = RagdollState.Ragdolled;
-        }
+		}
 
 
 #if UNITY_EDITOR
@@ -419,6 +419,8 @@ namespace JUTPS.PhysicsScripts
 				{
 					foreach (var CurrentBone in RagdollBones)
 					{
+						if (!CurrentBone)
+							continue;
 						if (CurrentBone.transform.parent == null)
 							continue;
 						if (CurrentBone.transform.parent == transform)

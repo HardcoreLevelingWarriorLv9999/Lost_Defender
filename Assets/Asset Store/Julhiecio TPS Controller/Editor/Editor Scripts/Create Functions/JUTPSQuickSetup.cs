@@ -329,15 +329,18 @@ namespace JUTPSEditor
                     return;
                 }
             }
-            var col = (CapsuleCollider)Undo.AddComponent(CharacterGameObject, typeof(CapsuleCollider));
-            var noSlip = (PhysicMaterial)(Resources.Load("NoSlip", typeof(PhysicMaterial)));
+            if (!CharacterGameObject.TryGetComponent<CapsuleCollider>(out var col))
+                col = (CapsuleCollider)Undo.AddComponent(CharacterGameObject, typeof(CapsuleCollider));
+
+            var noSlip = (PhysicMaterial)Resources.Load("NoSlip", typeof(PhysicMaterial));
             col.material = noSlip;
 
             Undo.AddComponent(CharacterGameObject, typeof(ResizableCapsuleCollider));
 
-            var rb = (Rigidbody)Undo.AddComponent(CharacterGameObject, typeof(Rigidbody));
+            if (!CharacterGameObject.TryGetComponent<Rigidbody>(out var rb))
+                rb = (Rigidbody)Undo.AddComponent(CharacterGameObject, typeof(Rigidbody));
+
             var tps = (JUCharacterController)Undo.AddComponent(CharacterGameObject, typeof(JUCharacterController));
-             
             var animatorController = AssetDatabase.LoadAssetAtPath<RuntimeAnimatorController>(animatorControllerPath);
 
             //Setup Animator Controller
@@ -405,7 +408,7 @@ namespace JUTPSEditor
                 Undo.AddComponent(CharacterGameObject, typeof(ItemSwitchManager));
             }
 
-            if (animatorError == false)
+            if (!animatorError)
             {
                 JUTPSEditor.MessageWindow.ShowMessage("Successful character setup", "Quick Character Setup", "OK", 115, 276, 14);
             }

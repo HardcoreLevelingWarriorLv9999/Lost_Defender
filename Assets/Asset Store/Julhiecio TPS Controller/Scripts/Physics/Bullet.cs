@@ -191,7 +191,7 @@ namespace JUTPS.WeaponSystem
 				SurfaceFX.InstantiateParticleFX(ImpactFX, col.gameObject.tag, FinalPoint, Quaternion.FromToRotation(transform.forward, FinalPointNormal) * transform.rotation, col.gameObject.transform);
 
 				//Hit Marker
-				if (GetOwner() != null)
+				if (GetOwner() != null && Owner.CompareTag("Player"))
 				{
 					if (col.gameObject.layer == 15 || col.gameObject.layer == 9)
 					{
@@ -199,13 +199,13 @@ namespace JUTPS.WeaponSystem
 						{
 							if (col.gameObject.GetComponentInParent<JUHealth>().IsDead == false)
 							{
-								HitMarkerEffect.HitCheck(CollidedGameObjectTag, GetOwner().tag, FinalPoint, RealDamage);
+								HitMarkerEffect.HitCheck(CollidedGameObjectTag, FinalPoint, RealDamage);
 							}
 						}
 					}
 					else
 					{
-						HitMarkerEffect.HitCheck(CollidedGameObjectTag, GetOwner().tag);
+						HitMarkerEffect.HitCheck(CollidedGameObjectTag);
 					}
 				}
 

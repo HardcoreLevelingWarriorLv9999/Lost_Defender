@@ -1,10 +1,7 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 using JUTPSActions;
 namespace JUTPS.ActionScripts
 {
-
     [AddComponentMenu("JU TPS/Third Person System/Additionals/Aim On Mouse Position")]
     public class AimOnMousePosition : JUTPSAction
     {
@@ -53,23 +50,19 @@ namespace JUTPS.ActionScripts
             }
             else
             {
-                RaycastHit hit;
-                Physics.Raycast(cam.ScreenPointToRay(mousePosition), out hit, (TPSCharacter.MyPivotCamera == null) ? default(LayerMask) : TPSCharacter.MyPivotCamera.CrosshairRaycastLayerMask);
+                var crosshairRayLayer = !TPSCharacter.MyPivotCamera ? default : TPSCharacter.MyPivotCamera.CrosshairRaycastLayerMask;
+                Physics.Raycast(cam.ScreenPointToRay(mousePosition), out var hit, float.MaxValue, crosshairRayLayer);
 
-                if (PreventResetingAimPosition == true)
+                if (PreventResetingAimPosition)
                 {
                     if (hit.point != Vector3.zero)
-                    {
                         AimPosition = Vector3.Lerp(AimPosition, hit.point + hit.normal * NormalOffset, 10 * Time.deltaTime);
-                    }
                 }
                 else
                 {
                     AimPosition = Vector3.Lerp(AimPosition, hit.point + hit.normal * NormalOffset, 10 * Time.deltaTime);
                     if (hit.point == Vector3.zero)
-                    {
                         AimPosition = Vector3.zero;
-                    }
                 }
             }
             TPSCharacter.LookAtPosition = AimPosition;

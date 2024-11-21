@@ -101,12 +101,12 @@ namespace JUTPS.FX
                 return null;
             }
         }
-        public static GameObject Play(AudioSource audioSource, List<SurfaceAudiosWithFX> SurfaceAudioClips, Vector3 FXPosition, Quaternion FXRotation = default(Quaternion), Transform Parent = null, string surfaceTag = "Untagged", float timeToDestroy = 5, bool HideInHierarchy = true)
+        public static GameObject Play(AudioSource audioSource, SurfaceAudiosWithFX[] SurfaceAudioClips, Vector3 FXPosition, Quaternion FXRotation = default(Quaternion), Transform Parent = null, string surfaceTag = "Untagged", float timeToDestroy = 5, bool HideInHierarchy = true)
         {
-            if (SurfaceAudioClips.Count == 0 || audioSource == null) return null;
+            if (SurfaceAudioClips.Length == 0 || audioSource == null) return null;
             bool played = false;
 
-            for (int i = 0; i < SurfaceAudioClips.Count; i++)
+            for (int i = 0; i < SurfaceAudioClips.Length; i++)
             {
                 if (SurfaceAudioClips[i].SurfaceTag == surfaceTag)
                 {

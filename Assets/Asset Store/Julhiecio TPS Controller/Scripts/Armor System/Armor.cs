@@ -6,7 +6,7 @@ namespace JUTPS.ArmorSystem
 
 
     [AddComponentMenu("JU TPS/Armor System/Armor")]
-    public class Armor : JUTPS.ItemSystem.Item
+    public class Armor : JUTPS.ItemSystem.JUItem
     {
         [Header("Visual Settings")]
         public GameObject[] Parts;

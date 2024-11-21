@@ -6,7 +6,7 @@ using JUTPSEditor.JUHeader;
 namespace JUTPS.ItemSystem
 {
 
-    public class ThrowableItem : HoldableItem
+    public class ThrowableItem : JUHoldableItem
     {
         [JUHeader("Throw Settings")]
         public string AnimationTriggerParameterName = "Throw";

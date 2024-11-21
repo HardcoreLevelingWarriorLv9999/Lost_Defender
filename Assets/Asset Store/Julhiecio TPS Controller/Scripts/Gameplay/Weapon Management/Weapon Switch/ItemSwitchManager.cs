@@ -148,7 +148,7 @@ namespace JUTPS.ItemSystem
                 }
             }
 
-            if (EnableMouseScrollWeaponSwitch)
+            if (EnableMouseScrollWeaponSwitch && Mouse.current != null)
             {
                 if (Mouse.current.scroll.ReadValue().y / 360 >= ScrollThreshold)
                 {
@@ -218,7 +218,7 @@ namespace JUTPS.ItemSystem
 
         public virtual void SwitchToItemInSequentialSlot(JUInventory.SequentialSlotsEnum Slot)
         {
-            JUTPS.ItemSystem.Item ItemToSwich = JuTPSCharacter.Inventory.GetSequentialSlotItem(Slot);
+            JUTPS.ItemSystem.JUItem ItemToSwich = JuTPSCharacter.Inventory.GetSequentialSlotItem(Slot);
             int GlobalItemID = (ItemToSwich == null) ? -1 : JUInventory.GetGlobalItemSwitchID(ItemToSwich, JuTPSCharacter.Inventory);
 
             if (ItemToSwich == null)

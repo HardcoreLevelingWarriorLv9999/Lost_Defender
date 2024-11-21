@@ -48,6 +48,11 @@ namespace JUTPS.FX
         {
             DoInert();
         }
+        private void OnEnable()
+        {
+            Speed = 0;
+            Lean = 0;
+        }
         void DoInert()
         {
             Vector3 euler = NotAffectedEulerAngles;

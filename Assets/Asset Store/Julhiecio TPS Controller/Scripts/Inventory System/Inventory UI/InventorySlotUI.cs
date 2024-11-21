@@ -57,8 +57,8 @@ namespace JUTPS.InventorySystem.UI
         public ItemArePlacedIn PlacedIn;
         public enum ItemArePlacedIn { AllBody, RightHand, LeftHand }
 
-        public Item[] RespectiveItemList;
-        private Item slotItem;
+        public JUItem[] RespectiveItemList;
+        private JUItem slotItem;
         private void Awake()
         {
             if (EquipButton != null) EquipButton.onClick.AddListener(Equip);
@@ -86,7 +86,7 @@ namespace JUTPS.InventorySystem.UI
         }
         private void OnDisable() => Outline.SetActive(false);
         private void OnEnable() => RefreshSlot();
-        public Item CurrentSlotItem()
+        public JUItem CurrentSlotItem()
         {
             if (inventory == null)
             {
@@ -97,7 +97,7 @@ namespace JUTPS.InventorySystem.UI
                 }
                 return null;
             }
-            Item item = null;
+            JUItem item = null;
             if (DrawSequentialItem == false)
             {
                 if (ItemIDToDraw < inventory.AllItems.Length && ItemIDToDraw > -1)
@@ -126,7 +126,7 @@ namespace JUTPS.InventorySystem.UI
                 {
                     OptionsPanel.SetActive(false);
                 }
-                if (slotItem is HoldableItem || slotItem is Armor)
+                if (slotItem is JUHoldableItem || slotItem is Armor)
                 {
                     UseButton.gameObject.SetActive(false);
                     if (slotItem.gameObject.activeInHierarchy == false)
@@ -226,6 +226,9 @@ namespace JUTPS.InventorySystem.UI
             if (ItemQuantityText != null)
             {
                 ItemQuantityText.gameObject.SetActive(true);
+                ItemQuantityText.text = slotItem.ItemQuantity.ToString() + "/" + slotItem.MaxItemQuantity;
+
+                /*
                 if (slotItem is Weapon)
                 {
                     ItemQuantityText.text = (slotItem as Weapon).BulletsAmounts + "/" + (slotItem as Weapon).TotalBullets;
@@ -234,6 +237,7 @@ namespace JUTPS.InventorySystem.UI
                 {
                     ItemQuantityText.text = slotItem.ItemQuantity.ToString() + "/" + slotItem.MaxItemQuantity;
                 }
+                */
             }
 
             //Set null icon to draw
@@ -274,7 +278,7 @@ namespace JUTPS.InventorySystem.UI
         }
 
 
-        public void DoHealthBarFillAmout(Item item, Image healthBarImage, bool ChangeColor = true, Color FullHPColor = default(Color), Color NoHPColor = default(Color))
+        public void DoHealthBarFillAmout(JUItem item, Image healthBarImage, bool ChangeColor = true, Color FullHPColor = default(Color), Color NoHPColor = default(Color))
         {
             if (item == null) return;
 
@@ -282,7 +286,7 @@ namespace JUTPS.InventorySystem.UI
             float maxHealth = 1;
 
             // >>> Get fill amount value
-            if (item is Item)
+            if (item is JUItem)
             {
                 health = item.ItemQuantity;
                 maxHealth = item.MaxItemQuantity;
@@ -452,11 +456,11 @@ namespace JUTPS.InventorySystem.UI
             if (lootInventory.IsALoot == false) return;
 
             //Get items
-            Item itemOnThisInventory = null;
-            Item itemOnLoot = null;
+            JUItem itemOnThisInventory = null;
+            JUItem itemOnLoot = null;
 
-            foreach (Item item in inventory.AllItems) { if (item.name == itemName) { itemOnThisInventory = item; } }
-            foreach (Item item in lootInventory.AllItems) { if (item.name == itemName) { itemOnLoot = item; } }
+            foreach (JUItem item in inventory.AllItems) { if (item.name == itemName) { itemOnThisInventory = item; } }
+            foreach (JUItem item in lootInventory.AllItems) { if (item.name == itemName) { itemOnLoot = item; } }
 
             if (itemOnThisInventory == null)
             {
@@ -495,7 +499,7 @@ namespace JUTPS.InventorySystem.UI
             canvas.overrideSorting = false;
             canvas.sortingOrder = 0;
         }
-        public bool IsItemAllowedOnThisSlot(Item itemSlot)
+        public bool IsItemAllowedOnThisSlot(JUItem itemSlot)
         {
             bool allowed = false;
 

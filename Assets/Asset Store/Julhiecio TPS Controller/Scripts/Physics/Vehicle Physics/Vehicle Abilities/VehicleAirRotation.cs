@@ -23,7 +23,7 @@ namespace JUTPS.VehicleSystem
             float VerticalForce = JUInputSystem.JUInput.GetAxis(JUInputSystem.JUInput.Axis.MoveVertical);
             float HorizontalForce = JUInputSystem.JUInput.GetAxis(JUInputSystem.JUInput.Axis.MoveHorizontal);
 
-            RotateVehicle(new Vector3(VerticalForce, HorizontalForce, 0), vehicle.GroundCheck.IsGrounded);
+            RotateVehicle(new Vector3(VerticalForce, HorizontalForce, 0), vehicle.IsGrounded);
         }
         public void RotateVehicle(Vector3 Torque, bool IsGrounded)
         {
@@ -34,7 +34,7 @@ namespace JUTPS.VehicleSystem
             if (!Y) modifiedToque.y = 0;
             if (!Z) modifiedToque.z = 0;
 
-            vehicle.rb.AddRelativeTorque(modifiedToque * Force, ForceMode.Acceleration);
+            vehicle.RigidBody.AddRelativeTorque(modifiedToque * Force, ForceMode.Acceleration);
         }
     }
 

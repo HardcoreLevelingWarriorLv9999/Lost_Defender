@@ -3,6 +3,12 @@ using System.Collections.Generic;
 using UnityEngine;
 using JUTPS.JUInputSystem;
 using JUTPS.CrossPlataform;
+using JUTPS.ActionScripts;
+using JUTPS.VehicleSystem;
+using System.Xml.Schema;
+
+
+
 
 
 #if UNITY_EDITOR
@@ -74,7 +80,7 @@ namespace JUTPS.CrossPlataform
         }
         private void Update()
         {
-            if (JUGameManager.IsMobile)
+            if (JUGameManager.IsMobileControls)
             {
                 //Controls mobile screens and buttons that are not seen all the time, for example the get-in-car button.
                 UpdateMobileScreen();
@@ -104,13 +110,13 @@ namespace JUTPS.CrossPlataform
         //Mobile Screens
         private void UpdateMobileScreen()
         {
-            if (!JUGameManager.IsMobile) { MobileScreenPanel.SetActive(false); return; }
+            if (!JUGameManager.IsMobileControls) { MobileScreenPanel.SetActive(false); return; }
 
             Cursor.lockState = CursorLockMode.None;
             Cursor.visible = true;
-            MobileScreenPanel.SetActive(JUGameManager.IsMobile);
-            NormalScreenPanel.SetActive(!JUGameManager.InstancedPlayer.IsDriving);
-            DrivingScreenPanel.SetActive(JUGameManager.InstancedPlayer.IsDriving);
+            MobileScreenPanel.SetActive(JUGameManager.IsMobileControls);
+            NormalScreenPanel.SetActive(!JUGameManager.PlayerController.IsDriving);
+            DrivingScreenPanel.SetActive(JUGameManager.PlayerController.IsDriving);
         }
 
         //Update Buttons On Screen View
@@ -118,19 +124,37 @@ namespace JUTPS.CrossPlataform
         {
             if (PickItemButton != null)
             {
-                PickItemButton.gameObject.SetActive(JUGameManager.InstancedPlayer.Inventory != null ? JUGameManager.InstancedPlayer.Inventory.ItemToPickUp : false);
+                PickItemButton.gameObject.SetActive(JUGameManager.PlayerController.Inventory != null ? JUGameManager.PlayerController.Inventory.ItemToPickUp : false);
             }
 
-            if (ReloadButton != null) ReloadButton.gameObject.SetActive((JUGameManager.InstancedPlayer.WeaponInUseRightHand != null ||
-                                               JUGameManager.InstancedPlayer.WeaponInUseLeftHand != null) ? true : false);
+            if (ReloadButton != null) ReloadButton.gameObject.SetActive((JUGameManager.PlayerController.WeaponInUseRightHand != null ||
+                                               JUGameManager.PlayerController.WeaponInUseLeftHand != null) ? true : false);
 
-            if (AimingButton != null) AimingButton.gameObject.SetActive((JUGameManager.InstancedPlayer.WeaponInUseRightHand != null) ? true : false);
+            if (AimingButton != null) AimingButton.gameObject.SetActive((JUGameManager.PlayerController.WeaponInUseRightHand != null) ? true : false);
 
-            if (ShotButton != null) ShotButton.gameObject.SetActive(ShowShotButtonOnlyUsingItem ? JUGameManager.InstancedPlayer.IsItemEquiped : true);
+            if (ShotButton != null) ShotButton.gameObject.SetActive(ShowShotButtonOnlyUsingItem ? JUGameManager.PlayerController.IsItemEquiped : true);
 
-            if (JUGameManager.InstancedPlayer.IsDriving == false && EnterVehicleButton != null)
+            if (JUGameManager.PlayerController.TryGetComponent<DriveVehicles>(out var driver))
             {
-                EnterVehicleButton.gameObject.SetActive(JUGameManager.InstancedPlayer.ToEnterVehicle);
+                if (driver.IsDriving)
+                {
+                    EnterVehicleButton.gameObject.SetActive(driver.CanExitVehicle);
+                }
+                else
+                {
+                    Vehicle nearestVehicle = driver.NearestVehicle;
+                    JUVehicleCharacterIK nearesVehicleCharacterIK = driver.NearestVehicleCharacterIK;
+
+                    bool canDriveVehicle = nearestVehicle && driver.CanEnterVehicle;
+                    if (nearesVehicleCharacterIK)
+                        canDriveVehicle = !nearesVehicleCharacterIK.CharactersCanGetVehicle ? false : canDriveVehicle;
+
+                    EnterVehicleButton.gameObject.SetActive(canDriveVehicle);
+                }
+            }
+            else
+            {
+                EnterVehicleButton.gameObject.SetActive(false);
             }
         }
 
@@ -163,7 +187,7 @@ namespace JUTPS.CrossPlataform
             }
 
             //Rotate Screen
-            if (JUGameManager.IsMobile && RotateCameraTouchfield != null)
+            if (JUGameManager.IsMobileControls && RotateCameraTouchfield != null)
             {
                 if (RightJoystick == null)
                 {
@@ -289,14 +313,13 @@ namespace JUTPS.CrossPlataform
             {
                 if (EnterVehicleButton.IsPressedDown)
                 {
-                    JUInput.RewriteInputButtonPressedDown(JUInput.Buttons.EnterVehicleButton, true);
-                }
-                else
-                {
-                    JUInput.RewriteInputButtonPressedDown(JUInput.Buttons.EnterVehicleButton, false);
+                    if (JUGameManager.PlayerController.TryGetComponent<DriveVehicles>(out var driveVehicles))
+                    {
+                        if (driveVehicles.IsDriving) driveVehicles.ExitVehicle();
+                        else driveVehicles.TryDriveNearestVehicle();
+                    }
                 }
             }
-
 
             if (NextWeaponButton != null)
             {
@@ -440,13 +463,11 @@ namespace JUTPS.CrossPlataform
             if (EnterVehicleButton != null)
             {
                 if (EnterVehicleButton.IsPressed)
-                {
-                    JUInput.RewriteInputButtonPressed(JUInput.Buttons.EnterVehicleButton, true);
-                }
-                else
-                {
-                    JUInput.RewriteInputButtonPressed(JUInput.Buttons.EnterVehicleButton, false);
-                }
+                    if (JUGameManager.PlayerController.TryGetComponent<DriveVehicles>(out var driveVehicles))
+                    {
+                        if (driveVehicles.IsDriving) driveVehicles.ExitVehicle();
+                        else driveVehicles.TryDriveNearestVehicle();
+                    }
             }
 
 
@@ -479,7 +500,7 @@ namespace JUTPS.CrossPlataform
         {
             // >>> Get Button Up
 
-            if (JUGameManager.IsMobile)
+            if (JUGameManager.IsMobileControls)
             {
                 if (ShotButton != null)
                     JUInput.RewriteInputButtonPressedUp(JUInput.Buttons.ShotButton, ShotButton.IsPressedUp);
@@ -567,15 +588,12 @@ namespace JUTPS.CrossPlataform
             if (EnterVehicleButton != null)
             {
                 if (EnterVehicleButton.IsPressedUp)
-                {
-                    JUInput.RewriteInputButtonPressedUp(JUInput.Buttons.EnterVehicleButton, true);
-                }
-                else
-                {
-                    JUInput.RewriteInputButtonPressedUp(JUInput.Buttons.EnterVehicleButton, false);
-                }
+                    if (JUGameManager.PlayerController.TryGetComponent<DriveVehicles>(out var driveVehicles))
+                    {
+                        if (driveVehicles.IsDriving) driveVehicles.ExitVehicle();
+                        else driveVehicles.TryDriveNearestVehicle();
+                    }
             }
-
 
             if (NextWeaponButton != null)
             {

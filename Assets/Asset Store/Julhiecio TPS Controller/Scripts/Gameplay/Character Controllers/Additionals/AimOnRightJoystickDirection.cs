@@ -89,7 +89,7 @@ namespace JUTPS.ActionScripts
             {
                 Vector3 Direction = new Vector3(Xinput, 0, Yinput).normalized;
                 Quaternion CamDirection = Quaternion.Euler(0, cameraController.mCamera.transform.eulerAngles.y, 0);
-                Quaternion DesiredDirection = Quaternion.LookRotation(Direction, Vector3.up) * CamDirection;
+                Quaternion DesiredDirection = Direction.magnitude > 0 ? Quaternion.LookRotation(Direction, Vector3.up) * CamDirection : Quaternion.identity;
                 Vector3 DesiredAimPosition = TPSCharacter.PivotItemRotation.transform.position + (DesiredDirection * Vector3.forward) * DistanceFromCenter + transform.up * UpOffset;
                 AimPosition = DesiredAimPosition;
 

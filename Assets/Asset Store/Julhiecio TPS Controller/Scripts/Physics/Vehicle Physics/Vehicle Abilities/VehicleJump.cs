@@ -1,40 +1,61 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 namespace JUTPS.VehicleSystem
 {
-
+    /// <summary>
+    /// This component allow the vehicle jump.
+    /// </summary>
     public class VehicleJump : MonoBehaviour
     {
-        private Vehicle vehicle;
-        public float JumpForce = 100;
-        public bool UseDefaultInput = true;
-        void Start()
+        /// <summary>
+        /// The jump force.
+        /// </summary>
+        public float JumpForce;
+
+        /// <summary>
+        /// Use <see cref="JUInputSystem.JUInput"/> control to do vehicle jump?
+        /// </summary>
+        public bool UseDefaultInput;
+
+        /// <summary>
+        /// The vehicle that be controled by this <see cref="VehicleJump"/> component.
+        /// </summary>
+        public Vehicle Vehicle { get; private set; }
+
+        /// <summary>
+        /// Create a <see cref="VehicleJump"/> component instance.
+        /// </summary>
+        public VehicleJump()
         {
-            vehicle = GetComponent<Vehicle>();
+            JumpForce = 100;
+            UseDefaultInput = true;
+        }
+
+        private void Start()
+        {
+            Vehicle = GetComponent<Vehicle>();
         }
 
         // Update is called once per frame
-        void Update()
+        private void Update()
         {
-            if (!UseDefaultInput) return;
+            if (!UseDefaultInput)
+                return;
 
             if (JUInputSystem.JUInput.GetButtonDown(JUInputSystem.JUInput.Buttons.JumpButton))
-            {
                 Jump(JumpForce);
-            }
-
         }
-        public void Jump(float jumpForce)
+
+        /// <summary>
+        /// Do vehicle jump.
+        /// </summary>
+        /// <param name="force">The jump force</param>
+        public void Jump(float force)
         {
-            if (vehicle == null) return;
+            if (!Vehicle ||!Vehicle.IsOn || !Vehicle.IsGrounded)
+                return;
 
-            if (vehicle.IsOn == false) return;
-
-
-            vehicle.Jump(jumpForce, vehicle.GroundCheck.IsGrounded);
+            Vehicle.RigidBody.AddRelativeForce(0, force, 0, ForceMode.Impulse);
         }
     }
-
 }

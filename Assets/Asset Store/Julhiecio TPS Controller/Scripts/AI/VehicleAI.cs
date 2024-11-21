@@ -69,7 +69,8 @@ namespace JUTPS.AI
         }
         private void Update()
         {
-            if (vehicle.IsOn == false || vehicle.GroundCheck.IsGrounded == false) return;
+            if (!vehicle.IsOn || !vehicle.IsGrounded)
+                return;
 
             FrontCheck.Check(vehicle.transform, transform.forward);
             FollowPath(ref PathToDestination, vehicle, DistanceToContinuePath, VehicleDesacelerationIntensity, ref CurrentWayPointToFollow, OnEndPath, FrontCheck.IsCollided, CheckNearestPointOnPath);
@@ -107,7 +108,7 @@ namespace JUTPS.AI
 
         public static void FollowPath(ref Vector3[] path, Vehicle vehicle, float stoppingDistance, float desacelerationOnCurvesIntensity, ref int currentPathCornerId, WaypointPath.OnEndPathAction onPathEnd = WaypointPath.OnEndPathAction.Stop, bool TheresWallInVehicleFront = false, bool CheckClosestPoint = false)
         {
-            if (vehicle.IsOn == false || vehicle.GroundCheck.IsGrounded == false || path.Length == 0) return;
+            if (!vehicle.IsOn || !vehicle.IsGrounded || path.Length == 0) return;
 
             //Reset target waypoint
             if (path.Length - 1 < currentPathCornerId)
@@ -138,7 +139,7 @@ namespace JUTPS.AI
             bool BrakeInput = false;
 
             //Set the next waypoint to follow
-            if (DistanceToNextWaypoint + vehicle.GetVehicleCurrentSpeed(0.2f) < stoppingDistance && currentPathCornerId < path.Length - 1)
+            if (DistanceToNextWaypoint + Mathf.Abs(vehicle.ForwardSpeed * 0.2f) < stoppingDistance && currentPathCornerId < path.Length - 1)
             {
                 currentPathCornerId++;
             }
@@ -148,7 +149,7 @@ namespace JUTPS.AI
             {
                 //Accelerate Vehicle
                 float ClampedAngle = Mathf.Clamp(Mathf.Abs(AngleBetweenNormalAndVehicleForward), 0, 90);
-                float DesacelerationValue = desacelerationOnCurvesIntensity * ((ClampedAngle / 360) + vehicle.GetVehicleCurrentSpeed(0.05f) / 4);
+                float DesacelerationValue = desacelerationOnCurvesIntensity * ((ClampedAngle / 360) + Mathf.Abs(vehicle.ForwardSpeed * 0.05f) / 4);
                 VerticalInput = 1 - Mathf.Clamp(DesacelerationValue, -1f, 0.5f);
 
                 VerticalInput = Mathf.Clamp(VerticalInput, -1, 1);
@@ -156,10 +157,8 @@ namespace JUTPS.AI
             }
 
             //Brake vehicle if going on wrong direction
-            if (RightDirectionIntensity > 0.3f && vehicle.GetSmoothedForwardMovement() < -1f)
+            if (RightDirectionIntensity > 0.3f && vehicle.FinalThrottle < -1f)
             {
-                Debug.Log("Forward Movement = " + vehicle.GetSmoothedForwardMovement());
-                Debug.Log("BRAKING");
                 BrakeInput = true;
             }
 
@@ -206,8 +205,9 @@ namespace JUTPS.AI
                 }
             }
 
-            // >>> Set inputs
-            vehicle.SetEngineInputs(HorizontalInput, VerticalInput, BrakeInput);
+            vehicle.Throttle = VerticalInput;
+            vehicle.Steer = HorizontalInput;
+            vehicle.Brake = BrakeInput ? 1 : 0;
         }
         public static float GetVehicleRightDirectionIntensity(Vehicle vehicle, Vector3 currentTargetPathPosition)
         {

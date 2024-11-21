@@ -11,7 +11,7 @@ using JUTPS.Utilities;
 
 namespace JUTPSEditor
 {
-    public class JUTPSCreate
+    public static class JUTPSCreate
     {
         [MenuItem("GameObject/JUTPS Create/Game Manager", false, -100)]
         public static void CreateGameManager()
@@ -154,6 +154,15 @@ namespace JUTPSEditor
         public static Vector3 SceneViewInstantiatePosition()
         {
             var view = SceneView.lastActiveSceneView.camera;
+
+            Ray ray = view.ViewportPointToRay(new Vector3(0.5F, 0.5F, 0));
+            RaycastHit hit;
+
+            if (Physics.Raycast(ray, out hit))
+            {
+                return hit.point;
+            }
+
             if (view != null)
             {
                 Vector3 pos = view.transform.position + view.transform.forward * 10;
@@ -162,6 +171,40 @@ namespace JUTPSEditor
             else
             {
                 return Vector3.zero;
+            }
+        }
+
+        [UnityEditor.MenuItem("GameObject/JUTPS Create/Cover Trigger", false, 0)]
+        public static void CreateCoverTrigger()
+        {
+            GameObject Cover = new GameObject("Cover Trigger");
+            Undo.RegisterCreatedObjectUndo(Cover, "waypointpath creation");
+
+            Cover.tag = "CoverTrigger";
+            Cover.layer = LayerMask.NameToLayer("Ignore Raycast");
+
+            Cover.AddComponent<JUTPS.CoverSystem.JUCoverTrigger>();
+            Cover.transform.position = SceneViewInstantiatePosition();
+            Cover.transform.rotation = SceneViewDirection();
+            Cover.transform.localScale = new Vector3(2, 1.5f, 0.4f);
+
+            Cover.GetComponent<BoxCollider>().center = new Vector3(0, 0.5f, 0);
+            Cover.GetComponent<BoxCollider>().isTrigger = true;
+        }
+
+        public static Quaternion SceneViewDirection()
+        {
+            var view = SceneView.lastActiveSceneView.camera;
+
+
+            if (view != null)
+            {
+                Vector3 euler = new Vector3(0,view.transform.eulerAngles.y,0);
+                return Quaternion.Euler(euler);
+            }
+            else
+            {
+                return Quaternion.identity;
             }
         }
     }

@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using JUTPS.JUInputSystem;
 using JUTPS.WeaponSystem;
+using JUTPS.ActionScripts;
 namespace JUTPS.CameraSystems
 {
 
@@ -21,6 +22,9 @@ namespace JUTPS.CameraSystems
 		public bool EnableVehicleAutoRotation;
 		public float VehicleAutoRotateTime = 3;
 		public float VehicleAutoRotationSpeed = 8;
+
+		//[Header("WeaponSway")]
+		public WeaponSwayOptions AimingSwaySettings = new WeaponSwayOptions(true, 1, 1, 1);
 
 		//[Header("Camera States")]
 		public CameraState NormalCameraState = new CameraState("Normal Camera State");
@@ -67,19 +71,16 @@ namespace JUTPS.CameraSystems
 					NormalAutoRotation(TargetToFollow);
 				}
 			}
-			if (EnableVehicleAutoRotation && characterTarget != null)
-			{
-				//Driving Auto Rotation
-				DrivingVehicleAutoRotation((characterTarget.DriveVehicleAbility != null) ? characterTarget.DriveVehicleAbility.VehicleToDrive : null);
-			}
+
 			//Camera State Update
 			UpdateCharacterState(characterTarget);
 			ChangeCameraStateAccordingCharacterState(CharacterState);
+			SetCameraToScopePosition();
 		}
 
 		protected virtual void SetRotationInput()
 		{
-			if (Cursor.lockState != CursorLockMode.Locked && JUGameManager.IsMobile == false)
+			if (Cursor.lockState != CursorLockMode.Locked && JUGameManager.IsMobileControls == false)
 			{
 				xmouse = 0;
 				ymouse = 0;
@@ -93,16 +94,36 @@ namespace JUTPS.CameraSystems
 		//Move camera pivot
 		protected virtual void FixedUpdate()
 		{
-			SetPivotCameraPosition(GetCurrentCameraState.GetCameraPivotPosition(TargetToFollow), true);
+			//SetPivotCameraPosition(GetCurrentCameraState.GetCameraPivotPosition(TargetToFollow), true);
+			if (characterTarget != null)
+			{
+				DriveVehicles driveAbility = characterTarget.DriveVehicleAbility;
+
+				if (characterTarget.IsAiming) return;
+				if (driveAbility && driveAbility.IsDriving && driveAbility.CurrentVehicle)
+				{
+					SetPivotCameraPosition(GetCurrentCameraState.GetCameraPivotPosition(driveAbility.CurrentVehicle.transform), true);
+					//Driving Auto Rotation
+					if (EnableVehicleAutoRotation) DrivingVehicleAutoRotation(driveAbility.CurrentVehicle);
+				}
+				else
+				{
+					SetPivotCameraPosition(GetCurrentCameraState.GetCameraPivotPosition(TargetToFollow), true);
+				}
+			}
+			else
+			{
+				SetPivotCameraPosition(GetCurrentCameraState.GetCameraPivotPosition(TargetToFollow), true);
+			}
 		}
 
 		//Move real camera and change camera states
 		protected virtual void LateUpdate()
 		{
+			if (characterTarget) { if (characterTarget.IsAiming) return; }
 			SetCameraPosition(GetCurrentCameraState.GetCameraPosition(mCamera.transform), false);
 			SetCameraCollision(GetCurrentCameraState.CollisionLayers);
 			SetFieldOfView(GetCurrentCameraState.CameraFieldOfView);
-			SetCameraToScopePosition();
 		}
 		public override void RecoilReaction(float Force)
 		{
@@ -174,16 +195,16 @@ namespace JUTPS.CameraSystems
 
 				SmoothedYMouse = Mathf.Lerp(SmoothedYMouse, ymouse, 10 * Time.deltaTime);
 				SmoothedXMouse = Mathf.Lerp(SmoothedXMouse, xmouse, 10 * Time.deltaTime);
+				float xSway = AimingSwaySettings.EnableWeaponSway ? (gun.CameraAimingPosition.x - AimingSwaySettings.GeneralIntensity * AimingSwaySettings.HorizontalIntensity * SmoothedYMouse / 80) : gun.CameraAimingPosition.x;
+				float ySway = AimingSwaySettings.EnableWeaponSway ? (gun.CameraAimingPosition.y - AimingSwaySettings.GeneralIntensity * AimingSwaySettings.VerticalIntensity * SmoothedXMouse / 80) : gun.CameraAimingPosition.y;
 
-				//Debug.Log("rot int = " + SmoothedXMouse);
-
+				// > Weapon Sway Position
 				Vector3 scopePosition = gun.transform.position
-					+ gun.transform.right * (gun.CameraAimingPosition.x - SmoothedYMouse / 80)
-					+ gun.transform.up * (gun.CameraAimingPosition.y - SmoothedXMouse / 80)
+					+ gun.transform.right * xSway
+					+ gun.transform.up * ySway
 					+ mCamera.transform.parent.forward * gun.CameraAimingPosition.z;
 
-				//Set Smoothed Scope Position
-				//SmoothedScopeCameraPosition = Vector3.Lerp(SmoothedScopeCameraPosition, scopePosition, 50 * Time.deltaTime);
+				//Set Scope Position + Sway
 				SetCameraPosition(scopePosition, false);
 
 				//Set Field Of View
@@ -224,8 +245,16 @@ namespace JUTPS.CameraSystems
 			}
 			if (IsAutoRotationActivated == true)
 			{
-				rotytarget = Mathf.LerpAngle(rotytarget, targetRotation.rotation.eulerAngles.y, HorizontalSpeed * Time.deltaTime);
-				rotxtarget = Mathf.LerpAngle(rotxtarget, 0, VerticalSpeed * Time.deltaTime);
+				rotytarget = Mathf.LerpAngle(rotytarget, targetRotation.rotation.eulerAngles.y, HorizontalSpeed * Time.fixedDeltaTime);
+				rotxtarget = Mathf.LerpAngle(rotxtarget, 0, VerticalSpeed * Time.fixedDeltaTime);
+				if (FollowUpTarget)
+				{
+					RotateCamera(xmouse, ymouse, upward: characterTarget == null ? TargetToFollow.up : characterTarget.transform.up);
+				}
+				else
+				{
+					RotateCamera(xmouse, ymouse);
+				}
 			}
 			else
 			{

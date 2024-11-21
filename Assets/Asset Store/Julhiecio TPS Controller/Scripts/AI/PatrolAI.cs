@@ -224,7 +224,7 @@ namespace JUTPS.AI
             //distanceFromDestination = (currentTarget != null) ? Vector3.Distance(transform.position, currentTarget.position) : Vector3.Distance(transform.position, PathToDestination[CurrentWayPointToFollow]);
             //distanceFromDestination = (currentTarget != null) ? Vector3.Distance(transform.position, currentTarget.position) : Vector3.Distance(transform.position, Destination);
 
-            if (CurrentWayPointToFollow > PathToDestination.Length)
+            if (CurrentWayPointToFollow > PathToDestination.Length - 1)
             {
                 distanceFromDestination = (currentTarget != null) ? Vector3.Distance(transform.position, currentTarget.position) : Vector3.Distance(transform.position, Destination);
             }

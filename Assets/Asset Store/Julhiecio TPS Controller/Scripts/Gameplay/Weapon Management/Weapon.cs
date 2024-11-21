@@ -7,7 +7,7 @@ namespace JUTPS.WeaponSystem
 
 	[AddComponentMenu("JU TPS/Weapon System/Weapon")]
 	[RequireComponent(typeof(AudioSource))]
-	public class Weapon : HoldableItem
+	public class Weapon : JUHoldableItem
 	{
 		[HideInInspector] public JUCharacterController TPSControllerUser;
 		[HideInInspector] public Transform mCamera;
@@ -182,10 +182,22 @@ namespace JUTPS.WeaponSystem
 			if (WeaponRotationCenter == null) return;
 			// >>> Recoil Animation
 
+			if (ItemWieldPositionID >= WeaponRotationCenter.WeaponPositionTransform.Count) { ItemWieldPositionID -= 1; return; }
+			//if (ItemWieldPositionID < 0) { ItemWieldPositionID = 0; return; }
+
 			//Get stored transform properties
 			Vector3 stored_weapon_pos = WeaponRotationCenter._storedLocalPositions[ItemWieldPositionID];
 			Quaternion stored_weapon_rot = WeaponRotationCenter._storedLocalRotations[ItemWieldPositionID];
+			if (TPSOwner)
+			{
+				if (TPSOwner.IsAiming)
+				{
+					WeaponRotationCenter.WeaponPositionTransform[ItemWieldPositionID].localPosition = stored_weapon_pos;
+					WeaponRotationCenter.WeaponPositionTransform[ItemWieldPositionID].localRotation = stored_weapon_rot;
+					return;
+				}
 
+			}
 			//Set transform position smoothed
 			WeaponRotationCenter.WeaponPositionTransform[ItemWieldPositionID].localPosition = Vector3.Lerp(
 				WeaponRotationCenter.WeaponPositionTransform[ItemWieldPositionID].localPosition, stored_weapon_pos, WeaponPositionSpeed * Time.deltaTime);
@@ -267,17 +279,17 @@ namespace JUTPS.WeaponSystem
 		}
 		public void Shot()
 		{
-            if (CanUseItem == false)
-            {
+			if (CanUseItem == false)
+			{
 				Debug.Log("Tried to shot but the CanUseItem variable is false, if using Prevent Gun Clipping ignore this message.");
 				return;
-            }
+			}
 			RaycastHit CrosshairHit;
 
 			if (FireMode != Weapon.WeaponFireMode.Shotgun)
 			{
 				RaycastHit CameraRaycastHit;
-				if(enableBulletDirectionCorrection && CameraPosition != Vector3.zero)
+				if (enableBulletDirectionCorrection && CameraPosition != Vector3.zero)
 				{
 					if (Physics.Raycast(CameraPosition, ShootDirection, out CameraRaycastHit, 500, RaycastingLayers))
 					{
@@ -289,7 +301,7 @@ namespace JUTPS.WeaponSystem
 						//Debug.Log("Modified Direction");
 					}
 				}
-				
+
 				if (Vector3.Dot(ShootDirection, Shoot_Position.forward) < 0.3f)
 				{
 					ShootDirection = Shoot_Position.forward;
@@ -343,7 +355,7 @@ namespace JUTPS.WeaponSystem
 			}
 			else
 			{
-				
+
 				RaycastHit CameraRaycastHit;
 				if (enableBulletDirectionCorrection && CameraPosition != Vector3.zero)
 				{
@@ -438,7 +450,7 @@ namespace JUTPS.WeaponSystem
 			CanUseItem = false;
 
 			//Subtracts Ammunition
-			if(!InfiniteAmmo)BulletsAmounts -= 1;
+			if (!InfiniteAmmo) BulletsAmounts -= 1;
 
 			//Procedural Animation Trigger
 			if (GenerateProceduralAnimation == true)

@@ -46,7 +46,7 @@ namespace JUTPS.CameraSystems
         // Update is called once per frame
         void Update()
         {
-            if (Cursor.lockState != CursorLockMode.Locked && JUGameManager.IsMobile == false)
+            if (Cursor.lockState != CursorLockMode.Locked && JUGameManager.IsMobileControls == false)
             {
                 xmouse = 0;
                 ymouse = 0;

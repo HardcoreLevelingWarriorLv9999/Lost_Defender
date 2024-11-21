@@ -36,7 +36,7 @@ namespace JUTPSActions
         protected float LayerWeight;
 
         public float ActionDuration;
-        private float ActionCurrentTime;
+        [HideInInspector] public float ActionCurrentTime;
 
         public float EnterTransitionSpeed;
         public float ExitTransitionSpeed;
@@ -172,6 +172,11 @@ namespace JUTPSActions
         {
             ActionCurrentLayerIndex = ((int)BodyPartLayer) + 7;
         }
+        protected void SwitchAnimationLayer(int LayerIndex)
+        {
+            ActionCurrentLayerIndex = LayerIndex;
+        }
+
         protected int GetCurrentAnimationLayer()
         {
             return ActionCurrentLayerIndex;
@@ -188,12 +193,20 @@ namespace JUTPSActions
         protected int LasUsedItemID;
         protected void SetCurrentItemIndexToLastUsedItem()
         {
-            if (TPSCharacter.HoldableItemInUseRightHand != null) { LasUsedItemID = TPSCharacter.HoldableItemInUseRightHand.ItemSwitchID; } else { LasUsedItemID = -1; }
+            if (TPSCharacter.HoldableItemInUseRightHand != null)
+            {
+                //LasUsedItemID = JUTPS.InventorySystem.JUInventory.GetGlobalItemSwitchID(TPSCharacter.HoldableItemInUseRightHand, TPSCharacter.Inventory);
+                LasUsedItemID = TPSCharacter.HoldableItemInUseRightHand.ItemSwitchID;
+            }
+            else
+            {
+                LasUsedItemID = -1;
+            }
         }
         protected void DisableItemOnHand()
         {
             //Get Current Item
-            TPSCharacter.SwitchToItem(-1);
+            TPSCharacter.SwitchToItem(0);
         }
         protected void EnableLastUsedItem()
         {

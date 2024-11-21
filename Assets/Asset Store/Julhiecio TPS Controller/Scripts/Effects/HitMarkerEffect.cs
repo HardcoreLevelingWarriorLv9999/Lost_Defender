@@ -31,12 +31,14 @@ namespace JUTPS.FX
         private float CurrentDamage;
         void Awake()
         {
-            instance = this;
             HitSound = GetComponent<AudioSource>();
             HitImage = GetComponent<Image>();
             if (DamageText != null) DamageText.color = Color.clear;
         }
-
+        private void OnEnable()
+        {
+            instance = this;
+        }
         // Update is called once per frame
         void Update()
         {
@@ -74,10 +76,8 @@ namespace JUTPS.FX
                 }
             }
         }
-        public static void HitCheck(string CollidedObjectTag, string BulletOwnerTag, Vector3 hitPosition = default(Vector3), float Damage = 0)
+        public static void HitCheck(string CollidedObjectTag, Vector3 hitPosition = default(Vector3), float Damage = 0)
         {
-            if (instance == null || BulletOwnerTag != "Player") { return; }
-
             foreach (string tag in instance.HitTags)
             {
                 if (CollidedObjectTag == tag)

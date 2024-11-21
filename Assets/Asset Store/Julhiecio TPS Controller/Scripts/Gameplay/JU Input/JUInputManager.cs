@@ -14,7 +14,22 @@ namespace JUTPS.JUInputSystem
 
 	public class JUInputManager : MonoBehaviour
 	{
-		public JUTPSInputControlls InputActions;
+		private JUTPSInputControlls _inputs;
+
+		public JUTPSInputControlls InputActions
+		{
+			get
+			{
+				if (_inputs == null)
+				{
+					_inputs = new JUTPSInputControlls();
+					_inputs.Enable();
+					AddInputUpListeners(InputActions.Player);
+				}
+
+				return _inputs;
+			}
+		}
 
 		private bool BlockStandardInputs;
 		public bool IsBlockingDefaultInputs { get => BlockStandardInputs; }
@@ -63,12 +78,10 @@ namespace JUTPS.JUInputSystem
 		public static bool IsUsingGamepad;
 		private void Update()
 		{
-			if (InputActions == null)
-			{
-				InputActions = new JUTPSInputControlls();
-				InputActions.Enable();
-				AddInputUpListeners(InputActions.Player);
-			}
+			double gamepad = Gamepad.current != null ? Gamepad.current.lastUpdateTime : 0;
+			//If are mouse and keyboard conected |                  |if mouse last update are lower than keyboard last update   >        value = KeyboardLastUpdate    :else  >  value = MouseLastUpdate
+			double keyboardAndMouseLastUsed = (Keyboard.current != null && Mouse.current != null) ? ((Mouse.current.lastUpdateTime < Keyboard.current.lastUpdateTime) ? Keyboard.current.lastUpdateTime : Mouse.current.lastUpdateTime) : 0;
+			IsUsingGamepad = (gamepad > keyboardAndMouseLastUsed) ? true : false;
 
 			if (BlockStandardInputs) return;
 
@@ -79,12 +92,6 @@ namespace JUTPS.JUInputSystem
 			//UpdateGetButtonUp();
 
 			UpdateAxis();
-
-
-			double gamepad = Gamepad.current != null ? Gamepad.current.lastUpdateTime : 0;
-			//If are mouse and keyboard conected |                  |if mouse last update are lower than keyboard last update   >        value = KeyboardLastUpdate    :else  >  value = MouseLastUpdate
-			double keyboardAndMouseLastUsed = (Keyboard.current != null && Mouse.current != null) ? ((Mouse.current.lastUpdateTime < Keyboard.current.lastUpdateTime) ? Keyboard.current.lastUpdateTime : Mouse.current.lastUpdateTime) : 0;
-			IsUsingGamepad = (gamepad > keyboardAndMouseLastUsed) ? true : false;
 		}
 
 		private void AddInputUpListeners(JUTPSInputControlls.PlayerActions input)
@@ -148,7 +155,7 @@ namespace JUTPS.JUInputSystem
 			MoveVertical = Mathf.Clamp(MoveVertical, -1, 1);
 
 
-			if (JUTPS.JUGameManager.IsMobile)
+			if (JUTPS.JUGameManager.IsMobileControls)
 			{
 				if (IsBlockingDefaultInputs) Debug.LogWarning("In the Game Manager the ''IsMobile'' variable is set to true, but there is no script blocking the default inputs. Add a Mobile Rig from the prefabs folder or create one.");
 			}

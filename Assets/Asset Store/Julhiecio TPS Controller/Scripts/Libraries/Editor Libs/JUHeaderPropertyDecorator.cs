@@ -68,7 +68,7 @@ namespace JUTPSEditor.JUHeader
     }
 
 
-#if UNITY_EDITOR
+#if UNITY_EDITOR && !ODIN_INSPECTOR
 
     [CustomPropertyDrawer(typeof(JUHeader))]
     class JUHeaderDecoratorDrawer : DecoratorDrawer

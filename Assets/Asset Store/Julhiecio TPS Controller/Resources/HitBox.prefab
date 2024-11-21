@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 8596535375398625462}
   - component: {fileID: 857339004}
   - component: {fileID: -4172299998163614084}
+  - component: {fileID: 5199773362407597200}
   m_Layer: 10
   m_Name: HitBox
   m_TagString: Skin
@@ -47,17 +48,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d1b088d1d8b41774d81a7f25bc20c45c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Damage: 30
+  ShowHitMarker: 0
   DisableOnStart: 1
+  Damage: 30
   HitMinTime: 0.5
   RaycastingMode: 0
-  RaycastCollideWith:
-    serializedVersion: 2
-    m_Bits: 100353
   RaycastDistance: 0.9
-  IgnoreAllCollidersOfRootGameobject: 1
-  AllRootGameobjectColliders: []
+  RaycastLayer:
+    serializedVersion: 2
+    m_Bits: 1
+  IgnoreRootColliders: 1
   LockStartPosition: 1
+  AllCollidersToIgnore: []
   TagsToDamage:
   - Skin
   - Player
@@ -85,8 +87,6 @@ MonoBehaviour:
     Effects:
     - {fileID: 3377176041485713299, guid: f5973a37858ed07439978e742b77a3af, type: 3}
   HitSoundsAudioSource: {fileID: 8596535375398625462}
-  Collided: 0
-  Owner: {fileID: 0}
 --- !u!65 &2504160735544334013
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -212,6 +212,7 @@ TrailRenderer:
   m_LightProbeUsage: 0
   m_ReflectionProbeUsage: 0
   m_RayTracingMode: 0
+  m_RayTraceProcedural: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -318,3 +319,16 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &5199773362407597200
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6620032343166823715}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2dd2ca464ee8eb24194599ee8dfd276b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  AudioSource: {fileID: 8596535375398625462}

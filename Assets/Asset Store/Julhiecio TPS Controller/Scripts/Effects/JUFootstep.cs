@@ -10,7 +10,7 @@ namespace JUTPS.FX
         private Animator anim;
         [Header("FX Settings")]
         public AudioSource audioSource;
-        public List<SurfaceAudiosWithFX> FootstepAudioClips = new List<SurfaceAudiosWithFX>(4);
+        public SurfaceAudiosWithFX[] FootstepAudioClips ;
         public bool InvertX;
         [Range(0, 1)]
         public float MinTimeToPlayAudio = 0.3f;
@@ -147,22 +147,26 @@ namespace JUTPS.FX
         {
             LoadDefaultFootstepAudios(this);
         }
-        public static void LoadDefaultFootstepAudios(JUFootstep footsteper, string path = "Assets/Julhiecio TPS Controller/Audio/Footstep/CC0 Sounds/")
+        public static void LoadDefaultFootstepAudios(JUFootstep footsteper, string path = "Assets/Julhiecio TPS Controller/Audio/Footstep/")
         {
             if (!System.IO.Directory.Exists(path))
             {
                 Debug.LogError("Unable to load default footstep audios as the indicated path does not exist.");
                 return;
             }
+
+            var footstepClips = new List<SurfaceAudiosWithFX>();
             //Add empty cases
             for (int i = 0; i < 4; i++)
             {
-                footsteper.FootstepAudioClips.Add(new SurfaceAudiosWithFX());
-                for (int ii = 0; ii < 4; ii++)
+                footstepClips.Add(new SurfaceAudiosWithFX());
+                for (int x = 0; x < 4; x++)
                 {
-                    footsteper.FootstepAudioClips[i].AudioClips.Add(clip);
+                    footstepClips[i].AudioClips.Add(clip);
                 }
             }
+
+            footsteper.FootstepAudioClips = footstepClips.ToArray();
 
             //Load Footstep Audios
             footsteper.FootstepAudioClips[0].SurfaceTag = "Untagged";
@@ -185,7 +189,7 @@ namespace JUTPS.FX
                 {
                     Debug.LogWarning("Unable to load default audio: " + audioClipPath);
                 }
-                footsteper.FootstepAudioClips[0].AudioClips[i] = AssetDatabase.LoadAssetAtPath<AudioClip>(audioClipPath);
+                footsteper.FootstepAudioClips[1].AudioClips[i] = AssetDatabase.LoadAssetAtPath<AudioClip>(audioClipPath);
             }
 
             footsteper.FootstepAudioClips[2].SurfaceTag = "Grass";
@@ -196,7 +200,7 @@ namespace JUTPS.FX
                 {
                     Debug.LogWarning("Unable to load default audio: " + audioClipPath);
                 }
-                footsteper.FootstepAudioClips[0].AudioClips[i] = AssetDatabase.LoadAssetAtPath<AudioClip>(audioClipPath);
+                footsteper.FootstepAudioClips[2].AudioClips[i] = AssetDatabase.LoadAssetAtPath<AudioClip>(audioClipPath);
             }
 
             footsteper.FootstepAudioClips[3].SurfaceTag = "Tiles";
@@ -207,7 +211,7 @@ namespace JUTPS.FX
                 {
                     Debug.LogWarning("Unable to load default audio: " + audioClipPath);
                 }
-                footsteper.FootstepAudioClips[0].AudioClips[i] = AssetDatabase.LoadAssetAtPath<AudioClip>(audioClipPath);
+                footsteper.FootstepAudioClips[3].AudioClips[i] = AssetDatabase.LoadAssetAtPath<AudioClip>(audioClipPath);
             }
         }
 #endif

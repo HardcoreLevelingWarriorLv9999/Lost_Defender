@@ -49,9 +49,9 @@ namespace JUTPS.VehicleSystem
 
             if (vehicle.IsOn)
             {
-                bool accelerating = vehicle.GetVerticalInput() > 0;
-                bool reversing = vehicle.GetVerticalInput() < 0;
-                float engineMagnitude = new Vector2(vehicle.GetHorizontalInput(), vehicle.GetVerticalInput()).magnitude;
+                bool accelerating = vehicle.FinalThrottle > 0;
+                bool reversing = vehicle.FinalThrottle < 0;
+                float engineMagnitude = new Vector2(vehicle.FinalSteer, vehicle.FinalThrottle).magnitude;
                 if(!startedMotor) TurnOnMotor();
 
                 //Accelerate Pitch Sound
