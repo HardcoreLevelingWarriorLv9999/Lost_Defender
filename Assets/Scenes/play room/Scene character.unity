@@ -205,7 +205,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 50971686}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 273556852}
+        m_TargetAssemblyTypeName: ControllerSceneCharacter, Assembly-CSharp
+        m_MethodName: MeiChen
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &50971686
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -452,6 +464,12 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 167c370cabb74924fb47d856387afc5f, type: 3}
   - {fileID: 21300000, guid: 6450b6c39382d7844a2e0f2cfe340fa8, type: 3}
   - {fileID: 21300000, guid: 2144ee580d5d7ce4b9709d0c7a437d99, type: 3}
+  nameCharacter: {fileID: 1444757717}
+  characterInformation: {fileID: 1973668863}
+  Character1: {fileID: 1108052112129980, guid: e9147aea2cb072d4f8d12a3d937ab405, type: 3}
+  Character2: {fileID: 1074360255325880, guid: 48a943354704b2541a8762972e649378, type: 3}
+  Character3: {fileID: 1096376965629970, guid: 514f4359717d5744eada4c787ecae9f0, type: 3}
+  Character4: {fileID: 1019482250056662, guid: 20d517b6bcb926641acbb7b0dd7a273f, type: 3}
   nextSceneName: MenuScene
 --- !u!4 &273556853
 Transform:
@@ -550,7 +568,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 292203586}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 273556852}
+        m_TargetAssemblyTypeName: ControllerSceneCharacter, Assembly-CSharp
+        m_MethodName: AlexRodriguez
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &292203586
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -668,75 +698,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 518605012}
   m_CullTransparentMesh: 1
---- !u!1001 &575482665
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    serializedVersion: 3
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 1108052112129980, guid: e9147aea2cb072d4f8d12a3d937ab405, type: 3}
-      propertyPath: m_Name
-      value: Alex Rodriguez
-      objectReference: {fileID: 0}
-    - target: {fileID: 4106895909508856, guid: e9147aea2cb072d4f8d12a3d937ab405, type: 3}
-      propertyPath: m_LocalScale.x
-      value: 1.2
-      objectReference: {fileID: 0}
-    - target: {fileID: 4106895909508856, guid: e9147aea2cb072d4f8d12a3d937ab405, type: 3}
-      propertyPath: m_LocalScale.y
-      value: 1.2
-      objectReference: {fileID: 0}
-    - target: {fileID: 4106895909508856, guid: e9147aea2cb072d4f8d12a3d937ab405, type: 3}
-      propertyPath: m_LocalScale.z
-      value: 1.2
-      objectReference: {fileID: 0}
-    - target: {fileID: 4106895909508856, guid: e9147aea2cb072d4f8d12a3d937ab405, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4106895909508856, guid: e9147aea2cb072d4f8d12a3d937ab405, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: -0.3
-      objectReference: {fileID: 0}
-    - target: {fileID: 4106895909508856, guid: e9147aea2cb072d4f8d12a3d937ab405, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: -8
-      objectReference: {fileID: 0}
-    - target: {fileID: 4106895909508856, guid: e9147aea2cb072d4f8d12a3d937ab405, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4106895909508856, guid: e9147aea2cb072d4f8d12a3d937ab405, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4106895909508856, guid: e9147aea2cb072d4f8d12a3d937ab405, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4106895909508856, guid: e9147aea2cb072d4f8d12a3d937ab405, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4106895909508856, guid: e9147aea2cb072d4f8d12a3d937ab405, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4106895909508856, guid: e9147aea2cb072d4f8d12a3d937ab405, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 180
-      objectReference: {fileID: 0}
-    - target: {fileID: 4106895909508856, guid: e9147aea2cb072d4f8d12a3d937ab405, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-    m_RemovedGameObjects: []
-    m_AddedGameObjects: []
-    m_AddedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: e9147aea2cb072d4f8d12a3d937ab405, type: 3}
 --- !u!1 &668994054
 GameObject:
   m_ObjectHideFlags: 0
@@ -819,7 +780,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 668994057}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 273556852}
+        m_TargetAssemblyTypeName: ControllerSceneCharacter, Assembly-CSharp
+        m_MethodName: SarahEvans
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &668994057
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1198,7 +1171,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1154092158}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 273556852}
+        m_TargetAssemblyTypeName: ControllerSceneCharacter, Assembly-CSharp
+        m_MethodName: KaitoNakamura
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1154092158
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2231,4 +2216,3 @@ SceneRoots:
   - {fileID: 1755886338}
   - {fileID: 753400313}
   - {fileID: 273556853}
-  - {fileID: 575482665}

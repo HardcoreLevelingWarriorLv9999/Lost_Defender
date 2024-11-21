@@ -20,6 +20,9 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/MenuScene.unity
     guid: 19bf1cb722c826b4084b20d1e04b7dc6
+  - enabled: 1
+    path: Assets/Scenes/play room/Scene character.unity
+    guid: 0c04ade56e5dcca46849912c770285ea
   m_configObjects:
     com.unity.input.settings: {fileID: 11400000, guid: 9eb07e2d669e9c94e9d7d3c782a916f7,
       type: 2}

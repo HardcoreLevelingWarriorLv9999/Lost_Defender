@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using static Cinemachine.CinemachineTriggerAction.ActionSettings;
 
 public class Gameplay : MonoBehaviour
@@ -10,6 +11,7 @@ public class Gameplay : MonoBehaviour
     public GameObject hard;
     public GameObject nightmare;
     public GameObject gameplay;
+    public GameObject gameroom;
     public GameObject setting;
     public GameObject exit;
     public GameObject paneExit;
@@ -42,14 +44,12 @@ public class Gameplay : MonoBehaviour
         map4.SetActive(false);
         paneExit.SetActive(false);
 
-
         exit.SetActive(true);
         setting.SetActive(true);
         gameplay.SetActive(true);
-
+        gameroom.SetActive(true);
 
     }
-
     // Update is called once per frame
     public void PlayScreen()
     {
@@ -74,6 +74,7 @@ public class Gameplay : MonoBehaviour
         exit.SetActive(false);
         setting.SetActive(false);
         gameplay.SetActive(false);
+        gameroom.SetActive(false);
         easy.SetActive(true);
         gamemode1.SetActive(true);
     }
@@ -83,6 +84,7 @@ public class Gameplay : MonoBehaviour
         exit.SetActive(false);
         setting.SetActive(false);
         gameplay.SetActive(false);
+        gameroom.SetActive(false);
         normal.SetActive(true);
         gamemode2.SetActive(true);
     }
@@ -92,6 +94,7 @@ public class Gameplay : MonoBehaviour
         exit.SetActive(false);
         setting.SetActive(false);
         gameplay.SetActive(false);
+        gameroom.SetActive(false);
         hard.SetActive(true);
         gamemode3.SetActive(true);
     }
@@ -101,16 +104,17 @@ public class Gameplay : MonoBehaviour
         exit.SetActive(false);
         setting.SetActive(false);
         gameplay.SetActive(false);
+        gameroom.SetActive(false);
         nightmare.SetActive(true);
         gamemode4.SetActive(true);
     }
-
     public void Exiteasy()
     {
         gamemode.SetActive(true);
         exit.SetActive(true);
         setting.SetActive(true);
         gameplay.SetActive(true);
+        gameroom.SetActive(true);
         easy.SetActive(false);
         gamemode1.SetActive(false);
         map1.SetActive(false);
@@ -124,6 +128,7 @@ public class Gameplay : MonoBehaviour
         exit.SetActive(true);
         setting.SetActive(true);
         gameplay.SetActive(true);
+        gameroom.SetActive(true);
         normal.SetActive(false);
         gamemode2.SetActive(false);
         map1.SetActive(false);
@@ -137,6 +142,7 @@ public class Gameplay : MonoBehaviour
         exit.SetActive(true);
         setting.SetActive(true);
         gameplay.SetActive(true);
+        gameroom.SetActive(true);
         hard.SetActive(false);
         gamemode3.SetActive(false);
         map1.SetActive(false);
@@ -150,6 +156,7 @@ public class Gameplay : MonoBehaviour
         exit.SetActive(true);
         setting.SetActive(true);
         gameplay.SetActive(true);
+        gameroom.SetActive(true);
         nightmare.SetActive(false);
         gamemode4.SetActive(false);
         map1.SetActive(false);
@@ -198,5 +205,9 @@ public class Gameplay : MonoBehaviour
     {
         paneExit.SetActive(false);
         Time.timeScale = 1;
+    }
+    public void PlayRoom()
+    {
+        SceneManager.LoadScene("Scene character");
     }
 }
