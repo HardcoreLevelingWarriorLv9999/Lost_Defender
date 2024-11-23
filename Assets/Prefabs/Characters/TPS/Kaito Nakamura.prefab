@@ -1396,13 +1396,13 @@ GameObject:
   - component: {fileID: 1428788827849112614}
   - component: {fileID: 1917186372058510506}
   - component: {fileID: 3548235963349981378}
-  - component: {fileID: 7913684579415967238}
-  - component: {fileID: 1377883777633912983}
   - component: {fileID: 2806778651142946785}
   - component: {fileID: 1926547536394038070}
   - component: {fileID: 6238014463172928862}
+  - component: {fileID: 2225395213516730055}
+  - component: {fileID: 3930978184334519339}
   m_Layer: 9
-  m_Name: Kaito Nakamura 1
+  m_Name: Kaito Nakamura
   m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1417,7 +1417,7 @@ Transform:
   m_GameObject: {fileID: 2410419679430345934}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 25.081736, y: 0.14764726, z: 93.40032}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -1572,15 +1572,15 @@ MonoBehaviour:
   DesiredDirection: {x: 0, y: 0, z: 0}
   LocomotionMode: 0
   SetRigidbodyVelocity: 1
-  FireModeMaxTime: 1
+  FireModeMaxTime: 1.5
   Speed: 3
   WalkSpeed: 0.5
-  CrouchSpeed: 0.4
-  RunSpeed: 1
+  CrouchSpeed: 0.5
+  RunSpeed: 1.5
   SprintingSpeedMax: 3
   SprintingAcceleration: 2
   SprintingDeceleration: 0.6
-  RotationSpeed: 3
+  RotationSpeed: 5
   JumpForce: 3
   StoppingSpeed: 2
   AirInfluenceControll: 0.5
@@ -1588,22 +1588,22 @@ MonoBehaviour:
   CurvedMovement: 1
   LerpRotation: 1
   BodyInclination: 1
-  MovementAffectsWeaponAccuracy: 0
+  MovementAffectsWeaponAccuracy: 1
   OnMovePrecision: 4
   LookAtPosition: {x: 0, y: 0, z: 0}
   SprintingSkill: 1
-  SprintOnRunButton: 0
-  UnlimitedSprintDuration: 0
+  SprintOnRunButton: 1
+  UnlimitedSprintDuration: 1
   GroundAngleDesaceleration: 1
   GroundAngleDesacelerationMultiplier: 1.5
   GroundAngle: 0
   GroundNormal: {x: 0, y: 0, z: 0}
   GroundPoint: {x: 0, y: 0, z: 0}
-  RootMotion: 1
+  RootMotion: 0
   RootMotionSpeed: 1
   RootMotionRotation: 0
   RootMotionDeltaPosition: {x: 0, y: 0, z: 0}
-  RagdollWhenDie: 0
+  RagdollWhenDie: 1
   Events:
     OnDeath:
       m_PersistentCalls:
@@ -1646,7 +1646,7 @@ MonoBehaviour:
         m_Calls: []
   WhatIsGround:
     serializedVersion: 2
-    m_Bits: 71681
+    m_Bits: 71937
   GroundCheckRadius: 0.1
   GroundCheckHeighOfsset: 0.1
   GroundCheckSize: 0.5
@@ -1656,13 +1656,13 @@ MonoBehaviour:
   WallRayHeight: 1
   WallRayDistance: 0.6
   EnableStepCorrection: 1
-  UpStepSpeed: 5
+  UpStepSpeed: 4
   StepCorrectionMask:
     serializedVersion: 2
     m_Bits: 71681
-  FootstepHeight: 0.4
-  ForwardStepOffset: 0.6
-  StepHeight: 0.02
+  FootstepHeight: 0.54
+  ForwardStepOffset: 0.502
+  StepHeight: 0.059
   EnableUngroundedStepUp: 1
   UngroundedStepUpSpeed: 4
   UngroundedStepUpRayDistance: 0.1
@@ -1706,7 +1706,7 @@ MonoBehaviour:
   WeaponInUseLeftHand: {fileID: 0}
   MeleeWeaponInUseRightHand: {fileID: 0}
   MeleeWeaponInUseLeftHand: {fileID: 0}
-  AimMode: 0
+  AimMode: 1
   FireModeWalkSpeed: 0.5
   FireModeRunSpeed: 1.3
   FireModeCrouchSpeed: 0.5
@@ -1752,17 +1752,17 @@ MonoBehaviour:
   IsArtificialIntelligence: 0
   UseDefaultControllerInput: 1
   AutoRun: 1
-  WalkOnRunButton: 1
+  WalkOnRunButton: 0
   DecreaseSpeedOnJump: 0
   BlockVerticalInput: 0
   BlockHorizontalInput: 0
-  BlockFireModeOnCursorVisible: 0
+  BlockFireModeOnCursorVisible: 1
   BlockFireModeOnPunching: 1
   EnablePunchAttacks: 1
   EnableRoll: 1
   PhysicalDamage: 1
   DoRagdollPhysicalDamage: 1
-  PhysicalDamageStartAt: 25
+  PhysicalDamageStartAt: 30
   PhysicalDamageMultiplier: 0.8
   RagdollStartAtDamage: 10
   PhysicalDamageIgnoreTags:
@@ -1785,7 +1785,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   BlockBodyPositioning: 0
   EnableFootPlacement: 1
-  AdvancedMode: 0
+  AdvancedMode: 1
   GroundLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -1806,7 +1806,7 @@ MonoBehaviour:
   radius: 0.1
   EnableDynamicBodyPlacing: 1
   UpAndDownForce: 10
-  MaxBodyCrouchHeight: 0.65
+  MaxBodyCrouchHeight: 0.3
   JustCalculateBodyPosition: 0
   KeepCharacterOnGround: 0
   RaycastDistanceToGround: 1.2
@@ -1862,68 +1862,6 @@ MonoBehaviour:
   RootBoneDownMovementIntensity: 0.5
   BlockForwardLeanWeight: 8
   AxisToLean: 0
---- !u!114 &7913684579415967238
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2410419679430345934}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5238e6384da25284e8adadb2e9544db5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _startVehicle: {fileID: 0}
-  EnterVehiclesEnabled: 1
-  ExitVehiclesEnabled: 1
-  DisableCharacterOnEnter: 0
-  DelayToReenableAction: 0.2
-  UseDefaultInputs: 1
-  CheckNearVehicles:
-    Layer:
-      serializedVersion: 2
-      m_Bits: 1
-    AvoidObstacles: 1
-    EnterVehiclesAreaTag: VehicleArea
-    CheckRange: 2
-    AutoCheck: 1
-    AutoCheckInterval: 0.5
-  MaxVehicleSpeedToEnter: 3
-  MaxVehicleSpeedToExit: 1000
-  MaxCharacterSpeedToEnter: 1
-  GroundLayer:
-    serializedVersion: 2
-    m_Bits: 1
-  OnEnterVehicle:
-    m_PersistentCalls:
-      m_Calls: []
-  OnExitVehicle:
-    m_PersistentCalls:
-      m_Calls: []
---- !u!114 &1377883777633912983
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2410419679430345934}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 945aee53f47930a488ae796b0af5fb9f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Enabled: 1
-  FootPlacer: 0
-  GroundLayer:
-    serializedVersion: 2
-    m_Bits: 0
-  SpineLean: 1
-  LeanDirection: 0.2
-  ForwardLeanAxis: 0
-  SidesLeanAxis: 2
-  InvertForwardLean: 0
-  InvertSideLean: 0
 --- !u!114 &2806778651142946785
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2034,6 +1972,50 @@ MonoBehaviour:
   EnableAlphaNumericWeaponSwitch: 0
   EnableMouseScrollWeaponSwitch: 0
   ScrollThreshold: 0.1
+--- !u!114 &2225395213516730055
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2410419679430345934}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cc6deb64f70ce214dbaea92026b75c35, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  DestroyOnStartGame: 0
+  PlayerController: {fileID: 6171099952697190070}
+  VisualizationSettings:
+    ResourcesPath: 
+    GizmosColor: {r: 0, g: 0, b: 0, a: 0.5}
+    WireGizmosColor: {r: 0.9, g: 0.4, b: 0.2, a: 0.5}
+    StepVisualizerMesh: {fileID: -3964615163347849732, guid: 6b70b21f3295a7441b544a6f7bd820e9,
+      type: 3}
+  StepCorrection: 1
+  GroundCheck: 1
+  WallCheck: 1
+--- !u!114 &3930978184334519339
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2410419679430345934}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fa2549d042f8b6d41bb6289069865f19, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Health: 400
+  MaxHealth: 400
+  BloodScreenEffect: 1
+  BloodHitParticle: {fileID: 3377176041485713299, guid: f5973a37858ed07439978e742b77a3af,
+    type: 3}
+  OnDeath:
+    m_PersistentCalls:
+      m_Calls: []
+  IsDead: 0
 --- !u!1 &2641429372180775863
 GameObject:
   m_ObjectHideFlags: 0
