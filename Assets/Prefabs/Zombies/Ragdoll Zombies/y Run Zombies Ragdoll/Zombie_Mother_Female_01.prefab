@@ -1906,7 +1906,7 @@ GameObject:
   - component: {fileID: -5028195053692249378}
   m_Layer: 0
   m_Name: Zombie_Mother_Female_01
-  m_TagString: Zombie
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -8642,7 +8642,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7349112445915032155}
   serializedVersion: 2
-  m_LocalRotation: {x: -0.000000026077029, y: -0.0000000074505797, z: -0.26692253, w: 0.963718}
+  m_LocalRotation: {x: -0.000000026077029, y: -0.0000000074505797, z: -0.26692253,
+    w: 0.963718}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0

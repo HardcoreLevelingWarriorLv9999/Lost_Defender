@@ -7000,7 +7000,7 @@ GameObject:
   - component: {fileID: 4145584009727950909}
   m_Layer: 0
   m_Name: Zombie_Diver_Male_01
-  m_TagString: Zombie
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -7249,7 +7249,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7082929479682393279}
   serializedVersion: 2
-  m_LocalRotation: {x: -0.000000059604645, y: -0.000000009313226, z: -0.26188064, w: 0.9651003}
+  m_LocalRotation: {x: -0.000000059604645, y: -0.000000009313226, z: -0.26188064,
+    w: 0.9651003}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0

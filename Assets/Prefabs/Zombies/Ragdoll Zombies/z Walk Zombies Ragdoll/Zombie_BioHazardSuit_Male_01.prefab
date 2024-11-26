@@ -5303,7 +5303,7 @@ GameObject:
   - component: {fileID: -7328101729322945306}
   m_Layer: 0
   m_Name: Zombie_BioHazardSuit_Male_01
-  m_TagString: Zombie
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

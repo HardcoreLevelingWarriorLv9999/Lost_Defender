@@ -2504,7 +2504,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2286080676219746268}
   serializedVersion: 2
-  m_LocalRotation: {x: -0.000000014901161, y: -0.000000052154064, z: -0.24261686, w: 0.9701222}
+  m_LocalRotation: {x: -0.000000014901161, y: -0.000000052154064, z: -0.24261686,
+    w: 0.9701222}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -5872,7 +5873,7 @@ GameObject:
   - component: {fileID: 6134709532486731329}
   m_Layer: 0
   m_Name: Zombie_Bellboy_Male_01
-  m_TagString: Zombie
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

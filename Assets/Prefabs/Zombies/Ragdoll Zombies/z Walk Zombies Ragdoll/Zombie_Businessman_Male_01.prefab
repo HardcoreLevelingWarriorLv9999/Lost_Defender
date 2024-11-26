@@ -1330,7 +1330,7 @@ GameObject:
   - component: {fileID: -5693230046747151175}
   m_Layer: 0
   m_Name: Zombie_Businessman_Male_01
-  m_TagString: Zombie
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3801,7 +3801,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4283798564857426348}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.000000018626451, y: -0.0000000055879354, z: -0.27463016, w: 0.96155}
+  m_LocalRotation: {x: 0.000000018626451, y: -0.0000000055879354, z: -0.27463016,
+    w: 0.96155}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
