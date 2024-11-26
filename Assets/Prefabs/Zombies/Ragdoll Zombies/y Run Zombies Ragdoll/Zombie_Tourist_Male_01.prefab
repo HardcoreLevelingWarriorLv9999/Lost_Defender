@@ -3382,7 +3382,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2883489934014311335}
   serializedVersion: 2
-  m_LocalRotation: {x: -0.0000000037252899, y: 0.000000029802319, z: -0.25637424, w: 0.96657765}
+  m_LocalRotation: {x: -0.0000000037252899, y: 0.000000029802319, z: -0.25637424,
+    w: 0.96657765}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -5520,7 +5521,7 @@ GameObject:
   - component: {fileID: -997915939861637631}
   m_Layer: 0
   m_Name: Zombie_Tourist_Male_01
-  m_TagString: Zombie
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

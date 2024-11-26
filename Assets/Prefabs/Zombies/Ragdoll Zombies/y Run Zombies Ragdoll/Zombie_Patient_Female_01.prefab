@@ -1591,7 +1591,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1780907884168910805}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.000000014901159, y: -0.0000000037252899, z: -0.27110142, w: 0.96255076}
+  m_LocalRotation: {x: 0.000000014901159, y: -0.0000000037252899, z: -0.27110142,
+    w: 0.96255076}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -2037,7 +2038,7 @@ GameObject:
   - component: {fileID: 3132654956800960386}
   m_Layer: 0
   m_Name: Zombie_Patient_Female_01
-  m_TagString: Zombie
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

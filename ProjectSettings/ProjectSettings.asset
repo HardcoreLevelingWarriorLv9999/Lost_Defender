@@ -161,7 +161,7 @@ PlayerSettings:
   androidSupportedAspectRatio: 1
   androidMaxAspectRatio: 2.1
   applicationIdentifier:
-    Standalone: com.JulhiecioGameDev.JUTPS3Demo
+    Standalone: com.DefaultCompany.Final-Project
   buildNumber:
     Standalone: 0
     VisionOS: 0
@@ -959,7 +959,7 @@ PlayerSettings:
   hmiLogStartupTiming: 0
   hmiCpuConfiguration: 
   apiCompatibilityLevel: 6
-  activeInputHandler: 1
+  activeInputHandler: 2
   windowsGamepadBackendHint: 0
   cloudProjectId: 42215a06-e995-4ebd-bc1e-8eb9d6326e68
   framebufferDepthMemorylessMode: 0
