@@ -417,6 +417,7 @@ GameObject:
   - component: {fileID: 832476833911103435}
   - component: {fileID: 1389894987041144630}
   - component: {fileID: 1634441504960830458}
+  - component: {fileID: 3160474468499436179}
   m_Layer: 0
   m_Name: Hand_R
   m_TagString: Untagged
@@ -536,6 +537,21 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 0.2875217, y: 0.12190417, z: 0.12190417}
   m_Center: {x: 0.10862876, y: 0.007984637, z: -0.019108646}
+--- !u!114 &3160474468499436179
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 198140404714805032}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2544a33d486aa0e4a92ef99268fa3f1d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Health: {fileID: 0}
+  DamageMultiplier: 0.5
+  ArmorProtecting: {fileID: 0}
 --- !u!1 &231697150824757241
 GameObject:
   m_ObjectHideFlags: 0
@@ -1400,6 +1416,7 @@ GameObject:
   - component: {fileID: 8757988840084176560}
   - component: {fileID: 4823193739655394087}
   - component: {fileID: 8334352583040338367}
+  - component: {fileID: 8430159650127333311}
   m_Layer: 0
   m_Name: Shoulder_L
   m_TagString: Untagged
@@ -1519,6 +1536,21 @@ CapsuleCollider:
   m_Height: 0.3394804
   m_Direction: 0
   m_Center: {x: -0.16973713, y: -0.0007247501, z: -0.00071797706}
+--- !u!114 &8430159650127333311
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1429745034039004956}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2544a33d486aa0e4a92ef99268fa3f1d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Health: {fileID: 0}
+  DamageMultiplier: 0.5
+  ArmorProtecting: {fileID: 0}
 --- !u!1 &1530839029835912685
 GameObject:
   m_ObjectHideFlags: 0
@@ -3003,6 +3035,7 @@ GameObject:
   - component: {fileID: 4676220599394171297}
   - component: {fileID: 5372811399688365147}
   - component: {fileID: 124208880098290486}
+  - component: {fileID: 4176249068657483409}
   m_Layer: 0
   m_Name: Ankle_L
   m_TagString: Untagged
@@ -3100,6 +3133,21 @@ CharacterJoint:
   m_EnablePreprocessing: 0
   m_MassScale: 1
   m_ConnectedMassScale: 1
+--- !u!114 &4176249068657483409
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3138149135772879634}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2544a33d486aa0e4a92ef99268fa3f1d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Health: {fileID: 0}
+  DamageMultiplier: 0.8
+  ArmorProtecting: {fileID: 0}
 --- !u!1 &3274688662309210240
 GameObject:
   m_ObjectHideFlags: 0
@@ -3112,6 +3160,7 @@ GameObject:
   - component: {fileID: 4050547801363600589}
   - component: {fileID: 7475385550692893574}
   - component: {fileID: 6908652353581151163}
+  - component: {fileID: 1275152922110489948}
   m_Layer: 0
   m_Name: UpperLeg_L
   m_TagString: Untagged
@@ -3231,6 +3280,21 @@ CapsuleCollider:
   m_Height: 0.39930993
   m_Direction: 0
   m_Center: {x: 0.19965497, y: -0.00000059232116, z: -0.00000027939677}
+--- !u!114 &1275152922110489948
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3274688662309210240}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2544a33d486aa0e4a92ef99268fa3f1d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Health: {fileID: 0}
+  DamageMultiplier: 0.8
+  ArmorProtecting: {fileID: 0}
 --- !u!1 &3327354109368398063
 GameObject:
   m_ObjectHideFlags: 0
@@ -4511,6 +4575,7 @@ GameObject:
   - component: {fileID: 2284502434372927114}
   - component: {fileID: 1170630372054251564}
   - component: {fileID: 4571070112709441797}
+  - component: {fileID: 5417588098479767830}
   m_Layer: 0
   m_Name: Ankle_R
   m_TagString: Untagged
@@ -4608,6 +4673,21 @@ CharacterJoint:
   m_EnablePreprocessing: 0
   m_MassScale: 1
   m_ConnectedMassScale: 1
+--- !u!114 &5417588098479767830
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4297081293413170248}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2544a33d486aa0e4a92ef99268fa3f1d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Health: {fileID: 0}
+  DamageMultiplier: 0.8
+  ArmorProtecting: {fileID: 0}
 --- !u!1 &4340808184930665110
 GameObject:
   m_ObjectHideFlags: 0
@@ -4787,6 +4867,7 @@ GameObject:
   - component: {fileID: 6223745822510943791}
   - component: {fileID: 2533908465088545181}
   - component: {fileID: 5583227674897646347}
+  - component: {fileID: 2690165012004438907}
   m_Layer: 0
   m_Name: Shoulder_R
   m_TagString: Untagged
@@ -4906,6 +4987,21 @@ CapsuleCollider:
   m_Height: 0.33948055
   m_Direction: 0
   m_Center: {x: 0.1697372, y: 0.00072426815, z: 0.0007179724}
+--- !u!114 &2690165012004438907
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4528000164612992962}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2544a33d486aa0e4a92ef99268fa3f1d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Health: {fileID: 0}
+  DamageMultiplier: 0.5
+  ArmorProtecting: {fileID: 0}
 --- !u!1 &4538742514677476030
 GameObject:
   m_ObjectHideFlags: 0
@@ -5954,6 +6050,7 @@ GameObject:
   - component: {fileID: 2355337968970556785}
   - component: {fileID: 2240103127134023380}
   - component: {fileID: 3412122673005355657}
+  - component: {fileID: 7537697590416109379}
   m_Layer: 0
   m_Name: Elbow_R
   m_TagString: Untagged
@@ -6074,6 +6171,21 @@ CapsuleCollider:
   m_Height: 0.2711444
   m_Direction: 0
   m_Center: {x: 0.13557206, y: 0.00000046413697, z: 0.00018981981}
+--- !u!114 &7537697590416109379
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5133678360816199062}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2544a33d486aa0e4a92ef99268fa3f1d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Health: {fileID: 0}
+  DamageMultiplier: 0.5
+  ArmorProtecting: {fileID: 0}
 --- !u!1 &5155771810077344409
 GameObject:
   m_ObjectHideFlags: 0
@@ -6085,6 +6197,7 @@ GameObject:
   - component: {fileID: 6665240314567727591}
   - component: {fileID: 3177727815683270476}
   - component: {fileID: 1114003093910595777}
+  - component: {fileID: 6710242265744894802}
   m_Layer: 0
   m_Name: Hips
   m_TagString: Untagged
@@ -6158,6 +6271,21 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 0.2616967, y: 0.34295025, z: 0.32}
   m_Center: {x: -0.060820624, y: -0.0009230338, z: 0}
+--- !u!114 &6710242265744894802
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5155771810077344409}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2544a33d486aa0e4a92ef99268fa3f1d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Health: {fileID: 0}
+  DamageMultiplier: 1
+  ArmorProtecting: {fileID: 0}
 --- !u!1 &5391931381784334347
 GameObject:
   m_ObjectHideFlags: 0
@@ -6305,6 +6433,7 @@ GameObject:
   - component: {fileID: 1825437382267219599}
   - component: {fileID: 707737310969760627}
   - component: {fileID: 1571622431018121126}
+  - component: {fileID: 7944103549691133733}
   m_Layer: 0
   m_Name: LowerLeg_L
   m_TagString: Untagged
@@ -6425,6 +6554,21 @@ CapsuleCollider:
   m_Height: 0.3771228
   m_Direction: 0
   m_Center: {x: 0.1885614, y: 0.00000051781535, z: -0.0000004367903}
+--- !u!114 &7944103549691133733
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5429078089477304413}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2544a33d486aa0e4a92ef99268fa3f1d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Health: {fileID: 0}
+  DamageMultiplier: 0.8
+  ArmorProtecting: {fileID: 0}
 --- !u!1 &5568396911038254829
 GameObject:
   m_ObjectHideFlags: 0
@@ -6469,6 +6613,7 @@ GameObject:
   - component: {fileID: 7273532579400711890}
   - component: {fileID: 3618849077235906647}
   - component: {fileID: 1354927100000029153}
+  - component: {fileID: 1846261207223971709}
   m_Layer: 0
   m_Name: LowerLeg_R
   m_TagString: Untagged
@@ -6589,6 +6734,21 @@ CapsuleCollider:
   m_Height: 0.37712318
   m_Direction: 0
   m_Center: {x: -0.18856159, y: -0.00000045262277, z: 0.00000022351742}
+--- !u!114 &1846261207223971709
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5754613214707441748}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2544a33d486aa0e4a92ef99268fa3f1d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Health: {fileID: 0}
+  DamageMultiplier: 0.8
+  ArmorProtecting: {fileID: 0}
 --- !u!1 &5823829671361844981
 GameObject:
   m_ObjectHideFlags: 0
@@ -6768,6 +6928,7 @@ GameObject:
   - component: {fileID: 2874247048286567124}
   - component: {fileID: 559392031970834743}
   - component: {fileID: 7427019523363657604}
+  - component: {fileID: 8282139391467553551}
   m_Layer: 0
   m_Name: Head
   m_TagString: Untagged
@@ -6887,6 +7048,21 @@ SphereCollider:
   serializedVersion: 3
   m_Radius: 0.099999994
   m_Center: {x: -4.772182e-16, y: 0.09, z: 0.029999994}
+--- !u!114 &8282139391467553551
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5860178604356299412}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2544a33d486aa0e4a92ef99268fa3f1d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Health: {fileID: 0}
+  DamageMultiplier: 3
+  ArmorProtecting: {fileID: 0}
 --- !u!1 &5918243174454554725
 GameObject:
   m_ObjectHideFlags: 0
@@ -8790,6 +8966,7 @@ GameObject:
   - component: {fileID: 2850524665231089289}
   - component: {fileID: 5512589703475995089}
   - component: {fileID: 266069690200748240}
+  - component: {fileID: 1158896751843299173}
   m_Layer: 0
   m_Name: Elbow_L
   m_TagString: Untagged
@@ -8910,6 +9087,21 @@ CapsuleCollider:
   m_Height: 0.27114484
   m_Direction: 0
   m_Center: {x: -0.13557228, y: -0.00000023586472, z: -0.00018983542}
+--- !u!114 &1158896751843299173
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7045135990833208271}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2544a33d486aa0e4a92ef99268fa3f1d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Health: {fileID: 0}
+  DamageMultiplier: 0.5
+  ArmorProtecting: {fileID: 0}
 --- !u!1 &7117213588464892040
 GameObject:
   m_ObjectHideFlags: 0
@@ -9412,6 +9604,7 @@ GameObject:
   - component: {fileID: 1064919692757144275}
   - component: {fileID: 2276503800307550787}
   - component: {fileID: 3426476418339297293}
+  - component: {fileID: 3186785825049125680}
   m_Layer: 0
   m_Name: Spine_02
   m_TagString: Untagged
@@ -9529,6 +9722,21 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 0.2954503, y: 0.32666367, z: 0.34}
   m_Center: {x: -0.10424572, y: -0.014931954, z: 3.272895e-16}
+--- !u!114 &3186785825049125680
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7534723130116639440}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2544a33d486aa0e4a92ef99268fa3f1d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Health: {fileID: 0}
+  DamageMultiplier: 1
+  ArmorProtecting: {fileID: 0}
 --- !u!1 &7633738350542758935
 GameObject:
   m_ObjectHideFlags: 0
@@ -9541,6 +9749,7 @@ GameObject:
   - component: {fileID: 2004305253397296755}
   - component: {fileID: 6317663455930945956}
   - component: {fileID: 5421694759255822290}
+  - component: {fileID: 2398773506647576464}
   m_Layer: 0
   m_Name: UpperLeg_R
   m_TagString: Untagged
@@ -9660,6 +9869,21 @@ CapsuleCollider:
   m_Height: 0.39931
   m_Direction: 0
   m_Center: {x: -0.199655, y: -0.00000033155084, z: 0.0000003017485}
+--- !u!114 &2398773506647576464
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7633738350542758935}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2544a33d486aa0e4a92ef99268fa3f1d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Health: {fileID: 0}
+  DamageMultiplier: 0.8
+  ArmorProtecting: {fileID: 0}
 --- !u!1 &7664022493079716073
 GameObject:
   m_ObjectHideFlags: 0
@@ -10102,6 +10326,7 @@ GameObject:
   - component: {fileID: 2433233945739498281}
   - component: {fileID: 5771553653408899161}
   - component: {fileID: 315624248656935402}
+  - component: {fileID: 3716474966656036280}
   m_Layer: 0
   m_Name: Hand_L
   m_TagString: Untagged
@@ -10221,6 +10446,21 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 0.28752723, y: 0.12190413, z: 0.12190413}
   m_Center: {x: -0.10863075, y: -0.007987252, z: 0.019108612}
+--- !u!114 &3716474966656036280
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8113772846790998401}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2544a33d486aa0e4a92ef99268fa3f1d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Health: {fileID: 0}
+  DamageMultiplier: 0.5
+  ArmorProtecting: {fileID: 0}
 --- !u!1 &8165840592179218403
 GameObject:
   m_ObjectHideFlags: 0
@@ -10814,17 +11054,17 @@ PrefabInstance:
     - target: {fileID: 229758324329856889, guid: dbff4f001c46b2447a88eaecdd12bbf6,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -0.00000016391277
+      value: -0.387
       objectReference: {fileID: 0}
     - target: {fileID: 229758324329856889, guid: dbff4f001c46b2447a88eaecdd12bbf6,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.70000017
+      value: 0.013
       objectReference: {fileID: 0}
     - target: {fileID: 229758324329856889, guid: dbff4f001c46b2447a88eaecdd12bbf6,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0.00000023003668
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 229758324329856889, guid: dbff4f001c46b2447a88eaecdd12bbf6,
         type: 3}
@@ -10940,6 +11180,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: HitBox
       objectReference: {fileID: 0}
+    - target: {fileID: 6620032343166823715, guid: dbff4f001c46b2447a88eaecdd12bbf6,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -11014,6 +11259,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: HitBox
       objectReference: {fileID: 0}
+    - target: {fileID: 6620032343166823715, guid: dbff4f001c46b2447a88eaecdd12bbf6,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -11036,17 +11286,17 @@ PrefabInstance:
     - target: {fileID: 229758324329856889, guid: dbff4f001c46b2447a88eaecdd12bbf6,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -0.00000025704503
+      value: 0.354
       objectReference: {fileID: 0}
     - target: {fileID: 229758324329856889, guid: dbff4f001c46b2447a88eaecdd12bbf6,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.7000001
+      value: -0.012
       objectReference: {fileID: 0}
     - target: {fileID: 229758324329856889, guid: dbff4f001c46b2447a88eaecdd12bbf6,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: -0.0000004437752
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 229758324329856889, guid: dbff4f001c46b2447a88eaecdd12bbf6,
         type: 3}
