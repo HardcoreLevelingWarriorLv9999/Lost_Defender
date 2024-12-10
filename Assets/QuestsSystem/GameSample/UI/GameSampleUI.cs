@@ -1,60 +1,55 @@
-// Quests system
-// Created by SoloQ - https://soloq-dev.wixsite.com/main
-
 using UnityEngine.UIElements;
 
 namespace QuestGameSample
 {
     /// <summary>
-    /// I decided to use UI without the help of MonoBehaviour
+    /// UI quản lý các màn hình trong game
     /// </summary>
     public class GameSampleUI : VisualElement
     {
         public new class UxmlFactory : UxmlFactory<GameSampleUI, UxmlTraits> { }
 
         private static GameSampleUI instance;
-        /// <summary>
-        /// When called in case of not initialized components, 
-        /// it initialize them
-        /// </summary>
+
         public static GameSampleUI Instance
         {
             get
             {
-                if (!instance.initialised) //Isitialize check
+                if (!instance.initialised)
                 {
-                    instance.InitComponents();
+                    instance.InitComponents(); // Đảm bảo khởi tạo các UI elements
                 }
 
                 return instance;
             }
-
             private set { instance = value; }
         }
 
         public bool initialised;
 
-        //List of all screens
+        // Các màn hình UI
         private VisualElement startScreen, gameScreen, endScreen;
 
-        /// <summary>
-        /// Using a constructor instead of Start/Awake
-        /// </summary>
         public GameSampleUI()
         {
             Instance = this;
         }
 
         /// <summary>
-        /// Launches the start screen
+        /// Hiển thị màn hình bắt đầu (được bỏ qua và chuyển trực tiếp vào game)
         /// </summary>
         public void StartScreen()
         {
-            startScreen.style.display = DisplayStyle.Flex;
+            if (!initialised)
+            {
+                InitComponents(); // Đảm bảo UI được khởi tạo
+            }
+
+            StartGame(); // Bỏ qua start screen, gọi thẳng vào game
         }
 
         /// <summary>
-        /// Initialization of all components
+        /// Khởi tạo các thành phần UI
         /// </summary>
         private void InitComponents()
         {
@@ -62,39 +57,46 @@ namespace QuestGameSample
             gameScreen = contentContainer.Q<VisualElement>("Game-Screen");
             endScreen = contentContainer.Q<VisualElement>("End-Screen");
 
-            startScreen.Q<Button>("Play-Button").clicked += StartGame;
+            if (startScreen != null)
+            {
+                startScreen.Q<Button>("Play-Button").clicked += StartGame;
+            }
 
             initialised = true;
         }
 
         /// <summary>
-        /// Disabling all screens for the further display of one
+        /// Tắt tất cả các màn hình
         /// </summary>
         private void DisableAllScreens()
         {
-            startScreen.style.display = DisplayStyle.None;
-            gameScreen.style.display = DisplayStyle.None;
-            endScreen.style.display = DisplayStyle.None;
+            if (startScreen != null) startScreen.style.display = DisplayStyle.None;
+            if (gameScreen != null) gameScreen.style.display = DisplayStyle.None;
+            if (endScreen != null) endScreen.style.display = DisplayStyle.None;
         }
 
         /// <summary>
-        /// Activates the game screen
+        /// Bắt đầu game, hiển thị màn hình game
         /// </summary>
         public void StartGame()
         {
+            if (!initialised)
+            {
+                InitComponents();
+            }
+
             DisableAllScreens();
-            gameScreen.style.display = DisplayStyle.Flex;
+            if (gameScreen != null) gameScreen.style.display = DisplayStyle.Flex;
 
             GameSample.Instance.StartGame();
         }
 
         /// <summary>
-        /// Activates the end game screen
+        /// Hiển thị màn hình kết thúc (bỏ qua)
         /// </summary>
         public void EndGame()
         {
             DisableAllScreens();
-            endScreen.style.display = DisplayStyle.Flex;
         }
     }
 }

@@ -38,7 +38,7 @@ namespace QuestsSystem.CustomEditor
         private string QUEST_LOGIC_IS_MISSING_PATH;
         private string QUEST_LOGIC_IS_EXIST_PATH;
 
-        private const string NEW_QUEST_CONFIG_PATH = "Assets/QuestsSystem/Resources/Configs/Quests/"; //Path for new quest configs
+        private const string NEW_QUEST_CONFIG_PATH = "Assets/Scripts/Quests/"; //Path for new quest configs
 
         private List<QuestItem_EditorUI> instantiatedQuests = new List<QuestItem_EditorUI>();
 

@@ -6,9 +6,14 @@ namespace QuestsSystem
 		FindJoe,
 		GetAthleticLikeEren,
 		GoToTheVillage,
-		HelloUpdate,
 		StevesFlower,
 		TalkToJoe,
-		WelcomeToTheVillage
+		WelcomeToTheVillage,
+		ExploringTheNeighborhood,
+		FinalDefense,
+		MilitaryCampaign,
+		PlaneCrash,
+		RoadToTheEndPoint,
+		Tutorial
     }
 }
