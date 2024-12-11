@@ -7,6 +7,8 @@ using UnityEngine.UI;
 public class InputField : MonoBehaviour
 {
     public TMP_InputField tmpInputField;
+    internal string text;
+
     // Start is called before the first frame update
     void Start()
     {

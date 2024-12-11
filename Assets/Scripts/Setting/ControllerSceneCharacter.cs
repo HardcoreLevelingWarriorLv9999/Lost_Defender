@@ -15,7 +15,7 @@ public class ControllerSceneCharacter : MonoBehaviour
     public GameObject Character3;
     public GameObject Character4;
     private GameObject currentCharacter;
-    public string nextSceneName;
+  
     void Start()
     {
         StartCoroutine(ShowImages());
@@ -23,6 +23,7 @@ public class ControllerSceneCharacter : MonoBehaviour
         characterInformation.text = "Alex Rodriguez character information ";
         DestroyCurrentCharacter();
         CreateCharacter(Character1);
+        PlayerPrefs.SetString("PlayerName", "Alex Rodriguez");
     }
 
     IEnumerator ShowImages()
@@ -32,7 +33,7 @@ public class ControllerSceneCharacter : MonoBehaviour
             displayImage.sprite = images[i]; // Hiển thị hình ảnh từ mảng
             yield return new WaitForSeconds(1); // Đợi 1 giây
         }
-        SceneManager.LoadScene(nextSceneName);
+
     }
     public void AlexRodriguez()
     {
@@ -40,6 +41,7 @@ public class ControllerSceneCharacter : MonoBehaviour
         characterInformation.text = "Alex Rodriguez character information ";
         DestroyCurrentCharacter(); 
         CreateCharacter(Character1);
+        PlayerPrefs.SetString("PlayerName", "Alex Rodriguez");
     }
     public void KaitoNakamura()
     {
@@ -47,6 +49,7 @@ public class ControllerSceneCharacter : MonoBehaviour
         characterInformation.text = "Kaito Nakamura character information";
         DestroyCurrentCharacter(); 
         CreateCharacter(Character2);
+        PlayerPrefs.SetString("PlayerName", "Kaito Nakamura");
     }
     public void MeiChen()
     {
@@ -54,6 +57,7 @@ public class ControllerSceneCharacter : MonoBehaviour
         characterInformation.text = "Mei Chen character information";
         DestroyCurrentCharacter();
         CreateCharacter(Character3);
+        PlayerPrefs.SetString("PlayerName", "Mei Chen");
     }
     public void SarahEvans()
     {
@@ -61,6 +65,7 @@ public class ControllerSceneCharacter : MonoBehaviour
         characterInformation.text = "Sarah Evans character information";
         DestroyCurrentCharacter();
         CreateCharacter(Character4);
+        PlayerPrefs.SetString("PlayerName", "Sarah Evans");
     }
 
     void DestroyCurrentCharacter()
