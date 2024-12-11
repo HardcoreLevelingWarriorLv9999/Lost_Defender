@@ -15,6 +15,7 @@ public class Gameplay : MonoBehaviour
     public GameObject setting;
     public GameObject exit;
     public GameObject paneExit;
+    public GameObject paneSetting;
     public GameObject gamemode;
     public GameObject gamemode1;
     public GameObject gamemode2;
@@ -43,6 +44,7 @@ public class Gameplay : MonoBehaviour
         map3.SetActive(false);
         map4.SetActive(false);
         paneExit.SetActive(false);
+        paneSetting.SetActive(false);
 
         exit.SetActive(true);
         setting.SetActive(true);
@@ -209,5 +211,28 @@ public class Gameplay : MonoBehaviour
     public void PlayRoom()
     {
         SceneManager.LoadScene("Scene character");
+    }
+    public void Setting()
+    {
+        bool isActive = paneSetting.activeSelf;
+        paneSetting.SetActive(!isActive);
+        ;
+        if (!isActive)
+        {
+            gamemode.SetActive(false);
+            exit.SetActive(false);
+            gameplay.SetActive(false);
+            gameroom.SetActive(false);
+            imageA.rotation = Quaternion.Euler(0, 0, -90);
+        }
+        else
+        {
+            exit.SetActive(true);
+            gameplay.SetActive(true);
+            gameroom.SetActive(true);
+            imageA.rotation = Quaternion.Euler(0, 0, 0);
+        }
+        setting.SetActive(true);
+
     }
 }
