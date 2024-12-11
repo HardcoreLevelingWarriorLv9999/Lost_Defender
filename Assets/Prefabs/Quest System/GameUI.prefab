@@ -48,4 +48,4 @@ MonoBehaviour:
   m_ParentUI: {fileID: 0}
   sourceAsset: {fileID: 9197481963319205126, guid: 2f027fdf118ffd84c8968f6d04d7643a,
     type: 3}
-  m_SortingOrder: 0
+  m_SortingOrder: -5

@@ -1,18 +1,22 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using QuestsSystem;
 
 public class Items_Interactive : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+        private void OnInteractive()
+        {
+            // Check for quest existing in active quests
+            if (QuestsManager.Instance.IsQuestActive(QuestsNames.PlaneCrash))
+            {
+                // gameObject.SetActive(false);
+                QuestsManager.Instance.UpdateQuestProgress(QuestsNames.PlaneCrash);
+            }
+        }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+        private void OnDestroy()
+        {
+            OnInteractive();
+        }
 }
