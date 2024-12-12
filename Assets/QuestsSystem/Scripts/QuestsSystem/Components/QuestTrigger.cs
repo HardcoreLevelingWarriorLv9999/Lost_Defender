@@ -33,7 +33,8 @@ namespace QuestsSystem
                         break;
                 }
 
-                gameObject.SetActive(false); //self-disabling
+                // gameObject.SetActive(false); //self-disabling
+                Destroy(gameObject);
             }
         }
 

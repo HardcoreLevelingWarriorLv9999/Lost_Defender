@@ -30,7 +30,8 @@ Transform:
   m_LocalPosition: {x: 32.1, y: 0, z: 76.2}
   m_LocalScale: {x: 19.718, y: 43.377865, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 8645983056594632506}
   m_Father: {fileID: 4630160356100915024}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!65 &5648004821138691868
@@ -68,6 +69,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   panel: {fileID: 0}
   instructionText: {fileID: 0}
+  shootTriggerChild: {fileID: 6050272168507235887}
 --- !u!1 &2458862328264606130
 GameObject:
   m_ObjectHideFlags: 0
@@ -98,7 +100,8 @@ Transform:
   m_LocalPosition: {x: 32.1, y: 0, z: 105.2}
   m_LocalScale: {x: 19.718, y: 43.377865, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 4418751691478759674}
   m_Father: {fileID: 4630160356100915024}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!65 &2410088068499595033
@@ -136,6 +139,38 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   panel: {fileID: 0}
   instructionText: {fileID: 0}
+  shootTriggerChild: {fileID: 2959035042908404686}
+--- !u!1 &2959035042908404686
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4418751691478759674}
+  m_Layer: 0
+  m_Name: Waypoint Shoot Trigger (1)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4418751691478759674
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2959035042908404686}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: -41.899998}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 7928439665523223152}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &5389079978759533033
 GameObject:
   m_ObjectHideFlags: 0
@@ -182,8 +217,8 @@ GameObject:
   m_Component:
   - component: {fileID: 5243640836062635935}
   - component: {fileID: 8478586600862104598}
-  - component: {fileID: 7844429937344451436}
   - component: {fileID: 5954918305371340267}
+  - component: {fileID: 6718182316222745225}
   m_Layer: 2
   m_Name: Start Final Quest
   m_TagString: Untagged
@@ -227,7 +262,19 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &7844429937344451436
+--- !u!114 &5954918305371340267
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5781150202237527023}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 56cfa5d5fc482bb4e8c2038598d789cc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &6718182316222745225
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -241,18 +288,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   questName: 8
   triggerType: 0
---- !u!114 &5954918305371340267
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5781150202237527023}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 56cfa5d5fc482bb4e8c2038598d789cc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &5872145558888773987
 GameObject:
   m_ObjectHideFlags: 0
@@ -288,6 +323,99 @@ Transform:
   - {fileID: 4630160356100915024}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &6050272168507235887
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 8645983056594632506}
+  m_Layer: 0
+  m_Name: Waypoint Shoot Trigger (3)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &8645983056594632506
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6050272168507235887}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: -12.899998}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 8296160044964141786}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &6113531482493453217
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4085088428667658508}
+  m_Layer: 0
+  m_Name: Waypoint Shoot Trigger (2)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4085088428667658508
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6113531482493453217}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: -30.2}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 7511791363510052262}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &6860841709397021453
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 7474172517788713518}
+  m_Layer: 0
+  m_Name: Waypoint Shoot Trigger
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &7474172517788713518
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6860841709397021453}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 818648867258269329}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &6869919903661948069
 GameObject:
   m_ObjectHideFlags: 0
@@ -318,7 +446,8 @@ Transform:
   m_LocalPosition: {x: 32.1, y: 0, z: 93.5}
   m_LocalScale: {x: 19.718, y: 43.377865, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 4085088428667658508}
   m_Father: {fileID: 4630160356100915024}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!65 &4700768104693917177
@@ -356,6 +485,38 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   panel: {fileID: 0}
   instructionText: {fileID: 0}
+  shootTriggerChild: {fileID: 6113531482493453217}
+--- !u!1 &7058849321054987086
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6141028698081956297}
+  m_Layer: 0
+  m_Name: Waypoint Shoot Trigger
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &6141028698081956297
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7058849321054987086}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: -53.600002}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 177952933331898208}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &7656718647343183296
 GameObject:
   m_ObjectHideFlags: 0
@@ -366,7 +527,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7014150347406663384}
   - component: {fileID: 7595997969676750576}
-  - component: {fileID: 2486926687701725619}
+  - component: {fileID: 1070723283087077455}
   m_Layer: 2
   m_Name: Start First Quest
   m_TagString: Untagged
@@ -410,7 +571,7 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &2486926687701725619
+--- !u!114 &1070723283087077455
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -454,7 +615,8 @@ Transform:
   m_LocalPosition: {x: 32.1, y: 0, z: 116.9}
   m_LocalScale: {x: 19.718, y: 43.377865, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 6141028698081956297}
   m_Father: {fileID: 4630160356100915024}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!65 &324193642679559215
@@ -492,6 +654,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   panel: {fileID: 0}
   instructionText: {fileID: 0}
+  shootTriggerChild: {fileID: 7058849321054987086}
 --- !u!1 &8530765901796172720
 GameObject:
   m_ObjectHideFlags: 0
@@ -501,7 +664,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3796566308620181993}
-  - component: {fileID: 2556213061797680896}
   m_Layer: 0
   m_Name: Time Trigger
   m_TagString: Untagged
@@ -517,27 +679,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8530765901796172720}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 33.72557, y: 1.537016, z: 131.98419}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalRotation: {x: -0, y: -0.69608724, z: -0, w: 0.7179573}
+  m_LocalPosition: {x: 98.25, y: 3.9728496, z: 16}
+  m_LocalScale: {x: 67.72987, y: 10.424997, z: 8.441588}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 3618503907282981135}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &2556213061797680896
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8530765901796172720}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1e7d868ad4c0fcc419fd594813d5516a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  trigger: {fileID: 5781150202237527023}
-  timer: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: -88.228, z: 0}
 --- !u!1 &9187734244801956294
 GameObject:
   m_ObjectHideFlags: 0
@@ -568,7 +716,8 @@ Transform:
   m_LocalPosition: {x: 32.1, y: 0, z: 63.3}
   m_LocalScale: {x: 19.718, y: 43.377865, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 7474172517788713518}
   m_Father: {fileID: 4630160356100915024}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!65 &4926232732173454629
@@ -606,3 +755,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   panel: {fileID: 0}
   instructionText: {fileID: 0}
+  shootTriggerChild: {fileID: 6860841709397021453}
