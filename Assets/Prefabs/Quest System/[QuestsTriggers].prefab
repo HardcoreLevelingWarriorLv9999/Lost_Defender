@@ -664,6 +664,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3796566308620181993}
+  - component: {fileID: 1851951884749641938}
   m_Layer: 0
   m_Name: Time Trigger
   m_TagString: Untagged
@@ -686,6 +687,20 @@ Transform:
   m_Children: []
   m_Father: {fileID: 3618503907282981135}
   m_LocalEulerAnglesHint: {x: 0, y: -88.228, z: 0}
+--- !u!114 &1851951884749641938
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8530765901796172720}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1e7d868ad4c0fcc419fd594813d5516a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  trigger: {fileID: 5781150202237527023}
+  timer: {fileID: 0}
 --- !u!1 &9187734244801956294
 GameObject:
   m_ObjectHideFlags: 0
