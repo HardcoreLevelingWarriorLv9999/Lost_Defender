@@ -8953,7 +8953,7 @@ GameObject:
   - component: {fileID: 2202068747408345993}
   - component: {fileID: 7928737920079347018}
   m_Layer: 5
-  m_Name: JUTPS Default User Interface
+  m_Name: JUTPS Default User Interface 1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
