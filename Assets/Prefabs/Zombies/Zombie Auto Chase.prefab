@@ -1,0 +1,81 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &5007176762009204545
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1989978084080213741}
+  - component: {fileID: 2742289130199367157}
+  m_Layer: 0
+  m_Name: Zombie Auto Chase
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1989978084080213741
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5007176762009204545}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2742289130199367157
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5007176762009204545}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bcf2ed0f533dc094fb75e50a86d7d454, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  zombiePrefabs:
+  - {fileID: 4461267754156854964, guid: 6f809e61d423509478597dbbd6e494ec, type: 3}
+  - {fileID: 4928893519417976379, guid: 20992312922420040bb06a015c793d2f, type: 3}
+  - {fileID: 4815957462614144859, guid: b40e018e3bb00844baea4911bfb481fa, type: 3}
+  - {fileID: 3803623959828281378, guid: 604bdb111671b7f4caaaba9fd5007c58, type: 3}
+  - {fileID: 8747223620902028519, guid: 73855b3fcd9e91142b15167620a8b27c, type: 3}
+  - {fileID: 1321366418302978598, guid: e97a3bca978e209469c50247a4a834e4, type: 3}
+  - {fileID: 4909257474563547632, guid: d81d0b58fe9ea904292c75f22224038a, type: 3}
+  - {fileID: 3325316077882255332, guid: 3486a2d9e1ed60c41824e59dedd47744, type: 3}
+  - {fileID: 5423769417348653314, guid: f54d21475379e114abfe9fdb6436e342, type: 3}
+  - {fileID: 2680084185837612826, guid: 6812b8616f64cd0499060f13a0e8d63b, type: 3}
+  - {fileID: 4466216446261676434, guid: 8b6df422c8e4f3f489d11c9234d270b8, type: 3}
+  - {fileID: 7025450620138612253, guid: fd3349e82bd2c194b85108d124df1528, type: 3}
+  - {fileID: 8268803395928497829, guid: 3a5ee70e43b65ee40899209ece5f4346, type: 3}
+  - {fileID: 2174158672291657978, guid: 67e24e15042548548bacf48b53266510, type: 3}
+  - {fileID: 636826536374837800, guid: 86fa580e7663ad64788fe7f60ec02601, type: 3}
+  - {fileID: 1034817697309278464, guid: 39a810d7779add341a12f1afecb75917, type: 3}
+  - {fileID: 8061457261787022341, guid: 5ea423390c1663d42b2ff1f7e25d12aa, type: 3}
+  - {fileID: 5667344011871793892, guid: ca1a908832bf3454bb8e15ca89f5959b, type: 3}
+  - {fileID: 2870020459789732888, guid: f0a94b09107c20344bcfd0ce20b0902f, type: 3}
+  - {fileID: 1063239889111563940, guid: 7828ee4af59cec24fbb0f7fdf009942a, type: 3}
+  - {fileID: 2767292400666675535, guid: b56ef3a4977e90241bd29bf58e3adb4d, type: 3}
+  - {fileID: 9145175108953413102, guid: d9e4ade1ce66d1246930292e20f5f0a4, type: 3}
+  - {fileID: 3415767195589573667, guid: a0e9e83da85139648ba0f13bb9297038, type: 3}
+  - {fileID: 1896404535022318584, guid: 8a3be9d02b235fa4eae5524a6718ad21, type: 3}
+  - {fileID: 332772651020745721, guid: 0039ab56d7efd3f41a9d9f4fdda3e6c0, type: 3}
+  zombieControllers:
+  - {fileID: 22100000, guid: 82f11e6c8902e694cbb4f38e8ba45cbf, type: 2}
+  - {fileID: 22100000, guid: 90fa6ae6c685c6d4495335f5e06ae088, type: 2}
+  - {fileID: 22100000, guid: 1f3708f2e39a92145a64c35e40e35f80, type: 2}
+  - {fileID: 22100000, guid: 7de89468ebe180c48abda81031fa962f, type: 2}
+  - {fileID: 22100000, guid: 14db14db6fb70a947a53b39d94040700, type: 2}
+  spawnArea: {fileID: 0}
+  numberOfZombies: 1
+  spawnedZombies: []

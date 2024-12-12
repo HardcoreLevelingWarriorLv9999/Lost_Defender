@@ -68,6 +68,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   panel: {fileID: 0}
   instructionText: {fileID: 0}
+  shootTriggerChild: {fileID: 0}
 --- !u!1 &2458862328264606130
 GameObject:
   m_ObjectHideFlags: 0
@@ -136,6 +137,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   panel: {fileID: 0}
   instructionText: {fileID: 0}
+  shootTriggerChild: {fileID: 0}
 --- !u!1 &5389079978759533033
 GameObject:
   m_ObjectHideFlags: 0
@@ -288,6 +290,37 @@ Transform:
   - {fileID: 4630160356100915024}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &6860841709397021453
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 7474172517788713518}
+  m_Layer: 0
+  m_Name: Waypoint Shoot Trigger
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &7474172517788713518
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6860841709397021453}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 818648867258269329}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &6869919903661948069
 GameObject:
   m_ObjectHideFlags: 0
@@ -356,6 +389,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   panel: {fileID: 0}
   instructionText: {fileID: 0}
+  shootTriggerChild: {fileID: 0}
 --- !u!1 &7656718647343183296
 GameObject:
   m_ObjectHideFlags: 0
@@ -492,6 +526,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   panel: {fileID: 0}
   instructionText: {fileID: 0}
+  shootTriggerChild: {fileID: 0}
 --- !u!1 &8530765901796172720
 GameObject:
   m_ObjectHideFlags: 0
@@ -568,7 +603,8 @@ Transform:
   m_LocalPosition: {x: 32.1, y: 0, z: 63.3}
   m_LocalScale: {x: 19.718, y: 43.377865, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 7474172517788713518}
   m_Father: {fileID: 4630160356100915024}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!65 &4926232732173454629
@@ -606,3 +642,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   panel: {fileID: 0}
   instructionText: {fileID: 0}
+  shootTriggerChild: {fileID: 6860841709397021453}
