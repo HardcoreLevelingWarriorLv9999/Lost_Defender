@@ -13,5 +13,4 @@ MonoBehaviour:
   m_Name: RoadToTheEndPoint
   m_EditorClassIdentifier: 
   QuestName: Road to the End Point
-  QuestDescription: Protect yourself and your teammates for 2 minutes to complete
-    the map!
+  QuestDescription: Head to the end point, prepare to face waves of pursuing zombies!
