@@ -2008,6 +2008,7 @@ GameObject:
   - component: {fileID: 8425774654322353280}
   - component: {fileID: 8132429621677534375}
   - component: {fileID: 4743231825315093270}
+  - component: {fileID: 8497759748526533593}
   m_Layer: 9
   m_Name: Zombie_Mother_Female_01
   m_TagString: Player
@@ -2187,7 +2188,7 @@ MonoBehaviour:
   rb: {fileID: 0}
   coll: {fileID: 0}
   MyPivotCamera: {fileID: 0}
-  CharacterHealth: {fileID: 0}
+  CharacterHealth: {fileID: 5973412786398352264}
   DriveVehicleAbility: {fileID: 0}
   Inventory: {fileID: 0}
   LeftHandDamager: {fileID: 0}
@@ -2441,7 +2442,19 @@ MonoBehaviour:
     type: 3}
   OnDeath:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 8497759748526533593}
+        m_TargetAssemblyTypeName: JUTPS.Utilities.AutoDestroy, Assembly-CSharp
+        m_MethodName: TimedDestroyObject
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   IsDead: 0
 --- !u!114 &8425774654322353280
 MonoBehaviour:
@@ -2539,6 +2552,20 @@ MonoBehaviour:
   MinTime: 3
   MaxTime: 10
   Area: 100
+--- !u!114 &8497759748526533593
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1382524560173548574}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8b28f181aaac6b448995bcd0df949895, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  SecondsToDestroy: 3
+  DestroyOnStart: 1
 --- !u!1 &1421074273983779189
 GameObject:
   m_ObjectHideFlags: 0

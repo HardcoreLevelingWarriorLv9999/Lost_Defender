@@ -673,6 +673,7 @@ GameObject:
   - component: {fileID: 7622726472308767916}
   - component: {fileID: 7621167704376883227}
   - component: {fileID: 7723868888938170958}
+  - component: {fileID: 1744533889856667703}
   m_Layer: 9
   m_Name: Zombie_Firefighter_Male_01
   m_TagString: Enemy
@@ -1106,7 +1107,19 @@ MonoBehaviour:
     type: 3}
   OnDeath:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1744533889856667703}
+        m_TargetAssemblyTypeName: JUTPS.Utilities.AutoDestroy, Assembly-CSharp
+        m_MethodName: TimedDestroyObject
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   IsDead: 0
 --- !u!114 &7622726472308767916
 MonoBehaviour:
@@ -1204,6 +1217,20 @@ MonoBehaviour:
   MinTime: 3
   MaxTime: 10
   Area: 100
+--- !u!114 &1744533889856667703
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1034817697309278464}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8b28f181aaac6b448995bcd0df949895, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  SecondsToDestroy: 3
+  DestroyOnStart: 0
 --- !u!1 &1106690714133716581
 GameObject:
   m_ObjectHideFlags: 0

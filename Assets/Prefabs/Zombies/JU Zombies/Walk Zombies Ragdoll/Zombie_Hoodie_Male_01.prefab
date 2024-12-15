@@ -424,6 +424,7 @@ GameObject:
   - component: {fileID: 8812740795859384039}
   - component: {fileID: 1906084943963192114}
   - component: {fileID: 1550874706632311928}
+  - component: {fileID: -472771733202267666}
   m_Layer: 9
   m_Name: Zombie_Hoodie_Male_01
   m_TagString: Enemy
@@ -857,7 +858,19 @@ MonoBehaviour:
     type: 3}
   OnDeath:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: -472771733202267666}
+        m_TargetAssemblyTypeName: JUTPS.Utilities.AutoDestroy, Assembly-CSharp
+        m_MethodName: TimedDestroyObject
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   IsDead: 0
 --- !u!114 &8812740795859384039
 MonoBehaviour:
@@ -955,6 +968,20 @@ MonoBehaviour:
   MinTime: 3
   MaxTime: 10
   Area: 100
+--- !u!114 &-472771733202267666
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 332772651020745721}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8b28f181aaac6b448995bcd0df949895, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  SecondsToDestroy: 3
+  DestroyOnStart: 0
 --- !u!1 &361591014990388596
 GameObject:
   m_ObjectHideFlags: 0

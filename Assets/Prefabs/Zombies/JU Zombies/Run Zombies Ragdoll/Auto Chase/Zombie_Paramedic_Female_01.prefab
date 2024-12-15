@@ -4417,6 +4417,7 @@ GameObject:
   - component: {fileID: 6361180040827177421}
   - component: {fileID: 7745681464272061843}
   - component: {fileID: 2617314101429254575}
+  - component: {fileID: 4031041451890965799}
   m_Layer: 9
   m_Name: Zombie_Paramedic_Female_01
   m_TagString: Enemy
@@ -4596,7 +4597,7 @@ MonoBehaviour:
   rb: {fileID: 0}
   coll: {fileID: 0}
   MyPivotCamera: {fileID: 0}
-  CharacterHealth: {fileID: 0}
+  CharacterHealth: {fileID: 9181502166133066639}
   DriveVehicleAbility: {fileID: 0}
   Inventory: {fileID: 0}
   LeftHandDamager: {fileID: 0}
@@ -4850,7 +4851,19 @@ MonoBehaviour:
     type: 3}
   OnDeath:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 4031041451890965799}
+        m_TargetAssemblyTypeName: JUTPS.Utilities.AutoDestroy, Assembly-CSharp
+        m_MethodName: TimedDestroyObject
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   IsDead: 0
 --- !u!114 &6361180040827177421
 MonoBehaviour:
@@ -4948,6 +4961,20 @@ MonoBehaviour:
   MinTime: 3
   MaxTime: 10
   Area: 100
+--- !u!114 &4031041451890965799
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4228641014757428818}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8b28f181aaac6b448995bcd0df949895, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  SecondsToDestroy: 3
+  DestroyOnStart: 1
 --- !u!1 &4365382992336885263
 GameObject:
   m_ObjectHideFlags: 0
