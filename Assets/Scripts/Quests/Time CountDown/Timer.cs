@@ -12,6 +12,7 @@ public class Timer : MonoBehaviour
     private bool isFirstPhase = true;
     private bool isTimeUp = false;
     private bool isCountingDown = false; // Thêm biến này
+    public AutoChaseZombieSpawner zombieSpawner; // Thêm tham chiếu tới script AutoChaseZombieSpawner
 
     void Start()
     {
@@ -32,10 +33,12 @@ public class Timer : MonoBehaviour
                     // Chuyển sang giai đoạn thứ hai
                     remainingTime = secondPhaseTime;
                     isFirstPhase = false;
+                    StartCoroutine(SpawnZombiesWithDelay()); // Bắt đầu spawn zombie mỗi 5 giây
                 }
                 else
                 {
                     isTimeUp = true;
+                    StopCoroutine(SpawnZombiesWithDelay()); // Dừng việc spawn zombie
                 }
             }
 
@@ -48,5 +51,14 @@ public class Timer : MonoBehaviour
     public void StartCountdown()
     {
         isCountingDown = true; // Gọi hàm này để bắt đầu đếm ngược
+    }
+
+    IEnumerator SpawnZombiesWithDelay()
+    {
+        while (!isTimeUp)
+        {
+            zombieSpawner.SpawnRandomZombies(Random.Range(1, 11)); // Spawn từ 1 đến 10 zombie
+            yield return new WaitForSeconds(5f); // Đợi 5 giây trước khi spawn lần tiếp theo
+        }
     }
 }

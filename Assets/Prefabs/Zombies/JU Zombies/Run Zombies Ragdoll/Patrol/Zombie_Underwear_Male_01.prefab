@@ -5093,6 +5093,7 @@ GameObject:
   - component: {fileID: 888830989544695209}
   - component: {fileID: 892073854041964734}
   - component: {fileID: 502312504884186548}
+  - component: {fileID: -6171564499706262856}
   m_Layer: 9
   m_Name: Zombie_Underwear_Male_01
   m_TagString: Enemy
@@ -5272,7 +5273,7 @@ MonoBehaviour:
   rb: {fileID: 0}
   coll: {fileID: 0}
   MyPivotCamera: {fileID: 0}
-  CharacterHealth: {fileID: 0}
+  CharacterHealth: {fileID: 8229019600691713837}
   DriveVehicleAbility: {fileID: 0}
   Inventory: {fileID: 0}
   LeftHandDamager: {fileID: 0}
@@ -5526,7 +5527,19 @@ MonoBehaviour:
     type: 3}
   OnDeath:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: -6171564499706262856}
+        m_TargetAssemblyTypeName: JUTPS.Utilities.AutoDestroy, Assembly-CSharp
+        m_MethodName: TimedDestroyObject
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   IsDead: 0
 --- !u!114 &888830989544695209
 MonoBehaviour:
@@ -5599,8 +5612,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   CenterPositionOffset: {x: 0, y: 0, z: 0}
   MinTime: 3
-  MaxTime: 10
-  Area: 100
+  MaxTime: 5
+  Area: 35
 --- !u!114 &502312504884186548
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5624,6 +5637,20 @@ MonoBehaviour:
   StepCorrection: 1
   GroundCheck: 1
   WallCheck: 1
+--- !u!114 &-6171564499706262856
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4230800006882578919}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8b28f181aaac6b448995bcd0df949895, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  SecondsToDestroy: 3
+  DestroyOnStart: 0
 --- !u!1 &4452763521046150940
 GameObject:
   m_ObjectHideFlags: 0
