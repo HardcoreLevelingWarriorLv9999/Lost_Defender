@@ -7896,8 +7896,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   CenterPositionOffset: {x: 0, y: 0, z: 0}
   MinTime: 3
-  MaxTime: 10
-  Area: 100
+  MaxTime: 5
+  Area: 35
 --- !u!114 &3511395048458373393
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7991,7 +7991,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   SecondsToDestroy: 3
-  DestroyOnStart: 1
+  DestroyOnStart: 0
 --- !u!1 &6245830665378519448
 GameObject:
   m_ObjectHideFlags: 0

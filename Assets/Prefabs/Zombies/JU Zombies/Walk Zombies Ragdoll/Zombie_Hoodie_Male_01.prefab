@@ -966,8 +966,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   CenterPositionOffset: {x: 0, y: 0, z: 0}
   MinTime: 3
-  MaxTime: 10
-  Area: 100
+  MaxTime: 5
+  Area: 35
 --- !u!114 &-472771733202267666
 MonoBehaviour:
   m_ObjectHideFlags: 0

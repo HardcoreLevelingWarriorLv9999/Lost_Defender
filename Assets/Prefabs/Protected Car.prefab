@@ -428,8 +428,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 2.8328629, y: 2.8861039, z: 6.516285}
-  m_Center: {x: -0.0054893494, y: 1.8656474, z: -0.2663021}
+  m_Size: {x: 2.6885223, y: 2.1727567, z: 6.4856167}
+  m_Center: {x: -0.013507843, y: 1.5089738, z: -0.28163624}
 --- !u!54 &8090048357766738703
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -471,8 +471,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   UseDefaultInputs: 0
   Engine:
-    MaxForwardSpeed: 1
-    MaxRearSpeed: 1
+    MaxForwardSpeed: 2
+    MaxRearSpeed: 20
     TorqueForce: 600
     BrakeForce: 1200
     AutoBrakeForce: 100
@@ -587,7 +587,7 @@ MonoBehaviour:
       m_Bits: 67841
     IsCollided: 0
   CheckNearestPointOnPath: 0
-  OnEndPath: 2
+  OnEndPath: 0
   OnStartPath:
     m_PersistentCalls:
       m_Calls: []
