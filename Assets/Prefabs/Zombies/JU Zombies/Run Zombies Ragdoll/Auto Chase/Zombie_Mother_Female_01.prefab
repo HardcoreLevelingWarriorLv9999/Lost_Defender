@@ -2003,7 +2003,6 @@ GameObject:
   - component: {fileID: 4307640044905249906}
   - component: {fileID: 3354108445166081382}
   - component: {fileID: 3026144681439174508}
-  - component: {fileID: 3973227636611577563}
   - component: {fileID: 5973412786398352264}
   - component: {fileID: 8425774654322353280}
   - component: {fileID: 8132429621677534375}
@@ -2399,30 +2398,6 @@ MonoBehaviour:
   - Bones
   - Wall
   - Bullet
---- !u!114 &3973227636611577563
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1382524560173548574}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9e4c0b46aa90a2448a4767ed100b53de, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  audioSource: {fileID: 0}
-  FootstepAudioClips: []
-  InvertX: 0
-  MinTimeToPlayAudio: 0.3
-  GroundLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  CheckRadius: 0.1
-  UpOffset: -0.07
-  ForwardOffset: 0.07
-  LeftFoot: {fileID: 3878612697012024855}
-  RightFoot: {fileID: 1621246641816249577}
 --- !u!114 &5973412786398352264
 MonoBehaviour:
   m_ObjectHideFlags: 0

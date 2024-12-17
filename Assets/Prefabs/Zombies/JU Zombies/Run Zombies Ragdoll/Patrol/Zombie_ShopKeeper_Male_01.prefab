@@ -8242,7 +8242,6 @@ GameObject:
   - component: {fileID: 639526729487543213}
   - component: {fileID: 4556590104971951400}
   - component: {fileID: 716145283273979207}
-  - component: {fileID: 2083178512086466969}
   - component: {fileID: 6578918068600464067}
   - component: {fileID: 3321859782847097164}
   - component: {fileID: 5334069073819743556}
@@ -8638,30 +8637,6 @@ MonoBehaviour:
   - Bones
   - Wall
   - Bullet
---- !u!114 &2083178512086466969
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7022289226439723371}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9e4c0b46aa90a2448a4767ed100b53de, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  audioSource: {fileID: 0}
-  FootstepAudioClips: []
-  InvertX: 0
-  MinTimeToPlayAudio: 0.3
-  GroundLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  CheckRadius: 0.1
-  UpOffset: -0.07
-  ForwardOffset: 0.07
-  LeftFoot: {fileID: 4676220599394171297}
-  RightFoot: {fileID: 2284502434372927114}
 --- !u!114 &6578918068600464067
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8710,11 +8685,11 @@ MonoBehaviour:
   character: {fileID: 0}
   CurrentWayPointToFollow: 0
   PathToDestination: []
-  Destination: {x: -20.81, y: 0, z: 0}
+  Destination: {x: 0, y: 0, z: 0}
   WaypointPath: {fileID: 0}
   DistanceToFinishOnePoint: 1
   CheckNearestPointOnPath: 0
-  OnEndPath: 0
+  OnEndPath: 2
   OnStartPath:
     m_PersistentCalls:
       m_Calls: []
@@ -8729,12 +8704,12 @@ MonoBehaviour:
   - Distractable
   FieldOfView:
     Radious: 12
-    Angle: 226
+    Angle: 360
   SensorLayerMask:
     serializedVersion: 2
     m_Bits: 2817
-  StartRunningAtDistance: 0.5
-  AttackAtDistance: 1.5
+  StartRunningAtDistance: 1
+  AttackAtDistance: 3
   AimUpOffset: 1
   LookTargetSpeed: 1
   AttackDuration: 0
@@ -8767,7 +8742,7 @@ MonoBehaviour:
   CenterPositionOffset: {x: 0, y: 0, z: 0}
   MinTime: 3
   MaxTime: 5
-  Area: 35
+  Area: 80
 --- !u!114 &2339546565349301969
 MonoBehaviour:
   m_ObjectHideFlags: 0

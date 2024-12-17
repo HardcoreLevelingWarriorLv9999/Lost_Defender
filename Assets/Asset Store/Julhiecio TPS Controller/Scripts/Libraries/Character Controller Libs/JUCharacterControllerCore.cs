@@ -10,6 +10,7 @@ using JUTPS.ActionScripts;
 using JUTPS.PhysicsScripts;
 using JUTPS.WeaponSystem;
 using JUTPS.CameraSystems;
+using System;
 
 //using JU_INPUT_SYSTEM;
 
@@ -2541,6 +2542,11 @@ namespace JUTPS.CharacterBrain
                 if (SpineInclination == 0) LocalSpineRotation.z = OriginalSpineRotation.z;
                 anim.SetBoneLocalRotation(HumanBodyBones.Spine, LocalSpineRotation);
             }
+        }
+
+        internal void SetMoveToTarget(Vector3 destination, float lookTargetSpeed)
+        {
+            throw new NotImplementedException();
         }
         #endregion
     }

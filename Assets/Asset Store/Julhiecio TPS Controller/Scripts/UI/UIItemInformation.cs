@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;  // Import TextMeshPro namespace
 using JUTPS.ItemSystem;
 using JUTPS.WeaponSystem;
 
@@ -15,10 +16,10 @@ namespace JUTPS.InventorySystem.UI
         [Header("Essentials")]
         public Sprite EmptySprite;
         public Image Icon;
-        public Text ItemName;
-        public Text ItemQuantity;
+        public TextMeshProUGUI ItemName;  // Change Text to TextMeshProUGUI
+        public TextMeshProUGUI ItemQuantity;  // Change Text to TextMeshProUGUI
         public GameObject BulletLabel;
-        public Text BulletQuantity;
+        public TextMeshProUGUI BulletQuantity;  // Change Text to TextMeshProUGUI
         public Image ItemHealth;
         void Start()
         {
@@ -83,5 +84,4 @@ namespace JUTPS.InventorySystem.UI
             }
         }
     }
-
 }
