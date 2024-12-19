@@ -45,6 +45,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   zombiePrefabs:
+  - {fileID: 8268803395928497829, guid: 3a5ee70e43b65ee40899209ece5f4346, type: 3}
+  - {fileID: 2174158672291657978, guid: 67e24e15042548548bacf48b53266510, type: 3}
+  - {fileID: 636826536374837800, guid: 86fa580e7663ad64788fe7f60ec02601, type: 3}
+  - {fileID: 1034817697309278464, guid: 39a810d7779add341a12f1afecb75917, type: 3}
+  - {fileID: 8061457261787022341, guid: 5ea423390c1663d42b2ff1f7e25d12aa, type: 3}
+  - {fileID: 5667344011871793892, guid: ca1a908832bf3454bb8e15ca89f5959b, type: 3}
+  - {fileID: 2870020459789732888, guid: f0a94b09107c20344bcfd0ce20b0902f, type: 3}
+  - {fileID: 1063239889111563940, guid: 7828ee4af59cec24fbb0f7fdf009942a, type: 3}
+  - {fileID: 2767292400666675535, guid: b56ef3a4977e90241bd29bf58e3adb4d, type: 3}
+  - {fileID: 9145175108953413102, guid: d9e4ade1ce66d1246930292e20f5f0a4, type: 3}
+  - {fileID: 3415767195589573667, guid: a0e9e83da85139648ba0f13bb9297038, type: 3}
+  - {fileID: 1896404535022318584, guid: 8a3be9d02b235fa4eae5524a6718ad21, type: 3}
+  - {fileID: 332772651020745721, guid: 0039ab56d7efd3f41a9d9f4fdda3e6c0, type: 3}
   - {fileID: 7413928736774367825, guid: 6be62f038e58dbf4397f4cb5f767cc29, type: 3}
   - {fileID: 5801054458321556689, guid: 91d2ab730605814438ed75df01d35a9a, type: 3}
   - {fileID: 3791152382738867650, guid: 01fb8d8b930ff6b40bb8f8886c95f9fa, type: 3}
@@ -64,6 +77,7 @@ MonoBehaviour:
   - {fileID: 22100000, guid: 7de89468ebe180c48abda81031fa962f, type: 2}
   - {fileID: 22100000, guid: 14db14db6fb70a947a53b39d94040700, type: 2}
   spawnAreas:
+  - {fileID: 0}
   - {fileID: 0}
   numberOfZombies: 1
   spawnedZombies: []
