@@ -5407,6 +5407,7 @@ GameObject:
   - component: {fileID: 8057611952269880680}
   - component: {fileID: 3622354238970423300}
   - component: {fileID: 5822562825936547681}
+  - component: {fileID: 5308312987448896575}
   m_Layer: 9
   m_Name: Zombie_BioHazardSuit_Male_01
   m_TagString: Enemy
@@ -5840,7 +5841,19 @@ MonoBehaviour:
     type: 3}
   OnDeath:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 5308312987448896575}
+        m_TargetAssemblyTypeName: JUTPS.Utilities.AutoDestroy, Assembly-CSharp
+        m_MethodName: TimedDestroyObject
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   IsDead: 0
 --- !u!114 &8057611952269880680
 MonoBehaviour:
@@ -5936,8 +5949,22 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   CenterPositionOffset: {x: 0, y: 0, z: 0}
   MinTime: 3
-  MaxTime: 10
-  Area: 100
+  MaxTime: 5
+  Area: 35
+--- !u!114 &5308312987448896575
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4815957462614144859}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8b28f181aaac6b448995bcd0df949895, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  SecondsToDestroy: 3
+  DestroyOnStart: 0
 --- !u!1 &4836281369109048356
 GameObject:
   m_ObjectHideFlags: 0

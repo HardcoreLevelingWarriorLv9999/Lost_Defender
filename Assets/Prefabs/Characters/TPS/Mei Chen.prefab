@@ -38465,7 +38465,7 @@ MonoBehaviour:
   Unlocked: 0
   ItemQuantity: 0
   MaxItemQuantity: 1
-  ItemName: Benelli M4
+  ItemName: SPAS-12
   ItemSwitchID: 0
   Owner: {fileID: 0}
   TPSOwner: {fileID: 0}
@@ -39247,7 +39247,7 @@ MonoBehaviour:
   Unlocked: 0
   ItemQuantity: 0
   MaxItemQuantity: 1
-  ItemName: Benelli M4
+  ItemName: Drummer
   ItemSwitchID: 0
   Owner: {fileID: 0}
   TPSOwner: {fileID: 0}
