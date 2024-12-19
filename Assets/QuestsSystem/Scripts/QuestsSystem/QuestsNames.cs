@@ -3,16 +3,15 @@ namespace QuestsSystem
     public enum QuestsNames
     {
         EndYourStory,
-		FindJoe,
-		GetAthleticLikeEren,
-		GoToTheVillage,
-		StevesFlower,
-		TalkToJoe,
-		WelcomeToTheVillage,
+		DefendDuringSupplyTransfer,
+		DefendTheCarToTheGasStation,
 		ExploringTheNeighborhood,
 		FinalDefense,
+		FuelUp,
+		GetToTheCar,
 		MilitaryCampaign,
 		PlaneCrash,
+		ProtectTheCarToTheEndPoint,
 		RoadToTheEndPoint,
 		Tutorial
     }

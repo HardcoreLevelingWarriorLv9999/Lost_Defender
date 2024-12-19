@@ -1697,7 +1697,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1658146812600542, guid: 574d3bbe7d1c8684f9101c2b823c5770, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1658146812600542, guid: 574d3bbe7d1c8684f9101c2b823c5770, type: 3}
       propertyPath: m_TagString
@@ -9051,7 +9051,7 @@ MonoBehaviour:
   rb: {fileID: 0}
   coll: {fileID: 0}
   MyPivotCamera: {fileID: 0}
-  CharacterHealth: {fileID: 0}
+  CharacterHealth: {fileID: 1393510667}
   DriveVehicleAbility: {fileID: 0}
   Inventory: {fileID: 0}
   LeftHandDamager: {fileID: 0}
@@ -9357,6 +9357,18 @@ MonoBehaviour:
   StepCorrection: 1
   GroundCheck: 1
   WallCheck: 1
+--- !u!114 &1393510667 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3044589702515265918, guid: 574d3bbe7d1c8684f9101c2b823c5770,
+    type: 3}
+  m_PrefabInstance: {fileID: 318109063}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1393510651}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fa2549d042f8b6d41bb6289069865f19, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1394906738
 PrefabInstance:
   m_ObjectHideFlags: 0

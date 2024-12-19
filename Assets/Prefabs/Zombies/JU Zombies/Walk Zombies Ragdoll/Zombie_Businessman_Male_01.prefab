@@ -1383,6 +1383,7 @@ GameObject:
   - component: {fileID: 101418386523951037}
   - component: {fileID: 3377406501266012172}
   - component: {fileID: 3533505774543981728}
+  - component: {fileID: -1312064169662401817}
   m_Layer: 9
   m_Name: Zombie_Businessman_Male_01
   m_TagString: Enemy
@@ -1562,7 +1563,7 @@ MonoBehaviour:
   rb: {fileID: 0}
   coll: {fileID: 0}
   MyPivotCamera: {fileID: 0}
-  CharacterHealth: {fileID: 0}
+  CharacterHealth: {fileID: 3838666587947771058}
   DriveVehicleAbility: {fileID: 0}
   Inventory: {fileID: 0}
   LeftHandDamager: {fileID: 0}
@@ -1812,11 +1813,23 @@ MonoBehaviour:
   Health: 100
   MaxHealth: 100
   BloodScreenEffect: 0
-  BloodHitParticle: {fileID: 3377176041485713299, guid: f5973a37858ed07439978e742b77a3af,
+  BloodHitParticle: {fileID: 6079834135112903994, guid: 62ac816a3081b684092e03f0ec31a51c,
     type: 3}
   OnDeath:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: -1312064169662401817}
+        m_TargetAssemblyTypeName: JUTPS.Utilities.AutoDestroy, Assembly-CSharp
+        m_MethodName: TimedDestroyObject
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   IsDead: 0
 --- !u!114 &101418386523951037
 MonoBehaviour:
@@ -1912,8 +1925,22 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   CenterPositionOffset: {x: 0, y: 0, z: 0}
   MinTime: 3
-  MaxTime: 10
-  Area: 100
+  MaxTime: 5
+  Area: 35
+--- !u!114 &-1312064169662401817
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1321366418302978598}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8b28f181aaac6b448995bcd0df949895, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  SecondsToDestroy: 3
+  DestroyOnStart: 0
 --- !u!1 &1345678682648947434
 GameObject:
   m_ObjectHideFlags: 0
