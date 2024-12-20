@@ -7,6 +7,7 @@ namespace QuestsSystem
 		DefendTheCarToTheGasStation,
 		ExploringTheNeighborhood,
 		FinalDefense,
+		FollowAndProtectTheCarFromZombies,
 		FuelUp,
 		GetToTheCar,
 		MilitaryCampaign,
