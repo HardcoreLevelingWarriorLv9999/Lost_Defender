@@ -9,12 +9,9 @@ namespace JUTPS.AI
     public class ZombieAI : JUCharacterArtificialInteligenceBrain
     {
         private JUTPS.CharacterBrain.JUCharacterBrain targetJuCharacter;
-
         private Transform currentTarget;
-
         private float distanceFromDestination;
         private Vector3 fieldViewPosition;
-
         private Vector3 smoothedTargetPosition;
         private Vector3 closestWalkablePosition;
 
@@ -25,22 +22,19 @@ namespace JUTPS.AI
         public float StartRunningAtDistance = 5;
 
         [Header("Attack Settings")]
-        public float AttackAtDistance = 15;
+        public float AttackAtDistance = 20; // Đã điều chỉnh khoảng cách tấn công
         public float AimUpOffset = 1;
         public float LookTargetSpeed = 5;
         public float AttackDuration = 1.5f;
         public float MinTimeToAttack = 1, MaxTimeToAttack = 2;
-
         private float currentTimeToAttack;
         private float currentMaxTimeToAttack;
         private float currentAttackDuration;
         private bool isAttacking;
-
         private bool isCurrentTargetAttackable;
         private bool currentTargetIsVisible;
         private bool isRunning;
         private float currentTimeToDisableFireMode;
-
 
         [Space(10)]
         public UnityEvent _OnFollowWaypoint;
@@ -51,29 +45,34 @@ namespace JUTPS.AI
         private bool SawATarget = false;
         public UnityEvent _OnStopSeeingTarget;
         private bool StoppedSeeingTarget;
+
         protected virtual void Update()
         {
-            if (character.IsDead) { this.enabled = false; return; }
+            if (character.IsDead)
+            {
+                this.enabled = false;
+                return;
+            }
 
-            //Get targets
+            // Get targets
             CheckTargets();
 
-            //Running check
+            // Running check
             isRunning = (distanceFromDestination > StartRunningAtDistance);
 
-            // >> Follow Target
+            // Follow Target
             if (currentTarget != null && currentTargetIsVisible)
             {
                 Debug.DrawLine(fieldViewPosition, smoothedTargetPosition, Color.green);
                 FollowAIPathState(closestWalkablePosition, isRunning);
 
-                //LookAt
+                // LookAt
                 if (distanceFromDestination < 2)
                 {
                     character.DoLookAt(currentTarget.position, LookTargetSpeed);
                 }
 
-                //Attack
+                // Attack
                 if (distanceFromDestination < AttackAtDistance && currentTargetIsVisible && isCurrentTargetAttackable)
                 {
                     EnterAttackModeState();
@@ -84,19 +83,17 @@ namespace JUTPS.AI
                     character.FiringModeIK = false;
                 }
             }
-            // >>> Follow waypoint path
+            // Follow waypoint path
             else
             {
                 Debug.DrawLine(fieldViewPosition, smoothedTargetPosition, Color.red);
-
                 if (WaypointPath != null)
                 {
-                    //Patrol Mode
+                    // Patrol Mode
                     if (character.FiringMode)
                     {
                         FollowAIPathState(closestWalkablePosition, isRunning);
-
-                        //Disable Firing Mode in 4 seconds
+                        // Disable Firing Mode in 4 seconds
                         currentTimeToDisableFireMode += Time.deltaTime;
                         if (currentTimeToDisableFireMode > 10)
                         {
@@ -106,7 +103,6 @@ namespace JUTPS.AI
                         {
                             EnterAttackModeState();
                         }
-
                         character.LookAtPosition = smoothedTargetPosition + Vector3.up * AimUpOffset;
                     }
                     else
@@ -124,23 +120,20 @@ namespace JUTPS.AI
                 else
                 {
                     FollowAIPathState(closestWalkablePosition, isRunning);
-
-                    //IdleState();
                 }
             }
         }
 
         public void CheckTargets()
         {
-            //Check targets
+            // Check targets
             Vector3 fieldViewPosition = transform.position + transform.up * (AimUpOffset + 0.2f);
             Collider[] targets = FieldOfView.CheckViewCollider(fieldViewPosition, transform.forward, SensorLayerMask, viewerToIgnore: this.gameObject);
 
-            //Target Selection
+            // Target Selection
             if (targets.Length > 0)
             {
                 currentTarget = SelectTargetOnList(targets, TargetTags);
-
                 if (currentTarget == null)
                 {
                     targetJuCharacter = null;
@@ -165,37 +158,11 @@ namespace JUTPS.AI
             else
             {
                 currentTarget = null;
-
                 targetJuCharacter = null;
                 isCurrentTargetAttackable = false;
             }
-            /*if (targets.Length > 0)
-            {
-                currentTarget = SelectTargetOnList(targets, TargetTags);
-               // isCurrentTargetAttackable = IsAttackable((currentTarget != null) ? currentTarget.gameObject : null, TargetTags);
 
-                if (isCurrentTargetAttackable == false)
-                {
-                    currentTarget = null;
-                    targetJuCharacter = null;
-                }
-                else if (targetJuCharacter == null)
-                {
-                    if (currentTarget.TryGetComponent(out JUTPS.CharacterBrain.JUCharacterBrain character))
-                    {
-                        //Debug.Log("Is a ju character");
-                        targetJuCharacter = character;
-                    }
-                }
-            }
-            else
-            {
-                currentTarget = null;
-                targetJuCharacter = null;
-                isCurrentTargetAttackable = false;
-            }*/
-
-            //Update events
+            // Update events
             if (currentTarget != null && SawATarget == false)
             {
                 _OnSeeTarget.Invoke();
@@ -209,22 +176,22 @@ namespace JUTPS.AI
                 SawATarget = false;
             }
 
-            //Get Distance
+            // Get Distance
             distanceFromDestination = (currentTarget != null) ? Vector3.Distance(transform.position, currentTarget.position) : 0;
 
-            //Smooth target position
+            // Smooth target position
             smoothedTargetPosition = (currentTarget != null && targetJuCharacter == null) ? Vector3.Lerp(smoothedTargetPosition, currentTarget.position, LookTargetSpeed * Time.deltaTime) : smoothedTargetPosition;
 
-            //Check visibility
+            // Check visibility
             currentTargetIsVisible = (targetJuCharacter == null) ? FieldOfView.IsVisibleToThisFieldOfView(currentTarget, fieldViewPosition, transform.forward, SensorLayerMask, TagsToConsiderVisible: TargetTags) : FieldOfView.IsVisibleToThisFieldOfView(targetJuCharacter.HumanoidSpine, fieldViewPosition, transform.forward, SensorLayerMask, TagsToConsiderVisible: TargetTags);
 
-            //Target position in ju character are humanoid spine 
+            // Target position in ju character are humanoid spine
             if (targetJuCharacter != null) smoothedTargetPosition = Vector3.Lerp(smoothedTargetPosition, targetJuCharacter.HumanoidSpine.position - targetJuCharacter.transform.up * AimUpOffset, LookTargetSpeed * Time.deltaTime);
 
-            //Get nearby position, this line avoid bugs with Navmesh Obstacles
+            // Get nearby position
             closestWalkablePosition = JUPathFinder.GetClosestWalkablePoint(currentTarget != null ? currentTarget.position : Destination);
 
-            //Stop Following
+            // Stop Following
             if (currentTarget != null)
             {
                 if (distanceFromDestination > 2 * FieldOfView.Radious)
@@ -235,15 +202,14 @@ namespace JUTPS.AI
             }
         }
 
-
         public void FollowAIPathState(Vector3 Position, bool Run)
         {
             GoToPosition(Position, DistanceToFinishOnePoint, Run);
             JUPathFinder.VisualizePath(PathToDestination);
-            //Change End Event
+            // Change End Event
             OnEndPath = WaypointPath.OnEndPathAction.Stop;
 
-            //Update Events
+            // Update Events
             if (FollowingAIPath == false)
             {
                 _OnFollowAIPath.Invoke();
@@ -251,15 +217,18 @@ namespace JUTPS.AI
             }
             FollowingWaypoint = false;
         }
+
         public void FollowWaypointPathState(bool Run)
         {
-            if (WaypointPath == null) { return; }
-
+            if (WaypointPath == null)
+            {
+                return;
+            }
             FollowCurrentWaypoint(Run);
-            //Change End Event
+            // Change End Event
             OnEndPath = WaypointPath.OnEndPathAction.ReversePath;
 
-            //Update Events
+            // Update Events
             if (FollowingWaypoint == false)
             {
                 _OnFollowWaypoint.Invoke();
@@ -267,7 +236,6 @@ namespace JUTPS.AI
             }
             FollowingAIPath = false;
         }
-
 
         public void EnterAttackModeState()
         {
@@ -277,37 +245,41 @@ namespace JUTPS.AI
                 currentMaxTimeToAttack = 0;
                 currentAttackDuration = 0;
             }
-
             character.LookAtPosition = smoothedTargetPosition + Vector3.up * AimUpOffset;
             character.DoLookAt(character.LookAtPosition, LookTargetSpeed);
             character.FiringMode = false;
             character.FiringModeIK = false;
 
-            //Attacking Timer
+            // Attacking Timer
             if (isAttacking == false)
             {
-                //Get random time to init attack
-                if (currentMaxTimeToAttack == 0) { currentMaxTimeToAttack = Random.Range(MinTimeToAttack, MaxTimeToAttack); }
+                // Get random time to init attack
+                if (currentMaxTimeToAttack == 0)
+                {
+                    currentMaxTimeToAttack = Random.Range(MinTimeToAttack, MaxTimeToAttack);
+                }
 
-                //Timer count
+                // Timer count
                 currentTimeToAttack += Time.deltaTime;
 
-                //Init Attack
-                if (currentTimeToAttack >= currentMaxTimeToAttack) { isAttacking = true; }
-
+                // Init Attack
+                if (currentTimeToAttack >= currentMaxTimeToAttack)
+                {
+                    isAttacking = true;
+                }
                 character.DefaultUseOfAllItems(false, false, false, false, false, true);
             }
 
-            //Attacking
+            // Attacking
             if (isAttacking && currentAttackDuration <= AttackDuration + 0.1f)
             {
-                //Do attack
+                // Do attack
                 character.DefaultUseOfAllItems(true, true, false, false, false, true);
 
-                //Attack duration timer count
+                // Attack duration timer count
                 currentAttackDuration += Time.deltaTime;
 
-                //End attacking ant init next attack timer
+                // End attacking and init next attack timer
                 if (currentAttackDuration >= AttackDuration)
                 {
                     isAttacking = false;
@@ -315,8 +287,8 @@ namespace JUTPS.AI
                     currentAttackDuration = 0;
                 }
             }
-
         }
+
         public void ExitAttackModeState()
         {
             isAttacking = false;
@@ -328,7 +300,6 @@ namespace JUTPS.AI
         protected override void OnDrawGizmos()
         {
             base.OnDrawGizmos();
-
             FieldView.DrawFieldOfView(transform.position + transform.up * AimUpOffset, transform.forward, FieldOfView);
         }
 #endif
