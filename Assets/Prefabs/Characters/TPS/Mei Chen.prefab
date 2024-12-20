@@ -17376,7 +17376,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ItemFilterTag: Weapon
-  ItemIcon: {fileID: 21300000, guid: 2f6052ae090dee641a94e1fd1f28e9ef, type: 3}
+  ItemIcon: {fileID: 21300000, guid: 5c300cd3f9381974ab3a8068a351edd9, type: 3}
   Unlocked: 0
   ItemQuantity: 0
   MaxItemQuantity: 1
@@ -37502,7 +37502,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ItemFilterTag: Weapon
-  ItemIcon: {fileID: 21300000, guid: 2f6052ae090dee641a94e1fd1f28e9ef, type: 3}
+  ItemIcon: {fileID: 21300000, guid: 437a70960859acf498ab9f6c78988082, type: 3}
   Unlocked: 0
   ItemQuantity: 0
   MaxItemQuantity: 1
@@ -38461,7 +38461,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ItemFilterTag: Weapon
-  ItemIcon: {fileID: 21300000, guid: b3bbb53c294d7fc448c03e04229e55c1, type: 3}
+  ItemIcon: {fileID: 21300000, guid: bd2b464fff1d3c74b9c58d4b517c6c68, type: 3}
   Unlocked: 0
   ItemQuantity: 0
   MaxItemQuantity: 1
@@ -38914,7 +38914,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ItemFilterTag: Weapon
-  ItemIcon: {fileID: 21300000, guid: 2f6052ae090dee641a94e1fd1f28e9ef, type: 3}
+  ItemIcon: {fileID: 21300000, guid: 57bf009c415a123409f9854a9413462e, type: 3}
   Unlocked: 0
   ItemQuantity: 0
   MaxItemQuantity: 1
@@ -39243,7 +39243,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ItemFilterTag: Weapon
-  ItemIcon: {fileID: 21300000, guid: b3bbb53c294d7fc448c03e04229e55c1, type: 3}
+  ItemIcon: {fileID: 21300000, guid: d6b3fddf5c26a484e9c27ce949f419c9, type: 3}
   Unlocked: 0
   ItemQuantity: 0
   MaxItemQuantity: 1
@@ -40179,7 +40179,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ItemFilterTag: Weapon
-  ItemIcon: {fileID: 21300000, guid: 2f6052ae090dee641a94e1fd1f28e9ef, type: 3}
+  ItemIcon: {fileID: 21300000, guid: 6b31235c8bb339342841496bff283256, type: 3}
   Unlocked: 0
   ItemQuantity: 0
   MaxItemQuantity: 1
@@ -41019,7 +41019,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ItemFilterTag: Weapon
-  ItemIcon: {fileID: 21300000, guid: 2f6052ae090dee641a94e1fd1f28e9ef, type: 3}
+  ItemIcon: {fileID: 21300000, guid: f2eb56dcb5edbc24b84472bd7bf05ad6, type: 3}
   Unlocked: 0
   ItemQuantity: 0
   MaxItemQuantity: 1
@@ -58791,7 +58791,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ItemFilterTag: Weapon
-  ItemIcon: {fileID: 21300000, guid: bff3af807c2765142a8a2a3fb065a16c, type: 3}
+  ItemIcon: {fileID: 21300000, guid: 58df241ae7ad17147bb1cf3eaf4010e7, type: 3}
   Unlocked: 0
   ItemQuantity: 0
   MaxItemQuantity: 1
@@ -64729,7 +64729,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ItemFilterTag: Hand Gun
-  ItemIcon: {fileID: 21300000, guid: 1f7470edb51e7b44494479c150a515da, type: 3}
+  ItemIcon: {fileID: 21300000, guid: df06f83ce302e3c4da048d53630fbc7b, type: 3}
   Unlocked: 0
   ItemQuantity: 0
   MaxItemQuantity: 1
@@ -75921,7 +75921,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ItemFilterTag: Weapon
-  ItemIcon: {fileID: 21300000, guid: 2f6052ae090dee641a94e1fd1f28e9ef, type: 3}
+  ItemIcon: {fileID: 21300000, guid: d98f612a81e731e4fb61e0481b0c3fc2, type: 3}
   Unlocked: 0
   ItemQuantity: 0
   MaxItemQuantity: 1
@@ -76230,7 +76230,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ItemFilterTag: Weapon
-  ItemIcon: {fileID: 21300000, guid: 2f6052ae090dee641a94e1fd1f28e9ef, type: 3}
+  ItemIcon: {fileID: 21300000, guid: 5bed35bb2158366499faec11e3a926ea, type: 3}
   Unlocked: 0
   ItemQuantity: 0
   MaxItemQuantity: 1
@@ -77729,7 +77729,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ItemFilterTag: Weapon
-  ItemIcon: {fileID: 21300000, guid: 2f6052ae090dee641a94e1fd1f28e9ef, type: 3}
+  ItemIcon: {fileID: 21300000, guid: fcba63c2b590df544892861b0bb4a917, type: 3}
   Unlocked: 0
   ItemQuantity: 0
   MaxItemQuantity: 1
@@ -78708,7 +78708,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ItemFilterTag: Melee Weapon
-  ItemIcon: {fileID: 21300000, guid: 259d22d18dc7a7a4aaae583668eff44d, type: 3}
+  ItemIcon: {fileID: 21300000, guid: fbb6603dcdc82fb4a9b0b0b6e58ed133, type: 3}
   Unlocked: 0
   ItemQuantity: 0
   MaxItemQuantity: 1
@@ -84529,6 +84529,12 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 5792593685298366541, guid: 38d544a91528093409a343a287c18739,
         type: 3}
+      propertyPath: ItemIcon
+      value: 
+      objectReference: {fileID: 21300000, guid: 5aa85762336fdf54eb4847f63c4a5cd3,
+        type: 3}
+    - target: {fileID: 5792593685298366541, guid: 38d544a91528093409a343a287c18739,
+        type: 3}
       propertyPath: Unlocked
       value: 0
       objectReference: {fileID: 0}
@@ -84756,6 +84762,12 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 3663883555134539026, guid: af66a125d81bf9c46a15a11432acb032,
         type: 3}
+      propertyPath: ItemIcon
+      value: 
+      objectReference: {fileID: 21300000, guid: 5aa85762336fdf54eb4847f63c4a5cd3,
+        type: 3}
+    - target: {fileID: 3663883555134539026, guid: af66a125d81bf9c46a15a11432acb032,
+        type: 3}
       propertyPath: Unlocked
       value: 0
       objectReference: {fileID: 0}
@@ -84952,6 +84964,12 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 8917239448762935366}
     m_Modifications:
+    - target: {fileID: 6331307527719043709, guid: 817aa2ac3628bf9429911fc176ff4930,
+        type: 3}
+      propertyPath: ItemIcon
+      value: 
+      objectReference: {fileID: 21300000, guid: 5aa85762336fdf54eb4847f63c4a5cd3,
+        type: 3}
     - target: {fileID: 6331307527719043709, guid: 817aa2ac3628bf9429911fc176ff4930,
         type: 3}
       propertyPath: Unlocked

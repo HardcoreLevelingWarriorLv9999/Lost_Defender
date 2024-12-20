@@ -195,7 +195,7 @@ Transform:
   m_GameObject: {fileID: 1943352400178210260}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0, y: 0.072, z: 0.547}
+  m_LocalPosition: {x: -0.0000010306634, y: 0.072, z: 0.5469996}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -5321,9 +5321,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ItemFilterTag: Weapon
-  ItemIcon: {fileID: 21300000, guid: 2f6052ae090dee641a94e1fd1f28e9ef, type: 3}
+  ItemIcon: {fileID: 21300000, guid: 437a70960859acf498ab9f6c78988082, type: 3}
   Unlocked: 1
-  ItemQuantity: 1
+  ItemQuantity: 0
   MaxItemQuantity: 1
   ItemName: AK-12
   ItemSwitchID: 5

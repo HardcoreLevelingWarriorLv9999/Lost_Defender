@@ -61,7 +61,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ItemFilterTag: General
-  ItemIcon: {fileID: 0}
+  ItemIcon: {fileID: 21300000, guid: 8a33166ca4c81ee46b8c0a1a6dceff02, type: 3}
   Unlocked: 1
   ItemQuantity: 1
   MaxItemQuantity: 1
