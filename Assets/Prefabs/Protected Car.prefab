@@ -14649,6 +14649,7 @@ GameObject:
   - component: {fileID: 7746163583829343703}
   - component: {fileID: 6700943095604311719}
   - component: {fileID: 7959046583768181104}
+  - component: {fileID: 7307260476278368577}
   m_Layer: 0
   m_Name: Protected Car
   m_TagString: Untagged
@@ -14918,6 +14919,20 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 2.552353, y: 1.9684751, z: 6.487629}
   m_Center: {x: -0.0006752014, y: 0.96459234, z: -0.2806301}
+--- !u!114 &7307260476278368577
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1788893843787837256}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bb3202926f16df24591496132118bc1d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  targetCollider: {fileID: 7959046583768181104}
+  detectionRadius: 5
 --- !u!1 &1800787521236512219
 GameObject:
   m_ObjectHideFlags: 0
