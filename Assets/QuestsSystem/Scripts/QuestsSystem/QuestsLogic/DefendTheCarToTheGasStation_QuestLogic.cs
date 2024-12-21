@@ -7,11 +7,12 @@ namespace QuestsSystem
     {
         public override QuestsNames QuestName => QuestsNames.DefendTheCarToTheGasStation;
 
-        public override string QuestTastText => "TASK_TEXT";
+        public override string QuestTastText => "Follow the waypoint";
 
         public override void OnAccept()
         {
-            //Called when a quest is accepted
+            QuestsManager.Instance.RemoveQuest(QuestsNames.GetToTheCar, true);
+            QuestsManager.Instance.AddQuest(QuestsNames.FollowAndProtectTheCarFromZombies);
         }
 
         public override void Logic()
@@ -26,7 +27,7 @@ namespace QuestsSystem
 
         public override void OnComplete()
         {
-            //Called when a quest is completed
+
         }
     }
 }
