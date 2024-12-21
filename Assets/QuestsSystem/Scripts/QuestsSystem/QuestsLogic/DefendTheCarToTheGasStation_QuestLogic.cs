@@ -27,7 +27,7 @@ namespace QuestsSystem
 
         public override void OnComplete()
         {
-            QuestsManager.Instance.AddQuest(QuestsNames.FuelUp);
+
         }
     }
 }

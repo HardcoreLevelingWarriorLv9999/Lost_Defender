@@ -11,7 +11,7 @@ namespace QuestsSystem
 
         public override void OnAccept()
         {
-            //Called when a quest is accepted
+            QuestsManager.Instance.RemoveQuest(QuestsNames.ProtectTheCarToTheEndPoint, true);
         }
 
         public override void Logic()

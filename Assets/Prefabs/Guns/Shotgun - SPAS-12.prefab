@@ -288,11 +288,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ItemFilterTag: Weapon
-  ItemIcon: {fileID: 21300000, guid: b3bbb53c294d7fc448c03e04229e55c1, type: 3}
+  ItemIcon: {fileID: 21300000, guid: bd2b464fff1d3c74b9c58d4b517c6c68, type: 3}
   Unlocked: 1
   ItemQuantity: 0
   MaxItemQuantity: 1
-  ItemName: Benelli M4
+  ItemName: SPAS-12
   ItemSwitchID: 0
   Owner: {fileID: 0}
   TPSOwner: {fileID: 0}
