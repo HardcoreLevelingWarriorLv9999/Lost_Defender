@@ -45,7 +45,6 @@ GameObject:
   m_Component:
   - component: {fileID: 7350122156026295286}
   - component: {fileID: 5039112972109536902}
-  - component: {fileID: 6687389953520765591}
   - component: {fileID: 1149597949461630120}
   m_Layer: 2
   m_Name: Start Next Quest
@@ -90,18 +89,6 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &6687389953520765591
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2142489839771211863}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 56cfa5d5fc482bb4e8c2038598d789cc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &1149597949461630120
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -240,7 +227,6 @@ GameObject:
   m_Component:
   - component: {fileID: 5047180486189811941}
   - component: {fileID: 6427914394285439001}
-  - component: {fileID: 6479540045521141551}
   - component: {fileID: 2030548657361389202}
   m_Layer: 2
   m_Name: Start Next Quest (1)
@@ -285,18 +271,6 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &6479540045521141551
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7697201591454532200}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 56cfa5d5fc482bb4e8c2038598d789cc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &2030548657361389202
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -1,17 +1,21 @@
-using UnityEngine;
 using System;
+using UnityEngine;
 
 namespace QuestsSystem
 {
     public class FuelUp_QuestLogic : QuestLogic
     {
+        public static event Action OnQuestAccepted;
+        public static event Action OnQuestCompleted;
+
         public override QuestsNames QuestName => QuestsNames.FuelUp;
 
         public override string QuestTastText => "TASK_TEXT";
 
         public override void OnAccept()
         {
-            //Called when a quest is accepted
+            QuestsManager.Instance.RemoveQuest(QuestsNames.DefendTheCarToTheGasStation, true);
+            OnQuestAccepted?.Invoke(); // Gọi sự kiện khi nhiệm vụ được chấp nhận
         }
 
         public override void Logic()
@@ -26,31 +30,8 @@ namespace QuestsSystem
 
         public override void OnComplete()
         {
-            //Called when a quest is completed
+            QuestsManager.Instance.AddQuest(QuestsNames.ProtectTheCarToTheEndPoint);
+            OnQuestCompleted?.Invoke(); // Gọi sự kiện khi nhiệm vụ hoàn thành
         }
     }
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
