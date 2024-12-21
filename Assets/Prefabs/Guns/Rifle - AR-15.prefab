@@ -5120,9 +5120,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ItemFilterTag: Weapon
-  ItemIcon: {fileID: 21300000, guid: 2f6052ae090dee641a94e1fd1f28e9ef, type: 3}
+  ItemIcon: {fileID: 21300000, guid: 5c300cd3f9381974ab3a8068a351edd9, type: 3}
   Unlocked: 1
-  ItemQuantity: 1
+  ItemQuantity: 0
   MaxItemQuantity: 1
   ItemName: AR-15
   ItemSwitchID: 5

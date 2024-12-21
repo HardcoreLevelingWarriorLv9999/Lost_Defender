@@ -181,9 +181,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ItemFilterTag: Weapon
-  ItemIcon: {fileID: 21300000, guid: 2f6052ae090dee641a94e1fd1f28e9ef, type: 3}
+  ItemIcon: {fileID: 21300000, guid: fcba63c2b590df544892861b0bb4a917, type: 3}
   Unlocked: 1
-  ItemQuantity: 1
+  ItemQuantity: 0
   MaxItemQuantity: 1
   ItemName: G18C
   ItemSwitchID: 5
