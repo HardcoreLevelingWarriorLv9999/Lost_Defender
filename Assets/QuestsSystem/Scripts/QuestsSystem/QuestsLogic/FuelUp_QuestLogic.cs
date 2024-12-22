@@ -20,11 +20,11 @@ namespace QuestsSystem
             QuestsManager.Instance.RemoveQuest(QuestsNames.DefendTheCarToTheGasStation, true);
             OnQuestAccepted?.Invoke(); // Gọi sự kiện khi nhiệm vụ được chấp nhận
 
-            // Object_Interactive[] fuelCanisters = GameObject.FindObjectsOfType<Object_Interactive>(true);
-            // foreach (var canister in fuelCanisters)
-            // {
-            //     canister.gameObject.SetActive(true);
-            // }
+            GasWaypoint[] fuelCanisters = GameObject.FindObjectsOfType<GasWaypoint>(true);
+            foreach (var canister in fuelCanisters)
+            {
+                canister.gameObject.SetActive(true);
+            }
         }
 
         public override void Logic()
@@ -44,6 +44,7 @@ namespace QuestsSystem
         public override void OnComplete()
         {
             QuestsManager.Instance.AddQuest(QuestsNames.ProtectTheCarToTheEndPoint);
+            GameObject.FindObjectOfType<MissionTrigger3>(true).gameObject.SetActive(true);
             OnQuestCompleted?.Invoke(); // Gọi sự kiện khi nhiệm vụ hoàn thành
         }
     }

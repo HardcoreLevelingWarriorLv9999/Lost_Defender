@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 1492589647875887352}
   - component: {fileID: 1844036062425312411}
   - component: {fileID: 8375039434131440913}
-  - component: {fileID: 6734709911524248567}
+  - component: {fileID: 4765655446839603149}
   m_Layer: 14
   m_Name: Gas Can 3
   m_TagString: Untagged
@@ -129,7 +129,7 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!114 &6734709911524248567
+--- !u!114 &4765655446839603149
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -138,7 +138,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1252018086854251068}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1cee863bf001e4a4d88440b502413e8d, type: 3}
+  m_Script: {fileID: 11500000, guid: a5dbb101ca62e9341a1f81b1ad09be4b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1001 &8759558682000626274
