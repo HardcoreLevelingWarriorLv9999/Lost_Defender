@@ -5,18 +5,18 @@ using UnityEngine;
 
 public class Gas_Interactive : MonoBehaviour
 {
-        private void OnInteractive()
+    private void OnInteractive()
+    {
+        // Check for quest existing in active quests
+        if (QuestsManager.Instance.IsQuestActive(QuestsNames.FuelUp))
         {
-            // Check for quest existing in active quests
-            if (QuestsManager.Instance.IsQuestActive(QuestsNames.FuelUp))
-            {
-                // gameObject.SetActive(false);
-                QuestsManager.Instance.UpdateQuestProgress(QuestsNames.FuelUp);
-            }
+            // gameObject.SetActive(false);
+            QuestsManager.Instance.UpdateQuestProgress(QuestsNames.FuelUp);
         }
+    }
 
-        private void OnDestroy()
-        {
-            OnInteractive();
-        }
+    private void OnDestroy()
+    {
+        OnInteractive();
+    }
 }

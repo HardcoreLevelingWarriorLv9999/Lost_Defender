@@ -41,27 +41,6 @@ namespace QuestsSystem
             }
         }
 
-        public void DeliverFuelToCar()
-        {
-            // Logic để thả bình xăng vào xe
-            // Ví dụ: kiểm tra người chơi đang đứng gần xe và thả bình xăng vào xe
-            if (IsPlayerNearCar())
-            {
-                collectedFuel++;
-                if (collectedFuel == totalFuel)
-                {
-                    Complete();
-                }
-            }
-        }
-
-        private bool IsPlayerNearCar()
-        {
-            // Kiểm tra vị trí của người chơi và xe
-            // Return true nếu người chơi đang ở gần xe
-            return true; // Thay bằng logic kiểm tra thực tế
-        }
-
         public override void OnComplete()
         {
             QuestsManager.Instance.AddQuest(QuestsNames.ProtectTheCarToTheEndPoint);

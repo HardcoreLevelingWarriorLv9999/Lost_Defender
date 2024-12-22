@@ -1,11 +1,12 @@
 using UnityEngine;
-using QuestsSystem; // Đảm bảo bạn đã nhập không gian tên chứa FuelUp_QuestLogic
+using QuestsSystem;
 
 public class PlayerDetection : MonoBehaviour
 {
-    public Collider targetCollider; // Collider mà bạn muốn bật/tắt
-    public float detectionRadius = 5.0f; // Phạm vi phát hiện
-    private Transform playerTransform; // Vị trí của người chơi
+    public Collider targetCollider;
+    public float detectionRadius = 5.0f;
+    private Transform playerTransform;
+    private bool isDetectionEnabled = true; // Thêm biến trạng thái
 
     private void OnEnable()
     {
@@ -39,6 +40,8 @@ public class PlayerDetection : MonoBehaviour
 
     void Update()
     {
+        if (!isDetectionEnabled) return; // Bỏ qua nếu phát hiện bị vô hiệu hóa
+
         if (playerTransform != null && targetCollider != null)
         {
             float distance = Vector3.Distance(transform.position, playerTransform.position);
@@ -61,13 +64,15 @@ public class PlayerDetection : MonoBehaviour
 
     private void DisableDetection()
     {
-        this.enabled = false;
+        isDetectionEnabled = false; // Thay vì tắt script, chỉ tắt logic phát hiện
         targetCollider.enabled = true;
+        Debug.Log("PlayerDetection disabled");
     }
 
     private void EnableDetection()
     {
-        this.enabled = true;
+        isDetectionEnabled = true; // Bật lại logic phát hiện
         targetCollider.enabled = false;
+        Debug.Log("PlayerDetection enabled");
     }
 }
