@@ -16873,6 +16873,7 @@ GameObject:
   - component: {fileID: 1537469067015315660}
   - component: {fileID: 1763093967397117103}
   - component: {fileID: 8492254417188500773}
+  - component: {fileID: 1865454655616224296}
   m_Layer: 14
   m_Name: Gas Can 3
   m_TagString: Untagged
@@ -16989,6 +16990,18 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &1865454655616224296
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1189124338310701576}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1cee863bf001e4a4d88440b502413e8d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1210570094752190334
 GameObject:
   m_ObjectHideFlags: 0
@@ -17955,6 +17968,7 @@ GameObject:
   - component: {fileID: 5693310416111116377}
   - component: {fileID: 4235085916634161065}
   - component: {fileID: 7175450907642133080}
+  - component: {fileID: 5448552224874044501}
   m_Layer: 14
   m_Name: Gas Can 2
   m_TagString: Untagged
@@ -18071,6 +18085,18 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &5448552224874044501
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1605994431851408148}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1cee863bf001e4a4d88440b502413e8d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1647295899634949665
 GameObject:
   m_ObjectHideFlags: 0
@@ -18218,6 +18244,7 @@ GameObject:
   - component: {fileID: 4391103119963779488}
   - component: {fileID: 1111797461245045974}
   - component: {fileID: 8298495585308785588}
+  - component: {fileID: 6922256652606930586}
   m_Layer: 14
   m_Name: Gas Can 1
   m_TagString: Untagged
@@ -18334,6 +18361,18 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &6922256652606930586
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1671698890633308399}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1cee863bf001e4a4d88440b502413e8d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1678543046283438398
 GameObject:
   m_ObjectHideFlags: 0

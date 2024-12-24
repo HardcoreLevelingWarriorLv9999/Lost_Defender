@@ -13,6 +13,8 @@ namespace QuestsSystem
         {
             QuestsManager.Instance.RemoveQuest(QuestsNames.GetToTheCar, true);
             QuestsManager.Instance.AddQuest(QuestsNames.FollowAndProtectTheCarFromZombies);
+            GameObject.FindObjectOfType<CarWaypoint>(true).gameObject.SetActive(true);
+            GameObject.FindObjectOfType<MissionTrigger2>(true).gameObject.SetActive(true);
         }
 
         public override void Logic()
