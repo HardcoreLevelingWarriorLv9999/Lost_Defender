@@ -1,5 +1,6 @@
 using UnityEngine;
 using System;
+using JUTPS.UI;
 
 namespace QuestsSystem
 {
@@ -7,11 +8,11 @@ namespace QuestsSystem
     {
         public override QuestsNames QuestName => QuestsNames.FollowAndProtectTheCarFromZombies;
 
-        public override string QuestTastText => "Don't let the health car drop to 0";
+        public override string QuestTastText => "Waring: The car can be damaged by bullets";
 
         public override void OnAccept()
         {
-            //Called when a quest is accepted
+            GameObject.FindObjectOfType<UIVehicleHealthBar>(true).gameObject.SetActive(true);
         }
 
         public override void Logic()
