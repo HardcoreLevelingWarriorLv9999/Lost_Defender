@@ -206,8 +206,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: ControllerSceneCharacter, Assembly-CSharp
+      - m_Target: {fileID: 948698248}
+        m_TargetAssemblyTypeName: ControllerNewCharacter, Assembly-CSharp
         m_MethodName: MeiChen
         m_Mode: 1
         m_Arguments:
@@ -431,8 +431,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: ControllerSceneCharacter, Assembly-CSharp
+      - m_Target: {fileID: 948698248}
+        m_TargetAssemblyTypeName: ControllerNewCharacter, Assembly-CSharp
         m_MethodName: AlexRodriguez
         m_Mode: 1
         m_Arguments:
@@ -697,7 +697,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 462374440}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 948698248}
+        m_TargetAssemblyTypeName: ControllerNewCharacter, Assembly-CSharp
+        m_MethodName: PlayGame
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &462374440
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -898,8 +910,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: ControllerSceneCharacter, Assembly-CSharp
+      - m_Target: {fileID: 948698248}
+        m_TargetAssemblyTypeName: ControllerNewCharacter, Assembly-CSharp
         m_MethodName: SarahEvans
         m_Mode: 1
         m_Arguments:
@@ -1037,6 +1049,56 @@ MonoBehaviour:
   m_DeselectOnBackgroundClick: 1
   m_PointerBehavior: 0
   m_CursorLockBehavior: 0
+--- !u!1 &948698247
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 948698249}
+  - component: {fileID: 948698248}
+  m_Layer: 0
+  m_Name: Controller
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &948698248
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 948698247}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e096c9e9284c50448ba9662a57da5c5b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  nameCharacter: {fileID: 1444757717}
+  characterInformation: {fileID: 1973668863}
+  Character1: {fileID: 1108052112129980, guid: e9147aea2cb072d4f8d12a3d937ab405, type: 3}
+  Character2: {fileID: 1074360255325880, guid: 48a943354704b2541a8762972e649378, type: 3}
+  Character3: {fileID: 1096376965629970, guid: 514f4359717d5744eada4c787ecae9f0, type: 3}
+  Character4: {fileID: 1019482250056662, guid: 20d517b6bcb926641acbb7b0dd7a273f, type: 3}
+--- !u!4 &948698249
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 948698247}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 827.74164, y: 622.7551, z: 3.7288303}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1023413371
 GameObject:
   m_ObjectHideFlags: 0
@@ -1214,8 +1276,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: ControllerSceneCharacter, Assembly-CSharp
+      - m_Target: {fileID: 948698248}
+        m_TargetAssemblyTypeName: ControllerNewCharacter, Assembly-CSharp
         m_MethodName: KaitoNakamura
         m_Mode: 1
         m_Arguments:
@@ -2065,8 +2127,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 26
-  m_fontSizeBase: 26
+  m_fontSize: 32
+  m_fontSizeBase: 32
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -2257,3 +2319,4 @@ SceneRoots:
   - {fileID: 1023413373}
   - {fileID: 1755886338}
   - {fileID: 753400313}
+  - {fileID: 948698249}
