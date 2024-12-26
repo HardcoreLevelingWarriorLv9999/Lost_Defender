@@ -1,5 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.IO;
+using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using static Cinemachine.CinemachineTriggerAction.ActionSettings;
@@ -26,10 +28,12 @@ public class Gameplay : MonoBehaviour
     public GameObject map3;
     public GameObject map4;
     public RectTransform imageA; // Transform của hình A
+    public TextMeshProUGUI nameCharacter, lv, money, nucleus,gem;
+   
     // Start is called before the first frame update
     void Start()
     {
-
+        LoadPlayerData();
         easy.SetActive(false);
         normal.SetActive(false);
         hard.SetActive(false);
@@ -233,6 +237,38 @@ public class Gameplay : MonoBehaviour
             imageA.rotation = Quaternion.Euler(0, 0, 0);
         }
         setting.SetActive(true);
-
     }
+    public void PlayMap1()
+    {
+        SceneManager.LoadScene("Map 1");
+    }
+    void LoadPlayerData() 
+    { 
+        SaveLoadManager.PlayerData data = SaveLoadManager.LoadData();
+        if (data != null) 
+        {
+            int level = data.level;
+            string playerName = data.playerName;
+            int Money = data.money;
+            int energystone = data.energystone;
+            int Gem= data.gem;
+            int openMap1= data.openMap1;
+            int openMap2= data.openMap2;
+            int openMap3= data.openMap3;
+            int openMap4= data.openMap4;
+            nameCharacter.text = playerName;
+            lv.text= level.ToString();
+            money.text = Money.ToString();
+            nucleus.text= energystone.ToString();
+            gem.text= Gem.ToString();
+            Debug.Log("Dữ liệu người chơi đã được tải!");
+            Debug.Log("Tên người chơi: " + data.playerName); 
+            Debug.Log("Level: " + data.level);
+        } 
+        else
+        {
+            Debug.LogError("Không thể tải dữ liệu người chơi!");
+        }
+    }
+   
 }

@@ -233,5 +233,9 @@ public class UIStartGame : MonoBehaviour
             clean3.SetActive(true);
         }
     }
+    public void ExitGame()
+    {
+        Application.Quit();
+    }
 }
 

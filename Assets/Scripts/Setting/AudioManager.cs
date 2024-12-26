@@ -49,6 +49,32 @@ public class AudioManager : MonoBehaviour
             musicSource.Play();
         }
     }
+    public void StopMusic(string name)
+    {
+        AmThanh a = Array.Find(musicSounds, x => x.name == name);
+        if (a == null)
+        {
+            Debug.Log("không tìm thấy âm thanh");
+        }
+        else
+        {
+            musicSource.clip = a.clip;
+            musicSource.Stop();
+        }
+    }
+    public void StopSFX(string name)
+    {
+        AmThanh a = Array.Find(musicSounds, x => x.name == name);
+        if (a == null)
+        {
+            Debug.Log("không tìm thấy âm thanh");
+        }
+        else
+        {
+            sfxSource.clip = a.clip;
+            sfxSource.Stop();
+        }
+    }
 
     public void PlaySFX(string name)
     {
