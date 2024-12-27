@@ -1,7 +1,10 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.IO;
+using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 using static Cinemachine.CinemachineTriggerAction.ActionSettings;
 
 public class Gameplay : MonoBehaviour
@@ -11,7 +14,7 @@ public class Gameplay : MonoBehaviour
     public GameObject hard;
     public GameObject nightmare;
     public GameObject gameplay;
-    public GameObject gameroom;
+   // public GameObject gameroom;
     public GameObject setting;
     public GameObject exit;
     public GameObject paneExit;
@@ -25,10 +28,15 @@ public class Gameplay : MonoBehaviour
     public GameObject map3;
     public GameObject map4;
     public RectTransform imageA; // Transform của hình A
+    public TextMeshProUGUI nameCharacter, lv, money, nucleus,gem;
+    public Button Map1Button, Map2Button, Map3Button, Map4Button;
+    public GameObject gameSetting, Panelvolume, PanelControls, PanelGraphics;
+    int openMap1, openMap2,openMap3,openMap4, difficulty;
+
     // Start is called before the first frame update
     void Start()
     {
-
+        LoadPlayerData();
         easy.SetActive(false);
         normal.SetActive(false);
         hard.SetActive(false);
@@ -43,11 +51,15 @@ public class Gameplay : MonoBehaviour
         map3.SetActive(false);
         map4.SetActive(false);
         paneExit.SetActive(false);
+        Panelvolume.SetActive(false);
+        gameSetting.SetActive(false);
+        PanelControls.SetActive(false);
+        PanelGraphics.SetActive(false);
 
         exit.SetActive(true);
         setting.SetActive(true);
         gameplay.SetActive(true);
-        gameroom.SetActive(true);
+       // gameroom.SetActive(true);
 
     }
     // Update is called once per frame
@@ -74,9 +86,10 @@ public class Gameplay : MonoBehaviour
         exit.SetActive(false);
         setting.SetActive(false);
         gameplay.SetActive(false);
-        gameroom.SetActive(false);
+       // gameroom.SetActive(false);
         easy.SetActive(true);
         gamemode1.SetActive(true);
+        difficulty = 0;
     }
     public void Normmal()
     {
@@ -84,9 +97,10 @@ public class Gameplay : MonoBehaviour
         exit.SetActive(false);
         setting.SetActive(false);
         gameplay.SetActive(false);
-        gameroom.SetActive(false);
+      //  gameroom.SetActive(false);
         normal.SetActive(true);
         gamemode2.SetActive(true);
+        difficulty = 1;
     }
     public void Hard()
     {
@@ -94,9 +108,10 @@ public class Gameplay : MonoBehaviour
         exit.SetActive(false);
         setting.SetActive(false);
         gameplay.SetActive(false);
-        gameroom.SetActive(false);
+       // gameroom.SetActive(false);
         hard.SetActive(true);
         gamemode3.SetActive(true);
+        difficulty = 2;
     }
     public void Nightmare()
     {
@@ -104,9 +119,10 @@ public class Gameplay : MonoBehaviour
         exit.SetActive(false);
         setting.SetActive(false);
         gameplay.SetActive(false);
-        gameroom.SetActive(false);
+   //     gameroom.SetActive(false);
         nightmare.SetActive(true);
         gamemode4.SetActive(true);
+        difficulty = 3;
     }
     public void Exiteasy()
     {
@@ -114,7 +130,7 @@ public class Gameplay : MonoBehaviour
         exit.SetActive(true);
         setting.SetActive(true);
         gameplay.SetActive(true);
-        gameroom.SetActive(true);
+     //   gameroom.SetActive(true);
         easy.SetActive(false);
         gamemode1.SetActive(false);
         map1.SetActive(false);
@@ -128,7 +144,7 @@ public class Gameplay : MonoBehaviour
         exit.SetActive(true);
         setting.SetActive(true);
         gameplay.SetActive(true);
-        gameroom.SetActive(true);
+       // gameroom.SetActive(true);
         normal.SetActive(false);
         gamemode2.SetActive(false);
         map1.SetActive(false);
@@ -142,7 +158,7 @@ public class Gameplay : MonoBehaviour
         exit.SetActive(true);
         setting.SetActive(true);
         gameplay.SetActive(true);
-        gameroom.SetActive(true);
+      //  gameroom.SetActive(true);
         hard.SetActive(false);
         gamemode3.SetActive(false);
         map1.SetActive(false);
@@ -156,7 +172,7 @@ public class Gameplay : MonoBehaviour
         exit.SetActive(true);
         setting.SetActive(true);
         gameplay.SetActive(true);
-        gameroom.SetActive(true);
+       // gameroom.SetActive(true);
         nightmare.SetActive(false);
         gamemode4.SetActive(false);
         map1.SetActive(false);
@@ -210,4 +226,121 @@ public class Gameplay : MonoBehaviour
     {
         SceneManager.LoadScene("Scene character");
     }
+    public void Setting()
+    {
+        bool isActive = gameSetting.activeSelf;
+        gameSetting.SetActive(!isActive);
+        ;
+        if (!isActive)
+        {
+            gamemode.SetActive(false);
+            exit.SetActive(false);
+            gameplay.SetActive(false);
+          //  gameroom.SetActive(false);
+            imageA.rotation = Quaternion.Euler(0, 0, -90);
+        }
+        else
+        {
+            exit.SetActive(true);
+            gameplay.SetActive(true);
+            //  gameroom.SetActive(true);
+            Panelvolume.SetActive(false);
+            PanelControls.SetActive(false);
+            PanelGraphics.SetActive(false);
+            imageA.rotation = Quaternion.Euler(0, 0, 0);
+        }
+        setting.SetActive(true);
+    }
+    public void PlayMap1()
+    {
+        SceneManager.LoadScene("Map 1");
+    }
+    void LoadPlayerData() 
+    { 
+        SaveLoadManager.PlayerData data = SaveLoadManager.LoadData();
+        if (data != null) 
+        {
+            int level = data.level;
+            string playerName = data.playerName;
+            int Money = data.money;
+            int energystone = data.energystone;
+            int Gem= data.gem;
+            openMap1= data.openMap1;
+            openMap2= data.openMap2;
+            openMap3 = data.openMap3;
+            openMap4 = data.openMap4;
+            nameCharacter.text = playerName;
+            lv.text="Lv" + level.ToString();
+            money.text = Money.ToString();
+            nucleus.text= energystone.ToString();
+            gem.text= Gem.ToString();
+
+        } 
+        else
+        {
+            Debug.LogError("Không thể tải dữ liệu người chơi!");
+        }
+    }
+    void Checkmapprogress()
+    {
+        if (difficulty==0 && openMap1==0|| difficulty == 1 && openMap1 == 1||
+            difficulty == 2 && openMap1 == 2|| difficulty == 3 && openMap1 == 3)
+        {
+            Map1Button.interactable = true;
+        }
+        else
+        {
+            Map1Button.interactable = false;
+        }
+        if (difficulty == 0 && openMap1 == 1 || difficulty == 1 && openMap2 == 1 ||
+           difficulty == 2 && openMap2 == 2 || difficulty == 3 && openMap2 == 3)
+        {
+            Map2Button.interactable = true;
+        }
+        else
+        {
+            Map2Button.interactable = false;
+        }
+        if (difficulty == 0 && openMap2 == 1 || difficulty == 1 && openMap3 == 1 ||
+           difficulty == 2 && openMap3 == 2 || difficulty == 3 && openMap3 == 3)
+        {
+            Map3Button.interactable = true;
+        }
+        else
+        {
+            Map3Button.interactable = false;
+        }
+        if (difficulty == 0 && openMap3 == 1 || difficulty == 1 && openMap4 == 1 ||
+           difficulty == 2 && openMap4 == 2 || difficulty == 3 && openMap4 == 3)
+        {
+            Map4Button.interactable = true;
+        }
+        else
+        {
+            Map4Button.interactable = false;
+        }
+    }
+    private void Update()
+    {
+        Checkmapprogress();
+    }
+    public void Controls()
+    {
+        Panelvolume.SetActive(false);
+        PanelControls.SetActive(true);
+        PanelGraphics.SetActive(false);
+    }
+    public void Graphics()
+    {
+        Panelvolume.SetActive(false);
+        PanelControls.SetActive(false);
+        PanelGraphics.SetActive(true);
+    }
+    public void Volume()
+    {
+        Panelvolume.SetActive(true);
+        PanelControls.SetActive(false);
+        PanelGraphics.SetActive(false);
+    }
+
 }
