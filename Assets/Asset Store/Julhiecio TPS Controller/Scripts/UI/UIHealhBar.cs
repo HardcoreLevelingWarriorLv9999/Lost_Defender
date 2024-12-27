@@ -2,20 +2,20 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;  // Import TextMeshPro namespace
 using JUTPS;
 
 namespace JUTPS.UI
 {
-
     [AddComponentMenu("JU TPS/UI/UI Health Bar")]
     public class UIHealhBar : MonoBehaviour
     {
         [Header("UI Health Bar Settings")]
         [SerializeField] private JUHealth HealthComponent;
         [SerializeField] private bool IsPlayerHealthBar = true;
-        [SerializeField] private Image HealthBarImage;
+        [SerializeField] private Slider HealthBarSlider;  // Use Slider instead of Image
         [SerializeField] private float Speed = 6;
-        [SerializeField] private Text HealthPointsText;
+        [SerializeField] private TextMeshProUGUI HealthPointsText;  // Use TextMeshProUGUI
 
         [Header("Health Bar Color Change")]
         [SerializeField] private Color EmptyHPColor = Color.red;
@@ -24,7 +24,7 @@ namespace JUTPS.UI
         [SerializeField] private Color HPLossColor = Color.yellow;
         [SerializeField] private bool ChangeHPTextColorToo = true;
 
-        private float oldFillAmount;
+        private float oldValue;
         void Start()
         {
             if (IsPlayerHealthBar)
@@ -33,41 +33,38 @@ namespace JUTPS.UI
                 HealthComponent = pl.GetComponent<JUHealth>();
             }
 
-            oldFillAmount = HealthBarImage.fillAmount;
+            oldValue = HealthBarSlider.value;
         }
 
         void Update()
         {
-            if (HealthComponent == null || HealthBarImage == null) return;
-
+            if (HealthComponent == null || HealthBarSlider == null) return;
 
             float healthValueNormalized = HealthComponent.Health / HealthComponent.MaxHealth;
-            HealthBarImage.fillAmount = Mathf.MoveTowards(HealthBarImage.fillAmount, healthValueNormalized, Speed * Time.deltaTime);
+            HealthBarSlider.value = Mathf.MoveTowards(HealthBarSlider.value, healthValueNormalized, Speed * Time.deltaTime);
 
-            HealthBarImage.color = Color.Lerp(EmptyHPColor, FullHPColor, HealthBarImage.fillAmount);
+            HealthBarSlider.fillRect.GetComponentInChildren<Image>().color = Color.Lerp(EmptyHPColor, FullHPColor, HealthBarSlider.value);
 
             if (HealthPointsText != null)
             {
                 HealthPointsText.text = HealthComponent.Health.ToString("000") + "/" + HealthComponent.MaxHealth;
-                if (ChangeHPTextColorToo) HealthPointsText.color = Color.Lerp(HealthBarImage.color, Color.white, 0.6f);
+                if (ChangeHPTextColorToo) HealthPointsText.color = Color.Lerp(HealthBarSlider.fillRect.GetComponentInChildren<Image>().color, Color.white, 0.6f);
             }
-            if (oldFillAmount != HealthBarImage.fillAmount)
+            if (oldValue != HealthBarSlider.value)
             {
                 //Health Healing
-                if (oldFillAmount < HealthBarImage.fillAmount)
+                if (oldValue < HealthBarSlider.value)
                 {
-                    HealthBarImage.color = HPHealingColor;
+                    HealthBarSlider.fillRect.GetComponentInChildren<Image>().color = HPHealingColor;
                 }
                 //Health Loss
-                if (oldFillAmount > HealthBarImage.fillAmount)
+                if (oldValue > HealthBarSlider.value)
                 {
-                    HealthBarImage.color = HPLossColor;
+                    HealthBarSlider.fillRect.GetComponentInChildren<Image>().color = HPLossColor;
                 }
 
-                oldFillAmount = HealthBarImage.fillAmount;
+                oldValue = HealthBarSlider.value;
             }
-
         }
     }
-
 }

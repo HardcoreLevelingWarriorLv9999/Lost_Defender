@@ -11,6 +11,7 @@ public class MissionWaypoint : MonoBehaviour
     public Vector3 offset;
     private float edgePadding = 40f; // Khoảng đệm từ cạnh màn hình
     private List<GameObject> waypointInstances; // Danh sách các waypoint đã tạo
+    public GameObject waypointParent; // Đối tượng cha mới cho các waypoint
 
     private void Start()
     {
@@ -18,7 +19,7 @@ public class MissionWaypoint : MonoBehaviour
 
         foreach (var target in targetGameObjects)
         {
-            GameObject waypoint = Instantiate(sparkleEffectObject, sparkleEffectObject.transform.parent);
+            GameObject waypoint = Instantiate(sparkleEffectObject, waypointParent.transform); // Sử dụng waypointParent làm đối tượng cha
             waypointInstances.Add(waypoint);
             waypoint.SetActive(target.activeSelf); // Bật hoặc tắt waypoint dựa trên trạng thái của target
         }

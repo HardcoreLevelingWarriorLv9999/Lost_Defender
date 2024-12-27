@@ -573,8 +573,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 112818059089530531}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.025480643, y: 0.27684274, z: 0.08803956, w: 0.9565343}
-  m_LocalPosition: {x: 0.03514, y: 0.01171, z: -0.045055397}
+  m_LocalRotation: {x: -0.025901789, y: -0.15230502, z: -0.16577375, w: -0.9739874}
+  m_LocalPosition: {x: 0.035140004, y: 0.011709972, z: -0.04505541}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -906,8 +906,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 150580562907058628}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.00028049533, y: 0.065794446, z: 0.004253931, w: 0.99782413}
-  m_LocalPosition: {x: 0.103966, y: -0.0039899996, z: -0.026726501}
+  m_LocalRotation: {x: 0.027791789, y: -0.055345077, z: -0.07952402, w: -0.9949073}
+  m_LocalPosition: {x: 0.10396597, y: -0.0039899945, z: -0.02672651}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -938,8 +938,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 215545081693972328}
   serializedVersion: 2
-  m_LocalRotation: {x: 7.053966e-17, y: 1.3040385e-15, z: 0.04173335, w: 0.9991288}
-  m_LocalPosition: {x: -0.111889675, y: -6.661338e-18, z: -4.6244128e-17}
+  m_LocalRotation: {x: -0.0043670023, y: -0.011531728, z: 0.062493775, w: 0.9979692}
+  m_LocalPosition: {x: -0.11188972, y: -0.000000014901161, z: 0.000000013969839}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -1220,8 +1220,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 360580664441612939}
   serializedVersion: 2
-  m_LocalRotation: {x: -0.006912195, y: -0.025717413, z: 0.057002407, w: 0.9980188}
-  m_LocalPosition: {x: 0.037912127, y: 0.0000032499834, z: -0.00000004545292}
+  m_LocalRotation: {x: 0.044565447, y: 0.023574319, z: -0.12584127, w: -0.9907685}
+  m_LocalPosition: {x: 0.037912134, y: 0.0000033043325, z: -0.000000049360096}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -6108,8 +6108,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 411712595127612057}
   serializedVersion: 2
-  m_LocalRotation: {x: -0.036403257, y: -0.15203467, z: -0.22999534, w: 0.9605532}
-  m_LocalPosition: {x: -0.056655698, y: 2.9115598e-16, z: 3.9968027e-17}
+  m_LocalRotation: {x: -0.027238987, y: -0.31910157, z: -0.24047643, w: 0.91629875}
+  m_LocalPosition: {x: -0.056655698, y: 0.000000018277206, z: 0.000000006519258}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -6222,8 +6222,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 476447007266666081}
   serializedVersion: 2
-  m_LocalRotation: {x: -0.001153992, y: -0.010741636, z: 0.09832994, w: 0.99509525}
-  m_LocalPosition: {x: 0.04093591, y: 0.0000009698692, z: -0.00000004956748}
+  m_LocalRotation: {x: 0.041245308, y: 0.008694504, z: -0.2111573, w: -0.97654283}
+  m_LocalPosition: {x: 0.04093589, y: 0.000000921078, z: -0.00000005401671}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -11419,8 +11419,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 820226337554446627}
   serializedVersion: 2
-  m_LocalRotation: {x: -0.5785476, y: 0.63248575, z: -0.35251346, w: -0.37547135}
-  m_LocalPosition: {x: -0.058011726, y: -0.041914478, z: -0.07447154}
+  m_LocalRotation: {x: -0.4920093, y: 0.6503775, z: -0.4334518, w: -0.38347822}
+  m_LocalPosition: {x: -0.058011733, y: -0.041914493, z: -0.07447155}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -16471,8 +16471,9 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1029465671705140313}
   serializedVersion: 2
-  m_LocalRotation: {x: -8.012619e-16, y: 1.2480334e-15, z: -0.2700158, w: 0.96285594}
-  m_LocalPosition: {x: -0.112840354, y: -1.1546319e-16, z: -2.113351e-17}
+  m_LocalRotation: {x: -0.0000000047632116, y: -0.0000000029102045, z: -0.2725189,
+    w: 0.96215045}
+  m_LocalPosition: {x: -0.11284036, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -16638,8 +16639,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1043082147383881723}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.04177524, y: 0.7058717, z: -0.70419, w: -0.06415935}
-  m_LocalPosition: {x: 0.041157685, y: -0.026920697, z: -0.09896705}
+  m_LocalRotation: {x: -0.0031365699, y: 0.65849435, z: -0.74615425, w: -0.09812873}
+  m_LocalPosition: {x: 0.041157685, y: -0.026920708, z: -0.09896705}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -16758,8 +16759,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1119287844345273389}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.0113281235, y: 0.23685996, z: 0.03380652, w: 0.9708894}
-  m_LocalPosition: {x: 0.1319786, y: 0.0000064733913, z: 0.000000047353424}
+  m_LocalRotation: {x: 0.18900794, y: 0.24570763, z: 0.48877838, w: 0.81547505}
+  m_LocalPosition: {x: 0.1319786, y: 0.0000065064523, z: 0.000000059604645}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -16821,8 +16822,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1178492388827552471}
   serializedVersion: 2
-  m_LocalRotation: {x: -0.7058717, y: 0.04177525, z: -0.064159356, w: 0.70419}
-  m_LocalPosition: {x: 0.041157782, y: -0.026920749, z: 0.098967105}
+  m_LocalRotation: {x: -0.6903846, y: 0.0043461667, z: -0.062756054, w: 0.72070235}
+  m_LocalPosition: {x: 0.0411578, y: -0.026920758, z: 0.098967105}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -16853,8 +16854,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1187729544822103918}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.63248575, y: 0.5785476, z: 0.37547135, w: -0.35251346}
-  m_LocalPosition: {x: -0.05801534, y: -0.04191418, z: 0.0744715}
+  m_LocalRotation: {x: 0.61765516, y: 0.47802544, z: 0.4238193, w: -0.4586622}
+  m_LocalPosition: {x: -0.05801531, y: -0.041914195, z: 0.07447152}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -17276,8 +17277,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1334586777690099967}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.64437777, y: 0.024462728, z: -0.00473771, w: 0.7643013}
-  m_LocalPosition: {x: 0.3993092, y: -0.00000038050263, z: 1.4654943e-16}
+  m_LocalRotation: {x: 0.65478253, y: 0.14295821, z: -0.104789436, w: 0.7347394}
+  m_LocalPosition: {x: 0.39930925, y: -0.00000035762787, z: -1.2739676e-10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -17550,7 +17551,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 105217
   BulletsPerMagazine: 20
-  TotalBullets: 120
+  TotalBullets: 140
   BulletsAmounts: 20
   NumberOfShotgunBulletsPerShot: 12
   InfiniteAmmo: 0
@@ -19339,8 +19340,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2103977897487592747}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.0016838326, y: 0.040749595, z: -0.041251875, w: 0.99831605}
-  m_LocalPosition: {x: -0.33947402, y: -0.0014490709, z: -0.0014362641}
+  m_LocalRotation: {x: -0.04816101, y: 0.11420055, z: -0.013024251, w: 0.99220425}
+  m_LocalPosition: {x: -0.33947405, y: -0.0014491149, z: -0.0014362636}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -24228,8 +24229,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2192883722915580178}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.0026372706, y: 0.019492026, z: 0.02126933, w: 0.99958026}
-  m_LocalPosition: {x: -0.042488147, y: -1.0581813e-17, z: -8.326672e-18}
+  m_LocalRotation: {x: 0.020955939, y: 0.01892938, z: 0.26750243, w: 0.96314335}
+  m_LocalPosition: {x: -0.04248817, y: -0.000000027837814, z: 4.9112714e-10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -24341,8 +24342,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2337860444543579649}
   serializedVersion: 2
-  m_LocalRotation: {x: -0.0024864315, y: -0.043879747, z: 0.056519255, w: 0.9974337}
-  m_LocalPosition: {x: -0.099825256, y: -0.0011595894, z: -0.0328334}
+  m_LocalRotation: {x: 0.027456695, y: -0.048195567, z: 0.1550508, w: 0.98634815}
+  m_LocalPosition: {x: -0.099825285, y: -0.0011595533, z: -0.032833405}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -24488,8 +24489,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2374583698532350251}
   serializedVersion: 2
-  m_LocalRotation: {x: -0.000000068568625, y: -0.03583079, z: -0.00000002887009, w: 0.99935794}
-  m_LocalPosition: {x: 0.27114415, y: -0.000000003601599, z: 0.000379592}
+  m_LocalRotation: {x: -0.07562302, y: -0.03894803, z: 0.032733113, w: 0.9958377}
+  m_LocalPosition: {x: 0.2711449, y: -0.000000034458935, z: 0.00038135424}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -30566,7 +30567,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 105217
   BulletsPerMagazine: 38
-  TotalBullets: 38
+  TotalBullets: 228
   BulletsAmounts: 38
   NumberOfShotgunBulletsPerShot: 12
   InfiniteAmmo: 0
@@ -30716,8 +30717,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2766828516959150773}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.0016838326, y: 0.040749595, z: -0.041251875, w: 0.99831605}
-  m_LocalPosition: {x: 0.3394746, y: 0.0014475863, z: 0.0014362636}
+  m_LocalRotation: {x: -0.09103524, y: 0.13402368, z: -0.01187876, w: 0.98671633}
+  m_LocalPosition: {x: 0.3394746, y: 0.0014475826, z: 0.0014362596}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -30939,8 +30940,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2826331277572717153}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0, y: 0, z: 0}
+  m_LocalRotation: {x: -0.021626897, y: -0.020266261, z: -0.0059654284, w: 0.99954295}
+  m_LocalPosition: {x: -0.013448715, y: 0.021856546, z: 0.054649353}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -36258,7 +36259,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 0
   BulletsPerMagazine: 7
-  TotalBullets: 14
+  TotalBullets: 42
   BulletsAmounts: 7
   NumberOfShotgunBulletsPerShot: 12
   InfiniteAmmo: 0
@@ -36406,8 +36407,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2932112329556032099}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.0026372706, y: 0.019492026, z: 0.02126933, w: 0.99958026}
-  m_LocalPosition: {x: 0.04248809, y: 0.00000026534414, z: -0.000000019789931}
+  m_LocalRotation: {x: -0.021516915, y: -0.018249003, z: -0.2955317, w: -0.9549163}
+  m_LocalPosition: {x: 0.04248807, y: 0.00000028964132, z: -0.000000016763806}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -36525,8 +36526,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2980027545809326731}
   serializedVersion: 2
-  m_LocalRotation: {x: 3.3983913e-15, y: 4.813244e-15, z: -0.2700158, w: 0.96285594}
-  m_LocalPosition: {x: 0.112840325, y: -0.00000001684957, z: -7.105427e-17}
+  m_LocalRotation: {x: 0.000000004765426, y: 0.0000000029297968, z: -0.27327165, w: 0.9619369}
+  m_LocalPosition: {x: 0.1128403, y: -0.000000018626451, z: 0.000000029802322}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -37006,8 +37007,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3230187984529223872}
   serializedVersion: 2
-  m_LocalRotation: {x: -0.018149227, y: -0.07147895, z: 0.09251083, w: 0.9929769}
-  m_LocalPosition: {x: 0.035133243, y: -0.00000019978481, z: 0.000000014853608}
+  m_LocalRotation: {x: 0.00060123566, y: 0.024545847, z: -0.19736953, w: -0.9800217}
+  m_LocalPosition: {x: 0.03513327, y: -0.00000014249235, z: 0.000000014901161}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -37038,8 +37039,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3243532163119494540}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.9950197, y: -0.09967895, z: 1.2986438e-15, w: 6.855654e-17}
-  m_LocalPosition: {x: -0.10393265, y: 1.3322676e-17, z: 4.6155368e-17}
+  m_LocalRotation: {x: 0.99442774, y: -0.10538021, z: 0.0005564965, w: 0.0028680023}
+  m_LocalPosition: {x: -0.10393268, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -37281,7 +37282,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 0
   BulletsPerMagazine: 16
-  TotalBullets: 32
+  TotalBullets: 96
   BulletsAmounts: 16
   NumberOfShotgunBulletsPerShot: 12
   InfiniteAmmo: 0
@@ -37960,9 +37961,9 @@ MonoBehaviour:
   RaycastingLayers:
     serializedVersion: 2
     m_Bits: 105217
-  BulletsPerMagazine: 35
-  TotalBullets: 70
-  BulletsAmounts: 35
+  BulletsPerMagazine: 30
+  TotalBullets: 180
+  BulletsAmounts: 30
   NumberOfShotgunBulletsPerShot: 12
   InfiniteAmmo: 0
   Fire_Rate: 0.086
@@ -38677,8 +38678,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4012741569675246534}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.0113281235, y: 0.23685996, z: 0.03380652, w: 0.9708894}
-  m_LocalPosition: {x: -0.13197872, y: -4.857226e-19, z: -2.6645352e-17}
+  m_LocalRotation: {x: 0.18563709, y: 0.30832058, z: 0.4867178, w: 0.7959794}
+  m_LocalPosition: {x: -0.13197874, y: 0.000000020416337, z: 0.000000002561137}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -38920,9 +38921,9 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 0
   BulletsPerMagazine: 7
-  TotalBullets: 56
+  TotalBullets: 42
   BulletsAmounts: 7
-  NumberOfShotgunBulletsPerShot: 8
+  NumberOfShotgunBulletsPerShot: 12
   InfiniteAmmo: 0
   Fire_Rate: 0.4
   CurrentFireRateToShoot: 0
@@ -39373,7 +39374,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 105217
   BulletsPerMagazine: 30
-  TotalBullets: 90
+  TotalBullets: 180
   BulletsAmounts: 30
   NumberOfShotgunBulletsPerShot: 12
   InfiniteAmmo: 0
@@ -39702,9 +39703,9 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 0
   BulletsPerMagazine: 12
-  TotalBullets: 60
+  TotalBullets: 72
   BulletsAmounts: 12
-  NumberOfShotgunBulletsPerShot: 5
+  NumberOfShotgunBulletsPerShot: 8
   InfiniteAmmo: 0
   Fire_Rate: 0.3
   CurrentFireRateToShoot: 0
@@ -40227,8 +40228,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4734421118912846788}
   serializedVersion: 2
-  m_LocalRotation: {x: -2.4156162e-17, y: -0.035830766, z: 1.6679253e-15, w: 0.9993579}
-  m_LocalPosition: {x: -0.27114528, y: 0, z: -0.00038136425}
+  m_LocalRotation: {x: -0.053266495, y: -0.002452664, z: 0.023176242, w: 0.9983084}
+  m_LocalPosition: {x: -0.27114525, y: -0.000000015257683, z: -0.00038136356}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -40638,7 +40639,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 105217
   BulletsPerMagazine: 30
-  TotalBullets: 60
+  TotalBullets: 180
   BulletsAmounts: 30
   NumberOfShotgunBulletsPerShot: 12
   InfiniteAmmo: 0
@@ -41089,8 +41090,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4904855363762373613}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.025480643, y: 0.27684274, z: 0.08803956, w: 0.9565343}
-  m_LocalPosition: {x: -0.035140477, y: -0.011706916, z: 0.045055393}
+  m_LocalRotation: {x: 0.036160257, y: 0.09896255, z: 0.16629544, w: 0.9804309}
+  m_LocalPosition: {x: -0.035140455, y: -0.011706871, z: 0.045055393}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -41287,8 +41288,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5001257592505628842}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.85767007, y: 0.507213, z: 0.039752707, w: -0.0745436}
-  m_LocalPosition: {x: -0.3771235, y: -7.771561e-17, z: 1.6819879e-16}
+  m_LocalRotation: {x: 0.807742, y: 0.581318, z: 0.010210559, w: -0.09756042}
+  m_LocalPosition: {x: -0.3771235, y: 0, z: -0.0000000018626451}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -41478,7 +41479,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 105217
   BulletsPerMagazine: 12
-  TotalBullets: 60
+  TotalBullets: 72
   BulletsAmounts: 12
   NumberOfShotgunBulletsPerShot: 12
   InfiniteAmmo: 0
@@ -41487,7 +41488,7 @@ MonoBehaviour:
   Precision: 30
   LossOfAccuracyPerShot: 0.2
   ShotErrorProbability: 0
-  BulletPrefab: {fileID: 3163126826636465162, guid: fdbb21287d79780489d138a38d772b95,
+  BulletPrefab: {fileID: 3163126826636465162, guid: 9503cd4f7eb90654fb90774b65c23499,
     type: 3}
   MuzzleFlashParticlePrefab: {fileID: 6463995516412543354, guid: 126a491ff75fc2d46865cf8c7b986211,
     type: 3}
@@ -41628,8 +41629,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5098731599357940403}
   serializedVersion: 2
-  m_LocalRotation: {x: -0.018149227, y: -0.07147895, z: 0.09251083, w: 0.9929769}
-  m_LocalPosition: {x: -0.035133272, y: -3.00324e-16, z: 3.7747583e-17}
+  m_LocalRotation: {x: 0.00010543288, y: -0.025314834, z: 0.22251883, w: 0.9745997}
+  m_LocalPosition: {x: -0.035133284, y: 0.00000003464811, z: 0.0000000012696546}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -41660,8 +41661,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5130442279898335611}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.458571, y: -0.5382496, z: 0.458571, w: 0.5382496}
-  m_LocalPosition: {x: -0.12164435, y: -1.5099033e-16, z: -5.059176e-17}
+  m_LocalRotation: {x: 0.42271858, y: -0.5168116, z: 0.45630524, w: 0.5882179}
+  m_LocalPosition: {x: -0.121644385, y: -0.000000044703484, z: 0.000000037252903}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -47721,7 +47722,7 @@ MonoBehaviour:
   CustomNextWeaponKeyCode: 0
   CustomPreviousWeaponKeycode: 0
   EnableAlphaNumericWeaponSwitch: 1
-  EnableMouseScrollWeaponSwitch: 1
+  EnableMouseScrollWeaponSwitch: 0
   ScrollThreshold: 0.1
 --- !u!114 &4084353510825488516
 MonoBehaviour:
@@ -47758,8 +47759,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fa2549d042f8b6d41bb6289069865f19, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Health: 400
-  MaxHealth: 400
+  Health: 200
+  MaxHealth: 200
   BloodScreenEffect: 1
   BloodHitParticle: {fileID: 3377176041485713299, guid: f5973a37858ed07439978e742b77a3af,
     type: 3}
@@ -48557,8 +48558,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5632666753451745612}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.9938103, y: -0.11109032, z: -7.955034e-16, w: -1.5053684e-16}
-  m_LocalPosition: {x: -0.17903724, y: 2.2204459e-17, z: 7.509725e-17}
+  m_LocalRotation: {x: 0.9908878, y: -0.13455404, z: 0.0027141538, w: 0.005415445}
+  m_LocalPosition: {x: -0.17903723, y: -0.000000014901161, z: -0.000000011175871}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -53839,8 +53840,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5795226400837359074}
   serializedVersion: 2
-  m_LocalRotation: {x: -0.036403257, y: -0.15203467, z: -0.22999534, w: 0.9605532}
-  m_LocalPosition: {x: 0.056655083, y: 0.00000009835502, z: -0.00000020279542}
+  m_LocalRotation: {x: 0.037729677, y: 0.27592608, z: 0.23857018, w: -0.9303363}
+  m_LocalPosition: {x: 0.056655087, y: 0.00000011175871, z: -0.000000230968}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -53984,8 +53985,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5879221716726102660}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.00028049533, y: 0.065794446, z: 0.004253931, w: 0.99782413}
-  m_LocalPosition: {x: -0.10396561, y: 0.003987151, z: 0.026726495}
+  m_LocalRotation: {x: -0.02923259, y: 0.055985857, z: 0.071231194, w: 0.9954583}
+  m_LocalPosition: {x: -0.10396561, y: 0.0039871694, z: 0.026726495}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -59259,11 +59260,11 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 0
   BulletsPerMagazine: 10
-  TotalBullets: 40
+  TotalBullets: 60
   BulletsAmounts: 10
   NumberOfShotgunBulletsPerShot: 12
   InfiniteAmmo: 0
-  Fire_Rate: 0.9
+  Fire_Rate: 0.85
   CurrentFireRateToShoot: 0
   Precision: 20
   LossOfAccuracyPerShot: 1
@@ -65280,7 +65281,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 0
   BulletsPerMagazine: 8
-  TotalBullets: 32
+  TotalBullets: 48
   BulletsAmounts: 8
   NumberOfShotgunBulletsPerShot: 12
   InfiniteAmmo: 0
@@ -65411,8 +65412,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7089369942670637620}
   serializedVersion: 2
-  m_LocalRotation: {x: -0.001153992, y: -0.010741636, z: 0.09832994, w: 0.99509525}
-  m_LocalPosition: {x: -0.040936317, y: -1.5276409e-18, z: 2.4424906e-17}
+  m_LocalRotation: {x: -0.041755956, y: -0.0060460498, z: 0.258019, w: 0.9652182}
+  m_LocalPosition: {x: -0.040936317, y: 0.0000000376167, z: -0.000000002219167}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -76471,12 +76472,12 @@ MonoBehaviour:
   RaycastingLayers:
     serializedVersion: 2
     m_Bits: 105217
-  BulletsPerMagazine: 30
-  TotalBullets: 90
-  BulletsAmounts: 30
+  BulletsPerMagazine: 25
+  TotalBullets: 175
+  BulletsAmounts: 25
   NumberOfShotgunBulletsPerShot: 12
   InfiniteAmmo: 0
-  Fire_Rate: 0.1
+  Fire_Rate: 0.067
   CurrentFireRateToShoot: 0.0933857
   Precision: 30
   LossOfAccuracyPerShot: 0.2
@@ -76781,7 +76782,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 105217
   BulletsPerMagazine: 30
-  TotalBullets: 60
+  TotalBullets: 180
   BulletsAmounts: 30
   NumberOfShotgunBulletsPerShot: 12
   InfiniteAmmo: 0
@@ -76931,8 +76932,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7753955727278431961}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.64437777, y: 0.024462728, z: -0.00473771, w: 0.7643013}
-  m_LocalPosition: {x: -0.39930904, y: -6.883383e-17, z: -5.3342145e-17}
+  m_LocalRotation: {x: 0.6720925, y: 0.12423355, z: -0.0783137, w: 0.725758}
+  m_LocalPosition: {x: -0.39930907, y: 0.000000059604645, z: 4.5820414e-10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -77108,8 +77109,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7824560145610474008}
   serializedVersion: 2
-  m_LocalRotation: {x: -0.039942026, y: -0.1178403, z: 0.14163578, w: 0.98206806}
-  m_LocalPosition: {x: 0.06370146, y: -0.000007811825, z: 0.00000043638116}
+  m_LocalRotation: {x: 0.062924266, y: 0.24634549, z: -0.01908668, w: -0.96694887}
+  m_LocalPosition: {x: 0.06370148, y: -0.000007780269, z: 0.0000004246831}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -78279,9 +78280,9 @@ MonoBehaviour:
   RaycastingLayers:
     serializedVersion: 2
     m_Bits: 105217
-  BulletsPerMagazine: 30
-  TotalBullets: 90
-  BulletsAmounts: 30
+  BulletsPerMagazine: 33
+  TotalBullets: 198
+  BulletsAmounts: 33
   NumberOfShotgunBulletsPerShot: 12
   InfiniteAmmo: 0
   Fire_Rate: 0.09
@@ -79495,8 +79496,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8778164901676752136}
   serializedVersion: 2
-  m_LocalRotation: {x: -0.0024864315, y: -0.043879747, z: 0.056519255, w: 0.9974337}
-  m_LocalPosition: {x: 0.099825, y: 0.00116, z: 0.032833397}
+  m_LocalRotation: {x: -0.026816819, y: 0.046207126, z: -0.13880324, w: -0.9888779}
+  m_LocalPosition: {x: 0.09982499, y: 0.0011600524, z: 0.032833412}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -84985,8 +84986,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8900332514507155290}
   serializedVersion: 2
-  m_LocalRotation: {x: -0.006912195, y: -0.025717413, z: 0.057002407, w: 0.9980188}
-  m_LocalPosition: {x: -0.03791188, y: -2.1461998e-16, z: -3.8302694e-17}
+  m_LocalRotation: {x: -0.04399561, y: -0.02110009, z: 0.17595148, w: 0.9831888}
+  m_LocalPosition: {x: -0.037911892, y: -0.0000000110158, z: 5.529728e-10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -85017,8 +85018,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8917361278773711481}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.85767007, y: 0.507213, z: 0.039752707, w: -0.0745436}
-  m_LocalPosition: {x: 0.37712327, y: 0.00000013169495, z: -0.0000008411038}
+  m_LocalRotation: {x: 0.79829764, y: 0.5917912, z: 0.022001177, w: -0.10963564}
+  m_LocalPosition: {x: 0.3771233, y: 0.00000014901161, z: -0.0000008493662}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -85049,8 +85050,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8953688780811978832}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.99518615, y: -0.098002784, z: -6.0366487e-16, w: -1.2097554e-16}
-  m_LocalPosition: {x: -0.18151169, y: 1.5543122e-17, z: -7.101073e-17}
+  m_LocalRotation: {x: 0.99720633, y: -0.07444479, z: -0.0036809524, w: 0.004904072}
+  m_LocalPosition: {x: -0.18151172, y: -0.000000029802322, z: 0.000000013969839}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -85195,8 +85196,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 9194861571206920020}
   serializedVersion: 2
-  m_LocalRotation: {x: -0.039942026, y: -0.1178403, z: 0.14163578, w: 0.98206806}
-  m_LocalPosition: {x: -0.06370214, y: -6.1062266e-18, z: 4.440892e-18}
+  m_LocalRotation: {x: -0.06424147, y: -0.21011907, z: 0.01934325, w: 0.9753711}
+  m_LocalPosition: {x: -0.06370214, y: -0.000000055879354, z: 0.000000008381903}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
