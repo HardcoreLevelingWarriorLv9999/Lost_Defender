@@ -47759,8 +47759,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fa2549d042f8b6d41bb6289069865f19, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Health: 400
-  MaxHealth: 400
+  Health: 200
+  MaxHealth: 200
   BloodScreenEffect: 1
   BloodHitParticle: {fileID: 3377176041485713299, guid: f5973a37858ed07439978e742b77a3af,
     type: 3}
