@@ -1,4 +1,5 @@
-﻿using QuestsSystem;
+﻿using JUTPS.ItemSystem;
+using QuestsSystem;
 using UnityEngine;
 
 namespace QuestGameSample
