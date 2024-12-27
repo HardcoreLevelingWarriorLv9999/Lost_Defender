@@ -14775,9 +14775,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   HealthComponent: {fileID: 0}
   IsPlayerHealthBar: 1
-  HealthBarImage: {fileID: 8103260766021686837}
+  HealthBarSlider: {fileID: 0}
   Speed: 0.2
-  HealthPointsText: {fileID: 1462921397}
+  HealthPointsText: {fileID: 0}
   EmptyHPColor: {r: 1, g: 0, b: 0, a: 1}
   FullHPColor: {r: 0, g: 1, b: 0, a: 1}
   HPHealingColor: {r: 0, g: 1, b: 1, a: 1}
@@ -15592,14 +15592,14 @@ RectTransform:
   m_LocalScale: {x: 0, y: 0, z: 0}
   m_ConstrainProportionsScale: 0
   m_Children:
+  - {fileID: 6644565495934099451}
+  - {fileID: 674902031694180211}
+  - {fileID: 5251008240437405136}
   - {fileID: 8103260766552577067}
   - {fileID: 527090249}
   - {fileID: 7237513933201630672}
   - {fileID: 7010031415561803509}
   - {fileID: 7497940522151377237}
-  - {fileID: 5251008240437405136}
-  - {fileID: 674902031694180211}
-  - {fileID: 6644565495934099451}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
