@@ -78,7 +78,7 @@ public class Gameplay : MonoBehaviour
 
             imageA.rotation = Quaternion.Euler(0, 0, -90); // Xoay góc Z là -90 độ
         }
-
+        AudioManager.Instance.PlaySFX("ClickButton");
     }
     public void Easy()
     {
@@ -90,6 +90,7 @@ public class Gameplay : MonoBehaviour
         easy.SetActive(true);
         gamemode1.SetActive(true);
         difficulty = 0;
+        AudioManager.Instance.PlaySFX("ClickButton");
     }
     public void Normmal()
     {
@@ -101,6 +102,7 @@ public class Gameplay : MonoBehaviour
         normal.SetActive(true);
         gamemode2.SetActive(true);
         difficulty = 1;
+        AudioManager.Instance.PlaySFX("ClickButton");
     }
     public void Hard()
     {
@@ -112,6 +114,7 @@ public class Gameplay : MonoBehaviour
         hard.SetActive(true);
         gamemode3.SetActive(true);
         difficulty = 2;
+        AudioManager.Instance.PlaySFX("ClickButton");
     }
     public void Nightmare()
     {
@@ -123,6 +126,7 @@ public class Gameplay : MonoBehaviour
         nightmare.SetActive(true);
         gamemode4.SetActive(true);
         difficulty = 3;
+        AudioManager.Instance.PlaySFX("ClickButton");
     }
     public void Exiteasy()
     {
@@ -137,6 +141,7 @@ public class Gameplay : MonoBehaviour
         map2.SetActive(false);
         map3.SetActive(false);
         map4.SetActive(false);
+        AudioManager.Instance.PlaySFX("ClickButton");
     }
     public void ExitNormmal()
     {
@@ -151,6 +156,7 @@ public class Gameplay : MonoBehaviour
         map2.SetActive(false);
         map3.SetActive(false);
         map4.SetActive(false);
+        AudioManager.Instance.PlaySFX("ClickButton");
     }
     public void ExitHard()
     {
@@ -165,9 +171,11 @@ public class Gameplay : MonoBehaviour
         map2.SetActive(false);
         map3.SetActive(false);
         map4.SetActive(false);
+        AudioManager.Instance.PlaySFX("ClickButton");
     }
     public void ExitNightmare()
     {
+        AudioManager.Instance.PlaySFX("ClickButton");
         gamemode.SetActive(true);
         exit.SetActive(true);
         setting.SetActive(true);
@@ -182,6 +190,7 @@ public class Gameplay : MonoBehaviour
     }
     public void Map1()
     {
+        AudioManager.Instance.PlaySFX("ClickButton");
         map1.SetActive(true);
         map2.SetActive(false);
         map3.SetActive(false);
@@ -189,6 +198,7 @@ public class Gameplay : MonoBehaviour
     }
     public void Map2()
     {
+        AudioManager.Instance.PlaySFX("ClickButton");
         map1.SetActive(false);
         map2.SetActive(true);
         map3.SetActive(false);
@@ -196,6 +206,7 @@ public class Gameplay : MonoBehaviour
     }
     public void Map3()
     {
+        AudioManager.Instance.PlaySFX("ClickButton");
         map1.SetActive(false);
         map2.SetActive(false);
         map3.SetActive(true);
@@ -203,6 +214,7 @@ public class Gameplay : MonoBehaviour
     }
     public void Map4()
     {
+        AudioManager.Instance.PlaySFX("ClickButton");
         map1.SetActive(false);
         map2.SetActive(false);
         map3.SetActive(false);
@@ -210,24 +222,29 @@ public class Gameplay : MonoBehaviour
     }
     public void PaneExit()
     {
+        AudioManager.Instance.PlaySFX("ClickButton");
         paneExit.SetActive(true);
         Time.timeScale = 0;
     }
     public void ExitGame()
     {
+        AudioManager.Instance.PlaySFX("ClickButton");
         Application.Quit();
     }
     public void Back()
     {
+        AudioManager.Instance.PlaySFX("ClickButton");
         paneExit.SetActive(false);
         Time.timeScale = 1;
     }
     public void PlayRoom()
     {
+        AudioManager.Instance.PlaySFX("ClickButton");
         SceneManager.LoadScene("Scene character");
     }
     public void Setting()
     {
+        AudioManager.Instance.PlaySFX("ClickButton");
         bool isActive = gameSetting.activeSelf;
         gameSetting.SetActive(!isActive);
         ;
@@ -253,10 +270,12 @@ public class Gameplay : MonoBehaviour
     }
     public void PlayMap1()
     {
+        AudioManager.Instance.PlaySFX("ClickButton");
         SceneManager.LoadScene("Map 1");
     }
-    void LoadPlayerData() 
-    { 
+    void LoadPlayerData()
+    {
+
         SaveLoadManager.PlayerData data = SaveLoadManager.LoadData();
         if (data != null) 
         {
@@ -326,18 +345,21 @@ public class Gameplay : MonoBehaviour
     }
     public void Controls()
     {
+        AudioManager.Instance.PlaySFX("ClickButton");
         Panelvolume.SetActive(false);
         PanelControls.SetActive(true);
         PanelGraphics.SetActive(false);
     }
     public void Graphics()
     {
+        AudioManager.Instance.PlaySFX("ClickButton");
         Panelvolume.SetActive(false);
         PanelControls.SetActive(false);
         PanelGraphics.SetActive(true);
     }
     public void Volume()
     {
+        AudioManager.Instance.PlaySFX("ClickButton");
         Panelvolume.SetActive(true);
         PanelControls.SetActive(false);
         PanelGraphics.SetActive(false);

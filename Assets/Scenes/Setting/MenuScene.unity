@@ -2125,8 +2125,8 @@ MonoBehaviour:
   - name: 
     clip: {fileID: 0}
   sfxSounds:
-  - name: 
-    clip: {fileID: 0}
+  - name: ClickButton
+    clip: {fileID: 8300000, guid: 960901cb2caba12408092c6a057e67c6, type: 3}
   - name: 
     clip: {fileID: 0}
   - name: 
@@ -8690,7 +8690,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &752151961
 RectTransform:
   m_ObjectHideFlags: 0
