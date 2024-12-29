@@ -32,10 +32,15 @@ public class Gameplay : MonoBehaviour
     public Button Map1Button, Map2Button, Map3Button, Map4Button;
     public GameObject gameSetting, Panelvolume, PanelControls, PanelGraphics;
     int openMap1, openMap2,openMap3,openMap4, difficulty;
+    public Texture2D customCursorTexture;
+    public Vector2 hotSpot = Vector2.zero;
 
     // Start is called before the first frame update
     void Start()
     {
+        Cursor.SetCursor(customCursorTexture, hotSpot, CursorMode.Auto);
+        Cursor.visible = true;
+        Cursor.lockState = CursorLockMode.None;
         LoadPlayerData();
         easy.SetActive(false);
         normal.SetActive(false);
