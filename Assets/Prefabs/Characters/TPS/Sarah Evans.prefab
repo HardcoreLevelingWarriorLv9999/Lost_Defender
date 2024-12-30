@@ -18207,7 +18207,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &2810339325375459492
 Transform:
   m_ObjectHideFlags: 0
@@ -18601,7 +18601,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &6359254801729731259
 Transform:
   m_ObjectHideFlags: 0
@@ -18610,7 +18610,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7443371286307610821}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: 0.99975896, z: -0, w: 0.02195787}
+  m_LocalRotation: {x: 0, y: 0.99975896, z: 0, w: 0.021954551}
   m_LocalPosition: {x: 26.18475, y: 0, z: 93.733215}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -19219,8 +19219,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fa2549d042f8b6d41bb6289069865f19, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Health: 400
-  MaxHealth: 400
+  Health: 200
+  MaxHealth: 200
   BloodScreenEffect: 1
   BloodHitParticle: {fileID: 3377176041485713299, guid: f5973a37858ed07439978e742b77a3af,
     type: 3}
