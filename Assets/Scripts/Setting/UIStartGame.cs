@@ -19,12 +19,17 @@ public class UIStartGame : MonoBehaviour
     public TextMeshProUGUI textgame1;
     public TextMeshProUGUI textgame2;
     public TextMeshProUGUI textgame3;
+    public Texture2D customCursorTexture;
+    public Vector2 hotSpot = Vector2.zero;
 
     private bool updateEnabled = true; // Biến cờ để điều khiển hàm Update
 
     // Start is called before the first frame update
     void Start()
     {
+        Cursor.SetCursor(customCursorTexture, hotSpot, CursorMode.Auto);
+        Cursor.visible = true;
+        Cursor.lockState = CursorLockMode.None;
         start.SetActive(false);
         exit.SetActive(true);
         game1.SetActive(true);
@@ -35,9 +40,11 @@ public class UIStartGame : MonoBehaviour
 
     public void Game1()
     {
+        AudioManager.Instance.PlaySFX("ClickButton");
         string gameData = PlayerPrefs.GetString("game1");
         if (string.IsNullOrEmpty(gameData))
         {
+          
             exit.SetActive(false);
             game1.SetActive(false);
             game2.SetActive(false);
@@ -58,6 +65,7 @@ public class UIStartGame : MonoBehaviour
 
     public void Game2()
     {
+        AudioManager.Instance.PlaySFX("ClickButton");
         string gameData = PlayerPrefs.GetString("game2");
         if (string.IsNullOrEmpty(gameData))
         {
@@ -81,6 +89,7 @@ public class UIStartGame : MonoBehaviour
 
     public void Game3()
     {
+        AudioManager.Instance.PlaySFX("ClickButton");
         string gameData = PlayerPrefs.GetString("game3");
         if (string.IsNullOrEmpty(gameData))
         {
@@ -104,6 +113,7 @@ public class UIStartGame : MonoBehaviour
 
     public void Clean1()
     {
+        AudioManager.Instance.PlaySFX("ClickButton");
         string filegame = PlayerPrefs.GetString("game1");
         string path = Application.persistentDataPath + "/" + filegame + ".dat";
         if (File.Exists(path))
@@ -117,6 +127,7 @@ public class UIStartGame : MonoBehaviour
 
     public void Clean2()
     {
+        AudioManager.Instance.PlaySFX("ClickButton");
         string filegame = PlayerPrefs.GetString("game2");
         string path = Application.persistentDataPath + "/" + filegame + ".dat";
         if (File.Exists(path))
@@ -130,6 +141,7 @@ public class UIStartGame : MonoBehaviour
 
     public void Clean3()
     {
+        AudioManager.Instance.PlaySFX("ClickButton");
         string filegame = PlayerPrefs.GetString("game3");
         string path = Application.persistentDataPath + "/" + filegame + ".dat";
         if (File.Exists(path))
@@ -143,6 +155,7 @@ public class UIStartGame : MonoBehaviour
 
     public void SaveGameData()
     {
+        AudioManager.Instance.PlaySFX("ClickButton");
         string inputText = saveNameInputField.text.Trim();
         if (string.IsNullOrEmpty(inputText))
         {
@@ -235,6 +248,7 @@ public class UIStartGame : MonoBehaviour
     }
     public void ExitGame()
     {
+        AudioManager.Instance.PlaySFX("ClickButton");
         Application.Quit();
     }
 }
