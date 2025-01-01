@@ -15,6 +15,7 @@ public class ControllerNewCharacter : MonoBehaviour
     public GameObject Character3;
     public GameObject Character4;
     private GameObject currentCharacter;
+    int characternumber;
     // Start is called before the first frame update
     void Start()
     {
@@ -23,18 +24,12 @@ public class ControllerNewCharacter : MonoBehaviour
         characterInformation.text = "he is the leader with a 5% increase in melee weapon damage ";
         DestroyCurrentCharacter();
         CreateCharacter(Character1);
-        SaveLoadManager.PlayerData data = new SaveLoadManager.PlayerData();
-        data.characternumber = 1;
-        SaveLoadManager.SaveData(data);
-        Debug.Log("mã nhân vật: " + data.characternumber);
+        characternumber =1;
     }
 
     public void AlexRodriguez()
     {
-        SaveLoadManager.PlayerData data = new SaveLoadManager.PlayerData();
-        data.characternumber = 1;
-        SaveLoadManager.SaveData(data);
-        Debug.Log("mã nhân vật: " + data.characternumber);
+        characternumber =1;
         nameCharacter.text = "Alex Rodriguez";
         characterInformation.text = "He is the leader with a 5% increase in melee weapon damage ";
         DestroyCurrentCharacter();
@@ -42,10 +37,7 @@ public class ControllerNewCharacter : MonoBehaviour
     }
     public void KaitoNakamura()
     {
-        SaveLoadManager.PlayerData data = new SaveLoadManager.PlayerData();
-        data.characternumber = 2;
-        SaveLoadManager.SaveData(data);
-        Debug.Log("mã nhân vật: " + data.characternumber);
+        characternumber =2;
         nameCharacter.text = "Kaito Nakamura";
         characterInformation.text = "He is a reliable defender with the ability to reduce damage taken by 5%.";
         DestroyCurrentCharacter();
@@ -53,10 +45,7 @@ public class ControllerNewCharacter : MonoBehaviour
     }
     public void MeiChen()
     {
-        SaveLoadManager.PlayerData data = new SaveLoadManager.PlayerData();
-        data.characternumber = 3;
-        SaveLoadManager.SaveData(data);
-        Debug.Log("mã nhân vật: " + data.characternumber);
+        characternumber =3;
         nameCharacter.text = "Mei Chen";
         characterInformation.text = "She is a technology master with the ability to increase ranged weapon damage by 5% thanks to her research.";
         DestroyCurrentCharacter();
@@ -64,10 +53,7 @@ public class ControllerNewCharacter : MonoBehaviour
     }
     public void SarahEvans()
     {
-        SaveLoadManager.PlayerData data = new SaveLoadManager.PlayerData();
-        data.characternumber = 4;
-        SaveLoadManager.SaveData(data);
-        Debug.Log("mã nhân vật: " + data.characternumber);
+        characternumber =4;
         nameCharacter.text = "Sarah Evans";
         characterInformation.text = "She is a medic with the ability to restore 0.1% HP per second";
         DestroyCurrentCharacter();
@@ -100,9 +86,11 @@ public class ControllerNewCharacter : MonoBehaviour
         data.openMap3 = 0;
         data.openMap4 = 0;
         data.playerName = nameGame;
+        data.characternumber = characternumber;
         SaveLoadManager.SaveData(data);
         Debug.Log("Dữ liệu người chơi đã được lưu!");
         Debug.Log("Tên người chơi: " + data.playerName);
+        Debug.Log("Mã nhân vật: " + data.characternumber);
         Debug.Log("Level: " + data.level);
     }
     public void PlayGame()

@@ -317,19 +317,19 @@ GameObject:
   - component: {fileID: 5868663186578805074}
   - component: {fileID: 8293773874582075393}
   - component: {fileID: 6177845878411329148}
-  - component: {fileID: 8884224567789884788}
-  - component: {fileID: 5662019581430545919}
   - component: {fileID: 2686613124624299023}
   - component: {fileID: 6639731868268517450}
   - component: {fileID: 8139374169976016371}
   - component: {fileID: 5093391674373297723}
+  - component: {fileID: 6468813818752350813}
+  - component: {fileID: 539454518964037948}
   m_Layer: 9
   m_Name: Alex Rodriguez
   m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &4106895909508856
 Transform:
   m_ObjectHideFlags: 0
@@ -555,68 +555,6 @@ MonoBehaviour:
   RootBoneDownMovementIntensity: 0.5
   BlockForwardLeanWeight: 8
   AxisToLean: 0
---- !u!114 &8884224567789884788
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1108052112129980}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5238e6384da25284e8adadb2e9544db5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _startVehicle: {fileID: 0}
-  EnterVehiclesEnabled: 1
-  ExitVehiclesEnabled: 1
-  DisableCharacterOnEnter: 0
-  DelayToReenableAction: 0.2
-  UseDefaultInputs: 1
-  CheckNearVehicles:
-    Layer:
-      serializedVersion: 2
-      m_Bits: 1
-    AvoidObstacles: 1
-    EnterVehiclesAreaTag: VehicleArea
-    CheckRange: 2
-    AutoCheck: 1
-    AutoCheckInterval: 0.5
-  MaxVehicleSpeedToEnter: 3
-  MaxVehicleSpeedToExit: 1000
-  MaxCharacterSpeedToEnter: 1
-  GroundLayer:
-    serializedVersion: 2
-    m_Bits: 1
-  OnEnterVehicle:
-    m_PersistentCalls:
-      m_Calls: []
-  OnExitVehicle:
-    m_PersistentCalls:
-      m_Calls: []
---- !u!114 &5662019581430545919
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1108052112129980}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 945aee53f47930a488ae796b0af5fb9f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Enabled: 1
-  FootPlacer: 0
-  GroundLayer:
-    serializedVersion: 2
-    m_Bits: 0
-  SpineLean: 1
-  LeanDirection: 0.2
-  ForwardLeanAxis: 0
-  SidesLeanAxis: 2
-  InvertForwardLean: 0
-  InvertSideLean: 0
 --- !u!114 &2686613124624299023
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -974,6 +912,49 @@ MonoBehaviour:
   - Bones
   - Wall
   - Bullet
+--- !u!114 &6468813818752350813
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1108052112129980}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cc6deb64f70ce214dbaea92026b75c35, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  DestroyOnStartGame: 0
+  PlayerController: {fileID: 5093391674373297723}
+  VisualizationSettings:
+    ResourcesPath: 
+    GizmosColor: {r: 0, g: 0, b: 0, a: 0.5}
+    WireGizmosColor: {r: 0.9, g: 0.4, b: 0.2, a: 0.5}
+    StepVisualizerMesh: {fileID: 0}
+  StepCorrection: 1
+  GroundCheck: 1
+  WallCheck: 1
+--- !u!114 &539454518964037948
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1108052112129980}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fa2549d042f8b6d41bb6289069865f19, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Health: 200
+  MaxHealth: 200
+  BloodScreenEffect: 1
+  BloodHitParticle: {fileID: 3377176041485713299, guid: f5973a37858ed07439978e742b77a3af,
+    type: 3}
+  OnDeath:
+    m_PersistentCalls:
+      m_Calls: []
+  IsDead: 0
 --- !u!1 &1110786695888894
 GameObject:
   m_ObjectHideFlags: 0
