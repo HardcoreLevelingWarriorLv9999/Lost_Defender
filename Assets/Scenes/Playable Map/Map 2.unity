@@ -24252,6 +24252,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: ThirdPerson Camera Controller
       objectReference: {fileID: 0}
+    - target: {fileID: 3243631560226216737, guid: 3f9896eb08ade7b4ab7b111e294279d4,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3243631560226216739, guid: 3f9896eb08ade7b4ab7b111e294279d4,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -60053,7 +60058,32 @@ PrefabInstance:
       value: Animation
       objectReference: {fileID: 0}
     m_RemovedComponents: []
-    m_RemovedGameObjects: []
+    m_RemovedGameObjects:
+    - {fileID: 1901149095504939190, guid: 1a0b114ad3dcf254fb3a2810abb00361, type: 3}
+    - {fileID: 5331664447195285375, guid: 1a0b114ad3dcf254fb3a2810abb00361, type: 3}
+    - {fileID: 9071668491523204484, guid: 1a0b114ad3dcf254fb3a2810abb00361, type: 3}
+    - {fileID: 102740645446023232, guid: 1a0b114ad3dcf254fb3a2810abb00361, type: 3}
+    - {fileID: 6359470154801763614, guid: 1a0b114ad3dcf254fb3a2810abb00361, type: 3}
+    - {fileID: 4531762855714425341, guid: 1a0b114ad3dcf254fb3a2810abb00361, type: 3}
+    - {fileID: 5473844455950277253, guid: 1a0b114ad3dcf254fb3a2810abb00361, type: 3}
+    - {fileID: 7132362089904680051, guid: 1a0b114ad3dcf254fb3a2810abb00361, type: 3}
+    - {fileID: 2679661567920590519, guid: 1a0b114ad3dcf254fb3a2810abb00361, type: 3}
+    - {fileID: 2829603675499831986, guid: 1a0b114ad3dcf254fb3a2810abb00361, type: 3}
+    - {fileID: 5442678172438087580, guid: 1a0b114ad3dcf254fb3a2810abb00361, type: 3}
+    - {fileID: 7815251697938902653, guid: 1a0b114ad3dcf254fb3a2810abb00361, type: 3}
+    - {fileID: 6115165011265315842, guid: 1a0b114ad3dcf254fb3a2810abb00361, type: 3}
+    - {fileID: 4716113429024213546, guid: 1a0b114ad3dcf254fb3a2810abb00361, type: 3}
+    - {fileID: 2107070578268002812, guid: 1a0b114ad3dcf254fb3a2810abb00361, type: 3}
+    - {fileID: 1317338112567828197, guid: 1a0b114ad3dcf254fb3a2810abb00361, type: 3}
+    - {fileID: 7916122125579467285, guid: 1a0b114ad3dcf254fb3a2810abb00361, type: 3}
+    - {fileID: 256733739661339070, guid: 1a0b114ad3dcf254fb3a2810abb00361, type: 3}
+    - {fileID: 213926056299625606, guid: 1a0b114ad3dcf254fb3a2810abb00361, type: 3}
+    - {fileID: 1772643301733912427, guid: 1a0b114ad3dcf254fb3a2810abb00361, type: 3}
+    - {fileID: 1125588449116212940, guid: 1a0b114ad3dcf254fb3a2810abb00361, type: 3}
+    - {fileID: 886202004000707456, guid: 1a0b114ad3dcf254fb3a2810abb00361, type: 3}
+    - {fileID: 2971347707117539456, guid: 1a0b114ad3dcf254fb3a2810abb00361, type: 3}
+    - {fileID: 4561420828042325256, guid: 1a0b114ad3dcf254fb3a2810abb00361, type: 3}
+    - {fileID: 4097493523141556300, guid: 1a0b114ad3dcf254fb3a2810abb00361, type: 3}
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1a0b114ad3dcf254fb3a2810abb00361, type: 3}
