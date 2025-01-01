@@ -53,7 +53,7 @@ public class LoadingSceneManager : MonoBehaviour
         }
         progressBar.value = 0.99f;
         progressText.text = "Loading... 99%";
-        yield return new WaitForSeconds(1.0f);
+        yield return new WaitForSeconds(2.0f);
         loadingScreenObj.SetActive(false);
         SceneManager.LoadScene(sceneName);
     }
