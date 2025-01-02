@@ -30,7 +30,7 @@ public class Gameplay : MonoBehaviour
     public RectTransform imageA; // Transform của hình A
     public TextMeshProUGUI nameCharacter, lv, money, nucleus,gem;
     public Button Map1Button, Map2Button, Map3Button, Map4Button;
-    public GameObject gameSetting, Panelvolume, PanelControls, PanelGraphics;
+    public GameObject gameSetting, Panelvolume, PanelControls, PanelGraphics, credits;
     int openMap1, openMap2,openMap3,openMap4, difficulty;
     public Texture2D customCursorTexture;
     public Vector2 hotSpot = Vector2.zero;
@@ -64,6 +64,7 @@ public class Gameplay : MonoBehaviour
         exit.SetActive(true);
         setting.SetActive(true);
         gameplay.SetActive(true);
+        credits.SetActive(true);
        // gameroom.SetActive(true);
 
     }
@@ -91,6 +92,7 @@ public class Gameplay : MonoBehaviour
         exit.SetActive(false);
         setting.SetActive(false);
         gameplay.SetActive(false);
+        credits.SetActive(false);
        // gameroom.SetActive(false);
         easy.SetActive(true);
         gamemode1.SetActive(true);
@@ -103,6 +105,7 @@ public class Gameplay : MonoBehaviour
         exit.SetActive(false);
         setting.SetActive(false);
         gameplay.SetActive(false);
+        credits.SetActive(false);
       //  gameroom.SetActive(false);
         normal.SetActive(true);
         gamemode2.SetActive(true);
@@ -115,6 +118,7 @@ public class Gameplay : MonoBehaviour
         exit.SetActive(false);
         setting.SetActive(false);
         gameplay.SetActive(false);
+        credits.SetActive(false);
        // gameroom.SetActive(false);
         hard.SetActive(true);
         gamemode3.SetActive(true);
@@ -127,6 +131,7 @@ public class Gameplay : MonoBehaviour
         exit.SetActive(false);
         setting.SetActive(false);
         gameplay.SetActive(false);
+        credits.SetActive(false);
    //     gameroom.SetActive(false);
         nightmare.SetActive(true);
         gamemode4.SetActive(true);
@@ -139,6 +144,7 @@ public class Gameplay : MonoBehaviour
         exit.SetActive(true);
         setting.SetActive(true);
         gameplay.SetActive(true);
+        credits.SetActive(true);
      //   gameroom.SetActive(true);
         easy.SetActive(false);
         gamemode1.SetActive(false);
@@ -154,6 +160,7 @@ public class Gameplay : MonoBehaviour
         exit.SetActive(true);
         setting.SetActive(true);
         gameplay.SetActive(true);
+        credits.SetActive(true);
        // gameroom.SetActive(true);
         normal.SetActive(false);
         gamemode2.SetActive(false);
@@ -169,6 +176,7 @@ public class Gameplay : MonoBehaviour
         exit.SetActive(true);
         setting.SetActive(true);
         gameplay.SetActive(true);
+        credits.SetActive(true);
       //  gameroom.SetActive(true);
         hard.SetActive(false);
         gamemode3.SetActive(false);
@@ -185,6 +193,7 @@ public class Gameplay : MonoBehaviour
         exit.SetActive(true);
         setting.SetActive(true);
         gameplay.SetActive(true);
+        credits.SetActive(true);
        // gameroom.SetActive(true);
         nightmare.SetActive(false);
         gamemode4.SetActive(false);
@@ -258,6 +267,7 @@ public class Gameplay : MonoBehaviour
             gamemode.SetActive(false);
             exit.SetActive(false);
             gameplay.SetActive(false);
+            credits.SetActive(false);
           //  gameroom.SetActive(false);
             imageA.rotation = Quaternion.Euler(0, 0, -90);
         }
@@ -265,6 +275,7 @@ public class Gameplay : MonoBehaviour
         {
             exit.SetActive(true);
             gameplay.SetActive(true);
+            credits.SetActive(true);
             //  gameroom.SetActive(true);
             Panelvolume.SetActive(false);
             PanelControls.SetActive(false);
@@ -277,6 +288,11 @@ public class Gameplay : MonoBehaviour
     {
         AudioManager.Instance.PlaySFX("ClickButton");
         SceneManager.LoadScene("Map 1");
+    }
+    public void LoadCredits()
+    {
+        AudioManager.Instance.PlaySFX("ClickButton");
+        SceneManager.LoadScene("Credits");
     }
     void LoadPlayerData()
     {
