@@ -46995,8 +46995,8 @@ MonoBehaviour:
   BlockHorizontalInput: 0
   BlockFireModeOnCursorVisible: 1
   BlockFireModeOnPunching: 1
-  EnablePunchAttacks: 0
-  EnableRoll: 0
+  EnablePunchAttacks: 1
+  EnableRoll: 1
   PhysicalDamage: 0
   DoRagdollPhysicalDamage: 0
   PhysicalDamageStartAt: 30
