@@ -19,7 +19,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &7120272461670771569
 Transform:
   m_ObjectHideFlags: 0
@@ -49,7 +49,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ItemFilterTag: General
-  ItemIcon: {fileID: 21300000, guid: 5aa85762336fdf54eb4847f63c4a5cd3, type: 3}
+  ItemIcon: {fileID: 21300000, guid: 0b4cac5014cc49c4f958a678738479fc, type: 3}
   Unlocked: 0
   ItemQuantity: 1
   MaxItemQuantity: 1

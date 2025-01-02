@@ -329,7 +329,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &4106895909508856
 Transform:
   m_ObjectHideFlags: 0
@@ -701,7 +701,7 @@ MonoBehaviour:
   rb: {fileID: 0}
   coll: {fileID: 0}
   MyPivotCamera: {fileID: 0}
-  CharacterHealth: {fileID: 0}
+  CharacterHealth: {fileID: 539454518964037948}
   DriveVehicleAbility: {fileID: 0}
   Inventory: {fileID: 0}
   LeftHandDamager: {fileID: 0}
@@ -930,7 +930,8 @@ MonoBehaviour:
     ResourcesPath: 
     GizmosColor: {r: 0, g: 0, b: 0, a: 0.5}
     WireGizmosColor: {r: 0.9, g: 0.4, b: 0.2, a: 0.5}
-    StepVisualizerMesh: {fileID: 0}
+    StepVisualizerMesh: {fileID: -3964615163347849732, guid: 6b70b21f3295a7441b544a6f7bd820e9,
+      type: 3}
   StepCorrection: 1
   GroundCheck: 1
   WallCheck: 1
