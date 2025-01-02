@@ -361,7 +361,7 @@ Transform:
   m_GameObject: {fileID: 124716534828405026}
   serializedVersion: 2
   m_LocalRotation: {x: 0.6802215, y: 0.1857366, z: 0.65897906, w: 0.26181516}
-  m_LocalPosition: {x: -0.075, y: -0.043, z: 0.296}
+  m_LocalPosition: {x: -0.121, y: -0.038, z: 0.296}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -37249,13 +37249,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3490540269026180810}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.46881315, y: -0.045109294, z: 0.85590583, w: 0.2135524}
-  m_LocalPosition: {x: -0.094, y: 0.061, z: 0.546}
+  m_LocalRotation: {x: 0.54621893, y: -0.07143088, z: 0.8087206, w: 0.20618828}
+  m_LocalPosition: {x: -0.14, y: 0.052, z: 0.526}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 7294148611050221441}
-  m_LocalEulerAnglesHint: {x: 16.108002, y: 54.613003, z: 160.33801}
+  m_LocalEulerAnglesHint: {x: 19.925, y: 65.285, z: 164.233}
 --- !u!1 &3552505907810627792
 GameObject:
   m_ObjectHideFlags: 0
@@ -37529,7 +37529,7 @@ MonoBehaviour:
   Fire_Rate: 0.086
   CurrentFireRateToShoot: 0.0933857
   Precision: 30
-  LossOfAccuracyPerShot: 0.2
+  LossOfAccuracyPerShot: 1
   ShotErrorProbability: 0
   BulletPrefab: {fileID: 3163126826636465162, guid: 9503cd4f7eb90654fb90774b65c23499,
     type: 3}
@@ -40205,7 +40205,7 @@ MonoBehaviour:
   InfiniteAmmo: 0
   Fire_Rate: 0.0667
   CurrentFireRateToShoot: 0.0933857
-  Precision: 20
+  Precision: 25
   LossOfAccuracyPerShot: 0.2
   ShotErrorProbability: 0
   BulletPrefab: {fileID: 3163126826636465162, guid: 02e0e3a4e7ef532438a19a6e72cc7503,
@@ -41046,7 +41046,7 @@ MonoBehaviour:
   Fire_Rate: 0.4
   CurrentFireRateToShoot: 0.0933857
   Precision: 30
-  LossOfAccuracyPerShot: 0.2
+  LossOfAccuracyPerShot: 0.5
   ShotErrorProbability: 0
   BulletPrefab: {fileID: 3163126826636465162, guid: 9503cd4f7eb90654fb90774b65c23499,
     type: 3}
@@ -46644,7 +46644,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &2775825694646248641
 Transform:
   m_ObjectHideFlags: 0
@@ -76037,7 +76037,7 @@ MonoBehaviour:
   Fire_Rate: 0.067
   CurrentFireRateToShoot: 0.0933857
   Precision: 30
-  LossOfAccuracyPerShot: 0.2
+  LossOfAccuracyPerShot: 0.6
   ShotErrorProbability: 0
   BulletPrefab: {fileID: 3163126826636465162, guid: fdbb21287d79780489d138a38d772b95,
     type: 3}
@@ -76066,7 +76066,7 @@ MonoBehaviour:
   BulletCasingParticle: {fileID: 8630969926876806787, guid: 79e6602010da4aa4bbf28ad5706d57e5,
     type: 3}
   IsParticle: 1
-  ShootAudio: {fileID: 8300000, guid: ddebce484b8501b4eae7b8e29ea89e91, type: 3}
+  ShootAudio: {fileID: 8300000, guid: 844ad11abd5ac574190fe06e6db5dccd, type: 3}
   ReloadAudio: {fileID: 8300000, guid: 17534bbf483d6194e802ccd8f011b494, type: 3}
   EmptyMagazineAudio: {fileID: 8300000, guid: be916288d58d41c449a94afa1c16b3dd, type: 3}
   WeaponEquipAudio: {fileID: 8300000, guid: b77e860d6e13ce24fbcd3ce025a40025, type: 3}
@@ -77844,8 +77844,8 @@ MonoBehaviour:
   InfiniteAmmo: 0
   Fire_Rate: 0.09
   CurrentFireRateToShoot: 0.0933857
-  Precision: 30
-  LossOfAccuracyPerShot: 0.2
+  Precision: 25
+  LossOfAccuracyPerShot: 1
   ShotErrorProbability: 0
   BulletPrefab: {fileID: 3163126826636465162, guid: 02e0e3a4e7ef532438a19a6e72cc7503,
     type: 3}
