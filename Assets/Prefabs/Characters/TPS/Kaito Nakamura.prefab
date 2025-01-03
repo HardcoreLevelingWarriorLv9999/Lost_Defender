@@ -41287,7 +41287,7 @@ MonoBehaviour:
   - {fileID: 0}
   FireMode: 0
   AimMode: 1
-  CameraAimingPosition: {x: 0.012, y: 0.08, z: -0.261}
+  CameraAimingPosition: {x: 0.012, y: 0.08, z: -0.2}
   ScopeTexture: {fileID: 0}
   CameraFOV: 30
   GenerateProceduralAnimation: 1
@@ -41956,7 +41956,7 @@ MonoBehaviour:
   BulletsPerMagazine: 12
   TotalBullets: 72
   BulletsAmounts: 12
-  NumberOfShotgunBulletsPerShot: 8
+  NumberOfShotgunBulletsPerShot: 10
   InfiniteAmmo: 0
   Fire_Rate: 0.3
   CurrentFireRateToShoot: 0
@@ -41988,7 +41988,7 @@ MonoBehaviour:
   BulletCasingPrefab: {fileID: 0}
   BulletCasingParticle: {fileID: 0}
   IsParticle: 0
-  ShootAudio: {fileID: 8300000, guid: 7b54595b170a2664fa7ef19fb52d52be, type: 3}
+  ShootAudio: {fileID: 8300000, guid: 6e6124f611fc9824698e38b28074a91c, type: 3}
   ReloadAudio: {fileID: 8300000, guid: 17534bbf483d6194e802ccd8f011b494, type: 3}
   EmptyMagazineAudio: {fileID: 8300000, guid: be916288d58d41c449a94afa1c16b3dd, type: 3}
   WeaponEquipAudio: {fileID: 8300000, guid: b77e860d6e13ce24fbcd3ce025a40025, type: 3}
@@ -56529,11 +56529,11 @@ Transform:
   - {fileID: 4717080525508335667}
   - {fileID: 696734692459462742}
   - {fileID: 7679880939447072778}
-  - {fileID: 5665764894542254515}
   - {fileID: 8950457133690876192}
   - {fileID: 5675384085861540449}
   - {fileID: 8986484685400134102}
   - {fileID: 8726037776257546684}
+  - {fileID: 5665764894542254515}
   - {fileID: 1507640700872017048}
   - {fileID: 6038013442560204894}
   - {fileID: 6773025969294593560}
@@ -56757,7 +56757,7 @@ MonoBehaviour:
   - {fileID: 0}
   FireMode: 0
   AimMode: 1
-  CameraAimingPosition: {x: 0.0105, y: 0.125, z: -0.261}
+  CameraAimingPosition: {x: 0.0105, y: 0.125, z: -0.22}
   ScopeTexture: {fileID: 0}
   CameraFOV: 30
   GenerateProceduralAnimation: 1
@@ -59229,12 +59229,12 @@ MonoBehaviour:
   BulletsAmounts: 10
   NumberOfShotgunBulletsPerShot: 12
   InfiniteAmmo: 0
-  Fire_Rate: 0.85
+  Fire_Rate: 0.75
   CurrentFireRateToShoot: 0
   Precision: 20
   LossOfAccuracyPerShot: 1
   ShotErrorProbability: 0
-  BulletPrefab: {fileID: 3163126826636465162, guid: b2995e5ec84c3054bac2f2b07f2026ce,
+  BulletPrefab: {fileID: 3163126826636465162, guid: a29be9d1e7041714a8dad6685666c2e4,
     type: 3}
   MuzzleFlashParticlePrefab: {fileID: 6463995516412543354, guid: 126a491ff75fc2d46865cf8c7b986211,
     type: 3}
@@ -64668,7 +64668,7 @@ MonoBehaviour:
   - {fileID: 0}
   FireMode: 0
   AimMode: 1
-  CameraAimingPosition: {x: 0.012, y: 0.155, z: -0.2}
+  CameraAimingPosition: {x: 0.0105, y: 0.158, z: -0.2}
   ScopeTexture: {fileID: 0}
   CameraFOV: 30
   GenerateProceduralAnimation: 1
