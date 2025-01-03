@@ -38,6 +38,9 @@ public class Gameplay : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        
+        AudioManager.Instance.StopMusic("startMap1");
+        AudioManager.Instance.PlayMusic("Nen");
         Cursor.SetCursor(customCursorTexture, hotSpot, CursorMode.Auto);
         Cursor.visible = true;
         Cursor.lockState = CursorLockMode.None;
