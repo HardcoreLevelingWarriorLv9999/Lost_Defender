@@ -30,7 +30,7 @@ public class Gameplay : MonoBehaviour
     public RectTransform imageA; // Transform của hình A
     public TextMeshProUGUI nameCharacter, lv, money, nucleus,gem;
     public Button Map1Button, Map2Button, Map3Button, Map4Button;
-    public GameObject gameSetting, Panelvolume, PanelControls, PanelGraphics, credits;
+    public GameObject gameSetting, Panelvolume, PanelControls, PanelGraphics, credits, Panelshortcut;
     int openMap1, openMap2,openMap3,openMap4, difficulty;
     public Texture2D customCursorTexture;
     public Vector2 hotSpot = Vector2.zero;
@@ -60,6 +60,7 @@ public class Gameplay : MonoBehaviour
         gameSetting.SetActive(false);
         PanelControls.SetActive(false);
         PanelGraphics.SetActive(false);
+        Panelshortcut.SetActive(false);
 
         exit.SetActive(true);
         setting.SetActive(true);
@@ -280,6 +281,7 @@ public class Gameplay : MonoBehaviour
             Panelvolume.SetActive(false);
             PanelControls.SetActive(false);
             PanelGraphics.SetActive(false);
+            Panelshortcut.SetActive(false);
             imageA.rotation = Quaternion.Euler(0, 0, 0);
         }
         setting.SetActive(true);
@@ -288,6 +290,24 @@ public class Gameplay : MonoBehaviour
     {
         AudioManager.Instance.PlaySFX("ClickButton");
         LoadingSceneManager.Instance.SwitchToScene("Map 1");
+        // SceneManager.LoadScene("Map 1");
+    }
+    public void PlayMap2()
+    {
+        AudioManager.Instance.PlaySFX("ClickButton");
+        LoadingSceneManager.Instance.SwitchToScene("Map 2");
+        // SceneManager.LoadScene("Map 1");
+    }
+    public void PlayMap3()
+    {
+        AudioManager.Instance.PlaySFX("ClickButton");
+        LoadingSceneManager.Instance.SwitchToScene("Map 3");
+        // SceneManager.LoadScene("Map 1");
+    }
+    public void PlayMap4()
+    {
+        AudioManager.Instance.PlaySFX("ClickButton");
+        LoadingSceneManager.Instance.SwitchToScene("Map 4");
         // SceneManager.LoadScene("Map 1");
     }
     public void LoadCredits()
@@ -371,6 +391,7 @@ public class Gameplay : MonoBehaviour
         Panelvolume.SetActive(false);
         PanelControls.SetActive(true);
         PanelGraphics.SetActive(false);
+        Panelshortcut.SetActive(false);
     }
     public void Graphics()
     {
@@ -378,6 +399,7 @@ public class Gameplay : MonoBehaviour
         Panelvolume.SetActive(false);
         PanelControls.SetActive(false);
         PanelGraphics.SetActive(true);
+        Panelshortcut.SetActive(false);
     }
     public void Volume()
     {
@@ -385,6 +407,15 @@ public class Gameplay : MonoBehaviour
         Panelvolume.SetActive(true);
         PanelControls.SetActive(false);
         PanelGraphics.SetActive(false);
+        Panelshortcut.SetActive(false);
+    }
+    public void Shortcut()
+    {
+        AudioManager.Instance.PlaySFX("ClickButton");
+        Panelvolume.SetActive(false);
+        PanelControls.SetActive(false);
+        PanelGraphics.SetActive(false);
+        Panelshortcut.SetActive(true);
     }
 
 }
