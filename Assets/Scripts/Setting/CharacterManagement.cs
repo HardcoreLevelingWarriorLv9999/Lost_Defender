@@ -3,7 +3,10 @@
 public class CharacterManagement : MonoBehaviour
 {
     public GameObject character1, character2, character3, character4;
-
+    void Awake()
+    {
+        Character();
+    }
     // Start is called before the first frame update
     void Start()
     {
