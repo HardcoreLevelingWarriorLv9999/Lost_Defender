@@ -112,5 +112,4 @@ public class LoadingSceneManager : MonoBehaviour
         }
         alphaGroup.alpha = 0f;
     }
-
 }

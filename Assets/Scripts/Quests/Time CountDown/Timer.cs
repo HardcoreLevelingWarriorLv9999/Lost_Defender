@@ -8,16 +8,17 @@ public class Timer : MonoBehaviour
     [SerializeField] TextMeshProUGUI timerText;
     [SerializeField] float firstPhaseTime = 30f; // Thời gian giai đoạn đầu (30 giây)
     [SerializeField] float secondPhaseTime = 120f; // Thời gian giai đoạn thứ hai (2 phút)
+    [SerializeField] GameObject winPanel; // Tham chiếu tới panel chiến thắng
     public float remainingTime;
     private bool isFirstPhase = true;
     private bool isTimeUp = false;
-    private bool isCountingDown = false; // Thêm biến này
-    public AutoChaseZombieSpawner zombieSpawner; // Thêm tham chiếu tới script AutoChaseZombieSpawner
+    private bool isCountingDown = false;
+    public AutoChaseZombieSpawner zombieSpawner;
 
     void Start()
     {
-        // Ban đầu đặt remainingTime thành firstPhaseTime
         remainingTime = firstPhaseTime;
+        winPanel.SetActive(false); // Đảm bảo panel chiến thắng được ẩn ban đầu
     }
 
     void Update()
@@ -30,15 +31,15 @@ public class Timer : MonoBehaviour
                 remainingTime = 0;
                 if (isFirstPhase)
                 {
-                    // Chuyển sang giai đoạn thứ hai
                     remainingTime = secondPhaseTime;
                     isFirstPhase = false;
-                    StartCoroutine(SpawnZombiesWithDelay()); // Bắt đầu spawn zombie mỗi 5 giây
+                    StartCoroutine(SpawnZombiesWithDelay());
                 }
                 else
                 {
                     isTimeUp = true;
-                    StopCoroutine(SpawnZombiesWithDelay()); // Dừng việc spawn zombie
+                    StopCoroutine(SpawnZombiesWithDelay());
+                    ShowWinPanel(); // Hiện panel chiến thắng
                 }
             }
 
@@ -50,15 +51,20 @@ public class Timer : MonoBehaviour
 
     public void StartCountdown()
     {
-        isCountingDown = true; // Gọi hàm này để bắt đầu đếm ngược
+        isCountingDown = true;
     }
 
     IEnumerator SpawnZombiesWithDelay()
     {
         while (!isTimeUp)
         {
-            zombieSpawner.SpawnRandomZombies(Random.Range(1, 11)); // Spawn từ 1 đến 10 zombie
-            yield return new WaitForSeconds(5f); // Đợi 5 giây trước khi spawn lần tiếp theo
+            zombieSpawner.SpawnRandomZombies(Random.Range(1, 11));
+            yield return new WaitForSeconds(5f);
         }
+    }
+
+    void ShowWinPanel()
+    {
+        winPanel.SetActive(true); // Hiện panel chiến thắng
     }
 }
