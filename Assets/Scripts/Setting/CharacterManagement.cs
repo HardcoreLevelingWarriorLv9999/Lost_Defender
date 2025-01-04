@@ -13,7 +13,6 @@ public class CharacterManagement : MonoBehaviour
         AudioManager.Instance.StopMusic("Nen");
         AudioManager.Instance.PlayMusic("startMap1");
 
-        Character();
     }
 
     // Update is called once per frame
