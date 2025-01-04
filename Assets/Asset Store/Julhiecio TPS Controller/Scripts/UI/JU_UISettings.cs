@@ -81,10 +81,15 @@ namespace JUTPS.UI
                     var itemSwitchManager = FindObjectOfType<ItemSwitchManager>();
                     if (itemSwitchManager != null)
                     {
-                        MouseScrollWeaponSwitchToggle.isOn = itemSwitchManager.EnableMouseScrollWeaponSwitch;
-                        MouseScrollWeaponSwitchToggle.onValueChanged.AddListener(enable => itemSwitchManager.EnableMouseScrollWeaponSwitch = enable);
+                        MouseScrollWeaponSwitchToggle.isOn = ItemSwitchManager.MouseScrollWeaponSwitch;
+                        MouseScrollWeaponSwitchToggle.onValueChanged.AddListener(enable =>
+                        {
+                            itemSwitchManager.EnableMouseScrollWeaponSwitch = enable;
+                            ItemSwitchManager.MouseScrollWeaponSwitch = enable;
+                        });
                     }
                 }
+
             }
 
             private void OnChangeCameraSensitive(float sensitive)
