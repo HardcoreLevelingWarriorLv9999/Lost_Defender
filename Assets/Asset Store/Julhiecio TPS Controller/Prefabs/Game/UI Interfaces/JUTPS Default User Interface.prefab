@@ -17262,6 +17262,11 @@ PrefabInstance:
       propertyPath: winPanel
       value: 
       objectReference: {fileID: 8529571522680627522}
+    - target: {fileID: 5793546364022363968, guid: 7252795bd1c5c5c49be6a84a98848865,
+        type: 3}
+      propertyPath: firstPhaseTime
+      value: 15
+      objectReference: {fileID: 0}
     - target: {fileID: 7293456576939762951, guid: 7252795bd1c5c5c49be6a84a98848865,
         type: 3}
       propertyPath: m_Pivot.x
