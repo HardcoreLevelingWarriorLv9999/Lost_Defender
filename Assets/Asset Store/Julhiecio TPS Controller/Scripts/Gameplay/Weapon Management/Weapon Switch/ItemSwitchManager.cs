@@ -32,11 +32,14 @@ namespace JUTPS.ItemSystem
         [JUHeader("Mouse Scroll Item Switch")]
         public bool EnableMouseScrollWeaponSwitch;
         public float ScrollThreshold = 0.1f;
+        private const string MOUSE_SCROLL_WEAPON_SWITCH_KEY = "SETTINGS_MOUSE_SCROLL_WEAPON_SWITCH";
 
 
 
         protected virtual void Start()
         {
+            EnableMouseScrollWeaponSwitch = MouseScrollWeaponSwitch;
+
 
             if (JuTPSCharacter == null)
             {
@@ -301,6 +304,22 @@ namespace JUTPS.ItemSystem
             JUCharacterController player = GameObject.FindGameObjectWithTag("Player").GetComponent<JUCharacterController>();
             player.SwitchToPreviousItem();
         }
+
+        public static bool MouseScrollWeaponSwitch
+        {
+            get
+            {
+                if (!PlayerPrefs.HasKey(MOUSE_SCROLL_WEAPON_SWITCH_KEY))
+                    return false; // giá trị mặc định
+
+                return PlayerPrefs.GetInt(MOUSE_SCROLL_WEAPON_SWITCH_KEY) == 1 ? true : false;
+            }
+            set
+            {
+                PlayerPrefs.SetInt(MOUSE_SCROLL_WEAPON_SWITCH_KEY, value ? 1 : 0);
+            }
+        }
+
     }
 
 
