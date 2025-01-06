@@ -347,8 +347,8 @@ public class Gameplay : MonoBehaviour
     }
     void Checkmapprogress()
     {
-        if (difficulty==0 && openMap1==0|| difficulty == 1 && openMap1 == 1||
-            difficulty == 2 && openMap1 == 2|| difficulty == 3 && openMap1 == 3)
+        if (difficulty==0 && openMap1>=0|| difficulty == 1 && openMap1 >= 1||
+            difficulty == 2 && openMap1 >= 2|| difficulty == 3 && openMap1 >= 3)
         {
             Map1Button.interactable = true;
         }
@@ -356,8 +356,8 @@ public class Gameplay : MonoBehaviour
         {
             Map1Button.interactable = false;
         }
-        if (difficulty == 0 && openMap1 == 1 || difficulty == 1 && openMap2 == 1 ||
-           difficulty == 2 && openMap2 == 2 || difficulty == 3 && openMap2 == 3)
+        if (difficulty == 0 && openMap1 >= 1 || difficulty == 1 && openMap2 >= 1 ||
+           difficulty == 2 && openMap2 >= 2 || difficulty == 3 && openMap2 >= 3)
         {
             Map2Button.interactable = true;
         }
@@ -365,8 +365,8 @@ public class Gameplay : MonoBehaviour
         {
             Map2Button.interactable = false;
         }
-        if (difficulty == 0 && openMap2 == 1 || difficulty == 1 && openMap3 == 1 ||
-           difficulty == 2 && openMap3 == 2 || difficulty == 3 && openMap3 == 3)
+        if (difficulty == 0 && openMap2 >= 1 || difficulty == 1 && openMap3 >= 1 ||
+           difficulty == 2 && openMap3 >= 2 || difficulty == 3 && openMap3 >= 3)
         {
             Map3Button.interactable = true;
         }
@@ -374,8 +374,8 @@ public class Gameplay : MonoBehaviour
         {
             Map3Button.interactable = false;
         }
-        if (difficulty == 0 && openMap3 == 1 || difficulty == 1 && openMap4 == 1 ||
-           difficulty == 2 && openMap4 == 2 || difficulty == 3 && openMap4 == 3)
+        if (difficulty == 0 && openMap3 >= 1 || difficulty == 1 && openMap4 >= 1 ||
+           difficulty == 2 && openMap4 >= 2 || difficulty == 3 && openMap4 >= 3)
         {
             Map4Button.interactable = true;
         }
