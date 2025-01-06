@@ -3,6 +3,7 @@ using UnityEngine.Events;
 using UnityEngine.UI;
 using JUTPS.InputEvents;
 using JUTPS.GameSettings;
+using JUTPS.ItemSystem;
 
 namespace JUTPS.UI
 {
@@ -41,6 +42,11 @@ namespace JUTPS.UI
             /// The toggle to invert the camera horizontal orientation.
             /// </summary>
             public Toggle InvertHorizontal;
+            
+            /// <summary>
+            /// The toggle to enable or disable mouse scroll weapon switch.
+            /// </summary>
+            public Toggle MouseScrollWeaponSwitchToggle;
 
             public ControlsUI()
             {
@@ -69,6 +75,21 @@ namespace JUTPS.UI
                     InvertHorizontal.isOn = JUGameSettings.CameraInvertHorizontal;
                     InvertHorizontal.onValueChanged.AddListener(OnToggleInvertCameraHorizontal);
                 }
+
+                if (MouseScrollWeaponSwitchToggle)
+                {
+                    var itemSwitchManager = FindObjectOfType<ItemSwitchManager>();
+                    if (itemSwitchManager != null)
+                    {
+                        MouseScrollWeaponSwitchToggle.isOn = ItemSwitchManager.MouseScrollWeaponSwitch;
+                        MouseScrollWeaponSwitchToggle.onValueChanged.AddListener(enable =>
+                        {
+                            itemSwitchManager.EnableMouseScrollWeaponSwitch = enable;
+                            ItemSwitchManager.MouseScrollWeaponSwitch = enable;
+                        });
+                    }
+                }
+
             }
 
             private void OnChangeCameraSensitive(float sensitive)
@@ -84,6 +105,15 @@ namespace JUTPS.UI
             private void OnToggleInvertCameraHorizontal(bool invert)
             {
                 JUGameSettings.CameraInvertHorizontal = invert;
+            }
+
+            private void OnToggleMouseScrollWeaponSwitch(bool enable)
+            {
+                var itemSwitchManager = FindObjectOfType<ItemSwitchManager>();
+                if (itemSwitchManager != null)
+                {
+                    itemSwitchManager.EnableMouseScrollWeaponSwitch = enable;
+                }
             }
         }
 
