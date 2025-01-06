@@ -40,6 +40,10 @@ public class Timer : MonoBehaviour
                     isTimeUp = true;
                     StopCoroutine(SpawnZombiesWithDelay());
                     ShowWinPanel(); // Hiện panel chiến thắng
+                    SaveLoadManager.PlayerData data = new SaveLoadManager.PlayerData();
+                    string nameGame = PlayerPrefs.GetString("FileGame");
+                    data.openMap1 = 1;
+                    SaveLoadManager.SaveData(data);
                 }
             }
 

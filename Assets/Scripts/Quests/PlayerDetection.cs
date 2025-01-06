@@ -3,10 +3,15 @@ using QuestsSystem;
 
 public class PlayerDetection : MonoBehaviour
 {
+    [SerializeField] string Audio;
+    [SerializeField] string longCollisionAudio;
     public Collider targetCollider;
     public float detectionRadius = 5.0f;
     private Transform playerTransform;
     private bool isDetectionEnabled = true; // Thêm biến trạng thái
+    private float collisionTime = 0f;
+    private bool isColliding = false;
+    private bool longAudioPlayed = false;
 
     private void OnEnable()
     {
@@ -47,12 +52,37 @@ public class PlayerDetection : MonoBehaviour
             float distance = Vector3.Distance(transform.position, playerTransform.position);
             if (distance <= detectionRadius)
             {
-                targetCollider.enabled = false;
+                if (!isColliding)
+                {
+                    isColliding = true;
+                    collisionTime = 0f;
+                    AudioManager.Instance.PlaySFX(Audio);
+                    Debug.Log("Nhân vật vào phạm vi!");
+                }
+
+                collisionTime += Time.deltaTime;
+                if (collisionTime >= 2f && !longAudioPlayed)
+                {
+                    AudioManager.Instance.StopSFX(Audio);
+                    AudioManager.Instance.PlaySFX(longCollisionAudio);
+                    longAudioPlayed = true;
+                    Debug.Log("Nhân vật ở trong phạm vi trên 2 giây!");
+                }
             }
             else
             {
-                targetCollider.enabled = true;
+                if (isColliding)
+                {
+                    isColliding = false;
+                    collisionTime = 0f;
+                    longAudioPlayed = false;
+                    AudioManager.Instance.StopSFX(Audio);
+                    AudioManager.Instance.StopSFX(longCollisionAudio);
+                    Debug.Log("Nhân vật rời khỏi phạm vi!");
+                }
             }
+
+            targetCollider.enabled = !isColliding;
         }
     }
 
@@ -66,6 +96,7 @@ public class PlayerDetection : MonoBehaviour
     {
         isDetectionEnabled = false; // Thay vì tắt script, chỉ tắt logic phát hiện
         targetCollider.enabled = true;
+     
         Debug.Log("PlayerDetection disabled");
     }
 
@@ -75,4 +106,5 @@ public class PlayerDetection : MonoBehaviour
         targetCollider.enabled = false;
         Debug.Log("PlayerDetection enabled");
     }
+
 }
