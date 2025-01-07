@@ -17513,7 +17513,7 @@ PrefabInstance:
     - target: {fileID: 8876373588110530286, guid: 201899a8b26885f4aa96b139a6e2fbe7,
         type: 3}
       propertyPath: sceneName
-      value: MenuScene
+      value: Cutscene Map 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -18009,6 +18009,11 @@ PrefabInstance:
         type: 3}
       propertyPath: firstPhaseTime
       value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 5793546364022363968, guid: 7252795bd1c5c5c49be6a84a98848865,
+        type: 3}
+      propertyPath: secondPhaseTime
+      value: 60
       objectReference: {fileID: 0}
     - target: {fileID: 7293456576939762951, guid: 7252795bd1c5c5c49be6a84a98848865,
         type: 3}
