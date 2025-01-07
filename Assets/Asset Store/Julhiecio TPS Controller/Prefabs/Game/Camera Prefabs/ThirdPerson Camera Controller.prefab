@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 1754336403}
   - component: {fileID: 1104007263}
   - component: {fileID: 6164810404571182779}
+  - component: {fileID: 4103505488951426782}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -197,6 +198,24 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   offset: {x: 0, y: 5, z: 0}
+  waypointParent: {fileID: 0}
+--- !u!114 &4103505488951426782
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3243631559774615308}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c20a9f85713442343b86080a81620d1e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  interactionDistance: 12
+  interactionText: {fileID: 0}
+  interactionLayers:
+    serializedVersion: 2
+    m_Bits: 261431
 --- !u!1 &3243631560226216737
 GameObject:
   m_ObjectHideFlags: 0

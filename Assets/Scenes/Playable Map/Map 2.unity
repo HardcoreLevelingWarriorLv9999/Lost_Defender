@@ -114069,6 +114069,16 @@ PrefabInstance:
       propertyPath: m_Name
       value: Alex Rodriguez
       objectReference: {fileID: 0}
+    - target: {fileID: 8585675025073007583, guid: 25be105946675df4a8dc310b42cc8d1c,
+        type: 3}
+      propertyPath: PhysicalDamage
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8585675025073007583, guid: 25be105946675df4a8dc310b42cc8d1c,
+        type: 3}
+      propertyPath: DoRagdollPhysicalDamage
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
