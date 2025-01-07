@@ -242,7 +242,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   letterUI: {fileID: 0}
-  player: {fileID: 0}
+  players:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
   cameraController: {fileID: 0}
   letterMesh: {fileID: 4680990602349362412}
 --- !u!1 &1514621127243312596
@@ -365,7 +369,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   letterUI: {fileID: 0}
-  player: {fileID: 0}
+  players:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
   cameraController: {fileID: 0}
   letterMesh: {fileID: 8839197439581773557}
 --- !u!1 &7297805900190467592
@@ -532,6 +540,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   letterUI: {fileID: 0}
-  player: {fileID: 0}
+  players:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
   cameraController: {fileID: 0}
   letterMesh: {fileID: 1598813156277582076}

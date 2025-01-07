@@ -83215,11 +83215,6 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 488084908633062431, guid: 79235fa8ddb563a46b38e8c06458202a,
         type: 3}
-      propertyPath: player
-      value: 
-      objectReference: {fileID: 298308121}
-    - target: {fileID: 488084908633062431, guid: 79235fa8ddb563a46b38e8c06458202a,
-        type: 3}
       propertyPath: letterUI
       value: 
       objectReference: {fileID: 192749823}
@@ -83228,11 +83223,6 @@ PrefabInstance:
       propertyPath: cameraController
       value: 
       objectReference: {fileID: 600382437}
-    - target: {fileID: 488084908633062431, guid: 79235fa8ddb563a46b38e8c06458202a,
-        type: 3}
-      propertyPath: players.Array.size
-      value: 4
-      objectReference: {fileID: 0}
     - target: {fileID: 488084908633062431, guid: 79235fa8ddb563a46b38e8c06458202a,
         type: 3}
       propertyPath: players.Array.data[0]
@@ -83307,36 +83297,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7426504654672421699, guid: 79235fa8ddb563a46b38e8c06458202a,
-        type: 3}
-      propertyPath: players.Array.size
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7426504654672421699, guid: 79235fa8ddb563a46b38e8c06458202a,
-        type: 3}
-      propertyPath: players.Array.data[0]
-      value: 
-      objectReference: {fileID: 298308121}
-    - target: {fileID: 7426504654672421699, guid: 79235fa8ddb563a46b38e8c06458202a,
-        type: 3}
-      propertyPath: players.Array.data[1]
-      value: 
-      objectReference: {fileID: 859173241}
-    - target: {fileID: 7426504654672421699, guid: 79235fa8ddb563a46b38e8c06458202a,
-        type: 3}
-      propertyPath: players.Array.data[2]
-      value: 
-      objectReference: {fileID: 1256493128}
-    - target: {fileID: 7426504654672421699, guid: 79235fa8ddb563a46b38e8c06458202a,
-        type: 3}
-      propertyPath: players.Array.data[3]
-      value: 
-      objectReference: {fileID: 293831256}
-    - target: {fileID: 8713204332628065904, guid: 79235fa8ddb563a46b38e8c06458202a,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

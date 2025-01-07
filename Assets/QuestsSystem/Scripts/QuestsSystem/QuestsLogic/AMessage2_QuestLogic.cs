@@ -14,11 +14,8 @@ namespace QuestsSystem
 
         public override void OnAccept()
         {
-            MissionTrigger5[] interactiveObjects = GameObject.FindObjectsOfType<MissionTrigger5>(true);
-            foreach (var obj in interactiveObjects)
-            {
-                obj.gameObject.SetActive(true);
-            }
+            GameObject.FindObjectOfType<MissionTrigger5>(true).gameObject.SetActive(true);
+            GameObject.FindObjectOfType<Letter>(true).gameObject.SetActive(true);
         }
 
         public override void Logic()
