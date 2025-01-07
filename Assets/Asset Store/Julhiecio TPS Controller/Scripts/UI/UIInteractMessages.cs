@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using JUTPS.ActionScripts;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -13,7 +14,7 @@ namespace JUTPS.UI
         [SerializeField] private bool SetMessagePositionToItemPosition = true;
         [SerializeField] private Vector3 Offset;
         [SerializeField] private bool ShowItemNameOnText;
-        [SerializeField] private Text WarningText;
+        [SerializeField] private TextMeshProUGUI WarningText;
         [SerializeField] private string PickUpLabelText = "[HOLD] TO PICK UP ";
         [Header("Vehicle Enter Message")]
         [SerializeField] private string VehicleEnterLabelText = "TO DRIVE";

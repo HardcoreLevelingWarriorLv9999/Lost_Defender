@@ -7,7 +7,7 @@ namespace QuestsSystem
     {
         public override QuestsNames QuestName => QuestsNames.DefendTheCarToTheGasStation;
 
-        public override string QuestTastText => "Follow the waypoint";
+        public override string QuestTastText => "Protect the car till the gas station!";
 
         public override void OnAccept()
         {

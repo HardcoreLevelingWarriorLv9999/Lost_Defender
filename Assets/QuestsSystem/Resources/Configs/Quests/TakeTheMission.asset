@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e659a5754c90c7c46962a787aefd931b, type: 3}
-  m_Name: EndYourStory
+  m_Name: TakeTheMission
   m_EditorClassIdentifier: 
-  QuestName: EndYourStory
-  QuestDescription: Find your way and end your story
+  QuestName: Take The Mission
+  QuestDescription: 

@@ -13,6 +13,7 @@ namespace QuestsSystem
         public override void OnAccept()
         {
             GameObject.FindObjectOfType<UIVehicleHealthBar>(true).gameObject.SetActive(true);
+            GameObject.FindObjectOfType<MissionTrigger7>(true).gameObject.SetActive(true);
         }
 
         public override void Logic()

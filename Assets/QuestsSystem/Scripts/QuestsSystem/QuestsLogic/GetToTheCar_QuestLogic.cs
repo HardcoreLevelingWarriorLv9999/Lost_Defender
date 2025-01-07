@@ -7,7 +7,7 @@ namespace QuestsSystem
     {
         public override QuestsNames QuestName => QuestsNames.GetToTheCar;
 
-        public override string QuestTastText => "The car is waiting for you at the end of the road";
+        public override string QuestTastText => "";
 
         public override void OnAccept()
         {

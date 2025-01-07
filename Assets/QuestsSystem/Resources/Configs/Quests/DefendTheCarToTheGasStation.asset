@@ -12,5 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e659a5754c90c7c46962a787aefd931b, type: 3}
   m_Name: DefendTheCarToTheGasStation
   m_EditorClassIdentifier: 
-  QuestName: Defend the Car to the Gas Station
+  QuestName: Defend The Car To The Gas Station
   QuestDescription: Protect the car till the gas station!

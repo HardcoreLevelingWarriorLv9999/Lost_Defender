@@ -12,5 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e659a5754c90c7c46962a787aefd931b, type: 3}
   m_Name: GetToTheCar
   m_EditorClassIdentifier: 
-  QuestName: Get to the Car
+  QuestName: Get To The Car
   QuestDescription: Find the supply car!

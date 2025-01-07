@@ -46,4 +46,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   healthObjects:
   - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
   gameOverUI: {fileID: 0}

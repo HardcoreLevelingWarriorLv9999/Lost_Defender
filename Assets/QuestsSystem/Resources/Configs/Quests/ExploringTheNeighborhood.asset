@@ -13,5 +13,4 @@ MonoBehaviour:
   m_Name: ExploringTheNeighborhood
   m_EditorClassIdentifier: 
   QuestName: Exploring The Neighborhood
-  QuestDescription: Search for hidden mission items in houses, be wary of lurking
-    zombies!
+  QuestDescription: 
