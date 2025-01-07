@@ -7,7 +7,7 @@ namespace QuestsSystem
     {
         public override QuestsNames QuestName => QuestsNames.FinalDefense;
 
-        public override string QuestTastText => "TASK_TEXT";
+        public override string QuestTastText => "";
 
         public override void OnAccept()
         {

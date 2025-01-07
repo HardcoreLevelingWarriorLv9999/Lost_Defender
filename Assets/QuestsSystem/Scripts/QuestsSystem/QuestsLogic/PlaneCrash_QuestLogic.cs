@@ -7,10 +7,10 @@ namespace QuestsSystem
     {
         public override QuestsNames QuestName => QuestsNames.PlaneCrash;
 
-        public override string QuestTastText => $"You have collected {collectedItems}/{totalItems} final items";
+        public override string QuestTastText => $"Gather the final items and steer clear of zombies with special abilities. ({collectedItems}/{totalItems})";
 
         private int collectedItems = 0;
-        private int totalItems = 1;
+        private int totalItems = 3;
 
         public override void OnAccept()
         {
@@ -38,8 +38,7 @@ namespace QuestsSystem
         public override void OnComplete()
         {
             // Called when a quest is completed
-            GameObject.FindObjectOfType<ReachLocation>(true).gameObject.SetActive(true);
-            QuestsManager.Instance.AddQuest(QuestsNames.RoadToTheEndPoint);
+            QuestsManager.Instance.AddQuest(QuestsNames.AMessage2);
         }
     }
 }

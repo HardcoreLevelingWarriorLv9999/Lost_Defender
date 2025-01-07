@@ -10,7 +10,7 @@ namespace QuestsSystem
 
         public override QuestsNames QuestName => QuestsNames.FuelUp;
 
-        public override string QuestTastText => $"You have brought {collectedFuel}/{totalFuel} fuel canisters to the car";
+        public override string QuestTastText => $"Find the gas and return to the car! ({collectedFuel}/{totalFuel})";
 
         private int collectedFuel = 0;
         private int totalFuel = 3;

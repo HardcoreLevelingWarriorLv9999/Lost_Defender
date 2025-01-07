@@ -4,46 +4,63 @@ using UnityEngine;
 
 public class Interaction : MonoBehaviour
 {
-//The distance from which the player can interact with an object
+    // Khoảng cách tối đa để tương tác
     public float interactionDistance;
 
-    //Text or crosshair that shows up to let the player know they can interact with an object they're looking at
+    // Text hoặc crosshair để thông báo tương tác
     public GameObject interactionText;
 
-    //Layers the raycast can hit/interact with. Any layers unchecked will be ignored by the raycast.
+    // Các lớp raycast có thể va chạm
     public LayerMask interactionLayers;
 
-    //The Update() void is used to make stuff happen every frame
+    // Danh sách các waypoint
+    public List<GameObject> waypoints;
+
     void Update()
     {
-        //RaycastHit variable which will collect information from objects the raycast hits
+        // Tạo biến lưu thông tin đối tượng raycast va chạm
         RaycastHit hit;
 
-        //If the raycast hits something,
-        if(Physics.Raycast(transform.position, transform.forward, out hit, interactionDistance, interactionLayers))
+        // Vẽ raycast trong Scene view (chỉ dùng cho phát triển)
+        Debug.DrawRay(transform.position, transform.forward * interactionDistance, Color.red);
+
+        // Thực hiện raycast
+        if (Physics.Raycast(transform.position, transform.forward, out hit, interactionDistance, interactionLayers))
         {
-            //If the object it hit contrains the letter script,
+            // Kiểm tra nếu đối tượng có component Letter
             if (hit.collider.gameObject.GetComponent<Letter>())
             {
-                //The interaction text will enable
+                // Hiển thị interaction text
                 interactionText.SetActive(true);
 
-                //If the E key is pressed,
+                // Nếu nhấn phím F
                 if (Input.GetKeyDown(KeyCode.F))
                 {
-                    //The letter component is accessed and the letter will open or close
-                    hit.collider.gameObject.GetComponent<Letter>().openCloseLetter();
+                    // Mở hoặc đóng lá thư
+                    Letter letter = hit.collider.gameObject.GetComponent<Letter>();
+                    letter.openCloseLetter();
+
+                    // Kiểm tra và phá hủy waypoint tương ứng nếu nó đang hoạt động
+                    for (int i = 0; i < waypoints.Count; i++)
+                    {
+                        if (waypoints[i] != null && waypoints[i].activeSelf)
+                        {
+                            Destroy(waypoints[i]);
+                            waypoints[i] = null; // Gán null để tránh lỗi MissingReferenceException
+                            break; // Dừng lại sau khi phá hủy waypoint đầu tiên
+                        }
+                    }
                 }
             }
-            //else, the interaction text is set false.
             else
             {
+                // Ẩn interaction text
                 interactionText.SetActive(false);
             }
         }
-        //else, the interaction text is set false.
         else
         {
+            // Ẩn interaction text
             interactionText.SetActive(false);
         }
     }

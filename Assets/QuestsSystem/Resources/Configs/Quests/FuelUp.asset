@@ -13,4 +13,4 @@ MonoBehaviour:
   m_Name: FuelUp
   m_EditorClassIdentifier: 
   QuestName: Fuel Up
-  QuestDescription: Find the gas and return to the car!
+  QuestDescription: 

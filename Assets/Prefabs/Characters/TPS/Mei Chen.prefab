@@ -85452,6 +85452,11 @@ PrefabInstance:
       objectReference: {fileID: 3234906550122389303}
     - target: {fileID: 3195200035291602774, guid: 674922e14aa387f45934fd2fb86d8500,
         type: 3}
+      propertyPath: Unlocked
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3195200035291602774, guid: 674922e14aa387f45934fd2fb86d8500,
+        type: 3}
       propertyPath: MaxItemQuantity
       value: 1
       objectReference: {fileID: 0}
@@ -85561,6 +85566,11 @@ PrefabInstance:
       propertyPath: TPSOwner
       value: 
       objectReference: {fileID: 3234906550122389303}
+    - target: {fileID: 3195200035291602774, guid: 674922e14aa387f45934fd2fb86d8500,
+        type: 3}
+      propertyPath: Unlocked
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3195200035291602774, guid: 674922e14aa387f45934fd2fb86d8500,
         type: 3}
       propertyPath: MaxItemQuantity

@@ -13,5 +13,4 @@ MonoBehaviour:
   m_Name: MilitaryCampaign
   m_EditorClassIdentifier: 
   QuestName: Military Campaign
-  QuestDescription: Collect weapons and ammunition from weapon chests, watch out
-    for zombie ambushes!
+  QuestDescription: 

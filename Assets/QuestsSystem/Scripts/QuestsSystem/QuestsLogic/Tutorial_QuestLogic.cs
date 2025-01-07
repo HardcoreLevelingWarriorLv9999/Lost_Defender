@@ -7,14 +7,18 @@ namespace QuestsSystem
     {
         public override QuestsNames QuestName => QuestsNames.Tutorial;
 
-        public override string QuestTastText => $"You have completed {completedSteps}/{totalSteps}";
+        public override string QuestTastText => $"Can you do it? ({completedSteps}/{totalSteps})";
 
         private int completedSteps = 0;
         private int totalSteps = 5;
 
         public override void OnAccept()
         {
-            // Called when a quest is accepted
+            MissionTrigger1[] interactiveObjects = GameObject.FindObjectsOfType<MissionTrigger1>(true);
+            foreach (var obj in interactiveObjects)
+            {
+                obj.gameObject.SetActive(true);
+            }
         }
 
         public override void Logic()

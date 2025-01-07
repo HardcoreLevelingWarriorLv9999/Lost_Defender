@@ -7,10 +7,10 @@ namespace QuestsSystem
     {
         public override QuestsNames QuestName => QuestsNames.MilitaryCampaign;
 
-        public override string QuestTastText => $"You have collected {collectedWeapons}/{totalWeapons} weapons and ammunition";
+        public override string QuestTastText => $"Collect weapons and ammunition, watch out for zombie ambushes! ({collectedWeapons}/{totalWeapons})";
 
         private int collectedWeapons = 0;
-        private int totalWeapons = 1;
+        private int totalWeapons = 2;
 
         public override void OnAccept()
         {
@@ -38,7 +38,8 @@ namespace QuestsSystem
         public override void OnComplete()
         {
             // Called when a quest is completed
-            QuestsManager.Instance.AddQuest(QuestsNames.PlaneCrash);
+            GameObject.FindObjectOfType<ReachLocation>(true).gameObject.SetActive(true);
+            QuestsManager.Instance.AddQuest(QuestsNames.RoadToTheEndPoint);
         }
     }
 }

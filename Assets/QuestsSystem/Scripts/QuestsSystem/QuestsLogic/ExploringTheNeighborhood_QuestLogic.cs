@@ -10,7 +10,7 @@ namespace QuestsSystem
 
         public override QuestsNames QuestName => QuestsNames.ExploringTheNeighborhood;
 
-        public override string QuestTastText => $"You have collected {collectedSupplies}/{totalSupplies} supplies";
+        public override string QuestTastText => $"Search for hidden mission items in houses, be wary of lurking zombies! ({collectedSupplies}/{totalSupplies})";
 
         private int collectedSupplies = 0;
         private int totalSupplies = 3;
@@ -41,7 +41,7 @@ namespace QuestsSystem
         public override void OnComplete()
         {
             //Called when a quest is completed
-            QuestsManager.Instance.AddQuest(QuestsNames.MilitaryCampaign);
+            QuestsManager.Instance.AddQuest(QuestsNames.AMessage1);
         }
     }
 }

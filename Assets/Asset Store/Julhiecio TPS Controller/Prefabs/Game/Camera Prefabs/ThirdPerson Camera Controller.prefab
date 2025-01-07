@@ -197,6 +197,11 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
   offset: {x: 0, y: 5, z: 0}
   waypointParent: {fileID: 0}
 --- !u!114 &4103505488951426782
@@ -215,7 +220,10 @@ MonoBehaviour:
   interactionText: {fileID: 0}
   interactionLayers:
     serializedVersion: 2
-    m_Bits: 261431
+    m_Bits: 4294967295
+  waypoints:
+  - {fileID: 0}
+  - {fileID: 0}
 --- !u!1 &3243631560226216737
 GameObject:
   m_ObjectHideFlags: 0

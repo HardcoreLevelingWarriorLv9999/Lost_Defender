@@ -2,7 +2,8 @@ namespace QuestsSystem
 {
     public enum QuestsNames
     {
-        EndYourStory,
+        AMessage1,
+		AMessage2,
 		DefendDuringSupplyTransfer,
 		DefendTheCarToTheGasStation,
 		ExploringTheNeighborhood,
@@ -14,6 +15,7 @@ namespace QuestsSystem
 		PlaneCrash,
 		ProtectTheCarToTheEndPoint,
 		RoadToTheEndPoint,
+		TakeTheMission,
 		Tutorial
     }
 }
