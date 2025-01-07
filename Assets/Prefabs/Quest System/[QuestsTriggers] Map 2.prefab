@@ -103,7 +103,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 84027554fc889e24e83d5afb002db0f6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  questName: 2
+  questName: 3
   triggerType: 0
 --- !u!114 &6360383807380561250
 MonoBehaviour:
@@ -230,7 +230,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 84027554fc889e24e83d5afb002db0f6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  questName: 1
+  questName: 2
   triggerType: 0
 --- !u!114 &5729996215701501484
 MonoBehaviour:
@@ -310,7 +310,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 84027554fc889e24e83d5afb002db0f6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  questName: 7
+  questName: 13
   triggerType: 0
 --- !u!1 &7697201591454532200
 GameObject:
@@ -379,7 +379,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 84027554fc889e24e83d5afb002db0f6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  questName: 6
+  questName: 7
   triggerType: 0
 --- !u!114 &6589537324747966067
 MonoBehaviour:

@@ -12,5 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e659a5754c90c7c46962a787aefd931b, type: 3}
   m_Name: FollowAndProtectTheCarFromZombies
   m_EditorClassIdentifier: 
-  QuestName: Follow and protect the car from zombies
-  QuestDescription: Don't let car broken
+  QuestName: Follow And Protect The Car From Zombies
+  QuestDescription: 

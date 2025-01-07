@@ -10,10 +10,12 @@ public class Letter : MonoBehaviour
     public GameObject letterUI;
 
     //The toggle bool determines if the letter is being picked up or put down.
-    bool toggle;
+    private bool toggle;
 
-    public JUCharacterController player;
+    //List of player characters to manage.
+    public List<JUCharacterController> players;
 
+    //Camera controller to manage.
     public JUCameraController cameraController;
 
     //The Mesh Renderer component of your letter that disables after picking up the letter and enables when putting it back down.
@@ -26,11 +28,20 @@ public class Letter : MonoBehaviour
         toggle = !toggle;
 
         //If toggle equals false, that means the player is putting down the letter.
-        if(toggle == false)
+        if (toggle == false)
         {
             letterUI.SetActive(false);
             letterMesh.enabled = true;
-            player.enabled = true;
+
+            //Enable all active players.
+            foreach (var player in players)
+            {
+                if (player.gameObject.activeSelf)
+                {
+                    player.enabled = true;
+                }
+            }
+
             cameraController.enabled = true;
         }
 
@@ -39,7 +50,16 @@ public class Letter : MonoBehaviour
         {
             letterUI.SetActive(true);
             letterMesh.enabled = false;
-            player.enabled = false;
+
+            //Disable all active players.
+            foreach (var player in players)
+            {
+                if (player.gameObject.activeSelf)
+                {
+                    player.enabled = false;
+                }
+            }
+
             cameraController.enabled = false;
         }
     }

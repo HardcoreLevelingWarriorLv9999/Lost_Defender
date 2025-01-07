@@ -292,13 +292,13 @@ public class Gameplay : MonoBehaviour
     public void PlayMap1()
     {
         AudioManager.Instance.PlaySFX("ClickButton");
-        LoadingSceneManager.Instance.SwitchToScene("Map 1");
+        LoadingSceneManager.Instance.SwitchToScene("Cutscene Map 1");
         // SceneManager.LoadScene("Map 1");
     }
     public void PlayMap2()
     {
         AudioManager.Instance.PlaySFX("ClickButton");
-        LoadingSceneManager.Instance.SwitchToScene("Map 2");
+        LoadingSceneManager.Instance.SwitchToScene("Cutscene Map 2");
         // SceneManager.LoadScene("Map 1");
     }
     public void PlayMap3()
