@@ -15,7 +15,7 @@ namespace QuestsSystem
         public override void OnAccept()
         {
             GameObject.FindObjectOfType<MissionTrigger4>(true).gameObject.SetActive(true);
-            GameObject.FindObjectOfType<Letter>(true).gameObject.SetActive(true);
+            GameObject.FindObjectOfType<MissionTrigger8>(true).gameObject.SetActive(true);
         }
 
         public override void Logic()

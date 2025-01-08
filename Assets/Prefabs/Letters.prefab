@@ -43,7 +43,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7397446438926684572}
-  - component: {fileID: 4436541275597052746}
+  - component: {fileID: 3132576459445000422}
   m_Layer: 0
   m_Name: Waypoint Letter
   m_TagString: Untagged
@@ -66,7 +66,7 @@ Transform:
   m_Children: []
   m_Father: {fileID: 8850342360819274486}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &4436541275597052746
+--- !u!114 &3132576459445000422
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -87,7 +87,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4262750208359754308}
-  - component: {fileID: 2990608336003011485}
+  - component: {fileID: 2306819408349071875}
   m_Layer: 0
   m_Name: Waypoint Letter
   m_TagString: Untagged
@@ -110,7 +110,7 @@ Transform:
   m_Children: []
   m_Father: {fileID: 3031027701073367865}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &2990608336003011485
+--- !u!114 &2306819408349071875
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -135,6 +135,7 @@ GameObject:
   - component: {fileID: 4680990602349362412}
   - component: {fileID: 1854207575239195844}
   - component: {fileID: 4917444078402838498}
+  - component: {fileID: 2070758095378993425}
   m_Layer: 0
   m_Name: Letter
   m_TagString: Untagged
@@ -249,6 +250,18 @@ MonoBehaviour:
   - {fileID: 0}
   cameraController: {fileID: 0}
   letterMesh: {fileID: 4680990602349362412}
+--- !u!114 &2070758095378993425
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1325288916832444223}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 322afcb54c510fa4e8cf8d1d1cf722d2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1514621127243312596
 GameObject:
   m_ObjectHideFlags: 0
@@ -262,6 +275,7 @@ GameObject:
   - component: {fileID: 8839197439581773557}
   - component: {fileID: 9166933300835606484}
   - component: {fileID: 7426504654672421699}
+  - component: {fileID: 1302951124882293047}
   m_Layer: 0
   m_Name: Letter (1)
   m_TagString: Untagged
@@ -376,6 +390,18 @@ MonoBehaviour:
   - {fileID: 0}
   cameraController: {fileID: 0}
   letterMesh: {fileID: 8839197439581773557}
+--- !u!114 &1302951124882293047
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1514621127243312596}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3e4c35c09f4387b45a33677496d86a47, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &7297805900190467592
 GameObject:
   m_ObjectHideFlags: 0
@@ -385,7 +411,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3723987960953935397}
-  - component: {fileID: 3853314968866849581}
+  - component: {fileID: 841611645961057973}
   m_Layer: 0
   m_Name: Waypoint Letter
   m_TagString: Untagged
@@ -408,7 +434,7 @@ Transform:
   m_Children: []
   m_Father: {fileID: 5911385851510572611}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &3853314968866849581
+--- !u!114 &841611645961057973
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -433,6 +459,7 @@ GameObject:
   - component: {fileID: 1598813156277582076}
   - component: {fileID: 229619691501503607}
   - component: {fileID: 488084908633062431}
+  - component: {fileID: 3496437284670042417}
   m_Layer: 0
   m_Name: Letter (2)
   m_TagString: Untagged
@@ -547,3 +574,15 @@ MonoBehaviour:
   - {fileID: 0}
   cameraController: {fileID: 0}
   letterMesh: {fileID: 1598813156277582076}
+--- !u!114 &3496437284670042417
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8713204332628065904}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cafc1712a21e1a745b0afcf2c09b068b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
