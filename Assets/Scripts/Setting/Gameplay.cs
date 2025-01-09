@@ -30,7 +30,7 @@ public class Gameplay : MonoBehaviour
     public RectTransform imageA; // Transform của hình A
     public TextMeshProUGUI nameCharacter, lv, money, nucleus,gem;
     public Button Map1Button, Map2Button, Map3Button, Map4Button;
-    public GameObject gameSetting, Panelvolume, PanelControls, PanelGraphics, credits, Panelshortcut;
+    public GameObject gameSetting, Panelvolume, PanelControls, PanelGraphics, credits, Panelshortcut, background;
     int openMap1, openMap2,openMap3,openMap4, difficulty;
     public Texture2D customCursorTexture;
     public Vector2 hotSpot = Vector2.zero;
@@ -38,8 +38,9 @@ public class Gameplay : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
-        AudioManager.Instance.StopMusic("startMap1");
+
+        PlayerPrefs.SetInt("background", 0);
+       
         AudioManager.Instance.PlayMusic("Nen");
         Cursor.SetCursor(customCursorTexture, hotSpot, CursorMode.Auto);
         Cursor.visible = true;
@@ -64,6 +65,7 @@ public class Gameplay : MonoBehaviour
         PanelControls.SetActive(false);
         PanelGraphics.SetActive(false);
         Panelshortcut.SetActive(false);
+          
 
         exit.SetActive(true);
         setting.SetActive(true);
@@ -161,6 +163,7 @@ public class Gameplay : MonoBehaviour
         map2.SetActive(false);
         map3.SetActive(false);
         map4.SetActive(false);
+        PlayerPrefs.SetInt("background", 0);
         AudioManager.Instance.PlaySFX("ClickButton");
     }
     public void ExitNormmal()
@@ -178,6 +181,7 @@ public class Gameplay : MonoBehaviour
         map3.SetActive(false);
         map4.SetActive(false);
         AudioManager.Instance.PlaySFX("ClickButton");
+        PlayerPrefs.SetInt("background", 0);
     }
     public void ExitHard()
     {
@@ -194,6 +198,7 @@ public class Gameplay : MonoBehaviour
         map3.SetActive(false);
         map4.SetActive(false);
         AudioManager.Instance.PlaySFX("ClickButton");
+        PlayerPrefs.SetInt("background", 0);
     }
     public void ExitNightmare()
     {
@@ -210,6 +215,7 @@ public class Gameplay : MonoBehaviour
         map2.SetActive(false);
         map3.SetActive(false);
         map4.SetActive(false);
+        PlayerPrefs.SetInt("background", 0);
     }
     public void Map1()
     {
@@ -218,6 +224,7 @@ public class Gameplay : MonoBehaviour
         map2.SetActive(false);
         map3.SetActive(false);
         map4.SetActive(false);
+        PlayerPrefs.SetInt("background",1);
     }
     public void Map2()
     {
@@ -226,6 +233,7 @@ public class Gameplay : MonoBehaviour
         map2.SetActive(true);
         map3.SetActive(false);
         map4.SetActive(false);
+        PlayerPrefs.SetInt("background", 1);
     }
     public void Map3()
     {
@@ -234,6 +242,7 @@ public class Gameplay : MonoBehaviour
         map2.SetActive(false);
         map3.SetActive(true);
         map4.SetActive(false);
+        PlayerPrefs.SetInt("background", 1);
     }
     public void Map4()
     {
@@ -242,6 +251,7 @@ public class Gameplay : MonoBehaviour
         map2.SetActive(false);
         map3.SetActive(false);
         map4.SetActive(true);
+        PlayerPrefs.SetInt("background", 1);
     }
     public void PaneExit()
     {
