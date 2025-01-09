@@ -6,17 +6,17 @@ public class ZombieSpawner : MonoBehaviour
 {
     public GameObject[] zombiePrefabs;
     public RuntimeAnimatorController[] zombieControllers;
-    public Collider[] spawnAreas;  // Các khu vực spawn
-    public float detectionRadius = 20.0f;  // Phạm vi phát hiện người chơi
+    public Collider[] spawnAreas;
+    public float detectionRadius = 20.0f;
 
     private List<GameObject> spawnedZombies = new List<GameObject>();
     private Transform playerTransform;
     private bool[] areaHasSpawned;
-    private int[] zombiesToSpawn; // Số lượng zombie cần spawn ở mỗi khu vực
+    private int[] zombiesToSpawn;
+    private bool isSpawningEnabled = true;
 
     void Start()
     {
-        // Khởi tạo mảng đánh dấu khu vực đã spawn và số lượng zombie cần spawn
         areaHasSpawned = new bool[spawnAreas.Length];
         zombiesToSpawn = new int[spawnAreas.Length];
 
@@ -30,16 +30,15 @@ public class ZombieSpawner : MonoBehaviour
             Debug.LogError("Player not found! Make sure the player has the tag 'Player'.");
         }
 
-        // Đảm bảo mỗi khu vực sẽ có ít nhất 1 zombie và tối đa 5 zombie
         for (int i = 0; i < spawnAreas.Length; i++)
         {
-            zombiesToSpawn[i] = Random.Range(1, 6); // Số lượng zombie từ 1 đến 5
+            zombiesToSpawn[i] = Random.Range(1, 6);
         }
     }
 
     void Update()
     {
-        if (playerTransform != null)
+        if (isSpawningEnabled && playerTransform != null)
         {
             for (int i = 0; i < spawnAreas.Length; i++)
             {
@@ -80,6 +79,23 @@ public class ZombieSpawner : MonoBehaviour
             );
         } while (!collider.bounds.Contains(point));
         return point;
+    }
+
+    public void DestroyAllZombies()
+    {
+        foreach (GameObject zombie in spawnedZombies)
+        {
+            if (zombie != null)
+            {
+                Destroy(zombie);
+            }
+        }
+        spawnedZombies.Clear();
+    }
+
+    public void DisableSpawning()
+    {
+        isSpawningEnabled = false;
     }
 
     void OnDrawGizmos()

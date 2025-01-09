@@ -65,4 +65,17 @@ public class AutoChaseZombieSpawner : MonoBehaviour
         } while (!collider.bounds.Contains(point));
         return point;
     }
+
+    public void DestroyAllZombies()
+    {
+        foreach (GameObject zombie in spawnedZombies)
+        {
+            if (zombie != null)
+            {
+                Destroy(zombie); // Phá hủy zombie trong scene
+            }
+        }
+        spawnedZombies.Clear(); // Xóa danh sách zombie
+    }
+
 }

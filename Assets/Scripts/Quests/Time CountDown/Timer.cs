@@ -6,19 +6,20 @@ using UnityEngine;
 public class Timer : MonoBehaviour
 {
     [SerializeField] TextMeshProUGUI timerText;
-    [SerializeField] float firstPhaseTime = 30f; // Thời gian giai đoạn đầu (30 giây)
-    [SerializeField] float secondPhaseTime = 120f; // Thời gian giai đoạn thứ hai (2 phút)
-    [SerializeField] GameObject winPanel; // Tham chiếu tới panel chiến thắng
+    [SerializeField] float firstPhaseTime = 30f;
+    [SerializeField] float secondPhaseTime = 120f;
+    [SerializeField] GameObject winPanel;
     public float remainingTime;
     private bool isFirstPhase = true;
     private bool isTimeUp = false;
     private bool isCountingDown = false;
-    public AutoChaseZombieSpawner zombieSpawner;
+    public AutoChaseZombieSpawner autoChaseZombieSpawner;
+    public ZombieSpawner zombieSpawner;
 
     void Start()
     {
         remainingTime = firstPhaseTime;
-        winPanel.SetActive(false); // Đảm bảo panel chiến thắng được ẩn ban đầu
+        winPanel.SetActive(false);
     }
 
     void Update()
@@ -34,12 +35,16 @@ public class Timer : MonoBehaviour
                     remainingTime = secondPhaseTime;
                     isFirstPhase = false;
                     StartCoroutine(SpawnZombiesWithDelay());
+                    zombieSpawner.DestroyAllZombies();
+                    zombieSpawner.DisableSpawning();
                 }
                 else
                 {
                     isTimeUp = true;
                     StopCoroutine(SpawnZombiesWithDelay());
-                    ShowWinPanel(); // Hiện panel chiến thắng
+                    autoChaseZombieSpawner.DestroyAllZombies();
+                    ShowWinPanel();
+
                     SaveLoadManager.PlayerData data = new SaveLoadManager.PlayerData();
                     string nameGame = PlayerPrefs.GetString("FileGame");
                     data.openMap1 = 1;
@@ -62,13 +67,18 @@ public class Timer : MonoBehaviour
     {
         while (!isTimeUp)
         {
-            zombieSpawner.SpawnRandomZombies(Random.Range(1, 11));
-            yield return new WaitForSeconds(5f);
+            if (autoChaseZombieSpawner.spawnedZombies.Count < 20)
+            {
+                int remainingSlots = 20 - autoChaseZombieSpawner.spawnedZombies.Count;
+                int zombiesToSpawn = Random.Range(1, Mathf.Min(11, remainingSlots + 1));
+                autoChaseZombieSpawner.SpawnRandomZombies(zombiesToSpawn);
+            }
+            yield return new WaitForSeconds(10f);
         }
     }
 
     void ShowWinPanel()
     {
-        winPanel.SetActive(true); // Hiện panel chiến thắng
+        winPanel.SetActive(true);
     }
 }

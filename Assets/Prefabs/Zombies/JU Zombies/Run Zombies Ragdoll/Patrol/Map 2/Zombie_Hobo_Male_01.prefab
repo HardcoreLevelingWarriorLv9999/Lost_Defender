@@ -2524,9 +2524,9 @@ MonoBehaviour:
     Angle: 360
   SensorLayerMask:
     serializedVersion: 2
-    m_Bits: 2817
-  StartRunningAtDistance: 1
-  AttackAtDistance: 2
+    m_Bits: 513
+  StartRunningAtDistance: 0.1
+  AttackAtDistance: 1
   AimUpOffset: 1
   LookTargetSpeed: 1
   AttackDuration: 0
@@ -2557,9 +2557,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   CenterPositionOffset: {x: 0, y: 0, z: 0}
-  MinTime: 2
+  MinTime: 5
   MaxTime: 5
-  Area: 15
+  Area: 10
 --- !u!114 &-3932423410595447164
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2594,7 +2594,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8b28f181aaac6b448995bcd0df949895, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  SecondsToDestroy: 3
+  SecondsToDestroy: 1
   DestroyOnStart: 0
 --- !u!1 &1902504349310798526
 GameObject:
