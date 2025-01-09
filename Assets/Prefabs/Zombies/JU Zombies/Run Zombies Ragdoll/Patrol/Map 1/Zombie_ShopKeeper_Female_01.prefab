@@ -3091,7 +3091,8 @@ MonoBehaviour:
   rb: {fileID: 0}
   coll: {fileID: 0}
   MyPivotCamera: {fileID: 0}
-  CharacterHealth: {fileID: 6133360891375505260}
+  CharacterHealth: {fileID: 477377971989938876, guid: 6be62f038e58dbf4397f4cb5f767cc29,
+    type: 3}
   DriveVehicleAbility: {fileID: 0}
   Inventory: {fileID: 0}
   LeftHandDamager: {fileID: 0}
@@ -3372,9 +3373,9 @@ MonoBehaviour:
     Angle: 360
   SensorLayerMask:
     serializedVersion: 2
-    m_Bits: 2817
-  StartRunningAtDistance: 1
-  AttackAtDistance: 2
+    m_Bits: 513
+  StartRunningAtDistance: 0.1
+  AttackAtDistance: 1
   AimUpOffset: 1
   LookTargetSpeed: 1
   AttackDuration: 0
@@ -3405,9 +3406,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   CenterPositionOffset: {x: 0, y: 0, z: 0}
-  MinTime: 3
+  MinTime: 5
   MaxTime: 5
-  Area: 80
+  Area: 10
 --- !u!114 &1517786588528785765
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -3615,7 +3615,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 2817
   StartRunningAtDistance: 1
-  AttackAtDistance: 10
+  AttackAtDistance: 1
   AimUpOffset: 1
   LookTargetSpeed: 1
   AttackDuration: 0
