@@ -92,6 +92,7 @@ public class Gameplay : MonoBehaviour
     }
     public void Easy()
     {
+        
         gamemode.SetActive(false);
         exit.SetActive(false);
         setting.SetActive(false);
@@ -101,6 +102,7 @@ public class Gameplay : MonoBehaviour
         easy.SetActive(true);
         gamemode1.SetActive(true);
         difficulty = 0;
+        PlayerPrefs.SetInt("Difficulty", difficulty);
         AudioManager.Instance.PlaySFX("ClickButton");
     }
     public void Normmal()
@@ -114,6 +116,7 @@ public class Gameplay : MonoBehaviour
         normal.SetActive(true);
         gamemode2.SetActive(true);
         difficulty = 1;
+        PlayerPrefs.SetInt("Difficulty", difficulty);
         AudioManager.Instance.PlaySFX("ClickButton");
     }
     public void Hard()
@@ -127,6 +130,7 @@ public class Gameplay : MonoBehaviour
         hard.SetActive(true);
         gamemode3.SetActive(true);
         difficulty = 2;
+        PlayerPrefs.SetInt("Difficulty", difficulty);
         AudioManager.Instance.PlaySFX("ClickButton");
     }
     public void Nightmare()
@@ -140,6 +144,7 @@ public class Gameplay : MonoBehaviour
         nightmare.SetActive(true);
         gamemode4.SetActive(true);
         difficulty = 3;
+        PlayerPrefs.SetInt("Difficulty", difficulty);
         AudioManager.Instance.PlaySFX("ClickButton");
     }
     public void Exiteasy()
