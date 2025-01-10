@@ -5080,7 +5080,7 @@ GameObject:
   - component: {fileID: 3596752894913775909}
   - component: {fileID: 6843715932181400245}
   - component: {fileID: 8771166634054673301}
-  - component: {fileID: 2546173142575446816}
+  - component: {fileID: -3069061089886132587}
   m_Layer: 9
   m_Name: Zombie_SummerGirl_Female_01
   m_TagString: Enemy
@@ -5260,8 +5260,7 @@ MonoBehaviour:
   rb: {fileID: 0}
   coll: {fileID: 0}
   MyPivotCamera: {fileID: 0}
-  CharacterHealth: {fileID: 477377971989938876, guid: 6be62f038e58dbf4397f4cb5f767cc29,
-    type: 3}
+  CharacterHealth: {fileID: 2888293919884650469}
   DriveVehicleAbility: {fileID: 0}
   Inventory: {fileID: 0}
   LeftHandDamager: {fileID: 0}
@@ -5492,7 +5491,7 @@ MonoBehaviour:
   OnDeath:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 2546173142575446816}
+      - m_Target: {fileID: -3069061089886132587}
         m_TargetAssemblyTypeName: JUTPS.Utilities.AutoDestroy, Assembly-CSharp
         m_MethodName: TimedDestroyObject
         m_Mode: 1
@@ -5601,7 +5600,7 @@ MonoBehaviour:
   StepCorrection: 1
   GroundCheck: 1
   WallCheck: 1
---- !u!114 &2546173142575446816
+--- !u!114 &-3069061089886132587
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}

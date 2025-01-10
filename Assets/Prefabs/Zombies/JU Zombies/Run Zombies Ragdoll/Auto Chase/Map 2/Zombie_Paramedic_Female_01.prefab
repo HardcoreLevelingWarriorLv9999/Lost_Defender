@@ -4415,7 +4415,7 @@ GameObject:
   - component: {fileID: 9181502166133066639}
   - component: {fileID: 6361180040827177421}
   - component: {fileID: 7745681464272061843}
-  - component: {fileID: 4031041451890965799}
+  - component: {fileID: -5556186866861069677}
   m_Layer: 9
   m_Name: Zombie_Paramedic_Female_01
   m_TagString: Enemy
@@ -4827,7 +4827,7 @@ MonoBehaviour:
   OnDeath:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 4031041451890965799}
+      - m_Target: {fileID: -5556186866861069677}
         m_TargetAssemblyTypeName: JUTPS.Utilities.AutoDestroy, Assembly-CSharp
         m_MethodName: TimedDestroyObject
         m_Mode: 1
@@ -4920,7 +4920,7 @@ MonoBehaviour:
   StepCorrection: 1
   GroundCheck: 1
   WallCheck: 1
---- !u!114 &4031041451890965799
+--- !u!114 &-5556186866861069677
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}

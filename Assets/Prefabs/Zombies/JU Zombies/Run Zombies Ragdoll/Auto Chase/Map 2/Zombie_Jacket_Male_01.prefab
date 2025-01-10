@@ -1322,7 +1322,7 @@ GameObject:
   - component: {fileID: 4485401059470022511}
   - component: {fileID: 603202206329781483}
   - component: {fileID: 6818333723517019662}
-  - component: {fileID: 6848660037381225338}
+  - component: {fileID: -6302076516382500097}
   m_Layer: 9
   m_Name: Zombie_Jacket_Male_01
   m_TagString: Enemy
@@ -1734,7 +1734,7 @@ MonoBehaviour:
   OnDeath:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 6848660037381225338}
+      - m_Target: {fileID: -6302076516382500097}
         m_TargetAssemblyTypeName: JUTPS.Utilities.AutoDestroy, Assembly-CSharp
         m_MethodName: TimedDestroyObject
         m_Mode: 1
@@ -1827,7 +1827,7 @@ MonoBehaviour:
   StepCorrection: 1
   GroundCheck: 1
   WallCheck: 1
---- !u!114 &6848660037381225338
+--- !u!114 &-6302076516382500097
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}

@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 8296160044964141786}
   - component: {fileID: 5648004821138691868}
   - component: {fileID: 2412618830666850420}
-  m_Layer: 0
+  m_Layer: 17
   m_Name: InventoryTrigger
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -81,7 +81,7 @@ GameObject:
   - component: {fileID: 7928439665523223152}
   - component: {fileID: 2410088068499595033}
   - component: {fileID: 1535471582754217207}
-  m_Layer: 0
+  m_Layer: 17
   m_Name: JumpTrigger
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -440,7 +440,7 @@ GameObject:
   - component: {fileID: 7511791363510052262}
   - component: {fileID: 4700768104693917177}
   - component: {fileID: 7645151040834691245}
-  m_Layer: 0
+  m_Layer: 17
   m_Name: RunTrigger
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -609,7 +609,7 @@ GameObject:
   - component: {fileID: 177952933331898208}
   - component: {fileID: 324193642679559215}
   - component: {fileID: 4421161077383430615}
-  m_Layer: 0
+  m_Layer: 17
   m_Name: MoveTrigger
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -725,7 +725,7 @@ GameObject:
   - component: {fileID: 818648867258269329}
   - component: {fileID: 4926232732173454629}
   - component: {fileID: 4236745630566334602}
-  m_Layer: 0
+  m_Layer: 17
   m_Name: ShootTrigger
   m_TagString: Untagged
   m_Icon: {fileID: 0}

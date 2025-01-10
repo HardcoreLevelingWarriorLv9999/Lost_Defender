@@ -1722,7 +1722,7 @@ GameObject:
   - component: {fileID: 8186095071037554997}
   - component: {fileID: -6120496855730821253}
   - component: {fileID: 5632561894223263411}
-  - component: {fileID: 3442894196958323394}
+  - component: {fileID: -5472327401574770406}
   m_Layer: 9
   m_Name: Zombie_Jacket_Female_01
   m_TagString: Enemy
@@ -2134,7 +2134,7 @@ MonoBehaviour:
   OnDeath:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 3442894196958323394}
+      - m_Target: {fileID: -5472327401574770406}
         m_TargetAssemblyTypeName: JUTPS.Utilities.AutoDestroy, Assembly-CSharp
         m_MethodName: TimedDestroyObject
         m_Mode: 1
@@ -2227,7 +2227,7 @@ MonoBehaviour:
   StepCorrection: 1
   GroundCheck: 1
   WallCheck: 1
---- !u!114 &3442894196958323394
+--- !u!114 &-5472327401574770406
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}

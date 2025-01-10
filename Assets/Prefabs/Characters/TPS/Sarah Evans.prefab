@@ -70696,7 +70696,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &6359254801729731259
 Transform:
   m_ObjectHideFlags: 0
@@ -71049,8 +71049,8 @@ MonoBehaviour:
   BlockFireModeOnPunching: 1
   EnablePunchAttacks: 1
   EnableRoll: 1
-  PhysicalDamage: 1
-  DoRagdollPhysicalDamage: 1
+  PhysicalDamage: 0
+  DoRagdollPhysicalDamage: 0
   PhysicalDamageStartAt: 30
   PhysicalDamageMultiplier: 0.8
   RagdollStartAtDamage: 10

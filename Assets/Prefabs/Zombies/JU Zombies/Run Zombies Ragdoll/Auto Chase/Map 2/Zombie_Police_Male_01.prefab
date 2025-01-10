@@ -7931,7 +7931,7 @@ GameObject:
   - component: {fileID: 1025961721728007073}
   - component: {fileID: 6565538377648188227}
   - component: {fileID: 6492607118148417031}
-  - component: {fileID: -7979941328982426771}
+  - component: {fileID: -7770657946545562824}
   m_Layer: 9
   m_Name: Zombie_Police_Male_01
   m_TagString: Enemy
@@ -8343,7 +8343,7 @@ MonoBehaviour:
   OnDeath:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: -7979941328982426771}
+      - m_Target: {fileID: -7770657946545562824}
         m_TargetAssemblyTypeName: JUTPS.Utilities.AutoDestroy, Assembly-CSharp
         m_MethodName: TimedDestroyObject
         m_Mode: 1
@@ -8436,7 +8436,7 @@ MonoBehaviour:
   StepCorrection: 1
   GroundCheck: 1
   WallCheck: 1
---- !u!114 &-7979941328982426771
+--- !u!114 &-7770657946545562824
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}

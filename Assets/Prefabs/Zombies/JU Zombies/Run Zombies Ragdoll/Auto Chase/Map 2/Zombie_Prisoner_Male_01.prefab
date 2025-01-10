@@ -1183,7 +1183,7 @@ GameObject:
   - component: {fileID: 2295020010109387620}
   - component: {fileID: 7949471944887824534}
   - component: {fileID: 4598669035730393034}
-  - component: {fileID: -5812960002135413599}
+  - component: {fileID: 3605645762647775854}
   m_Layer: 9
   m_Name: Zombie_Prisoner_Male_01
   m_TagString: Enemy
@@ -1595,7 +1595,7 @@ MonoBehaviour:
   OnDeath:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: -5812960002135413599}
+      - m_Target: {fileID: 3605645762647775854}
         m_TargetAssemblyTypeName: JUTPS.Utilities.AutoDestroy, Assembly-CSharp
         m_MethodName: TimedDestroyObject
         m_Mode: 1
@@ -1688,7 +1688,7 @@ MonoBehaviour:
   StepCorrection: 1
   GroundCheck: 1
   WallCheck: 1
---- !u!114 &-5812960002135413599
+--- !u!114 &3605645762647775854
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}

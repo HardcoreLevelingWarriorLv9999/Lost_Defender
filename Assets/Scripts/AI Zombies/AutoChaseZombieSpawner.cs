@@ -1,17 +1,18 @@
 using System.Collections;
 using System.Collections.Generic;
+using JUTPS.Utilities;
 using UnityEngine;
 
 public class AutoChaseZombieSpawner : MonoBehaviour
 {
     public GameObject[] zombiePrefabs;
     public RuntimeAnimatorController[] zombieControllers;
-    public Collider[] spawnAreas;  // Use an array of Colliders
+    public Collider[] spawnAreas;  // Sử dụng một mảng Collider
     public List<GameObject> spawnedZombies = new List<GameObject>();
 
     public void SpawnRandomZombies(int count)
     {
-        // First, ensure at least one zombie is spawned in each BoxCollider
+        // Đầu tiên, đảm bảo ít nhất một zombie được tạo ra trong mỗi BoxCollider
         foreach (Collider spawnArea in spawnAreas)
         {
             if (count <= 0) break;
@@ -19,10 +20,13 @@ public class AutoChaseZombieSpawner : MonoBehaviour
             count--;
         }
 
-        // Spawn remaining zombies randomly
+        // Tạo ra các zombie còn lại một cách ngẫu nhiên
         for (int i = 0; i < count; i++)
         {
-            SpawnRandomZombie();
+            if (spawnedZombies.Count < 20) // Kiểm tra số lượng zombie hiện tại
+            {
+                SpawnRandomZombie();
+            }
         }
     }
 
@@ -65,17 +69,4 @@ public class AutoChaseZombieSpawner : MonoBehaviour
         } while (!collider.bounds.Contains(point));
         return point;
     }
-
-    public void DestroyAllZombies()
-    {
-        foreach (GameObject zombie in spawnedZombies)
-        {
-            if (zombie != null)
-            {
-                Destroy(zombie); // Phá hủy zombie trong scene
-            }
-        }
-        spawnedZombies.Clear(); // Xóa danh sách zombie
-    }
-
 }

@@ -4672,6 +4672,7 @@ GameObject:
   - component: {fileID: -6383042023159977842}
   - component: {fileID: 9083599457529202953}
   - component: {fileID: -8507476872357646566}
+  - component: {fileID: 5767340385403755539}
   m_Layer: 9
   m_Name: Zombie_Bride_Female_01
   m_TagString: Enemy
@@ -5083,8 +5084,7 @@ MonoBehaviour:
   OnDeath:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: -2196549767385574873, guid: 342bf90f574671a42a4642c34c0e5832,
-          type: 3}
+      - m_Target: {fileID: 5767340385403755539}
         m_TargetAssemblyTypeName: JUTPS.Utilities.AutoDestroy, Assembly-CSharp
         m_MethodName: TimedDestroyObject
         m_Mode: 1
@@ -5176,6 +5176,20 @@ MonoBehaviour:
   StepCorrection: 1
   GroundCheck: 1
   WallCheck: 1
+--- !u!114 &5767340385403755539
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3803623959828281378}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8b28f181aaac6b448995bcd0df949895, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  SecondsToDestroy: 3
+  DestroyOnStart: 0
 --- !u!1 &4027351998515036738
 GameObject:
   m_ObjectHideFlags: 0

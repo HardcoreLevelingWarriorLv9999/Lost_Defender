@@ -15,7 +15,7 @@ namespace JUTPS.Utilities
         }
         public void TimedDestroyObject()
         {
-            Destroy(this.gameObject, SecondsToDestroy);
+            Destroy(gameObject, SecondsToDestroy);
         }
     }
 }

@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using JUTPS.Utilities;
 using UnityEngine;
 
 public class ZombieSpawner : MonoBehaviour
@@ -9,7 +10,7 @@ public class ZombieSpawner : MonoBehaviour
     public Collider[] spawnAreas;
     public float detectionRadius = 20.0f;
 
-    private List<GameObject> spawnedZombies = new List<GameObject>();
+    public List<GameObject> spawnedZombies = new List<GameObject>();
     private Transform playerTransform;
     private bool[] areaHasSpawned;
     private int[] zombiesToSpawn;
@@ -81,7 +82,7 @@ public class ZombieSpawner : MonoBehaviour
         return point;
     }
 
-    public void DestroyAllZombies()
+    public void ClearAllZombies()
     {
         foreach (GameObject zombie in spawnedZombies)
         {
@@ -91,11 +92,7 @@ public class ZombieSpawner : MonoBehaviour
             }
         }
         spawnedZombies.Clear();
-    }
-
-    public void DisableSpawning()
-    {
-        isSpawningEnabled = false;
+        enabled = false; // Tắt script ZombieSpawner
     }
 
     void OnDrawGizmos()

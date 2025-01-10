@@ -2006,7 +2006,7 @@ GameObject:
   - component: {fileID: 5973412786398352264}
   - component: {fileID: 8425774654322353280}
   - component: {fileID: 8132429621677534375}
-  - component: {fileID: 8497759748526533593}
+  - component: {fileID: -4908227859173416621}
   m_Layer: 9
   m_Name: Zombie_Mother_Female_01
   m_TagString: Player
@@ -2418,7 +2418,7 @@ MonoBehaviour:
   OnDeath:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 8497759748526533593}
+      - m_Target: {fileID: -4908227859173416621}
         m_TargetAssemblyTypeName: JUTPS.Utilities.AutoDestroy, Assembly-CSharp
         m_MethodName: TimedDestroyObject
         m_Mode: 1
@@ -2511,7 +2511,7 @@ MonoBehaviour:
   StepCorrection: 1
   GroundCheck: 1
   WallCheck: 1
---- !u!114 &8497759748526533593
+--- !u!114 &-4908227859173416621
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}

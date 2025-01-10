@@ -3520,7 +3520,7 @@ GameObject:
   - component: {fileID: -3964537928811673202}
   - component: {fileID: -3855414002151136967}
   - component: {fileID: -7555693987428189683}
-  - component: {fileID: -4083535077447220283}
+  - component: {fileID: -1608762875966749697}
   m_Layer: 9
   m_Name: Zombie_Hipster_Male_01
   m_TagString: Enemy
@@ -3932,8 +3932,7 @@ MonoBehaviour:
   OnDeath:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 2166985444544520581, guid: 6be62f038e58dbf4397f4cb5f767cc29,
-          type: 3}
+      - m_Target: {fileID: -1608762875966749697}
         m_TargetAssemblyTypeName: JUTPS.Utilities.AutoDestroy, Assembly-CSharp
         m_MethodName: TimedDestroyObject
         m_Mode: 1
@@ -4041,7 +4040,7 @@ MonoBehaviour:
   StepCorrection: 1
   GroundCheck: 1
   WallCheck: 1
---- !u!114 &-4083535077447220283
+--- !u!114 &-1608762875966749697
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -4053,7 +4052,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8b28f181aaac6b448995bcd0df949895, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  SecondsToDestroy: 1
+  SecondsToDestroy: 3
   DestroyOnStart: 0
 --- !u!1 &3513839131641037991
 GameObject:

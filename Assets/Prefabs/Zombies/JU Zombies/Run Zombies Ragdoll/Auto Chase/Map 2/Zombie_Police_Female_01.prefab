@@ -7023,7 +7023,7 @@ GameObject:
   - component: {fileID: 2295325324520539066}
   - component: {fileID: 7533175628911737652}
   - component: {fileID: 8144285721250299830}
-  - component: {fileID: 4137757400359929117}
+  - component: {fileID: 6243592088871960196}
   m_Layer: 9
   m_Name: Zombie_Police_Female_01
   m_TagString: Enemy
@@ -7435,7 +7435,7 @@ MonoBehaviour:
   OnDeath:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 4137757400359929117}
+      - m_Target: {fileID: 6243592088871960196}
         m_TargetAssemblyTypeName: JUTPS.Utilities.AutoDestroy, Assembly-CSharp
         m_MethodName: TimedDestroyObject
         m_Mode: 1
@@ -7528,7 +7528,7 @@ MonoBehaviour:
   StepCorrection: 1
   GroundCheck: 1
   WallCheck: 1
---- !u!114 &4137757400359929117
+--- !u!114 &6243592088871960196
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}

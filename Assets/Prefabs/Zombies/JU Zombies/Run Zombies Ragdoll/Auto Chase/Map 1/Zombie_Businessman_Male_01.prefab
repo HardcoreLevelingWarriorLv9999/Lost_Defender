@@ -1381,6 +1381,7 @@ GameObject:
   - component: {fileID: -4894778306768094060}
   - component: {fileID: -1834792856270439838}
   - component: {fileID: 5794137576048855726}
+  - component: {fileID: -572471518650428562}
   m_Layer: 9
   m_Name: Zombie_Businessman_Male_01
   m_TagString: Enemy
@@ -1792,8 +1793,7 @@ MonoBehaviour:
   OnDeath:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: -2196549767385574873, guid: 342bf90f574671a42a4642c34c0e5832,
-          type: 3}
+      - m_Target: {fileID: -572471518650428562}
         m_TargetAssemblyTypeName: JUTPS.Utilities.AutoDestroy, Assembly-CSharp
         m_MethodName: TimedDestroyObject
         m_Mode: 1
@@ -1885,6 +1885,20 @@ MonoBehaviour:
   StepCorrection: 1
   GroundCheck: 1
   WallCheck: 1
+--- !u!114 &-572471518650428562
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1321366418302978598}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8b28f181aaac6b448995bcd0df949895, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  SecondsToDestroy: 3
+  DestroyOnStart: 0
 --- !u!1 &1345678682648947434
 GameObject:
   m_ObjectHideFlags: 0
