@@ -4805,7 +4805,7 @@ GameObject:
   - component: {fileID: 4979611868819409770}
   - component: {fileID: 7144879107579892172}
   - component: {fileID: 7960977517854757857}
-  m_Layer: 8
+  m_Layer: 9
   m_Name: Mei Chen (4)
   m_TagString: Distractable
   m_Icon: {fileID: 0}
@@ -12818,7 +12818,7 @@ GameObject:
   - component: {fileID: 5297249972981278671}
   - component: {fileID: 4908878373009057778}
   - component: {fileID: 7061037832185858768}
-  m_Layer: 8
+  m_Layer: 9
   m_Name: Mei Chen (3)
   m_TagString: Distractable
   m_Icon: {fileID: 0}
@@ -15314,7 +15314,7 @@ GameObject:
   - component: {fileID: 3925354261776060214}
   - component: {fileID: 5959328045567875163}
   - component: {fileID: 7195948667287246237}
-  m_Layer: 8
+  m_Layer: 9
   m_Name: Mei Chen (5)
   m_TagString: Distractable
   m_Icon: {fileID: 0}
@@ -16217,7 +16217,7 @@ GameObject:
   - component: {fileID: 7959046583768181104}
   - component: {fileID: 7307260476278368577}
   - component: {fileID: 8765818837144008343}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Protected Car
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -16240,6 +16240,7 @@ Transform:
   - {fileID: 9124654049048447685}
   - {fileID: 972638962547480226}
   - {fileID: 3067131449270437465}
+  - {fileID: 8906764690215798481}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!65 &3497586778924147922
@@ -16457,13 +16458,25 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fa2549d042f8b6d41bb6289069865f19, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Health: 500
-  MaxHealth: 500
+  Health: 5000
+  MaxHealth: 5000
   BloodScreenEffect: 0
   BloodHitParticle: {fileID: 0}
   OnDeath:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 8906764690215798484}
+        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+        m_MethodName: SetActive
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
   IsDead: 0
 --- !u!65 &7959046583768181104
 BoxCollider:
@@ -16484,8 +16497,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 2.552353, y: 1.9684751, z: 6.487629}
-  m_Center: {x: -0.0006752014, y: 0.96459234, z: -0.2806301}
+  m_Size: {x: 2.552353, y: 0.84106386, z: 6.487629}
+  m_Center: {x: -0.0006752014, y: 0.4008867, z: -0.2806301}
 --- !u!114 &7307260476278368577
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -16498,8 +16511,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bb3202926f16df24591496132118bc1d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Audio: 
-  longCollisionAudio: 
+  Audio: start up
+  longCollisionAudio: move
   targetCollider: {fileID: 7959046583768181104}
   detectionRadius: 6
 --- !u!114 &8765818837144008343
@@ -41554,7 +41567,7 @@ GameObject:
   - component: {fileID: 5807555418767508535}
   - component: {fileID: 1201733446711910293}
   - component: {fileID: 8166073186011407277}
-  m_Layer: 8
+  m_Layer: 9
   m_Name: Mei Chen (9)
   m_TagString: Distractable
   m_Icon: {fileID: 0}
@@ -43965,7 +43978,7 @@ GameObject:
   - component: {fileID: 4478569274998097520}
   - component: {fileID: 6460202259696526240}
   - component: {fileID: 4925451220061693748}
-  m_Layer: 8
+  m_Layer: 9
   m_Name: Mei Chen
   m_TagString: Distractable
   m_Icon: {fileID: 0}
@@ -45619,7 +45632,7 @@ GameObject:
   - component: {fileID: 8591432487193163383}
   - component: {fileID: 2109127479624929}
   - component: {fileID: 2494398855078952224}
-  m_Layer: 8
+  m_Layer: 9
   m_Name: Mei Chen (1)
   m_TagString: Distractable
   m_Icon: {fileID: 0}
@@ -54659,7 +54672,7 @@ GameObject:
   - component: {fileID: 5646115744688670252}
   - component: {fileID: 8244080234774487702}
   - component: {fileID: 8323408187992940063}
-  m_Layer: 8
+  m_Layer: 9
   m_Name: Mei Chen (7)
   m_TagString: Distractable
   m_Icon: {fileID: 0}
@@ -62319,7 +62332,7 @@ GameObject:
   - component: {fileID: 3772572019687812262}
   - component: {fileID: 4605149569448212885}
   - component: {fileID: 165114761160307507}
-  m_Layer: 8
+  m_Layer: 9
   m_Name: Mei Chen (6)
   m_TagString: Distractable
   m_Icon: {fileID: 0}
@@ -65093,7 +65106,7 @@ GameObject:
   - component: {fileID: 580489803165819165}
   - component: {fileID: 6687645639731542651}
   - component: {fileID: 2996174691083314855}
-  m_Layer: 8
+  m_Layer: 9
   m_Name: Mei Chen (8)
   m_TagString: Distractable
   m_Icon: {fileID: 0}
@@ -75553,7 +75566,7 @@ GameObject:
   - component: {fileID: 3757315173090902596}
   - component: {fileID: 734770352555856681}
   - component: {fileID: 1076571138029062855}
-  m_Layer: 8
+  m_Layer: 9
   m_Name: Mei Chen (2)
   m_TagString: Distractable
   m_Icon: {fileID: 0}
@@ -82905,3 +82918,88 @@ Transform:
   - {fileID: 2409652606817851437}
   m_Father: {fileID: 687732516138214158}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1001 &5389888961080635365
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 5375123834904180510}
+    m_Modifications:
+    - target: {fileID: 3555473432261732657, guid: 3cdd4ce8e9c3bfc4fb0d5985aae4503a,
+        type: 3}
+      propertyPath: m_Name
+      value: Explosion Particle
+      objectReference: {fileID: 0}
+    - target: {fileID: 3555473432261732657, guid: 3cdd4ce8e9c3bfc4fb0d5985aae4503a,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3555473432261732660, guid: 3cdd4ce8e9c3bfc4fb0d5985aae4503a,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3555473432261732660, guid: 3cdd4ce8e9c3bfc4fb0d5985aae4503a,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.41
+      objectReference: {fileID: 0}
+    - target: {fileID: 3555473432261732660, guid: 3cdd4ce8e9c3bfc4fb0d5985aae4503a,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 1.69
+      objectReference: {fileID: 0}
+    - target: {fileID: 3555473432261732660, guid: 3cdd4ce8e9c3bfc4fb0d5985aae4503a,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 3555473432261732660, guid: 3cdd4ce8e9c3bfc4fb0d5985aae4503a,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 3555473432261732660, guid: 3cdd4ce8e9c3bfc4fb0d5985aae4503a,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3555473432261732660, guid: 3cdd4ce8e9c3bfc4fb0d5985aae4503a,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3555473432261732660, guid: 3cdd4ce8e9c3bfc4fb0d5985aae4503a,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: -90
+      objectReference: {fileID: 0}
+    - target: {fileID: 3555473432261732660, guid: 3cdd4ce8e9c3bfc4fb0d5985aae4503a,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3555473432261732660, guid: 3cdd4ce8e9c3bfc4fb0d5985aae4503a,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 3cdd4ce8e9c3bfc4fb0d5985aae4503a, type: 3}
+--- !u!4 &8906764690215798481 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 3555473432261732660, guid: 3cdd4ce8e9c3bfc4fb0d5985aae4503a,
+    type: 3}
+  m_PrefabInstance: {fileID: 5389888961080635365}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &8906764690215798484 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3555473432261732657, guid: 3cdd4ce8e9c3bfc4fb0d5985aae4503a,
+    type: 3}
+  m_PrefabInstance: {fileID: 5389888961080635365}
+  m_PrefabAsset: {fileID: 0}

@@ -41,19 +41,20 @@ public class Timer : MonoBehaviour
                     zombieSpawner.ClearAllZombies();
 
                     StartCoroutine(SpawnZombiesWithDelay());
+                    StartCoroutine(SpawnEliteZombiesWithDelay()); // Bắt đầu tạo Elite Zombie
                 }
 
                 else
                 {
                     isTimeUp = true;
                     StopCoroutine(SpawnZombiesWithDelay());
+                    StopCoroutine(SpawnEliteZombiesWithDelay()); // Dừng tạo Elite Zombie
                     ShowWinPanel(); // Hiện panel chiến thắng
                     // Xóa toàn bộ zombie của AutoChaseZombieSpawner
                     foreach (GameObject zombie in autoChaseZombieSpawner.spawnedZombies)
                     {
                         Destroy(zombie);
                     }
-
 
                     int difficulty = PlayerPrefs.GetInt("Difficulty");
 
@@ -108,6 +109,16 @@ public class Timer : MonoBehaviour
                 autoChaseZombieSpawner.SpawnRandomZombies(20 - autoChaseZombieSpawner.spawnedZombies.Count);
             }
             yield return new WaitForSeconds(5f);
+        }
+    }
+
+    IEnumerator SpawnEliteZombiesWithDelay()
+    {
+        yield return new WaitForSeconds(10f); // Đợi 10 giây trước khi tạo Elite Zombie đầu tiên
+        while (!isTimeUp)
+        {
+            autoChaseZombieSpawner.SpawnEliteZombie(); // Tạo Elite Zombie
+            yield return new WaitForSeconds(20f); // Đợi 20 giây trước khi tạo Elite Zombie tiếp theo
         }
     }
 

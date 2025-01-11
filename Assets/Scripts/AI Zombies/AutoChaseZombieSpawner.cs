@@ -10,6 +10,9 @@ public class AutoChaseZombieSpawner : MonoBehaviour
     public Collider[] spawnAreas;  // Sử dụng một mảng Collider
     public List<GameObject> spawnedZombies = new List<GameObject>();
 
+    public GameObject zombieElitePrefab;
+    public RuntimeAnimatorController zombieEliteController;
+
     public void SpawnRandomZombies(int count)
     {
         // Đầu tiên, đảm bảo ít nhất một zombie được tạo ra trong mỗi BoxCollider
@@ -54,6 +57,17 @@ public class AutoChaseZombieSpawner : MonoBehaviour
         animator.runtimeAnimatorController = randomController;
 
         spawnedZombies.Add(newZombie);
+    }
+
+    public void SpawnEliteZombie()
+    {
+        Vector3 spawnPosition = GetRandomPointInCollider(spawnAreas[Random.Range(0, spawnAreas.Length)]);
+        GameObject newEliteZombie = Instantiate(zombieElitePrefab, spawnPosition, Quaternion.identity, transform);
+
+        Animator animator = newEliteZombie.GetComponent<Animator>();
+        animator.runtimeAnimatorController = zombieEliteController;
+
+        spawnedZombies.Add(newEliteZombie);
     }
 
     Vector3 GetRandomPointInCollider(Collider collider)
