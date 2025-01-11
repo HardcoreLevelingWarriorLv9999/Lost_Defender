@@ -61,7 +61,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: -0.07306647, y: 0.06705522, z: -0.7331321, w: 0.6728166}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: -1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 5058296696703624593}
@@ -359,7 +359,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: -0.07306647, y: 0.06705522, z: -0.7331321, w: 0.6728166}
   m_LocalPosition: {x: 0.207, y: 0.14, z: 0.24}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: -1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 5058296696703624593}
@@ -799,7 +799,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: -0.33424655, y: -0.5801304, z: -0.65039605, w: 0.35876584}
   m_LocalPosition: {x: 0.217, y: 0.046, z: 0.259}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: -1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 5058296696703624593}
@@ -3061,7 +3061,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: -0.47304577, y: -0.4621461, z: -0.47734848, w: 0.5786079}
   m_LocalPosition: {x: 0.302, y: 0.167, z: 0.258}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: -1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 5058296696703624593}
@@ -3197,13 +3197,14 @@ GameObject:
   - component: {fileID: 3381164959669773231}
   - component: {fileID: 7292976426645458544}
   - component: {fileID: 6727299750303574885}
+  - component: {fileID: 3826564897319890634}
   m_Layer: 9
   m_Name: SM_Chr_ZombieBoss_Blobber_01
   m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &9200901679991513003
 Transform:
   m_ObjectHideFlags: 0
@@ -3330,7 +3331,7 @@ MonoBehaviour:
   rb: {fileID: 0}
   coll: {fileID: 0}
   MyPivotCamera: {fileID: 0}
-  CharacterHealth: {fileID: 0}
+  CharacterHealth: {fileID: 7292976426645458544}
   DriveVehicleAbility: {fileID: 0}
   Inventory: {fileID: 0}
   LeftHandDamager: {fileID: 0}
@@ -3563,8 +3564,8 @@ MonoBehaviour:
   CheckRadius: 0.1
   UpOffset: -0.07
   ForwardOffset: 0.07
-  LeftFoot: {fileID: 0}
-  RightFoot: {fileID: 0}
+  LeftFoot: {fileID: 6335061272608904068}
+  RightFoot: {fileID: 8344844443565517583}
 --- !u!114 &7292976426645458544
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3580,7 +3581,8 @@ MonoBehaviour:
   Health: 100
   MaxHealth: 100
   BloodScreenEffect: 0
-  BloodHitParticle: {fileID: 0}
+  BloodHitParticle: {fileID: 6079834135112903994, guid: 62ac816a3081b684092e03f0ec31a51c,
+    type: 3}
   OnDeath:
     m_PersistentCalls:
       m_Calls: []
@@ -3641,6 +3643,28 @@ MonoBehaviour:
   _OnStopSeeingTarget:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &3826564897319890634
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8276648734360327820}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cc6deb64f70ce214dbaea92026b75c35, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  DestroyOnStartGame: 0
+  PlayerController: {fileID: 0}
+  VisualizationSettings:
+    ResourcesPath: 
+    GizmosColor: {r: 0, g: 0, b: 0, a: 0.5}
+    WireGizmosColor: {r: 0.9, g: 0.4, b: 0.2, a: 0.5}
+    StepVisualizerMesh: {fileID: 0}
+  StepCorrection: 1
+  GroundCheck: 1
+  WallCheck: 1
 --- !u!1 &8395679520198747996
 GameObject:
   m_ObjectHideFlags: 0
@@ -3699,7 +3723,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: -0.07306647, y: 0.06705522, z: -0.7331321, w: 0.6728166}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: -1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 5058296696703624593}
@@ -3749,7 +3773,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: -0.1272034, y: 0.029375885, z: -0.65810245, w: 0.7415238}
   m_LocalPosition: {x: 0.212, y: 0.227, z: 0.407}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: -1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 5058296696703624593}
