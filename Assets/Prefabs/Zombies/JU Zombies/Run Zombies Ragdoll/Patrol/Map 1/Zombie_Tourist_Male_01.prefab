@@ -5760,7 +5760,7 @@ GameObject:
   - component: {fileID: 4161187984192356726}
   - component: {fileID: 7000485084034360743}
   - component: {fileID: 2211921119381209530}
-  - component: {fileID: 7907219742433592009}
+  - component: {fileID: 2788162439436782580}
   m_Layer: 9
   m_Name: Zombie_Tourist_Male_01
   m_TagString: Enemy
@@ -6172,7 +6172,7 @@ MonoBehaviour:
   OnDeath:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 7907219742433592009}
+      - m_Target: {fileID: 2788162439436782580}
         m_TargetAssemblyTypeName: JUTPS.Utilities.AutoDestroy, Assembly-CSharp
         m_MethodName: TimedDestroyObject
         m_Mode: 1
@@ -6281,7 +6281,7 @@ MonoBehaviour:
   StepCorrection: 1
   GroundCheck: 1
   WallCheck: 1
---- !u!114 &7907219742433592009
+--- !u!114 &2788162439436782580
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}

@@ -4114,7 +4114,7 @@ GameObject:
   - component: {fileID: 8698667755067281056}
   - component: {fileID: 162298900402797262}
   - component: {fileID: 7536302194481636686}
-  - component: {fileID: 645763655183542593}
+  - component: {fileID: -4048652840583276025}
   m_Layer: 9
   m_Name: Zombie_SchoolGirl_Female_01
   m_TagString: Enemy
@@ -4526,7 +4526,7 @@ MonoBehaviour:
   OnDeath:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 645763655183542593}
+      - m_Target: {fileID: -4048652840583276025}
         m_TargetAssemblyTypeName: JUTPS.Utilities.AutoDestroy, Assembly-CSharp
         m_MethodName: TimedDestroyObject
         m_Mode: 1
@@ -4635,7 +4635,7 @@ MonoBehaviour:
   StepCorrection: 1
   GroundCheck: 1
   WallCheck: 1
---- !u!114 &645763655183542593
+--- !u!114 &-4048652840583276025
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}

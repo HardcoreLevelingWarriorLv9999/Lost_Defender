@@ -650,7 +650,7 @@ GameObject:
   - component: {fileID: 6196364928463216680}
   - component: {fileID: 2908939502419535619}
   - component: {fileID: 4005162364508664330}
-  - component: {fileID: -8133132119910418322}
+  - component: {fileID: 1129709718576922428}
   m_Layer: 9
   m_Name: Zombie_Son_Male_01
   m_TagString: Enemy
@@ -830,8 +830,7 @@ MonoBehaviour:
   rb: {fileID: 0}
   coll: {fileID: 0}
   MyPivotCamera: {fileID: 0}
-  CharacterHealth: {fileID: 477377971989938876, guid: 6be62f038e58dbf4397f4cb5f767cc29,
-    type: 3}
+  CharacterHealth: {fileID: 476742964038865577}
   DriveVehicleAbility: {fileID: 0}
   Inventory: {fileID: 0}
   LeftHandDamager: {fileID: 0}
@@ -1062,7 +1061,7 @@ MonoBehaviour:
   OnDeath:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: -8133132119910418322}
+      - m_Target: {fileID: 1129709718576922428}
         m_TargetAssemblyTypeName: JUTPS.Utilities.AutoDestroy, Assembly-CSharp
         m_MethodName: TimedDestroyObject
         m_Mode: 1
@@ -1171,7 +1170,7 @@ MonoBehaviour:
   StepCorrection: 1
   GroundCheck: 1
   WallCheck: 1
---- !u!114 &-8133132119910418322
+--- !u!114 &1129709718576922428
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}

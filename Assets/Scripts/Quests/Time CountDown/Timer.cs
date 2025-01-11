@@ -13,7 +13,8 @@ public class Timer : MonoBehaviour
     private bool isFirstPhase = true;
     private bool isTimeUp = false;
     private bool isCountingDown = false;
-    public AutoChaseZombieSpawner zombieSpawner;
+    public ZombieSpawner zombieSpawner; // Thêm tham chiếu tới ZombieSpawner
+    public AutoChaseZombieSpawner autoChaseZombieSpawner;
     int openMap1;
 
     void Start()
@@ -35,23 +36,35 @@ public class Timer : MonoBehaviour
                 {
                     remainingTime = secondPhaseTime;
                     isFirstPhase = false;
+
+                    // Xóa toàn bộ zombie của ZombieSpawner
+                    zombieSpawner.ClearAllZombies();
+
                     StartCoroutine(SpawnZombiesWithDelay());
                 }
+
                 else
                 {
                     isTimeUp = true;
                     StopCoroutine(SpawnZombiesWithDelay());
                     ShowWinPanel(); // Hiện panel chiến thắng
+                    // Xóa toàn bộ zombie của AutoChaseZombieSpawner
+                    foreach (GameObject zombie in autoChaseZombieSpawner.spawnedZombies)
+                    {
+                        Destroy(zombie);
+                    }
+
+
                     int difficulty = PlayerPrefs.GetInt("Difficulty");
-                  
-                    if (difficulty == 0 && openMap1==0)
+
+                    if (difficulty == 0 && openMap1 == 0)
                     {
                         SaveLoadManager.PlayerData data = new SaveLoadManager.PlayerData();
                         string nameGame = PlayerPrefs.GetString("FileGame");
                         data.openMap1 = 1;
                         SaveLoadManager.SaveData(data);
                     }
-                    else if(difficulty == 1 && openMap1==1)
+                    else if (difficulty == 1 && openMap1 == 1)
                     {
                         SaveLoadManager.PlayerData data = new SaveLoadManager.PlayerData();
                         string nameGame = PlayerPrefs.GetString("FileGame");
@@ -72,7 +85,6 @@ public class Timer : MonoBehaviour
                         data.openMap1 = 2;
                         SaveLoadManager.SaveData(data);
                     }
-
                 }
             }
 
@@ -91,7 +103,10 @@ public class Timer : MonoBehaviour
     {
         while (!isTimeUp)
         {
-            zombieSpawner.SpawnRandomZombies(Random.Range(1, 11));
+            if (autoChaseZombieSpawner.spawnedZombies.Count < 20) // Kiểm tra số lượng zombie hiện tại
+            {
+                autoChaseZombieSpawner.SpawnRandomZombies(20 - autoChaseZombieSpawner.spawnedZombies.Count);
+            }
             yield return new WaitForSeconds(5f);
         }
     }
@@ -100,16 +115,13 @@ public class Timer : MonoBehaviour
     {
         winPanel.SetActive(true); // Hiện panel chiến thắng
     }
+
     void LoadPlayerData()
     {
-
         SaveLoadManager.PlayerData data = SaveLoadManager.LoadData();
         if (data != null)
         {
-           
-          openMap1 = data.openMap1;
-          
-
+            openMap1 = data.openMap1;
         }
         else
         {

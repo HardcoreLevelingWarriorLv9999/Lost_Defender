@@ -8572,7 +8572,7 @@ GameObject:
   - component: {fileID: 4478443534008888075}
   - component: {fileID: 442709063914652174}
   - component: {fileID: 1020090868697709313}
-  - component: {fileID: -1718456289802807219}
+  - component: {fileID: -7105489299029426213}
   m_Layer: 9
   m_Name: Zombie_SchoolBoy_Male_01
   m_TagString: Enemy
@@ -8752,8 +8752,7 @@ MonoBehaviour:
   rb: {fileID: 0}
   coll: {fileID: 0}
   MyPivotCamera: {fileID: 0}
-  CharacterHealth: {fileID: 477377971989938876, guid: 6be62f038e58dbf4397f4cb5f767cc29,
-    type: 3}
+  CharacterHealth: {fileID: 5619455425380366649}
   DriveVehicleAbility: {fileID: 0}
   Inventory: {fileID: 0}
   LeftHandDamager: {fileID: 0}
@@ -8984,7 +8983,7 @@ MonoBehaviour:
   OnDeath:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: -1718456289802807219}
+      - m_Target: {fileID: -7105489299029426213}
         m_TargetAssemblyTypeName: JUTPS.Utilities.AutoDestroy, Assembly-CSharp
         m_MethodName: TimedDestroyObject
         m_Mode: 1
@@ -9093,7 +9092,7 @@ MonoBehaviour:
   StepCorrection: 1
   GroundCheck: 1
   WallCheck: 1
---- !u!114 &-1718456289802807219
+--- !u!114 &-7105489299029426213
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}

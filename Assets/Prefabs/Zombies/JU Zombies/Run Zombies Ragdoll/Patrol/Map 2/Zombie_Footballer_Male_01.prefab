@@ -9091,7 +9091,7 @@ GameObject:
   - component: {fileID: -1750960479215653274}
   - component: {fileID: -5719980077711401259}
   - component: {fileID: -6904251593733996482}
-  - component: {fileID: 5177370344236516321}
+  - component: {fileID: 2912906632929785859}
   m_Layer: 9
   m_Name: Zombie_Footballer_Male_01
   m_TagString: Enemy
@@ -9503,8 +9503,7 @@ MonoBehaviour:
   OnDeath:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 2166985444544520581, guid: 6be62f038e58dbf4397f4cb5f767cc29,
-          type: 3}
+      - m_Target: {fileID: 2912906632929785859}
         m_TargetAssemblyTypeName: JUTPS.Utilities.AutoDestroy, Assembly-CSharp
         m_MethodName: TimedDestroyObject
         m_Mode: 1
@@ -9554,9 +9553,9 @@ MonoBehaviour:
     Angle: 360
   SensorLayerMask:
     serializedVersion: 2
-    m_Bits: 2817
-  StartRunningAtDistance: 1
-  AttackAtDistance: 2
+    m_Bits: 513
+  StartRunningAtDistance: 0.1
+  AttackAtDistance: 1
   AimUpOffset: 1
   LookTargetSpeed: 1
   AttackDuration: 0
@@ -9587,9 +9586,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   CenterPositionOffset: {x: 0, y: 0, z: 0}
-  MinTime: 2
+  MinTime: 5
   MaxTime: 5
-  Area: 15
+  Area: 10
 --- !u!114 &-6904251593733996482
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9612,7 +9611,7 @@ MonoBehaviour:
   StepCorrection: 1
   GroundCheck: 1
   WallCheck: 1
---- !u!114 &5177370344236516321
+--- !u!114 &2912906632929785859
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
