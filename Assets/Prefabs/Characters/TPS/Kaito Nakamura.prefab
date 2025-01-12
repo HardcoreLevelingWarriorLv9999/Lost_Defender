@@ -28208,6 +28208,7 @@ GameObject:
   - component: {fileID: 6238014463172928862}
   - component: {fileID: 2225395213516730055}
   - component: {fileID: 3930978184334519339}
+  - component: {fileID: 4935199435127906156}
   m_Layer: 9
   m_Name: Kaito Nakamura
   m_TagString: Player
@@ -28400,7 +28401,7 @@ MonoBehaviour:
   LookAtPosition: {x: 0, y: 0, z: 0}
   SprintingSkill: 1
   SprintOnRunButton: 1
-  UnlimitedSprintDuration: 1
+  UnlimitedSprintDuration: 0
   GroundAngleDesaceleration: 1
   GroundAngleDesacelerationMultiplier: 1.5
   GroundAngle: 0
@@ -28907,6 +28908,22 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   IsDead: 0
+--- !u!114 &4935199435127906156
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2410419679430345934}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7082a59a609d3634eb2558e5dc464049, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxStamina: 3
+  currentStamina: 0
+  staminaRegenRate: 1
+  staminaFill: {fileID: 0}
 --- !u!1 &2512458525544928312
 GameObject:
   m_ObjectHideFlags: 0
