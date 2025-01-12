@@ -39,7 +39,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44664723, g: 0.496494, b: 0.5748618, a: 1}
+  m_IndirectSpecularColor: {r: 0.4466465, g: 0.49649328, b: 0.574861, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -3833,7 +3833,7 @@ PrefabInstance:
     - target: {fileID: 2775825694646248641, guid: cdb0916462b4bda47be42859f1ff7c50,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 43.961678
+      value: 44.11
       objectReference: {fileID: 0}
     - target: {fileID: 2775825694646248641, guid: cdb0916462b4bda47be42859f1ff7c50,
         type: 3}
@@ -3879,6 +3879,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Mei Chen
+      objectReference: {fileID: 0}
+    - target: {fileID: 5285062146930248300, guid: cdb0916462b4bda47be42859f1ff7c50,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6317605914108850239, guid: cdb0916462b4bda47be42859f1ff7c50,
         type: 3}
@@ -33551,7 +33556,7 @@ PrefabInstance:
     - target: {fileID: 1268370025617225325, guid: 25be105946675df4a8dc310b42cc8d1c,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 43.961678
+      value: 44.11
       objectReference: {fileID: 0}
     - target: {fileID: 1268370025617225325, guid: 25be105946675df4a8dc310b42cc8d1c,
         type: 3}
@@ -37802,17 +37807,17 @@ PrefabInstance:
     - target: {fileID: 3243631560226216739, guid: 3f9896eb08ade7b4ab7b111e294279d4,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: -38.5
       objectReference: {fileID: 0}
     - target: {fileID: 3243631560226216739, guid: 3f9896eb08ade7b4ab7b111e294279d4,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 1.6100001
+      value: 1.68
       objectReference: {fileID: 0}
     - target: {fileID: 3243631560226216739, guid: 3f9896eb08ade7b4ab7b111e294279d4,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0
+      value: -1.98
       objectReference: {fileID: 0}
     - target: {fileID: 3243631560226216739, guid: 3f9896eb08ade7b4ab7b111e294279d4,
         type: 3}
@@ -49547,6 +49552,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Kaito Nakamura
       objectReference: {fileID: 0}
+    - target: {fileID: 2410419679430345934, guid: b8f1db722d381644ea9e2f567dd6452d,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2763382459003701596, guid: b8f1db722d381644ea9e2f567dd6452d,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -49555,7 +49565,7 @@ PrefabInstance:
     - target: {fileID: 2763382459003701596, guid: b8f1db722d381644ea9e2f567dd6452d,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 43.961678
+      value: 44.11
       objectReference: {fileID: 0}
     - target: {fileID: 2763382459003701596, guid: b8f1db722d381644ea9e2f567dd6452d,
         type: 3}
@@ -78435,6 +78445,11 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1316429806134580591, guid: 9ce03ed22613ec94794c2173f187f0bf,
+        type: 3}
+      propertyPath: m_text
+      value: Chapter 2
+      objectReference: {fileID: 0}
     - target: {fileID: 1630433746380418975, guid: 9ce03ed22613ec94794c2173f187f0bf,
         type: 3}
       propertyPath: m_AnchorMax.y
@@ -78555,6 +78570,36 @@ PrefabInstance:
       propertyPath: VehicleObject
       value: 
       objectReference: {fileID: 1438001504}
+    - target: {fileID: 3758323516030453600, guid: 9ce03ed22613ec94794c2173f187f0bf,
+        type: 3}
+      propertyPath: cameraController
+      value: 
+      objectReference: {fileID: 600382437}
+    - target: {fileID: 3758323516030453600, guid: 9ce03ed22613ec94794c2173f187f0bf,
+        type: 3}
+      propertyPath: players.Array.size
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 3758323516030453600, guid: 9ce03ed22613ec94794c2173f187f0bf,
+        type: 3}
+      propertyPath: players.Array.data[0]
+      value: 
+      objectReference: {fileID: 1478132471}
+    - target: {fileID: 3758323516030453600, guid: 9ce03ed22613ec94794c2173f187f0bf,
+        type: 3}
+      propertyPath: players.Array.data[1]
+      value: 
+      objectReference: {fileID: 1957928434}
+    - target: {fileID: 3758323516030453600, guid: 9ce03ed22613ec94794c2173f187f0bf,
+        type: 3}
+      propertyPath: players.Array.data[2]
+      value: 
+      objectReference: {fileID: 1640707688}
+    - target: {fileID: 3758323516030453600, guid: 9ce03ed22613ec94794c2173f187f0bf,
+        type: 3}
+      propertyPath: players.Array.data[3]
+      value: 
+      objectReference: {fileID: 480476826}
     - target: {fileID: 3844041381664620588, guid: 9ce03ed22613ec94794c2173f187f0bf,
         type: 3}
       propertyPath: m_SizeDelta.x
@@ -78665,10 +78710,20 @@ PrefabInstance:
       propertyPath: m_SizeDelta.x
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4569922149469671759, guid: 9ce03ed22613ec94794c2173f187f0bf,
+        type: 3}
+      propertyPath: m_text
+      value: the small town
+      objectReference: {fileID: 0}
     - target: {fileID: 4950106971793344927, guid: 9ce03ed22613ec94794c2173f187f0bf,
         type: 3}
       propertyPath: m_IsActive
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5101574798324814128, guid: 9ce03ed22613ec94794c2173f187f0bf,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5136949468107717062, guid: 9ce03ed22613ec94794c2173f187f0bf,
         type: 3}
@@ -78984,6 +79039,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: JUTPS Default User Interface
+      objectReference: {fileID: 0}
+    - target: {fileID: 8113141896130040066, guid: 9ce03ed22613ec94794c2173f187f0bf,
+        type: 3}
+      propertyPath: m_text
+      value: THE SMALL TOWN
       objectReference: {fileID: 0}
     - target: {fileID: 8849059242565832980, guid: 9ce03ed22613ec94794c2173f187f0bf,
         type: 3}
@@ -111774,7 +111834,7 @@ PrefabInstance:
     - target: {fileID: 6359254801729731259, guid: d4a3271d21eddf14d8ada314de8b1f99,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 43.961678
+      value: 44.11
       objectReference: {fileID: 0}
     - target: {fileID: 6359254801729731259, guid: d4a3271d21eddf14d8ada314de8b1f99,
         type: 3}
@@ -111820,6 +111880,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Sarah Evans
+      objectReference: {fileID: 0}
+    - target: {fileID: 7443371286307610821, guid: d4a3271d21eddf14d8ada314de8b1f99,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
