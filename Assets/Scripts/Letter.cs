@@ -34,13 +34,7 @@ public class Letter : MonoBehaviour
             letterMesh.enabled = true;
 
             //Enable all active players.
-            foreach (var player in players)
-            {
-                if (player.gameObject.activeSelf)
-                {
-                    player.enabled = true;
-                }
-            }
+            players.ForEach(player => player.enabled = true);
 
             cameraController.enabled = true;
         }
@@ -52,13 +46,7 @@ public class Letter : MonoBehaviour
             letterMesh.enabled = false;
 
             //Disable all active players.
-            foreach (var player in players)
-            {
-                if (player.gameObject.activeSelf)
-                {
-                    player.enabled = false;
-                }
-            }
+            players.ForEach(player => player.enabled = false);
 
             cameraController.enabled = false;
         }

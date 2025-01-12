@@ -7,6 +7,7 @@ using UnityEngine;
 public class StartGameIntro : MonoBehaviour
 {
     public Animator startGameIntroAnimator;
+    public Animator fadeAnimation;
     public JUCameraController cameraController;
     public List<JUCharacterController> players;
 
@@ -20,6 +21,16 @@ public class StartGameIntro : MonoBehaviour
     public void OnAnimationEvent2()
     {
         startGameIntroAnimator.SetBool("Active", false);
+    }
+
+    public void OnAnimationFadeIn()
+    {
+        fadeAnimation.SetBool("Active", true);
+    }
+
+    public void OnAnimationFadeOut()
+    {
+        fadeAnimation.SetBool("Active", false);
         cameraController.enabled = true;
         players.ForEach(player => player.enabled = true);
     }
