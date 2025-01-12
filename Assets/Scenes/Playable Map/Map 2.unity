@@ -78269,6 +78269,11 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1316429806134580591, guid: 9ce03ed22613ec94794c2173f187f0bf,
+        type: 3}
+      propertyPath: m_text
+      value: Chapter 2
+      objectReference: {fileID: 0}
     - target: {fileID: 1630433746380418975, guid: 9ce03ed22613ec94794c2173f187f0bf,
         type: 3}
       propertyPath: m_AnchorMax.y
@@ -78498,6 +78503,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_SizeDelta.x
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4569922149469671759, guid: 9ce03ed22613ec94794c2173f187f0bf,
+        type: 3}
+      propertyPath: m_text
+      value: SMALL TOWN
       objectReference: {fileID: 0}
     - target: {fileID: 4950106971793344927, guid: 9ce03ed22613ec94794c2173f187f0bf,
         type: 3}
@@ -78818,6 +78828,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: JUTPS Default User Interface
+      objectReference: {fileID: 0}
+    - target: {fileID: 8113141896130040066, guid: 9ce03ed22613ec94794c2173f187f0bf,
+        type: 3}
+      propertyPath: m_text
+      value: SMALL TOWN
       objectReference: {fileID: 0}
     - target: {fileID: 8849059242565832980, guid: 9ce03ed22613ec94794c2173f187f0bf,
         type: 3}
