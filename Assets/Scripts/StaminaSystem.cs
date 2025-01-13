@@ -31,10 +31,11 @@ public class StaminaSystem : MonoBehaviour
         {
             bool isMoving = characterBrain.IsMoving;
             bool isRunning = characterBrain.IsRunning;
+            bool isSprintingKeyHeld = Input.GetKey(KeyCode.LeftShift); // Assuming Left Shift is the sprint key
 
             if (isMoving)
             {
-                if (isRunning && currentStamina > 0)
+                if (isRunning && isSprintingKeyHeld && currentStamina > 0)
                 {
                     StartSprinting();
                 }
@@ -48,47 +49,56 @@ public class StaminaSystem : MonoBehaviour
                 StopSprinting();
             }
 
-            HandleStaminaRegeneration(isRunning);
+            HandleStaminaRegeneration(isSprintingKeyHeld);
             UpdateStaminaUI();
         }
     }
 
     void StartSprinting()
     {
-        isSprinting = true;
-        currentStamina -= Time.deltaTime;
-        currentStamina = Mathf.Clamp(currentStamina, 0, maxStamina);
-
-        if (currentStamina == 0)
+        if (!isSprinting) // Only start sprinting if not already sprinting
         {
-            isExhausted = true;
-            timeSinceExhausted = 0.0f;
+            isSprinting = true;
         }
 
-        // Sprinting logic can be adjusted based on the characterBrain's methods or properties
-        characterBrain.IsSprinting = true;
+        if (isSprinting)
+        {
+            currentStamina -= Time.deltaTime;
+            currentStamina = Mathf.Clamp(currentStamina, 0, maxStamina);
+
+            if (currentStamina == 0)
+            {
+                isExhausted = true;
+                timeSinceExhausted = 0.0f;
+            }
+
+            characterBrain.IsSprinting = true;
+        }
     }
 
     void StopSprinting()
     {
-        isSprinting = false;
-        characterBrain.IsSprinting = false;
+        if (isSprinting) // Only stop sprinting if currently sprinting
+        {
+            isSprinting = false;
+            characterBrain.IsSprinting = false;
+        }
     }
 
-    void HandleStaminaRegeneration(bool isRunning)
+    void HandleStaminaRegeneration(bool isSprintingKeyHeld)
     {
         if (isExhausted)
         {
             // Wait for 2 seconds before starting regeneration
             timeSinceExhausted += Time.deltaTime;
-            if (timeSinceExhausted >= 2.0f && !isRunning)
+            if (timeSinceExhausted >= 2.0f && !isSprintingKeyHeld)
             {
                 RegenerateStamina();
             }
         }
         else
         {
-            if (!isRunning) // Regenerate stamina only if not running
+            if (!isSprintingKeyHeld) // Regenerate stamina only if sprint key not held
             {
                 RegenerateStamina();
             }
