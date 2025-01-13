@@ -3,6 +3,7 @@
 public class CharacterManagement : MonoBehaviour
 {
     public GameObject character1, character2, character3, character4;
+    [SerializeField] string map;
     void Awake()
     {
         Character();
@@ -10,8 +11,8 @@ public class CharacterManagement : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        AudioManager.Instance.StopMusic("Nen");
-        AudioManager.Instance.PlayMusic("startMap1");
+     
+        AudioManager.Instance.PlayMusic(map);
 
     }
 

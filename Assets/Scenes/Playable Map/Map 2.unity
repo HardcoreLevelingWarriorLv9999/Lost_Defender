@@ -78107,7 +78107,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9e781d1f05bf78448a321a2b3e28cf29, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Audio: explode
+  Audio: explosion
   longCollisionAudio: 
 --- !u!65 &1376803557
 BoxCollider:
@@ -80493,6 +80493,7 @@ MonoBehaviour:
   character2: {fileID: 1190435350}
   character3: {fileID: 1957928433}
   character4: {fileID: 1478132470}
+  map: startMap2
 --- !u!114 &1430319385
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -89553,7 +89554,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9e781d1f05bf78448a321a2b3e28cf29, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Audio: explode
+  Audio: explosion
   longCollisionAudio: 
 --- !u!65 &1583589427
 BoxCollider:
@@ -96629,7 +96630,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9e781d1f05bf78448a321a2b3e28cf29, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Audio: explode
+  Audio: explosion
   longCollisionAudio: 
 --- !u!54 &1645824309
 Rigidbody:
