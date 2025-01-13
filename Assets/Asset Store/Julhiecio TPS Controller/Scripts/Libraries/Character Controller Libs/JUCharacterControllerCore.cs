@@ -274,6 +274,8 @@ namespace JUTPS.CharacterBrain
         {
             if (PivotItemRotation != null) Destroy(PivotItemRotation);
         }
+
+        private StaminaSystem staminaSystem;
         protected virtual void Awake()
         {
             //Change states
@@ -282,6 +284,11 @@ namespace JUTPS.CharacterBrain
             UpDirection = Vector3.up;
 
             // Get necessary references
+            staminaSystem = GetComponent<StaminaSystem>();
+            if (staminaSystem == null)
+            {
+                Debug.LogError("StaminaSystem component not found on this GameObject");
+            }
             anim = GetComponent<Animator>();
             rb = GetComponent<Rigidbody>();
             coll = GetComponent<Collider>();
@@ -1009,6 +1016,64 @@ namespace JUTPS.CharacterBrain
             return Vector3.SignedAngle(transform.forward, DirectionTransform.forward, transform.up);
         }
 
+        // protected virtual void Sprinting()
+        // {
+        //     if (SprintingSkill)
+        //     {
+        //         if (staminaSystem.currentStamina > 0)
+        //         {
+        //             if (FiringMode)
+        //             {
+        //                 CurrentSprintSpeedIntensity = 0;
+        //                 ReachedMaxSprintSpeed = true;
+        //             }
+
+        //             if (IsRunning && IsSprinting && IsPunching == false)
+        //             {
+        //                 if (CurrentSprintSpeedIntensity >= SprintingSpeedMax && UnlimitedSprintDuration == false)
+        //                 {
+        //                     ReachedMaxSprintSpeed = true;
+        //                 }
+
+        //                 //Speed Up
+        //                 if (VelocityMultiplier <= SprintingSpeedMax && ReachedMaxSprintSpeed == false)
+        //                 {
+        //                     CurrentSprintSpeedIntensity = Mathf.Lerp(CurrentSprintSpeedIntensity, SprintingSpeedMax + 0.3f, SprintingAcceleration * Time.deltaTime);
+        //                     VelocityMultiplier = Mathf.Lerp(VelocityMultiplier, CurrentSprintSpeedIntensity - GroundAngleDesacelerationValue(), 10 * Time.deltaTime);
+        //                     staminaSystem.currentStamina -= Time.deltaTime; // Giảm stamina
+        //                 }
+
+        //                 //Speed Down
+        //                 if (ReachedMaxSprintSpeed == true)
+        //                 {
+        //                     CurrentSprintSpeedIntensity -= SprintingDeceleration * Time.deltaTime;
+        //                     VelocityMultiplier = CurrentSprintSpeedIntensity;
+
+        //                     if (VelocityMultiplier < RunSpeed)
+        //                     {
+        //                         CanSprint = false;
+        //                         IsSprinting = false;
+        //                         ReachedMaxSprintSpeed = false;
+        //                         CurrentSprintSpeedIntensity = RunSpeed;
+        //                     }
+        //                 }
+        //             }
+
+        //             //Run Impulse
+        //             if (IsRunning && CanSprint == true && IsSprinting == false && SprintOnRunButton == false)
+        //             {
+        //                 IsSprinting = true;
+        //             }
+        //             CurrentSprintSpeedIntensity = Mathf.Clamp(CurrentSprintSpeedIntensity, RunSpeed, SprintingSpeedMax);
+        //         }
+        //         else
+        //         {
+        //             // Hết stamina, ngừng sprint
+        //             IsSprinting = false;
+        //         }
+        //     }
+        // }
+
         protected virtual void Sprinting()
         {
             if (SprintingSkill)
@@ -1026,15 +1091,14 @@ namespace JUTPS.CharacterBrain
                         ReachedMaxSprintSpeed = true;
                     }
 
-                    //Speed Up
+                    // Tăng tốc
                     if (VelocityMultiplier <= SprintingSpeedMax && ReachedMaxSprintSpeed == false)
                     {
                         CurrentSprintSpeedIntensity = Mathf.Lerp(CurrentSprintSpeedIntensity, SprintingSpeedMax + 0.3f, SprintingAcceleration * Time.deltaTime);
                         VelocityMultiplier = Mathf.Lerp(VelocityMultiplier, CurrentSprintSpeedIntensity - GroundAngleDesacelerationValue(), 10 * Time.deltaTime);
                     }
 
-
-                    //Speed Down
+                    // Giảm tốc
                     if (ReachedMaxSprintSpeed == true)
                     {
                         CurrentSprintSpeedIntensity -= SprintingDeceleration * Time.deltaTime;
@@ -1050,7 +1114,7 @@ namespace JUTPS.CharacterBrain
                     }
                 }
 
-                //Run Impulse
+                // Kích hoạt chạy nhanh
                 if (IsRunning && CanSprint == true && IsSprinting == false && SprintOnRunButton == false)
                 {
                     IsSprinting = true;
@@ -1058,7 +1122,6 @@ namespace JUTPS.CharacterBrain
                 CurrentSprintSpeedIntensity = Mathf.Clamp(CurrentSprintSpeedIntensity, RunSpeed, SprintingSpeedMax);
             }
         }
-
 
         protected virtual void GroundCheck()
         {
