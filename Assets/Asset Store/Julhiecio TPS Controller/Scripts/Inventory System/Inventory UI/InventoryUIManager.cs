@@ -40,7 +40,7 @@ namespace JUTPS.InventorySystem.UI
         public float CheckLootRadius = 1f;
         private JUInventory LootToGetItems;
 
-        void Awake()
+        void Start()
         {
             if (InventoryScrollViewContent != null) inventoryScrollViewRectTransform = InventoryScrollViewContent.GetComponent<RectTransform>();
 
