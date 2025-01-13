@@ -17,6 +17,7 @@ public class Timer : MonoBehaviour
     public AutoChaseZombieSpawner autoChaseZombieSpawner;
     int openMap1;
 
+    int Characternumber; 
     void Start()
     {
         remainingTime = firstPhaseTime;
@@ -63,6 +64,7 @@ public class Timer : MonoBehaviour
                         SaveLoadManager.PlayerData data = new SaveLoadManager.PlayerData();
                         string nameGame = PlayerPrefs.GetString("FileGame");
                         data.openMap1 = 1;
+                        data.characternumber = Characternumber ;
                         SaveLoadManager.SaveData(data);
                     }
                     else if (difficulty == 1 && openMap1 == 1)
@@ -70,6 +72,7 @@ public class Timer : MonoBehaviour
                         SaveLoadManager.PlayerData data = new SaveLoadManager.PlayerData();
                         string nameGame = PlayerPrefs.GetString("FileGame");
                         data.openMap1 = 2;
+                        data.characternumber = Characternumber;
                         SaveLoadManager.SaveData(data);
                     }
                     else if (difficulty == 2 && openMap1 == 2)
@@ -77,6 +80,7 @@ public class Timer : MonoBehaviour
                         SaveLoadManager.PlayerData data = new SaveLoadManager.PlayerData();
                         string nameGame = PlayerPrefs.GetString("FileGame");
                         data.openMap1 = 2;
+                        data.characternumber = Characternumber;
                         SaveLoadManager.SaveData(data);
                     }
                     else if (difficulty == 3 && openMap1 == 3)
@@ -84,6 +88,7 @@ public class Timer : MonoBehaviour
                         SaveLoadManager.PlayerData data = new SaveLoadManager.PlayerData();
                         string nameGame = PlayerPrefs.GetString("FileGame");
                         data.openMap1 = 2;
+                        data.characternumber = Characternumber;
                         SaveLoadManager.SaveData(data);
                     }
                 }
@@ -133,6 +138,7 @@ public class Timer : MonoBehaviour
         if (data != null)
         {
             openMap1 = data.openMap1;
+            Characternumber = data.characternumber;
         }
         else
         {

@@ -1,3 +1,4 @@
+using JUTPS.CharacterBrain;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -9,77 +10,95 @@ public class StaminaSystem : MonoBehaviour
     public Image staminaFill; // Reference to the UI Image representing the fill
 
     private bool isSprinting = false;
-    private CharacterController characterController;
+    private JUCharacterBrain characterBrain;
     private float timeSinceExhausted = 0.0f; // Time since stamina reached 0
     private bool isExhausted = false; // Whether the player is exhausted
 
     void Start()
     {
         currentStamina = maxStamina;
-        characterController = GetComponent<CharacterController>();
+        characterBrain = GetComponent<JUCharacterBrain>();
+
+        if (characterBrain == null)
+        {
+            Debug.LogError("JUCharacterBrain component not found on this GameObject");
+        }
     }
 
     void Update()
     {
-        bool isMoving = Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.S) || Input.GetKey(KeyCode.D);
-        bool isRunning = Input.GetKey(KeyCode.LeftShift);
-
-        if (isMoving)
+        if (characterBrain != null)
         {
-            if (isRunning && currentStamina > 0)
+            bool isMoving = characterBrain.IsMoving;
+            bool isRunning = characterBrain.IsRunning;
+            bool isSprintingKeyHeld = Input.GetKey(KeyCode.LeftShift); // Assuming Left Shift is the sprint key
+
+            if (isMoving)
             {
-                StartSprinting();
+                if (isRunning && isSprintingKeyHeld && currentStamina > 0)
+                {
+                    StartSprinting();
+                }
+                else
+                {
+                    StopSprinting();
+                }
             }
             else
             {
                 StopSprinting();
             }
-        }
-        else
-        {
-            StopSprinting();
-        }
 
-        HandleStaminaRegeneration(isRunning);
-        UpdateStaminaUI();
+            HandleStaminaRegeneration(isSprintingKeyHeld);
+            UpdateStaminaUI();
+        }
     }
 
     void StartSprinting()
     {
-        isSprinting = true;
-        currentStamina -= Time.deltaTime;
-        currentStamina = Mathf.Clamp(currentStamina, 0, maxStamina);
-
-        if (currentStamina == 0)
+        if (!isSprinting) // Only start sprinting if not already sprinting
         {
-            isExhausted = true;
-            timeSinceExhausted = 0.0f;
+            isSprinting = true;
         }
 
-        // Add your sprinting logic here (e.g., increase movement speed)
+        if (isSprinting)
+        {
+            currentStamina -= Time.deltaTime;
+            currentStamina = Mathf.Clamp(currentStamina, 0, maxStamina);
+
+            if (currentStamina == 0)
+            {
+                isExhausted = true;
+                timeSinceExhausted = 0.0f;
+            }
+
+            characterBrain.IsSprinting = true;
+        }
     }
 
     void StopSprinting()
     {
-        isSprinting = false;
-
-        // Add your logic to stop sprinting here (e.g., revert to normal movement speed)
+        if (isSprinting) // Only stop sprinting if currently sprinting
+        {
+            isSprinting = false;
+            characterBrain.IsSprinting = false;
+        }
     }
 
-    void HandleStaminaRegeneration(bool isRunning)
+    void HandleStaminaRegeneration(bool isSprintingKeyHeld)
     {
         if (isExhausted)
         {
             // Wait for 2 seconds before starting regeneration
             timeSinceExhausted += Time.deltaTime;
-            if (timeSinceExhausted >= 2.0f && !isRunning)
+            if (timeSinceExhausted >= 2.0f && !isSprintingKeyHeld)
             {
                 RegenerateStamina();
             }
         }
         else
         {
-            if (!isRunning) // Regenerate stamina only if not running
+            if (!isSprintingKeyHeld) // Regenerate stamina only if sprint key not held
             {
                 RegenerateStamina();
             }
